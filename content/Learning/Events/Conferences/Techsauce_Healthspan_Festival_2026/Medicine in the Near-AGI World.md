@@ -1,72 +1,77 @@
 ---
+title: "การแพทย์ในโลกยุคใกล้ AGI"
+
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:09
+updated: 2026-06-01 16:26
 tags: [health, ai, medicine, agi, conference, techsauce-2026]
 publish: true
 ---
 
+> [!NOTE]
+> อ่านสรุปบทความนี้ในภาษาไทยได้ที่นี่: [[Medicine in the Near-AGI World - TH|อ่านภาษาไทย]]
+
 # Medicine in the Near-AGI World
 
-**Speaker:** นพ.ปิยะฤทธิ์ อิทธิชัยวงศ์ (Dr. Piyarit Ittichaiwong)  
-_แพทย์ประจำศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล_  
+**Speaker:** Dr. Piyarit Ittichaiwong  
+_Physician, Siriraj Data Innovation Center (SiData+), Faculty of Medicine Siriraj Hospital, Mahidol University_  
 **Event:** Techsauce Healthspan Festival 2026
 
 ---
 
-### AI กำลังเข้าใกล้ระดับมนุษย์และ AGI
+### AI is Approaching Human-Level and AGI
 
-- AI ในปัจจุบันมีความสามารถใกล้เคียงมนุษย์ในสายงานดิจิทัล โดยเฉพาะ White Collar jobs ที่อาจลดลง 10% ใน 2-3 ปี
-- AGI (Artificial General Intelligence) อาจจะมาถึงในปีนี้หรือปีหน้า ตามที่ Dario (CEO of Anthropic) และผู้เชี่ยวชาญจีนคาดการณ์
-- โมเดล AI ระดับ frontier กำลังพัฒนาจาก "เครื่องมือ" เป็น "เพื่อนร่วมงาน" (co-worker) ที่ช่วยทำงานได้จริง
+- AI currently possesses human-like capabilities in digital roles, particularly in white-collar jobs which could decrease by 10% in 2-3 years.
+- AGI (Artificial General Intelligence) may arrive this year or next, according to predictions by Dario (CEO of Anthropic) and Chinese experts.
+- Frontier AI models are evolving from "tools" to "co-workers" that can actively assist in work.
 
-### ความสามารถของ AI ทางการแพทย์
+### AI Capabilities in Medicine
 
-- GPT-4o ได้คะแนน 86% ใน MedQA (ข้อสอบใกล้เคียง USMLE) ซึ่งอยู่ในระดับ percentile 99-98%
-- แต่ใน "real-world" benchmark เช่น HelmetChart โมเดลเก่าอย่าง GPT-4o ได้เพียง 0% ในขณะที่ o3 ได้ 31.6% และ GPT-5 ได้ 46.2% (เฉลี่ยแพทย์อยู่ที่ 40%)
-- GPT-5.2-5.4 สามารถชนะแพทย์เฉพาะทาง (radiologist, specialist) ในหลายงาน แสดงว่าโมเดลทำได้ดีไม่น้อยไปกว่าหมอ general ในปัจจุบัน
+- GPT-4o scored 86% in MedQA (an exam similar to USMLE), placing in the 98th-99th percentile.
+- However, on a "real-world" benchmark like HelmetChart, the older GPT-4o model scored only 0%, whereas o3 scored 31.6% and GPT-5 scored 46.2% (physicians average around 40%).
+- GPT-5.2-5.4 can outperform specialists (radiologists, specialists) in several tasks, indicating that these models perform at least as well as general practitioners today.
 
-### การพัฒนาโมเดลและต้นทุน
+### Model Development and Costs
 
-- การเทรนโมเดลด้วยข้อมูลจากหนังสือและ public record กำลังจะถึงขีดจำกัด ต้องการ data ที่มีคุณภาพสูงขึ้น
-- ราคา AI ลดลงอย่างมาก จาก 1 ดอลลาร์เหลือ 1 บาท (ประมาณ 30 เท่า) ทำให้สามารถใช้ multi-agent systems ได้
-- โมเดลจีน (Zhimi, Jiaoyue) มีคุณภาพระดับ top tier แต่ราคาถูกกว่ามาก
+- Training models with data from books and public records is reaching its limit, necessitating higher-quality data.
+- AI prices have dropped significantly, from $1 to 1 Baht (about a 30-fold reduction), making the use of multi-agent systems feasible.
+- Chinese models (Zhimi, Jiaoyue) offer top-tier quality at a much lower price.
 
 ### Multi-Agent AI Systems
 
-- ปัจจุบัน AI เปลี่ยนจาก single chatbot เป็น multi-agent ที่ทำงานร่วมกันเหมือนทีมแพทย์
-- มี orchestrator AI (เหมือน GP) ที่ประสานงานกับ specialist agents ต่างๆ
-- ต้องมีความ explainable และ transparent เพื่อให้ตรวจสอบได้
+- Current AI is shifting from single chatbots to multi-agent systems that collaborate like a medical team.
+- An orchestrator AI (analogous to a general practitioner) coordinates with various specialist agents.
+- They must be explainable and transparent to allow for verification and auditing.
 
-### ความสำเร็จของทีมไทย
+### Achievements of Thai Teams
 
-- ทีมจากศิริราช โรงพยาบาลกรุงเทพ และบริษัท Carely (ลูกของ ปตท.สผ. และ Primes) แข่งขันกับ 300+ ทีม ได้ 3 awards จากการแข่งขันที่จัดโดย Harvard และมหาวิทยาลัยชั้นนำ ชนะทีมจาก Carnegie Mellon และอื่นๆ
-- ทีมไทยได้อันดับ 4 ของโลกในการแข่งขันที่จัดโดย ACL (conference ด้าน NLP ชั้นนำ) ในการสร้าง AI ที่อ่านภาพ X-ray และเขียน report ออกมาได้ แพ้แค่ Meta เพราะมี GPU น้อยกว่าหลายเท่า
-- แอปพลิเคชัน AI ของทีมไทยถูกใช้ในอย่างน้อย 30 โรงพยาบาลและกำลังขยายมากขึ้น
+- A team from Siriraj, Bangkok Hospital, and Carely (a subsidiary of PTTEP and Primes) competed against 300+ teams and won 3 awards in a competition organized by Harvard and other leading universities, defeating teams from Carnegie Mellon and others.
+- The Thai team ranked 4th globally in a competition organized by ACL (a premier NLP conference) for building an AI that reads X-ray images and generates reports, losing only to Meta due to having many times fewer GPUs.
+- AI applications developed by the Thai team are being used in at least 30 hospitals and are currently expanding.
 
-### การประยุกต์ใช้ AI ในการแพทย์
+### AI Applications in Medicine
 
-- 81% ของแพทย์ใช้ AI อย่าง large language models และเครื่องมือค้นหา และ 88% มีความรับผิดชอบในการใช้
-- 70% มองว่า AI จะช่วยลดงานเอกสารที่แพทย์ไม่ได้เรียนมาทำ
-- AI ช่วยในการวินิจฉัยภาพ (เช่น X-ray) และเขียน report ช่วยแพทย์ GP ในต่างจังหวัด
-- Medical AI (เช่น Claude AI) มีความแม่นยำ 90-93% เทียบเท่าผู้เชี่ยวชาญ
-- Google DeepMind และ Insilico Medicine ใช้ AI ในการออกแบบยา ลดเวลาจากหลายปีเหลือไม่กี่เดือน
+- 81% of physicians use AI, such as large language models and search tools, and 88% show responsibility in its usage.
+- 70% believe AI will help reduce administrative paperwork, which doctors are not trained to do.
+- AI assists in image diagnosis (such as X-rays) and generates reports, helping general practitioners in rural provinces.
+- Medical AI (such as Claude AI) achieves 90-93% accuracy, comparable to specialists.
+- Google DeepMind and Insilico Medicine use AI for drug design, reducing the timeline from several years to just a few months.
 
-### ปัญหาและข้อจำกัด
+### Challenges and Limitations
 
-- AI ยังมีปัญหาใน under-triage (การคัดกรองต่ำกว่าที่ควรจะเป็น 50-60%) เพราะไม่ได้ถามต่อเหมือนมนุษย์
-- Empathy ของ AI แม้จะทำได้ดี แต่ยังไม่แน่ใจว่าเป็น empathy จริงหรือไม่
-- ปัญหาด้าน regulation และ law ยังต้องแก้ไข
+- AI still suffers from under-triage (under-triaging cases by 50-60%) because it does not ask follow-up questions like a human would.
+- Even though AI performs well in demonstrating empathy, it remains uncertain whether it is genuine empathy.
+- Regulatory and legal issues still need to be addressed.
 
-### จุดแข็งและโอกาสของประเทศไทย
+### Strengths and Opportunities for Thailand
 
-- ประเทศไทยมีปริมาณข้อมูลมหาศาล (แพทย์ไทยตรวจคนไข้วันละ 60+ คน เทียบกับ UK/US ที่ 10-15 คน) ซึ่งเป็น data ที่มีคุณภาพสำหรับเทรนโมเดล
-- ทีมไทยมีความสามารถทัดเทียมระดับโลก แต่ขาด GPU และทรัพยากร
-- อนาคตจะเป็น multi-modal และ multi-lingual AI ซึ่งข้อมูลภาษาไทยจะเป็นจุดแข็ง
+- Thailand has a massive volume of data (Thai physicians examine 60+ patients daily compared to 10-15 in the UK/US), providing high-quality data for training models.
+- Thai teams possess world-class capabilities but lack GPUs and resources.
+- The future will bring multi-modal and multi-lingual AI, where Thai language data will be a key strength.
 
-### ทิศทางอนาคต
+### Future Directions
 
-- Health Care and Wellness จะเป็นธีมสำคัญ เพราะเมื่อมีทุกอย่างพร้อม สิ่งที่คนต้องการคือชีวิตและสุขภาพ
-- ประเทศไทยมีศักยภาพเป็นผู้นำด้าน Health and Wellness โดยมีการสนับสนุนจากรัฐบาล
-- ตลาดการแพทย์จะมีความยืดหยุ่นมากขึ้นและมีการใช้เทคโนโลยีมากขึ้น ไม่แยกเป็น separate อีกต่อไป
-- ความร่วมมือระหว่างมนุษย์และ AI จะได้ผลลัพธ์ที่ดีที่สุด
-- เชิญชวนนักศึกษาและคนไทยทั่วโลกกลับมาร่วมงานเพื่อให้ไทยกลายเป็นผู้นำในด้าน Health and Wellness
+- Healthcare and wellness will be a major theme, as once everything else is secured, what people value most is life and health.
+- Thailand has the potential to become a leader in health and wellness, with government support.
+- The medical market will become more flexible and tech-integrated, no longer operating as separate silos.
+- Collaboration between humans and AI will yield the best outcomes.
+- Inviting students and Thai people worldwide to return and collaborate to help Thailand become a leader in health and wellness.

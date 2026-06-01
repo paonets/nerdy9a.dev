@@ -227,6 +227,27 @@ body[data-slug="index"] {
   }
 }
 
+// Language divider between EN and TH sections inside the welcome message
+.welcome-lang-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0 1rem;
+  color: var(--gray);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--lightgray);
+  }
+}
+
 // Interactive connection chips under the welcome message
 .welcome-connect {
   display: flex;
@@ -384,6 +405,23 @@ body[data-slug="index"] {
   .accent {
     color: var(--secondary);
   }
+}
+
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary);
+  background-color: var(--highlight);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-top: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.04);
 }
 
 .page-title {

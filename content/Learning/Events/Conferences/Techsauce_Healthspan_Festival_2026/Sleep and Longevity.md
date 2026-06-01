@@ -1,9 +1,12 @@
 ---
 created: 2026-06-01 15:48
-updated: 2026-06-01 16:16
+updated: 2026-06-01 16:29
 tags: [health, sleep, longevity, conference, techsauce-2026]
 publish: true
 ---
+
+> [!NOTE]
+> อ่านสรุปบทความนี้ในภาษาไทยได้ที่นี่: [[Sleep and Longevity - TH|อ่านภาษาไทย]]
 
 # Sleep & Longevity
 

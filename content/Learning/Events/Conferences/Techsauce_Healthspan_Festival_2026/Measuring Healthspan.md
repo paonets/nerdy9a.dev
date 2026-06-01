@@ -1,107 +1,112 @@
 ---
+title: "Measuring Healthspan"
+
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:09
+updated: 2026-06-01 16:26
 tags: [health, biomarkers, diagnostics, longevity, conference, techsauce-2026]
 publish: true
 ---
 
+> [!NOTE]
+> อ่านสรุปบทความนี้ในภาษาไทยได้ที่นี่: [[Measuring Healthspan - TH|อ่านภาษาไทย]]
+
 # Measuring Healthspan
 
-**Speaker:** พญ.วรรณวิพุธ สรรพสิทธิ์วงศ์ (Dr. Wanwiput Sanphasitvong)  
-_แพทย์ผู้เชี่ยวชาญด้านเวชศาสตร์ป้องกัน และ Wellness ศูนย์ส่งเสริมสุขภาพ VitalLife โรงพยาบาลบำรุงราษฎร์_  
+**Speaker:** Dr. Wanwiput Sanphasitvong, M.D.  
+_Specialist in Preventive Medicine and Wellness, VitalLife Scientific Wellness Center, Bumrungrad International Hospital_  
 **Event:** Techsauce Healthspan Festival 2026
 
 ---
 
-### สี่ยมทูตแห่งสุขภาพ (Four Horsemen)
+### The Four Horsemen of Health (Four Horsemen)
 
-- โรคหัวใจและหลอดเลือด - สาเหตุการเสียชีวิตอันดับต้นๆ
-- โรคเมตาบอลิก - โรคอ้วน เบาหวาน
-- โรคมะเร็ง
-- โรคสมองเสื่อม อัลไซเมอร์ ดีเมนเชีย พาร์กินสัน - เพิ่มขึ้นตามอายุ
-- ยมทูตไทยคนที่ 5: โรคไต - เนื่องจากคนไทยบริโภคอาหารเค็มสูง
+- Cardiovascular disease - leading cause of death
+- Metabolic disease - obesity, diabetes
+- Cancer
+- Dementia, Alzheimer's, dementia, Parkinson's - increases with age
+- The 5th Thai Horseman: Kidney disease - due to high sodium consumption among Thai people
 
 ### Health Span vs Lifespan
 
-- Health Span หมายถึง ช่วงเวลาที่มีคุณภาพชีวิตที่ดี ไม่ใช่แค่มีชีวิตยืนยาว
-- การตรวจสุขภาพสมัยใหม่เน้นการหาความเสี่ยงและป้องกันก่อนเกิดโรค ไม่ใช่รอจนเป็นโรคแล้ว
+- Health Span refers to the period of time spent with good quality of life, not just living a long life.
+- Modern health checkups focus on identifying risk and prevention before disease onset, rather than waiting until the disease develops.
 
-### ค่าสุขภาพสำคัญที่ควรติดตาม
+### Important Health Markers to Track
 
-**1\. HbA1c (น้ำตาลสะสม)**
+**1\. HbA1c (Glycated Hemoglobin)**
 
-- เกณฑ์เดิมสำหรับรักษาเบาหวาน: ≥6.5%
-- แนวคิด Health Span: เริ่มปรับไลฟ์สไตล์ตั้งแต่ค่าเริ่มสูงขึ้นจาก 5.4% เพื่อป้องกันก่อนเป็นโรค
+- Traditional threshold for treating diabetes: ≥6.5%
+- Healthspan concept: start lifestyle modifications once the level begins rising above 5.4% to prevent the disease before it develops.
 
-**2\. Cholesterol และ Apolipoprotein B**
+**2\. Cholesterol and Apolipoprotein B**
 
-- เกณฑ์ LDL เปลี่ยนจาก 130 เป็น <100 mg/dL
-- Apolipoprotein B เปรียบเหมือน "คนขับรถบรรทุกไขมัน" ที่มีพฤติกรรมเสี่ยงต่อการอุดหลอดเลือด
-- การดู Apo B ช่วยประเมินความเสี่ยงโรคหัวใจและหลอดเลือดได้แม่นยำกว่า LDL อย่างเดียว
+- LDL target threshold has changed from 130 to <100 mg/dL.
+- Apolipoprotein B is like the "driver of the fat-transporting truck" whose behavior risks clogging blood vessels.
+- Checking Apo B helps evaluate cardiovascular disease risk more accurately than LDL alone.
 
 **3\. HS-CRP (High Sensitivity C-Reactive Protein)**
 
-- วัดระดับการอักเสบเรื้อรัง (Chronic Inflammation) ในร่างกาย
-- การอักเสบเรื้อรังเป็นสาเหตุของความแก่และโรคต่างๆ
-- สัมพันธ์กับความเสี่ยงโรคหัวใจและหลอดเลือด (ค่าที่ดี: <1 mg/L)
+- Measures the level of chronic inflammation in the body.
+- Chronic inflammation is the root cause of aging and various diseases.
+- Associated with cardiovascular disease risk (optimal value: <1 mg/L).
 
-**4\. Fasting Insulin (อินซูลินตอนงดอาหาร)**
+**4\. Fasting Insulin**
 
-- เป็นสัญญาณเตือนก่อนที่จะเกิดภาวะดื้ออินซูลินและเบาหวาน
-- เปรียบเหมือน "จอมยุทธ์ที่พลังเริ่มถดถอย" - ต้องใช้อินซูลินมากขึ้นเพื่อลดน้ำตาลในปริมาณเดิม
-- ช่วยบอกได้ว่าต้องปรับไลฟ์สไตล์ก่อนที่จะเป็นโรคจริง
+- Serves as an early warning sign before the development of insulin resistance and diabetes.
+- Comparable to a "martial artist whose energy is starting to decline" - requiring more insulin to lower the same amount of blood sugar.
+- Helps indicate the need for lifestyle adjustments before a clinical disease actually develops.
 
 **5\. Homocysteine**
 
-- โมเลกุลขนาดใหญ่ที่เสี่ยงต่อการอุดหลอดเลือด ทำให้เกิดโรคหลอดเลือดสมอง (stroke) และโรคหัวใจ
-- อาจเกิดจากพันธุกรรม (ยีน MTHFR) หรือขาดวิตามิน B12, Folate
-- พบบ่อยในคนที่กินอาหารมังสวิรัติ
+- A large molecule that poses a risk of vascular occlusion, causing stroke and heart disease.
+- Can be caused by genetics (MTHFR gene) or deficiency in vitamin B12 and folate.
+- Commonly found in vegetarians.
 
-**6\. eGFR (อัตราการกรองของไต)**
+**6\. eGFR (Estimated Glomerular Filtration Rate)**
 
-- ลดลงตามอายุ ต้องติดตามเพื่อป้องกันโรคไตเรื้อรัง
-- หากปล่อยให้เสื่อมมากเกินไป จะต้องจำกัดเกลือและโปรตีน
+- Declines with age; must be monitored to prevent chronic kidney disease.
+- If allowed to deteriorate too much, sodium and protein intake must be restricted.
 
 **7\. VO2 Max**
 
-- วัดสมรรถภาพของหัวใจและหลอดเลือด
-- ช่วยทำนายความเสี่ยงของการเป็นผู้สูงอายุที่พึ่งพาตนเองไม่ได้
-- สามารถวัดได้ง่ายด้วยการเดินขึ้นลงบันไดตามจังหวะเพลง (step test)
-- ยิ่งอายุน้อยมีค่า VO2 Max สูง เมื่ออายุมากจะยังมีสมรรถภาพเพียงพอในการใช้ชีวิต
+- Measures cardiovascular fitness.
+- Helps predict the risk of becoming a dependent elderly person.
+- Can be easily measured by walking up and down stairs to the tempo of music (step test).
+- The higher the VO2 Max is at a younger age, the more functional capacity will remain for living life in old age.
 
-### ผลกระทบของน้ำตาลสูงต่อร่างกาย
+### Impact of High Blood Sugar on the Body
 
-- น้ำตาลไปจับกับคอลลาเจนทำให้ผิวเสื่อม
-- ทำให้หลอดเลือดแข็ง เพิ่มความเสี่ยงโรคหัวใจ โรคไต โรคตา และโรคสมอง
-- การควบคุมน้ำตาลตั้งแต่เนิ่นๆ จะช่วยป้องกันภาวะแทรกซ้อนทั้งหมดนี้
+- Sugar binds to collagen, causing skin degradation.
+- Stiffens blood vessels, increasing the risk of heart, kidney, eye, and brain diseases.
+- Controlling blood sugar early helps prevent all of these complications.
 
-### หลักการปรับไลฟ์สไตล์ 6 ด้าน
+### Six Pillars of Lifestyle Modification
 
-- [[Sleep and Longevity|[[Sleep and Longevity|การนอน]]หลับ]]ที่มีคุณภาพ
-- การจัดการความเครียด
-- การออกกำลังกาย/ขยับร่างกาย (Physical Activity)
-- โภชนาการที่เหมาะสม
-- การหลีกเลี่ยงสารพิษ แอลกอฮอล์ บุหรี่
-- Mental Health และการมีส่วนร่วมในสังคม
+- Quality [[Sleep and Longevity|[[Sleep and Longevity|sleep]]]]
+- Stress management
+- Exercise/Physical Activity
+- Proper nutrition
+- Avoiding toxins, alcohol, and cigarettes
+- Mental health and social engagement
 
-### ข้อควรระวังเกี่ยวกับซัพพลีเมนต์
+### Precautions Regarding Supplements
 
-- ไม่ควรพึ่งพาซัพพลีเมนต์เป็นหลัก ต้องปรับไลฟ์สไตล์ก่อน
-- การกินซัพพลีเมนต์มากเกินไปอาจมีผลข้างเคียงต่อไต
+- Supplements should not be primarily relied upon; lifestyle changes must come first.
+- Taking too many supplements can have adverse effects on the kidneys.
 
-### Biological Age (อายุชีวภาพ)
+### Biological Age
 
-- มีวิธีวัดมากกว่า 20 วิธี (20 clocks) ที่ให้ผลลัพธ์ไม่เหมือนกัน
-- แต่ละวิธีมีข้อจำกัดและความแม่นยำต่างกัน (absolute error บางวิธีอาจ ±10 ปี)
-- ต้องเข้าใจข้อจำกัดของแต่ละวิธีวัดก่อนตัดสินใจใช้เงิน
-- ไม่ควรตัดสินใจปรับเปลี่ยนพฤติกรรมโดยอิงจากค่า biological age เพียงอย่างเดียว
+- There are more than 20 measurement methods (20 clocks) that yield different results.
+- Each method has different limitations and accuracy (absolute error for some methods can be ±10 years).
+- One must understand the limitations of each measurement method before spending money on them.
+- Lifestyle modification decisions should not be based solely on biological age values.
 
-### แนวโน้มการตรวจสุขภาพในอนาคต
+### Future Trends in Health Checkups
 
-- เปลี่ยนจากการตรวจหาโรคเป็นการตรวจหาความเสี่ยง
-- ใช้ข้อมูลจากการตรวจที่มีอยู่เดิมมาวิเคราะห์และให้คำแนะนำที่มีประสิทธิภาพมากขึ้น
-- AI จะมีบทบาทในการวิเคราะห์ข้อมูลสุขภาพ
+- Shifting from detecting diseases to detecting risks.
+- Utilizing existing diagnostic data to analyze and provide more effective guidance.
+- AI will play a role in health data analysis.
 
-### แหล่งความรู้เพิ่มเติม
+### Additional Resources
 
-- Longevity Education Hub - หลักสูตรฟรีเป็นภาษาไทย เขียนโดยนักวิทยาศาสตร์ที่ทำวิจัย
+- Longevity Education Hub - Free course in Thai, written by research scientists.
