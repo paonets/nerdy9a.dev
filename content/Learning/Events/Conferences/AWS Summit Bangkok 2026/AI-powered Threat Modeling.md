@@ -15,7 +15,6 @@ Threat modeling should be integrated directly into the design phase of the Secur
 ![image](attachments/AI-powered-Threat-Modeling-1.png)
 
 ## Where Threat Modeling Fits in the SSDLC
-
 $$\text{Requirements} \longrightarrow \mathbf{\text{Design (Threat Modeling Happens Here)}} \longrightarrow \text{Development} \longrightarrow \text{Testing} \longrightarrow \text{Deploy} \longrightarrow \text{Monitor}$$
 
 ---
@@ -23,13 +22,11 @@ $$\text{Requirements} \longrightarrow \mathbf{\text{Design (Threat Modeling Happ
 ### SSDLC Threat Modeling Timeline
 
 #### 1. Before Design
-
 - Identify trust boundaries.
 - Classify data sensitivity.
 - Spec out security requirements.
 
 #### 2. During Design (Core Threat Modeling)
-
 - **Model System Architecture:** Map components and interactions.
 - **AI-Assisted Threat Analysis:** Let LLMs help discover edge-case threats.
 - **Map STRIDE per Component:** Group threats into the STRIDE categories:
@@ -42,7 +39,6 @@ $$\text{Requirements} \longrightarrow \mathbf{\text{Design (Threat Modeling Happ
 - **Define Mitigations Early:** Document counter-measures before code construction begins.
 
 #### 3. After Design
-
 - **Threats Become Test Cases:** Write automated security tests based on threats.
 - **Integrate into PR Reviews:** Use threat models to guide pull request evaluations.
 - **Feed into Penetration Testing:** Provide the threat catalog to penetration testers to focus their scope.
@@ -50,9 +46,8 @@ $$\text{Requirements} \longrightarrow \mathbf{\text{Design (Threat Modeling Happ
 ---
 
 ## Tooling: Threat Composer AI & Kiro
-
-- **Threat Composer AI:**
-  - Powered by **Bedrock Claude 3.5 Sonnet** (or Sonnet 4) with pay-as-you-go token pricing (_Beware of the cost!_).
+- **Threat Composer AI:** 
+  - Powered by **Bedrock Claude 3.5 Sonnet** (or Sonnet 4) with pay-as-you-go token pricing (*Beware of the cost!*).
   - Uses **8 specialized agents** working in parallel.
   - Equipped with a CLI and an MCP (Model Context Protocol) server.
   - Automatically parses CloudFormation templates or Terraform code to produce architecture and dataflow diagrams.
@@ -61,3 +56,4 @@ $$\text{Requirements} \longrightarrow \mathbf{\text{Design (Threat Modeling Happ
 
 > [!TIP]
 > **Start Small:** A quick, 15-minute threat modeling session during design is infinitely better than no threat model at all. Don't let perfection be the enemy of security.
+

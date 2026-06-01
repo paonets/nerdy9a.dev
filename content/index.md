@@ -2,7 +2,7 @@
 title: 🌳 nerdy9a garden
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-01 09:53
+updated: 2026-06-01 10:09
 ---
 
 <div class="homepage-logo-container">
@@ -16,7 +16,7 @@ updated: 2026-06-01 09:53
   <p>Hi, I'm <strong>Pongsakorn Teeraparpwong (A)</strong>. I'm a software engineer and entrepreneur, currently co-founding 
     <span class="highlight-link"><a href="https://www.hatohub.com" target="_blank" rel="noopener">Hato Hub</a></span>. 
     Previously, I designed distributed systems as a Senior SDE at Amazon in Seattle and earned my MS in Computer Science at UCSD.</p>
-  <p>This digital garden is my personal <span class="highlight-link"><strong>Second Brain</strong></span>—an evolving space where I cultivate raw ideas into evergreen knowledge. Inside, you'll find an interconnected web of technical insights, startup frameworks, and reflections on intentional living. I hope something here inspires your own journey.</p>
+  <p>This digital garden is a window to my personal <span class="highlight-link"><strong>Second Brain</strong></span>—an evolving space where I cultivate raw ideas into evergreen knowledge. Inside, you'll find an interconnected web of technical insights, startup frameworks, and reflections on intentional living. I hope something here inspires your own journey.</p>
 
   <div class="welcome-connect">
     <span>🔗 Connect:</span>

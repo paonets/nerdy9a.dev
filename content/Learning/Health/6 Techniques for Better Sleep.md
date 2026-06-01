@@ -1,7 +1,7 @@
 ---
 created: 2026-05-27 21:45
 updated: 2026-05-31 21:19
-tags: ["source/video", "habits", "health", "sleep"]
+tags: [source/video, habits, health, sleep]
 publish: true
 ---
 
@@ -14,7 +14,6 @@ publish: true
 ---
 
 ## Overview
-
 This note summarizes a set of six practical sleep optimization techniques presented by Mupha. The recommendations cover foundational lifestyle adjustments and advanced mental strategies (including the Military Sleep Method) to help combat insomnia and fall asleep quickly under stress.
 
 ## Foundational Habits (The Basics)
@@ -22,7 +21,7 @@ This note summarizes a set of six practical sleep optimization techniques presen
 1. **Consistent Sleep-Wake Schedule (ตื่นและนอนเวลาเดียวกัน)**
    - Waking up and sleeping at the exact same time daily is the single most important step to lock in your circadian rhythm (body clock).
    - **Rule of Thumb:** Wake up at your target time regardless of when you fell asleep. Even if you sleep late or have a heavy workload, stick to the schedule to retrain your body clock.
-   - _Example:_ The presenter woke up at 4:00 AM every day during periods of intense studying to maintain consistency.
+   - *Example:* The presenter woke up at 4:00 AM every day during periods of intense studying to maintain consistency.
 
 2. **Warm/Hot Bath Before Bed (อาบน้ำร้อน/น้ำอุ่นก่อนนอน)**
    - Taking a warm or hot shower/bath raises your core body temperature.
@@ -41,17 +40,15 @@ This note summarizes a set of six practical sleep optimization techniques presen
 ## Advanced Cognitive & Physical Techniques
 
 ### 5. Fictional/Imaginative Storytelling (คิดเรื่องไม่เครียด/เบียว)
-
-Forcing your mind to "stop thinking" or trying to focus purely on breathing often backfires because it places attention on the struggle to sleep.
+Forcing your mind to "stop thinking" or trying to focus purely on breathing often backfires because it places attention on the struggle to sleep. 
 
 - **The Strategy:** Actively construct a low-stakes, non-stressful fictional narrative in your head.
 - **How it works:**
   - Build a story that is engaging enough to keep your mind from drifting back to real-life anxieties (exams, relationship issues, work stress), but has no real-world consequences.
-  - _The Presenter's Method:_ Imagining himself and his friends battling a giant monster to rescue someone (like starring in his own anime or TV series).
+  - *The Presenter's Method:* Imagining himself and his friends battling a giant monster to rescue someone (like starring in his own anime or TV series).
   - This keeps your focus locked on the fantasy until you naturally and quickly drift off.
 
 ### 6. Military Sleep Method / Progressive Muscle Relaxation (เกร็งและผ่อนคลายกล้ามเนื้อ)
-
 A physical technique adapted from the Military Sleep Method (which reportedly helps 96% of pilots fall asleep within 2 minutes).
 
 - **The Strategy:** Systematically tense and then fully release muscle groups one by one.
@@ -65,6 +62,5 @@ A physical technique adapted from the Military Sleep Method (which reportedly he
 ---
 
 ## Vault Integration
-
 - Integrate these techniques into the daily reflection routine in Habit Dashboard.
 - Focus on building a consistent routine to support identity goals outlined in Who I Am Becoming.

@@ -13,7 +13,6 @@ This architecture outlines a unified entry point ("One endpoint. Seven guardrail
 ![image](attachments/AI-guardrails-1.png)
 
 ## Core Request Flow
-
 The client sends a request to the main API endpoint:
 `POST /v1/infer` $\rightarrow$ **Orchestrator** $\rightarrow$ **7 Sequential Guardrails** $\rightarrow$ **Bedrock Converse** (Haiku, Sonnet, Nova) $\rightarrow$ Outputs routed to **CloudWatch Logs** and a **unified_log** database.
 
@@ -26,7 +25,7 @@ The client sends a request to the main API endpoint:
 2. **Prompt**
    - Resolves and fetches the prompt manager's rules. Prompts are stored in the database.
 3. **Tools**
-   - Resolves tool registrations. Implements a security boundary: _not all prompts/users can query all tools or MCP servers_.
+   - Resolves tool registrations. Implements a security boundary: *not all prompts/users can query all tools or MCP servers*.
 4. **Skills**
    - Loads post-processing and formatting extensions (e.g., a "Humanize" skill to format model replies to sound natural).
 5. **Log**
@@ -39,11 +38,10 @@ The client sends a request to the main API endpoint:
 ---
 
 ## Database & Write Paths
-
 The orchestrator reads prompt templates, tool schemas, and routing logic from **DynamoDB** (storing Prompts, Tools, Skills, and Routing). To minimize latency, there is a **30-second TTL cache** between DynamoDB and the Orchestrator.
 
 Changes to this database come from **three distinct write paths**:
-
 1. **Platform Team:** Monthly deployments (stable infrastructure & core schemas).
 2. **Product Team:** Weekly Pull Requests (application-specific prompt/tool updates).
 3. **Business/Ops:** Daily direct DynamoDB writes (hot-fixes, copy tweaks, operational variables).
+
