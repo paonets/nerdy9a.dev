@@ -4,8 +4,6 @@ updated: 2026-05-31 21:32
 tags: ["synthesis", "obsidian", "pkm"]
 ---
 
-
-
 # Digital Garden
 
 A **Digital Garden** is a philosophy and practice of publishing a personal knowledge base online. It is a hybrid of a personal blog, a wiki, and a sketchbook. Unlike a traditional blog, which is chronological, publication-oriented, and polished, a digital garden is organized topically, is constantly evolving, and embraces the imperfection of "learning in public."
@@ -29,16 +27,17 @@ The concept is heavily tied to [[Personal Knowledge Management Frameworks]] and 
 
 ## 🛠️ Comparison: Blog vs. Wiki vs. Garden
 
-| Feature | Blog | Wiki | Digital Garden |
-| :--- | :--- | :--- | :--- |
-| **Organization** | Chronological | Hierarchical/Alphabetical | Topological (associative network) |
-| **Tone** | Authoritative, performative | Objective, dry | Personal, exploratory |
-| **Maturity** | Fully polished | Fact-checked | Multi-state (🌱 to 🌳) |
-| **Navigation** | Stream of posts | Search & Folders | Dense internal linking & Graph views |
+| Feature          | Blog                        | Wiki                      | Digital Garden                       |
+| :--------------- | :-------------------------- | :------------------------ | :----------------------------------- |
+| **Organization** | Chronological               | Hierarchical/Alphabetical | Topological (associative network)    |
+| **Tone**         | Authoritative, performative | Objective, dry            | Personal, exploratory                |
+| **Maturity**     | Fully polished              | Fact-checked              | Multi-state (🌱 to 🌳)               |
+| **Navigation**   | Stream of posts             | Search & Folders          | Dense internal linking & Graph views |
 
 ---
 
 ## Related Notes
+
 - [[Personal Knowledge Management Frameworks]]
 - Zettelkasten
 - [[LLM Wiki]]
