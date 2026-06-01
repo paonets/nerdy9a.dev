@@ -1,6 +1,6 @@
 ---
 created: 2026-06-01 15:48
-updated: 2026-06-01 16:05
+updated: 2026-06-01 16:09
 tags: [health, sleep, longevity, conference, techsauce-2026]
 publish: true
 ---
@@ -9,8 +9,7 @@ publish: true
 
 **Speaker:** นพ.ชาญสิริ เสกสรรค์วิริยะ (Dr. Chansiri Seksanwiriya)  
 _ENT & Sleep Medicine Specialist, Director of Healthspan Plus Clinic, Samitivej Thonburi Hospital_  
-**Event:** Techsauce Healthspan Festival 2026  
-**Source Link:** [Notion Notes](https://hatohub.notion.site/Sleep-Longevity-3312d96dd613805c8786c4bb50467b46?pvs=73)
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 

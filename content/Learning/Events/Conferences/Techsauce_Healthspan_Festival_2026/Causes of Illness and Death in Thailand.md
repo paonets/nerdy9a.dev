@@ -1,6 +1,6 @@
 ---
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:08
+updated: 2026-06-01 16:09
 tags:
   - health
   - lifestyle
@@ -15,8 +15,7 @@ publish: true
 
 **Speaker:** ดร.ณัฐพันธุ์ ศุภกา (Dr. Nattapan Supaka)  
 _ผู้อำนวยการสำนักนโยบาย ยุทธศาสตร์ และนวัตกรรม สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.)_  
-**Event:** Techsauce Healthspan Festival 2026  
-**Source Link:** [Notion Notes](https://hatohub.notion.site/3312d96dd6138011ad5ff226bd57abed)
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 

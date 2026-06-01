@@ -1,6 +1,6 @@
 ---
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:05
+updated: 2026-06-01 16:09
 tags: [health, ai, medicine, agi, conference, techsauce-2026]
 publish: true
 ---
@@ -9,8 +9,7 @@ publish: true
 
 **Speaker:** นพ.ปิยะฤทธิ์ อิทธิชัยวงศ์ (Dr. Piyarit Ittichaiwong)  
 _แพทย์ประจำศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล_  
-**Event:** Techsauce Healthspan Festival 2026  
-**Source Link:** [Notion Notes](https://hatohub.notion.site/Medicine-in-the-Near-AGI-World-3312d96dd61380a9aae6fc2260152642)
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 
