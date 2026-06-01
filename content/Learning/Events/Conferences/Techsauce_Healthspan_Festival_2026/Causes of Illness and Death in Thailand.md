@@ -1,8 +1,6 @@
 ---
-title: "Causes of Illness and Death in Thailand"
-
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:26
+updated: 2026-06-02 06:15
 tags:
   - health
   - lifestyle
@@ -12,112 +10,113 @@ tags:
   - techsauce-2026
 publish: true
 ---
-
 > [!NOTE]
-> อ่านสรุปบทความนี้ในภาษาไทยได้ที่นี่: [[Causes of Illness and Death in Thailand - TH|อ่านภาษาไทย]]
+> Read the English version (AI-translated) of this article here: [[Causes of Illness and Death in Thailand - EN|Read in English]]
+
+
 
 # Causes of Illness and Death in Thailand
 
-**Speaker:** Dr. Nattapan Supaka  
-_Director of the Section of Policy, Strategy, and Innovation, Thai Health Promotion Foundation (ThaiHealth)_  
-**Event:** Techsauce Healthspan Festival 2026
+**Speaker:** ดร.ณัฐพันธุ์ ศุภกา (Dr. Nattapan Supaka)  
+*ผู้อำนวยการสำนักนโยบาย ยุทธศาสตร์ และนวัตกรรม สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.)*  
+**Event:** Techsauce Healthspan Festival 2026  
 
 ---
 
-### Health Situation of Thai People
+### สถานการณ์สุขภาพคนไทย
 
-- The average life expectancy of Thai people is 75.6 years, but the healthy life expectancy (healthspan) is only 68-70 years. Thais have to live with illness or incomplete health for about 6-10 years.
-- Thai men have an average life expectancy of 71.8 years, but a healthy life expectancy of only 66.2 years (living with illness for about 5-6 years).
-- Thai women have an average life expectancy of nearly 80 years, but a healthy life expectancy of about 70 years (living with illness for nearly 10 years).
-- The 20-Year National Strategy aims to increase the average life expectancy of Thai people to 85 years and increase the healthspan from 68 years.
+- อายุเฉลี่ยคนไทยอยู่ที่ 75.6 ปี แต่ปีที่มีสุขภาพดีเพียง 68-70 ปี คนไทยต้องป่วยหรือมีสุขภาพไม่สมบูรณ์ประมาณ 6-10 ปี
+- ผู้ชายไทยมีอายุเฉลี่ย 71.8 ปี แต่มีสุขภาพดีเพียง 66.2 ปี (ป่วยประมาณ 5-6 ปี)
+- ผู้หญิงไทยมีอายุเฉลี่ยเกือบ 80 ปี แต่มีสุขภาพดีประมาณ 70 ปี (ป่วยเกือบ 10 ปี)
+- ยุทธศาสตร์ชาติ 20 ปีกำหนดเป้าหมายให้อายุเฉลี่ยคนไทยเพิ่มเป็น 85 ปี และ Health Span เพิ่มขึ้นจาก 68 ปี
 
-### Major Health Problems Causing a Loss of 20.5 Million Years
+### ปัญหาสุขภาพหลักที่ทำให้สูญเสีย 20.5 ล้านปี
 
-- **NCDs (Non-Communicable Diseases)**: Heart disease, stroke, diabetes, hypertension, cancer - killing 44 people per hour.
-- **[[Mental Healthspan|Mental Health]]**: Causes health impairment; suicide occurs in tens of thousands of people per year.
-- **Accidents**: 60 deaths per day (365 dangerous days) due to negligence and traffic violations.
+- **NCDs (โรคไม่ติดเชื้อ)**: โรคหัวใจ หลอดเลือดสมอง เบาหวาน ความดันโลหิตสูง มะเร็ง - ตาย 44 คนต่อชั่วโมง
+- **[[Mental Healthspan|สุขภาพจิต]]**: ทำให้คนไม่สมบูรณ์ การฆ่าตัวตายเกิดขึ้นหลายหมื่นคนต่อปี
+- **อุบัติเหตุ**: ตาย 60 คนต่อวัน (365 วันอันตราย) จากความประมาทและการไม่ปฏิบัติตามกฎจราจร
 
-### Data from Health Screenings of 40,000 People
+### ข้อมูลจากการตรวจสุขภาพ 40,000 คน
 
-- Diabetes: 6.5 million people | Hypertension: 17 million people | Obesity: 27 million people | Metabolic syndrome: 17 million people
-- There are 2.3 million people who have all 4 risk factors, which will lead to NCDs very rapidly.
-- 43% of diabetes patients control their blood sugar well, but 27% are unaware that they have diabetes.
-- Half of those with hypertension are unaware of it. Early health screening helps detect the disease early and keep it under control.
+- เบาหวาน 6.5 ล้านคน | ความดันโลหิตสูง 17 ล้านคน | คนอ้วน 27 ล้านคน | Metabolic syndrome 17 ล้านคน
+- มี 2.3 ล้านคนที่มีความเสี่ยงทั้ง 4 อย่าง จะเป็น NCD เร็วมาก
+- 43% ของผู้ป่วยเบาหวานคุมน้ำตาลได้ดี แต่ 27% ไม่รู้ตัวว่าเป็นเบาหวาน
+- ครึ่งหนึ่งของผู้ที่มีความดันโลหิตสูงไม่รู้ตัว การตรวจสุขภาพเร็วช่วยให้รู้โรคเร็วและคุมได้
 
-### Behavioral Risk Factors
+### ปัจจัยเสี่ยงด้านพฤติกรรม
 
-- Obesity: 27 million people | Sedentary behavior: 25 million people (half of the country)
-- Thai people consume twice the standard amount of sodium (3,600 mg compared to the standard of 2,000 mg).
-- These behaviors lead to abnormal blood profiles, which then develop into chronic diseases.
+- คนอ้วน 27 ล้านคน | นั่งนิ่ง 25 ล้านคน (ครึ่งประเทศ)
+- คนไทยกินเค็มเกินมาตรฐาน 2 เท่า (3,600 มก. เทียบกับมาตรฐาน 2,000 มก.)
+- พฤติกรรมเหล่านี้นำไปสู่เลือดผิดปกติ จากนั้นกลายเป็นโรคเรื้อรัง
 
-### Social Determinants of Health
+### ปัจจัยสังคมกำหนดสุขภาพ
 
-- 100% of good health comes from: Socioeconomic factors 40% | Behaviors 30% | Healthcare system 20% | Environment 10%
-- Economic disparity significantly affects health - the wealthy have access to quality food, while the underprivileged face limitations.
-- The environment (PM2.5 dust, running/exercise spaces) and the digital divide also play a role.
+- สุขภาพดี 100% มาจาก: เศรษฐกิจสังคม 40% | พฤติกรรม 30% | ระบบสุขภาพ 20% | สิ่งแวดล้อม 10%
+- ความแตกต่างทางเศรษฐกิจส่งผลต่อสุขภาพมาก - คนรวยเข้าถึงอาหารดี คนจนมีข้อจำกัด
+- สภาพแวดล้อม (ฝุ่น PM2.5, พื้นที่วิ่งออกกำลังกาย) และความเหลื่อมล้ำทางดิจิทัลก็ส่งผล
 
-### 4 Dimensions of Health Care Tools
+### เครื่องมือดูแลสุขภาพ 4 มิติ
 
-**Physical (4 points):**
+**กาย (4 ข้อ):**
 
-- Eat a low-sodium, low-sugar diet and drink enough water.
-- Walk 7,000 steps daily or exercise for more than 150 minutes per week.
-- Sleep soundly.
-- Regularly monitor health metrics.
+- กินอาหารไม่เค็ม ไม่หวาน ดื่มน้ำเพียงพอ
+- เดินวันละ 7,000 ขั้น หรือออกกำลังกายเกิน 150 นาที/สัปดาห์
+- นอนหลับสนิท
+- ตรวจค่าสุขภาพเป็นประจำ
 
-**Mental (4 points):**
+**จิต (4 ข้อ):**
 
-- Have "me time".
-- Frequently check in on your emotions to see if you are overly stressed or anxious.
-- Maintain a work-life balance.
-- Praise yourself when achieving tasks (Quick Wins).
+- มีเวลา "me time"
+- เช็คอารมณ์ตัวเองบ่อยๆ ว่าเครียดหรือวิตกกังวลเกินไปหรือไม่
+- มี Work-Life Balance
+- ชมตัวเองเมื่อทำสิ่งต่างๆ สำเร็จ (Quick Win)
 
-**Spiritual (4 points):**
+**ปัญญา (4 ข้อ):**
 
-- Distinguish between real news and fake news, including AI content.
-- Have life goals.
-- Keep updating knowledge (Learning).
-- Volunteer to help others.
+- แยกข่าวจริง-ข่าวปลอม รวมถึง AI
+- มีเป้าหมายชีวิต
+- อัพเดทความรู้ใหม่ๆ (Learning)
+- มีจิตอาสาช่วยเหลือผู้อื่น
 
-**Social (4 points):**
+**สังคม (4 ข้อ):**
 
-- Have a buddy or someone you can talk to about anything.
-- Have activities where you can step away for half an hour without work interruptions.
-- Belong to a community or group with shared interests.
-- Participate in various activities.
+- มี Buddy หรือคนที่คุยได้ทุกเรื่อง
+- มีกิจกรรมที่วางได้ครึ่งชั่วโมงโดยไม่ยุ่งกับงาน
+- มีชุมชนหรือกลุ่มที่มีความชอบเดียวกัน
+- มีส่วนร่วมกิจกรรมต่างๆ
 
-### Guidelines for Behavior Change: Reduce, Refrain, Start, Love, Quit
+### แนวทางเปลี่ยนแปลงพฤติกรรม: ลด-ละ-เริ่ม-รัก-เลิก
 
-**Reduce:**
+**ลด:**
 
-- Salty, sweet, fatty foods, and alcohol
-- Screen time
-- Polluted air/dust
+- เค็ม หวาน มัน เหล้า
+- หน้าจอ
+- อากาศเสีย/ฝุ่น
 
-**Refrain:**
+**ละ:**
 
-- [[Sleep and Longevity|Sleeping]] late
-- Poor environments
+- [[Sleep and Longevity|การนอน]]ดึก
+- สภาพแวดล้อมที่แย่
 
-**Start:**
+**เริ่ม:**
 
-- Eat more vegetables and fruits
-- Exercise regularly
+- กินผัก ผลไม้ มากขึ้น
+- ออกกำลังกายสม่ำเสมอ
 
-**Love:**
+**รัก:**
 
-- Drive mindfully; do not drink and drive
-- Get adequate sleep before driving
+- ขับขี่ด้วยสติ ไม่เมาแล้วขับ
+- นอนให้เพียงพอก่อนขับ
 
-**Quit:**
+**เลิก:**
 
-- All types of illicit drugs
-- Cigarettes and e-cigarettes (e-cigarettes are dangerous due to very high nicotine content)
+- ยาเสพติดทุกประเภท
+- บุหรี่และบุหรี่ไฟฟ้า (บุหรี่ไฟฟ้าอันตรายเพราะนิโคตินสูงมาก)
 
-### Recommendations
+### ข้อเสนอแนะ
 
-- Start today; no need to quit cold turkey, gradually reduce unhealthy behaviors.
-- Start with the next meal - add more vegetables, reduce sweetness, and reduce salt.
-- Invite those around you to join; solving health problems requires collective social effort.
-- Complete a 4-dimensional health checklist once a week to monitor how many goals you achieve.
-- The 6 pillars of Lifespan/Longevity: Sleep, exercise, nutrition, stress management, social relationships, and avoiding toxins.
+- เริ่มตั้งแต่วันนี้ ไม่ต้องหักดิบ ค่อยๆ ลดพฤติกรรมที่ไม่ดี
+- เริ่มจากมื้อต่อไป - เพิ่มผัก ลดหวาน ลดเค็ม
+- ชวนคนรอบข้างทำด้วยกัน การแก้ปัญหาสุขภาพต้องอาศัยสังคมร่วมกัน
+- ทำเช็คลิสต์สุขภาพ 4 มิติสัปดาห์ละครั้ง เพื่อติดตามตัวเองว่ามีกี่ข้อที่ทำได้
+- 6 เสาหลักของ Lifespan/Longevity: การนอน การออกกำลังกาย โภชนาการ การจัดการความเครียด ความสัมพันธ์ทางสังคม และการหลีกเลี่ยงสารพิษ
