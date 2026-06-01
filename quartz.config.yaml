@@ -16,8 +16,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Nunito
-      body: Nunito Sans
+      header: Bitter
+      body: Source Sans 3
       code: JetBrains Mono
     colors:
       lightMode:
