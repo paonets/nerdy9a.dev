@@ -16,8 +16,9 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Bitter
-      body: Source Sans 3
+      title: JetBrains Mono
+      header: Plus Jakarta Sans
+      body: Inter
       code: JetBrains Mono
     colors:
       lightMode:

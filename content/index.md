@@ -35,25 +35,25 @@ Instead of structured, polished blog posts, a **[[Digital Garden|digital garden]
 
 <div class="content-grid">
   <div class="content-card">
-    <h3>🛠️ Engineering, Dev & Startup</h3>
+    <h3><a href="./categories/tech">🛠️ Engineering, Dev & Startup</a></h3>
     <p>Software engineering, distributed systems, AWS, AI tools, and lessons from building Hato Hub.</p>
     <a class="card-link" href="./categories/tech">Explore Tech & Startup →</a>
   </div>
   
   <div class="content-card">
-    <h3>📈 Self-Improvement & PKM</h3>
+    <h3><a href="./categories/self-improvement">📈 Self-Improvement & PKM</a></h3>
     <p>Personal knowledge management, productivity workflows, book summaries, and Toastmasters guides.</p>
     <a class="card-link" href="./categories/self-improvement">Explore Self-Improvement →</a>
   </div>
 
   <div class="content-card">
-    <h3>🧘‍♂️ Health & Mindfulness</h3>
+    <h3><a href="./categories/health">🧘‍♂️ Health & Mindfulness</a></h3>
     <p>Notes and logs on physical health, wellness, and mindfulness.</p>
     <a class="card-link" href="./categories/health">Explore Wellness →</a>
   </div>
 
   <div class="content-card">
-    <h3>✈️ Travel & Japan</h3>
+    <h3><a href="./categories/travel">✈️ Travel & Japan</a></h3>
     <p>Trip planning, preferences, and itineraries, with a special focus on traveling in Japan.</p>
     <a class="card-link" href="./categories/travel">Explore Travel →</a>
   </div>

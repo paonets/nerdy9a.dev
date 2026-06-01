@@ -89,15 +89,15 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
             })
           : ""
 
-        const showModified = modifiedStr && createdStr && modifiedStr !== createdStr
+        const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr)
+        const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated
+        const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr
 
         return (
           <li class="section-li">
             <div class="section">
-              <p class="meta created">
-                {displayCreated && (
-                  <time dateTime={displayCreated.toISOString()}>{createdStr}</time>
-                )}
+              <p class="meta">
+                {displayDate && <time dateTime={displayDate.toISOString()}>{displayDateStr}</time>}
               </p>
               <div class="desc">
                 <h3>
@@ -109,13 +109,6 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
                   </a>
                 </h3>
               </div>
-              <p class="meta modified">
-                {showModified && modifiedDate && (
-                  <span>
-                    Updated <time dateTime={modifiedDate.toISOString()}>{modifiedStr}</time>
-                  </span>
-                )}
-              </p>
               <ul class="tags">
                 {tags.map((tag) => (
                   <li>
