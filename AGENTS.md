@@ -3,6 +3,7 @@
 ## Foundational Mandates
 
 - **No Direct Pushing:** You MUST ask the user for explicit permission before running any command that pushes changes to a remote repository (e.g. `git push`).
+- **Branch Strategy:** Do NOT merge changes directly into `v5`. Always open a Pull Request (PR) and get user approval before merging into the `v5` branch.
 - **Vault-to-Quartz Pipeline:** Do NOT write or edit Markdown files directly inside the `content/` directory (except for `index.md` which serves as the homepage). All digital garden notes must be authored in the master Obsidian vault (`WisdomWell`) and published using the sanitization script.
 - **Single Source of Truth:** This file (`AGENTS.md`) is the master instruction set for all AI agents working in this repository. `CLAUDE.md` and `ANTIGRAVITY.md` are symlinked to this file. **Always edit `AGENTS.md` directly** — edits through the symlinks will fail.
 
@@ -58,6 +59,18 @@ npm run check
 
 # Auto-format all code and markdown files
 npm run format
+```
+
+### 🔀 Creating a Pull Request
+
+Always create a feature branch, commit your changes, and open a Pull Request when modifying code or configuration files. Because this repository is a fork, ensure GitHub CLI (`gh`) is configured to target your repository by default:
+
+```bash
+# Set the default repository for gh command line
+gh repo set-default paonets/nerdy9a.dev
+
+# Create a PR targeting v5
+gh pr create --title "Your PR Title" --body "Your PR Description" --base v5 --head your-feature-branch
 ```
 
 ---
