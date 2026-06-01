@@ -64,7 +64,14 @@ function stopLoading() {
 
 let isNavigating = false
 let p: DOMParser
+
+const scrollPositions = new Map<string, { x: number; y: number }>()
+let lastUrl = window.location.href
+
 async function _navigate(url: URL, isBack: boolean = false) {
+  // Save current scroll position before we leave the page
+  scrollPositions.set(lastUrl, { x: window.scrollX, y: window.scrollY })
+
   isNavigating = true
   startLoading()
   p = p || new DOMParser()
@@ -118,6 +125,16 @@ async function _navigate(url: URL, isBack: boolean = false) {
     } else {
       window.scrollTo({ top: 0 })
     }
+  } else {
+    const saved = scrollPositions.get(url.href)
+    if (saved) {
+      window.scrollTo({ left: saved.x, top: saved.y, behavior: "instant" })
+    } else if (url.hash) {
+      const el = document.getElementById(decodeURIComponent(url.hash.substring(1)))
+      el?.scrollIntoView()
+    } else {
+      window.scrollTo({ top: 0 })
+    }
   }
 
   // now, patch head, re-executing scripts
@@ -134,6 +151,7 @@ async function _navigate(url: URL, isBack: boolean = false) {
 
   notifyNav(getFullSlug(window))
   delete announcer.dataset.persist
+  lastUrl = window.location.href
 }
 
 async function navigate(url: URL, isBack: boolean = false) {
@@ -154,6 +172,10 @@ window.spaNavigate = navigate
 
 function createRouter() {
   if (typeof window !== "undefined") {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual"
+    }
+
     window.addEventListener("click", async (event) => {
       const { url } = getOpts(event) ?? {}
       // dont hijack behaviour, just let browser act normally
