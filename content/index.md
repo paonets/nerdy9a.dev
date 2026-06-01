@@ -2,7 +2,7 @@
 title: 🌳 nerdy9a garden
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-01 06:33
+updated: 2026-06-01 09:53
 ---
 
 <div class="homepage-logo-container">
@@ -13,10 +13,10 @@ updated: 2026-06-01 06:33
 <h2 class="page-subtitle">Systems, startups, wellbeing, & travel in the AI era.</h2>
 
 <div class="welcome-message">
-  <p>Hi, I'm <strong>Pongsakorn Teeraparpwong (A)</strong>. I build software systems, co-found startups like 
-    <span class="highlight-link"><a href="https://www.hatohub.com" target="_blank" rel="noopener">Hato Hub</a></span>, 
-    and explore wellbeing and travel in the AI era. My background includes completing an MS in CS at UCSD and designing systems as a Senior SDE at Amazon in Seattle.</p>
-  <p>This digital garden is a window into my personal <span class="highlight-link"><strong>Second Brain</strong></span>. It houses an interconnected web of engineering patterns, startup lessons, wellbeing reflections, and travel logs that I cultivate over time. I hope you find something here that inspires your own journey.</p>
+  <p>Hi, I'm <strong>Pongsakorn Teeraparpwong (A)</strong>. I'm a software engineer and entrepreneur, currently co-founding 
+    <span class="highlight-link"><a href="https://www.hatohub.com" target="_blank" rel="noopener">Hato Hub</a></span>. 
+    Previously, I designed distributed systems as a Senior SDE at Amazon in Seattle and earned my MS in Computer Science at UCSD.</p>
+  <p>This digital garden is my personal <span class="highlight-link"><strong>Second Brain</strong></span>—an evolving space where I cultivate raw ideas into evergreen knowledge. Inside, you'll find an interconnected web of technical insights, startup frameworks, and reflections on intentional living. I hope something here inspires your own journey.</p>
 
   <div class="welcome-connect">
     <span>🔗 Connect:</span>
@@ -65,9 +65,8 @@ Instead of structured, polished blog posts, a **[[Digital Garden|digital garden]
 
 Below are some of my favorite evergreen 🌳 concepts and workflows:
 
-- [[Digital Garden|🌱 Digital Garden Philosophy]] – How this garden is designed and maintained.
 - [[How this Digital Garden is Built|🛠️ Technical Setup & Pipeline]] – How this garden is built using Obsidian, Quartz 5, and Python.
-- [[LLM Wiki|🧠 LLM Wiki & Knowledge Management]] – How I use LLMs to curate personal knowledge.
+- [[The Future of Software Engineering in the AI Era|🤖 Software Engineering in the AI Era]] – How AI is shifting development from writing syntax to designing systems.
 - [[Personal Knowledge Management Frameworks|🗂️ PKM Frameworks]] – Structured notes on Zettelkasten, PARA, and GTD.
 
 ---

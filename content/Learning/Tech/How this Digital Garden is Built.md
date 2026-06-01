@@ -3,7 +3,7 @@ title: How this Digital Garden is Built
 publish: true
 tags: ["tech", "software-engineering", "obsidian"]
 created: 2026-05-31 22:05
-updated: 2026-06-01 09:20
+updated: 2026-06-01 10:02
 source: "WisdomWell Original"
 ---
 
@@ -11,11 +11,18 @@ source: "WisdomWell Original"
 
 This digital garden (**[nerdy9a.dev](https://nerdy9a.dev)**) is designed to publish public notes from a private Obsidian vault without leaking personal data or breaking link integrity.
 
-Instead of manual setup, you can easily build this using an AI coding assistant (like Claude, Gemini, or ChatGPT). Here is the architectural blueprint, the logic behind the technology choices, and how to prompt an AI to set it up for you.
+## 📓 What is Obsidian?
+
+If you aren't familiar with [Obsidian](https://obsidian.md/), it is a powerful, local-first note-taking app that acts as a "second brain." Notes are stored in standard Markdown (`.md`) files on your device, giving you complete ownership of your data. By using `wikilinks` to connect ideas, you build a web of interconnected knowledge that grows over time.
+
+Because Obsidian stores everything in plain text, it is also highly compatible with AI models and agents. To see how to supercharge your setup, watch my YouTube guide on how to turn Obsidian into a personal AI assistant:
+🎥 **[เปลี่ยนโน้ตให้เป็นเลขาอัจฉริยะด้วย Obsidian และ Claude AI (Obsidian AI 101)](https://www.youtube.com/@nerdy.mr.a)** on my channel **[Nerdy with Mr.A](https://www.youtube.com/@nerdy.mr.a)**.
 
 ---
 
 ## 🏗️ Architecture Blueprint
+
+Instead of manual setup, you can easily build this website publishing pipeline using an AI coding assistant (like Claude, Gemini, or ChatGPT). Here is the architectural blueprint, the logic behind the technology choices, and how to prompt an AI to set it up for you.
 
 The system splits note authoring from web hosting to keep your private notes safe and your local git repository clean of iCloud sync overhead:
 

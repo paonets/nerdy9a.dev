@@ -2,7 +2,7 @@
 tags: ["toastmasters", "keynote", "habits", "behavioral-change"]
 publish: true
 created: 2026-05-17 12:30
-updated: 2026-06-01 06:46
+updated: 2026-06-01 09:47
 ---
 
 # Keynote 2: Building Winning Habits That Last (Mas Mahathir)
