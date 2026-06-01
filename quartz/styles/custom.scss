@@ -1,3 +1,671 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Grid layout for cards
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.content-card {
+  border: 1px solid var(--lightgray);
+  border-radius: 14px;
+  padding: 1.5rem;
+  background-color: var(--light);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--secondary);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08);
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--tertiary);
+      }
+    }
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    color: var(--darkgray);
+    flex-grow: 1;
+  }
+
+  .card-link {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:hover {
+      color: var(--tertiary);
+    }
+  }
+}
+
+// Single-column layout adjustments globally across the entire site
+body {
+  // Hide right sidebar by default if empty
+  .sidebar.right {
+    display: none !important;
+  }
+
+  // Position and display the right sidebar elements at the bottom on all single column pages
+  .sidebar.right:not(:empty) {
+    display: flex !important;
+    position: relative !important;
+    height: auto !important;
+    width: 100% !important;
+    flex-direction: row !important;
+    padding: 2rem 0 !important;
+    border-top: 1px solid var(--lightgray);
+    margin-top: 2rem !important;
+    box-sizing: border-box;
+
+    & > * {
+      flex: 1 !important;
+      max-height: 24rem !important;
+    }
+
+    & > .toc {
+      display: none !important;
+    }
+
+    @media all and ($mobile) {
+      flex-direction: column !important;
+      gap: 2rem;
+    }
+  }
+
+  // Hide file explorer in left sidebar since homepage/lists use card/list navigation
+  .sidebar.left .explorer {
+    display: none !important;
+  }
+
+  // Re-layout grid for a centered single column layout
+  #quartz-body {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "grid-sidebar-left"
+      "grid-header"
+      "grid-center"
+      "grid-sidebar-right"
+      "grid-footer" !important;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  // Convert left sidebar to a clean horizontal navbar at the top
+  .sidebar.left {
+    position: relative !important;
+    height: auto !important;
+    width: 100% !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 1.5rem 0 !important;
+    margin-bottom: 2rem !important;
+    border-bottom: 1px solid var(--lightgray);
+    box-sizing: border-box;
+
+    // Reset flex items margins
+    .page-title,
+    .flex-component {
+      margin: 0 !important;
+    }
+  }
+
+  // Remove the large top margin on the page-header in single-column mode
+  .page-header {
+    margin-top: 0 !important;
+  }
+}
+
+// Additional homepage-specific style overrides
+body[data-slug="index"] {
+  // Hide right sidebar completely on the homepage (no graph view or backlinks)
+  .sidebar.right {
+    display: none !important;
+  }
+
+  // Hide the automatically generated article title
+  .article-title {
+    display: none !important;
+  }
+
+  // Hide the content metadata (date, reading time)
+  .content-meta {
+    display: none !important;
+  }
+
+  // Hide page header spacer on homepage
+  .page-header {
+    display: none !important;
+    margin: 0 !important;
+  }
+
+  // Custom styled headings inside the homepage content
+  article {
+    .page-title {
+      font-size: 2.75rem;
+      text-align: center;
+      margin: 3rem auto 0.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--secondary), var(--tertiary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+      line-height: 1.15;
+      max-width: 800px;
+    }
+
+    .page-subtitle {
+      font-size: 1.45rem;
+      text-align: center;
+      font-weight: 500;
+      margin: 0 auto 2.5rem;
+      color: var(--gray);
+      line-height: 1.4;
+      max-width: 700px;
+    }
+  }
+}
+
+// Welcome Message container with glassmorphic green/teal gradient and border accent
+.welcome-message {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.05) 0%, rgba(13, 148, 136, 0.05) 100%);
+  border-left: 5px solid var(--secondary);
+  padding: 2.25rem 2.5rem;
+  margin: 2.5rem 0;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--darkgray);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    color: var(--dark);
+  }
+}
+
+// Language tab toggle inside the welcome message
+.lang-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.lang-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid color-mix(in srgb, var(--gray) 35%, transparent);
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--bodyFont);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 8%, transparent);
+  }
+
+  &.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #fff;
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--secondary) 30%, transparent);
+  }
+}
+
+@keyframes langFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-fade-in {
+  animation: langFadeIn 0.22s ease forwards;
+}
+
+// Interactive connection chips under the welcome message
+.welcome-connect {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--lightgray);
+  font-size: 0.95rem;
+
+  span {
+    font-weight: 600;
+    color: var(--gray);
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 1rem;
+    background-color: var(--lightgray);
+    border-radius: 20px;
+    color: var(--darkgray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: var(--secondary);
+      color: var(--light) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+// Hand-drawn highlighter effect for links and important phrases
+.highlight-link {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: 0 0.18em;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -0.08em;
+    right: -0.12em;
+    top: 2%;
+    bottom: 4%;
+    z-index: -1;
+    border-radius: 9px 22px 13px 26px / 14px 6px 18px 8px;
+    transform: skewY(-1.8deg) rotate(-0.5deg);
+    transition:
+      transform 0.3s ease,
+      opacity 0.25s ease;
+    background: linear-gradient(
+      104deg,
+      rgba(52, 211, 153, 0) 0%,
+      rgba(52, 211, 153, 0.18) 4%,
+      rgba(13, 148, 136, 0.26) 50%,
+      rgba(21, 128, 61, 0.2) 92%,
+      rgba(52, 211, 153, 0) 100%
+    );
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.1em;
+    right: -0.04em;
+    top: 44%;
+    bottom: 0%;
+    z-index: -1;
+    border-radius: 4px 14px 5px 12px / 6px 10px 4px 14px;
+    transform: skewY(0.9deg);
+    transition:
+      transform 0.3s ease,
+      opacity 0.25s ease;
+    background: linear-gradient(
+      91deg,
+      rgba(13, 148, 136, 0) 2%,
+      rgba(13, 148, 136, 0.15) 8%,
+      rgba(21, 128, 61, 0.15) 95%,
+      rgba(13, 148, 136, 0) 99%
+    );
+  }
+
+  &:hover::after {
+    transform: skewY(-1.8deg) rotate(-0.2deg) scaleX(1.03);
+  }
+
+  &:hover::before {
+    transform: skewY(0.5deg) scaleX(1.02);
+  }
+
+  a {
+    color: var(--secondary) !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      color: var(--tertiary) !important;
+    }
+  }
+
+  strong {
+    color: var(--secondary) !important;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Homepage Logo & Screen Reader utilities
+.homepage-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem auto 1.5rem;
+  text-align: center;
+}
+
+.homepage-logo {
+  max-width: 140px;
+  height: auto;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
+  }
+}
+
+.homepage-title {
+  font-family: var(--titleFont);
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  color: var(--dark);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+
+  .accent {
+    color: var(--secondary);
+  }
+}
+
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary);
+  background-color: var(--highlight);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-top: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.04);
+}
+
+.page-title {
+  font-family: var(--titleFont);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Custom page-listing styles for Category dynamic tag-filtering
+.page-listing {
+  ul.section-ul {
+    list-style: none;
+    margin-top: 2em;
+    padding-left: 0;
+  }
+
+  li.section-li {
+    margin-bottom: 1.5em;
+    list-style-type: none;
+    padding-left: 0;
+
+    &::before {
+      content: none !important; // Prevent default list bullets
+    }
+
+    & > .section {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      grid-template-areas:
+        "date title"
+        ". tags";
+      align-items: baseline;
+      row-gap: 0.35rem;
+      column-gap: 1rem;
+
+      @media all and (max-width: 600px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "title"
+          "date"
+          "tags";
+        row-gap: 0.25rem;
+      }
+
+      & .meta {
+        grid-area: date;
+        margin: 0;
+        opacity: 0.6;
+        font-size: 0.9em;
+      }
+
+      & > .desc {
+        grid-area: title;
+        & > h3 {
+          margin: 0;
+          & > a {
+            background-color: transparent;
+            font-weight: 600;
+          }
+        }
+      }
+
+      & > .tags {
+        grid-area: tags;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        margin-top: 0.2rem;
+
+        li {
+          padding-left: 0;
+          margin: 0;
+          &::before {
+            content: none !important;
+          }
+
+          a.internal.tag-link {
+            background-color: transparent !important;
+            color: var(--gray) !important;
+            font-size: 0.8em !important;
+            font-weight: 500 !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            border: none !important;
+            opacity: 0.6;
+            transition:
+              color 0.2s ease,
+              opacity 0.2s ease;
+
+            &:hover {
+              background-color: transparent !important;
+              color: var(--secondary) !important;
+              border: none !important;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Premium styling for markdown tables to support notes with wide/many columns
+.table-container {
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  & > table {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+
+    th,
+    td {
+      padding: 0.8rem 1rem !important;
+      text-align: left;
+      line-height: 1.5;
+      vertical-align: top;
+      border-bottom: 1px solid var(--lightgray);
+      min-width: 150px; /* Prevents columns from shrinking to tiny widths */
+
+      &:first-child {
+        min-width: 100px;
+      }
+    }
+
+    th {
+      background-color: var(--lightgray);
+      font-weight: 600;
+      color: var(--dark);
+      border-bottom: 2px solid var(--gray) !important;
+      white-space: nowrap;
+    }
+
+    tr {
+      background-color: transparent;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: var(--highlight);
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// Global custom rules to align with cute warm chibi theme
+a.internal.tag-link {
+  background-color: var(--lightgray) !important;
+  color: var(--darkgray) !important;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: 12px !important;
+  font-size: 0.82em !important;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+
+  &::before {
+    content: "#" !important;
+    margin-right: 1px;
+    opacity: 0.55;
+  }
+
+  &:hover {
+    background-color: var(--secondary) !important;
+    color: var(--light) !important;
+    border-color: var(--secondary) !important;
+  }
+}
+
+// Rounded search UI overrides
+.search > .search-button {
+  border-radius: 12px !important;
+  background-color: var(--lightgray) !important;
+  border-color: transparent !important;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--highlight) !important;
+    border-color: var(--secondary) !important;
+  }
+}
+
+.search > .search-container > .search-space > *:not(.ghost-text):not(.tag-suggestions) {
+  border-radius: 16px !important;
+}
+
+.search > .search-container > .search-space > input {
+  border-radius: 16px !important;
+}
