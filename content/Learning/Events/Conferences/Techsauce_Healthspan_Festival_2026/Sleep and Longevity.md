@@ -1,6 +1,6 @@
 ---
 created: 2026-06-01 15:48
-updated: 2026-06-01 16:09
+updated: 2026-06-01 16:16
 tags: [health, sleep, longevity, conference, techsauce-2026]
 publish: true
 ---
@@ -103,5 +103,5 @@ To prepare the body to shift from the sympathetic (stress) to the parasympatheti
 
 ## Vault Integration
 
-- Combine these lifestyle rules with the sleep habits outlined in Techniques for Better Sleep|[[Learning/Health/Techniques for Better Sleep|Techniques for Better Sleep]]]].
+- Combine these lifestyle rules with the sleep habits outlined in [[Learning/Health/Techniques for Better Sleep|Techniques for Better Sleep]].
 - Check daily wearable trends (HRV and Sleep Stages) in the Habit Dashboard.

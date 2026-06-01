@@ -2,7 +2,7 @@
 title: 🌳 nerdy9a garden
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-01 15:26
+updated: 2026-06-01 16:16
 ---
 
 <div class="homepage-logo-container">
@@ -60,6 +60,7 @@ Below are some of my favorite evergreen 🌳 concepts and workflows:
 - [[How this Digital Garden is Built|🛠️ Technical Setup & Pipeline]] – How this garden is built using Obsidian, Quartz 5, and Python.
 - [[The Future of Software Engineering in the AI Era|🤖 Software Engineering in the AI Era]] – How AI is shifting development from writing syntax to designing systems.
 - [[Personal Knowledge Management Frameworks|🗂️ PKM Frameworks]] – Structured notes on Zettelkasten, PARA, and GTD.
+- [[Techniques for Better Sleep|🛌 Techniques for Better Sleep]] – Actionable methods for sleep hygiene, screen limits, and vagus nerve breathing.
 
 ---
 
