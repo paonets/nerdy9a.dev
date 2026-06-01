@@ -210,11 +210,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
           renderedSource = renderSourceValue(source);
         }
 
-        sourceElement = (
-          <div class="content-meta-source-line">
-            Source: {renderedSource}
-          </div>
-        );
+        sourceElement = <div class="content-meta-source-line">Source: {renderedSource}</div>;
       }
 
       return (
