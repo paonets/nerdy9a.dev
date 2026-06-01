@@ -2,7 +2,7 @@
 title: 🌳 nerdy9a garden
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-01 10:09
+updated: 2026-06-01 15:26
 ---
 
 <div class="homepage-logo-container">
@@ -24,14 +24,6 @@ updated: 2026-06-01 10:09
     <a href="https://www.youtube.com/@nerdy9a" target="_blank" rel="noopener">▶️ YouTube</a>
   </div>
 </div>
-
----
-
-### What is a [[Digital Garden]]? 🌳
-
-Instead of structured, polished blog posts, a **[[Digital Garden|digital garden]]** is an environment for cultivating ideas. Notes here are interconnected, evolving, and grow over time from raw seedlings 🌱 to evergreen concepts 🌳.
-
----
 
 <div class="content-grid">
   <div class="content-card">
@@ -68,6 +60,12 @@ Below are some of my favorite evergreen 🌳 concepts and workflows:
 - [[How this Digital Garden is Built|🛠️ Technical Setup & Pipeline]] – How this garden is built using Obsidian, Quartz 5, and Python.
 - [[The Future of Software Engineering in the AI Era|🤖 Software Engineering in the AI Era]] – How AI is shifting development from writing syntax to designing systems.
 - [[Personal Knowledge Management Frameworks|🗂️ PKM Frameworks]] – Structured notes on Zettelkasten, PARA, and GTD.
+
+---
+
+### What is a [[Digital Garden]]? 🌳
+
+Instead of structured, polished blog posts, a **[[Digital Garden|digital garden]]** is an environment for cultivating ideas. Notes here are interconnected, evolving, and grow over time from raw seedlings 🌱 to evergreen concepts 🌳.
 
 ---
 
