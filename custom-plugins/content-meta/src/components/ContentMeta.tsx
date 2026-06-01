@@ -71,6 +71,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
       // Display source property if available
       const source = fileData.frontmatter?.source;
+      let sourceElement: JSX.Element | null = null;
       if (source) {
         const currentSlug = (fileData.slug as string) ?? "";
 
@@ -209,13 +210,20 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
           renderedSource = renderSourceValue(source);
         }
 
-        segments.push(<span class="content-meta-source">Source: {renderedSource}</span>);
+        sourceElement = (
+          <div class="content-meta-source-line">
+            Source: {renderedSource}
+          </div>
+        );
       }
 
       return (
-        <p show-comma={options.showComma} class={classNames(displayClass, "content-meta")}>
-          {segments}
-        </p>
+        <div class={classNames(displayClass, "content-meta-container")}>
+          <p show-comma={options.showComma} class="content-meta">
+            {segments}
+          </p>
+          {sourceElement}
+        </div>
       );
     } else {
       return null;

@@ -1,5 +1,11 @@
+.content-meta-container {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
 .content-meta {
   margin-top: 0;
+  margin-bottom: 0.2rem;
   color: var(--darkgray);
 
   &[show-comma="true"] {
@@ -11,6 +17,13 @@
       }
     }
   }
+}
+
+.content-meta-source-line {
+  font-size: 0.9em;
+  color: var(--gray);
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
 
   .content-meta-link {
     color: var(--secondary);
@@ -20,10 +33,6 @@
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  .content-meta-source {
-    color: var(--gray);
   }
 
   .content-meta-separator {

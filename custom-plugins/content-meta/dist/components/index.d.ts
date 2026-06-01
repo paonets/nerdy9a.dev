@@ -1,3 +1,3 @@
-export { ContentMeta, ContentMetaOptions } from "../index.js";
-import "@quartz-community/types";
-import "preact";
+export { ContentMeta, ContentMetaOptions } from '../index.js';
+import '@quartz-community/types';
+import 'preact';
