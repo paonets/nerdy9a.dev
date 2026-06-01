@@ -135,7 +135,7 @@ plugins:
     enabled: true
   - source: github:quartz-community/canvas-page
     enabled: true
-  - source: github:quartz-community/content-page
+  - source: ./custom-plugins/content-page
     enabled: true
   - source: github:quartz-community/folder-page
     enabled: true
