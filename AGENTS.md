@@ -4,6 +4,7 @@
 
 - **No Direct Pushing:** You MUST ask the user for explicit permission before running any command that pushes changes to a remote repository (e.g. `git push`).
 - **Branch Strategy:** Do NOT merge changes directly into `v5`. Always open a Pull Request (PR) and get user approval before merging into the `v5` branch.
+- **Customized Plugins Strategy:** All customized Quartz plugins (such as `content-page`, `folder-page`, `content-meta`, `note-properties`) MUST be stored in the `custom-plugins/` directory and referenced in `quartz.config.yaml` using local paths (e.g. `source: ./custom-plugins/plugin-name`). Do NOT edit files inside `.quartz/plugins/` directly, as `.quartz/` is gitignored and your changes will be lost upon deployment.
 - **Vault-to-Quartz Pipeline:** Do NOT write or edit Markdown files directly inside the `content/` directory (except for `index.md` which serves as the homepage). All digital garden notes must be authored in the master Obsidian vault (`WisdomWell`) and published using the sanitization script.
 - **Single Source of Truth:** This file (`AGENTS.md`) is the master instruction set for all AI agents working in this repository. `CLAUDE.md` and `ANTIGRAVITY.md` are symlinked to this file. **Always edit `AGENTS.md` directly** — edits through the symlinks will fail.
 
