@@ -88,7 +88,7 @@
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
-    "vitest": "^2.1.9"
+    "vitest": "^4.1.8"
   },
   "engines": {
     "node": ">=22",
