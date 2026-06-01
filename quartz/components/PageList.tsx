@@ -1,6 +1,6 @@
 import { FullSlug, isFolderPath, resolveRelative } from "../util/path"
 import { QuartzPluginData } from "../plugins/vfile"
-import { Date, getDate } from "./Date"
+import { getDate } from "./Date"
 import { QuartzComponent, QuartzComponentProps } from "./types"
 
 export type SortFn = (f1: QuartzPluginData, f2: QuartzPluginData) => number
@@ -68,11 +68,37 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
       {list.map((page) => {
         const title = page.frontmatter?.title
         const tags = page.frontmatter?.tags ?? []
+        const defaultDate = page.dates ? getDate(page) : undefined
+
+        const createdDate = page.dates?.created
+        const modifiedDate = page.dates?.modified
+
+        const displayCreated = createdDate || defaultDate
+        const createdStr = displayCreated
+          ? displayCreated.toLocaleDateString(cfg.locale ?? "en-US", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+            })
+          : ""
+        const modifiedStr = modifiedDate
+          ? modifiedDate.toLocaleDateString(cfg.locale ?? "en-US", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+            })
+          : ""
+
+        const showModified = modifiedStr && createdStr && modifiedStr !== createdStr
 
         return (
           <li class="section-li">
             <div class="section">
-              <p class="meta">{page.dates && <Date date={getDate(page)!} locale={cfg.locale} />}</p>
+              <p class="meta created">
+                {displayCreated && (
+                  <time dateTime={displayCreated.toISOString()}>{createdStr}</time>
+                )}
+              </p>
               <div class="desc">
                 <h3>
                   <a
@@ -83,6 +109,13 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
                   </a>
                 </h3>
               </div>
+              <p class="meta modified">
+                {showModified && modifiedDate && (
+                  <span>
+                    Updated <time dateTime={modifiedDate.toISOString()}>{modifiedStr}</time>
+                  </span>
+                )}
+              </p>
               <ul class="tags">
                 {tags.map((tag) => (
                   <li>
