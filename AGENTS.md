@@ -61,6 +61,18 @@ npm run check
 npm run format
 ```
 
+### 🔀 Creating a Pull Request
+
+Always create a feature branch, commit your changes, and open a Pull Request when modifying code or configuration files. Because this repository is a fork, ensure GitHub CLI (`gh`) is configured to target your repository by default:
+
+```bash
+# Set the default repository for gh command line
+gh repo set-default paonets/nerdy9a.dev
+
+# Create a PR targeting v5
+gh pr create --title "Your PR Title" --body "Your PR Description" --base v5 --head your-feature-branch
+```
+
 ---
 
 ## Sync Workflow (From Obsidian Vault)
