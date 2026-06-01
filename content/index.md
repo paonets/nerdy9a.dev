@@ -32,6 +32,7 @@ updated: 2026-06-01 19:44
 
   <div class="welcome-connect">
     <span>🔗 Connect:</span>
+    <a href="https://github.com/paonets" target="_blank" rel="noopener">🐱 GitHub</a>
     <a href="https://www.linkedin.com/in/pongsakorn-teeraparpwong/" target="_blank" rel="noopener">💼 LinkedIn</a>
     <a href="https://www.youtube.com/@nerdy9a" target="_blank" rel="noopener">▶️ YouTube</a>
   </div>
@@ -108,5 +109,3 @@ Instead of structured, polished blog posts, a **[[Digital Garden|digital garden]
 
 > [!NOTE]
 > **AI-Assisted Curation:** This garden is mostly written by AI agents or co-written/polished by AI based on my notes, learnings, and experiences.
-
-_This site is built with [Quartz 5](https://quartz.jzhao.xyz/) and hosted on Cloudflare Pages. Feedbacks are always welcome._

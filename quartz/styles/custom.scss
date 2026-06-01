@@ -669,3 +669,17 @@ a.internal.tag-link {
 .search > .search-container > .search-space > input {
   border-radius: 16px !important;
 }
+
+// Polish callout styling globally to match the premium rounded theme
+.callout {
+  border-radius: 14px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+
+  // Customize standard Note callouts to use the site's green accent color instead of blue
+  &[data-callout],
+  &[data-callout="note"] {
+    --color: var(--secondary) !important;
+    --border: color-mix(in srgb, var(--secondary) 25%, transparent) !important;
+    --bg: color-mix(in srgb, var(--secondary) 6%, transparent) !important;
+  }
+}

@@ -206,7 +206,16 @@ plugins:
     enabled: false
     options:
       provider: giscus
-      options: {}
+      options:
+        repo: paonets/nerdy9a.dev
+        repoId: "PASTE_YOUR_REPO_ID_HERE"
+        category: Announcements
+        categoryId: "PASTE_YOUR_CATEGORY_ID_HERE"
+        theme: preferred_color_scheme
+        mapping: pathname
+        strict: false
+        reactionsEnabled: true
+        inputPosition: bottom
     layout:
       position: afterBody
       priority: 10
@@ -214,8 +223,8 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/paonets
+        Website Source: https://github.com/paonets/nerdy9a.dev
   - source: github:quartz-community/recent-notes
     enabled: false
   - source: github:quartz-community/spacer
