@@ -8,7 +8,7 @@ publish: true
 unlisted: true
 ---
 > [!NOTE]
-> บทความนี้ได้รับการแปลโดย AI จากต้นฉบับภาษาไทย: [[Mental Healthspan|อ่านภาษาไทย]]
+> 🇬🇧 English (AI-translated). Original in Thai: [[Mental Healthspan|🇹🇭 อ่านภาษาไทย]]
 
 # Mental Healthspan
 

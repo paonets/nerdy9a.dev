@@ -5,7 +5,7 @@ tags: [health, mental-health, wellness, conference, techsauce-2026]
 publish: true
 ---
 > [!NOTE]
-> Read the English version (AI-translated) of this article here: [[Mental Healthspan - EN|Read in English]]
+> 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Mental Healthspan - EN|🇬🇧 Read in English]]
 
 
 

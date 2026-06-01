@@ -12,7 +12,7 @@ tags:
 publish: true
 ---
 > [!NOTE]
-> Read the English version (AI-translated) of this article here: [[Medicine in the Near-AGI World - EN|Read in English]]
+> 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Medicine in the Near-AGI World - EN|🇬🇧 Read in English]]
 
 
 

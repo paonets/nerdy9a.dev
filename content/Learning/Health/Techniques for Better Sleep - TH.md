@@ -8,7 +8,7 @@ publish: true
 unlisted: true
 ---
 > [!NOTE]
-> บทความนี้ได้รับการแปลโดย AI จากต้นฉบับภาษาอังกฤษ: [[Techniques for Better Sleep|Read in English]]
+> 🇹🇭 ภาษาไทย (แปลโดย AI). ต้นฉบับ: [[Techniques for Better Sleep|🇬🇧 English]]
 
 # เทคนิคเพื่อการนอนหลับที่ดีขึ้น
 

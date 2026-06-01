@@ -8,7 +8,7 @@ publish: true
 unlisted: true
 ---
 > [!NOTE]
-> บทความนี้ได้รับการแปลโดย AI จากต้นฉบับภาษาไทย: [[Measuring Healthspan|อ่านภาษาไทย]]
+> 🇬🇧 English (AI-translated). Original in Thai: [[Measuring Healthspan|🇹🇭 อ่านภาษาไทย]]
 
 # Measuring Healthspan
 

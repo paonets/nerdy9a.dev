@@ -11,7 +11,7 @@ tags:
 publish: true
 ---
 > [!NOTE]
-> Read the English version (AI-translated) of this article here: [[Causes of Illness and Death in Thailand - EN|Read in English]]
+> 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Causes of Illness and Death in Thailand - EN|🇬🇧 Read in English]]
 
 
 

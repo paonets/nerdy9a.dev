@@ -5,7 +5,7 @@ tags: [health, biomarkers, diagnostics, longevity, conference, techsauce-2026]
 publish: true
 ---
 > [!NOTE]
-> Read the English version (AI-translated) of this article here: [[Measuring Healthspan - EN|Read in English]]
+> 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Measuring Healthspan - EN|🇬🇧 Read in English]]
 
 
 

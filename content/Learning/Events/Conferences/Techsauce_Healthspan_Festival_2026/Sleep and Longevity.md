@@ -5,7 +5,7 @@ tags: [health, sleep, longevity, conference, techsauce-2026]
 publish: true
 ---
 > [!NOTE]
-> อ่านเวอร์ชันภาษาไทย (แปลโดย AI) ได้ที่นี่: [[Sleep and Longevity - TH|อ่านภาษาไทย]]
+> 🇬🇧 English (Original). Thai version (AI-translated): [[Sleep and Longevity - TH|🇹🇭 อ่านภาษาไทย]]
 
 
 

@@ -13,7 +13,7 @@ publish: true
 unlisted: true
 ---
 > [!NOTE]
-> บทความนี้ได้รับการแปลโดย AI จากต้นฉบับภาษาไทย: [[Medicine in the Near-AGI World|อ่านภาษาไทย]]
+> 🇬🇧 English (AI-translated). Original in Thai: [[Medicine in the Near-AGI World|🇹🇭 อ่านภาษาไทย]]
 
 # Medicine in the Near-AGI World
 

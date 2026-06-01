@@ -8,7 +8,7 @@ publish: true
 unlisted: true
 ---
 > [!NOTE]
-> บทความนี้ได้รับการแปลโดย AI จากต้นฉบับภาษาอังกฤษ: [[Sleep and Longevity|Read in English]]
+> 🇹🇭 ภาษาไทย (แปลโดย AI). ต้นฉบับ: [[Sleep and Longevity|🇬🇧 English]]
 
 # การนอนหลับและอายุขัยที่ยืนยาว (Sleep & Longevity)
 

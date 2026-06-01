@@ -5,7 +5,7 @@ tags: [habits, health, sleep, synthesis]
 publish: true
 ---
 > [!NOTE]
-> อ่านเวอร์ชันภาษาไทย (แปลโดย AI) ได้ที่นี่: [[Techniques for Better Sleep - TH|อ่านภาษาไทย]]
+> 🇬🇧 English (Original). Thai version (AI-translated): [[Techniques for Better Sleep - TH|🇹🇭 อ่านภาษาไทย]]
 
 
 
