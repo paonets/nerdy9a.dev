@@ -1,7 +1,14 @@
 ---
+title: การแพทย์ในโลกยุคใกล้ AGI
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:26
-tags: [health, ai, medicine, agi, conference, techsauce-2026]
+updated: 2026-06-01 19:50
+tags:
+  - health
+  - ai
+  - medicine
+  - agi
+  - conference
+  - techsauce-2026
 publish: true
 unlisted: true
 ---
@@ -9,7 +16,7 @@ unlisted: true
 > [!NOTE]
 > Read the English version of this article here: [[Medicine in the Near-AGI World|Read in English]]
 
-# Medicine in the Near-AGI World
+# การแพทย์ในโลกยุคใกล้ AGI
 
 **Speaker:** นพ.ปิยะฤทธิ์ อิทธิชัยวงศ์ (Dr. Piyarit Ittichaiwong)  
 _แพทย์ประจำศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล_  

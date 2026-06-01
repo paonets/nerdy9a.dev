@@ -227,7 +227,6 @@ body[data-slug="index"] {
   }
 }
 
-
 // Language tab toggle inside the welcome message
 .lang-tabs {
   display: flex;
@@ -266,14 +265,19 @@ body[data-slug="index"] {
 }
 
 @keyframes langFadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .lang-fade-in {
   animation: langFadeIn 0.22s ease forwards;
 }
-
 
 // Interactive connection chips under the welcome message
 .welcome-connect {

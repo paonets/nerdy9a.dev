@@ -1,8 +1,8 @@
 ---
-title: 🌳 nerdy9a garden
+title: nerdy9a garden 🌳
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-01 17:57
+updated: 2026-06-01 19:44
 ---
 
 <div class="homepage-logo-container">

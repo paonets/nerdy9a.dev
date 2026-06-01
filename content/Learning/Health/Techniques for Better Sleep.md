@@ -1,9 +1,12 @@
 ---
 created: 2026-05-27 21:45
-updated: 2026-06-01 15:52
+updated: 2026-06-01 19:49
 tags: [habits, health, sleep, synthesis]
 publish: true
 ---
+
+> [!NOTE]
+> อ่านสรุปบทความนี้ในภาษาไทยได้ที่นี่: [[Techniques for Better Sleep - TH|อ่านภาษาไทย]]
 
 # Techniques for Better Sleep
 

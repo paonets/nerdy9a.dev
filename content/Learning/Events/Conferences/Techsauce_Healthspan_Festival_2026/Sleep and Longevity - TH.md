@@ -1,5 +1,5 @@
 ---
-title: "Sleep and Longevity (ภาษาไทย)"
+title: "การนอนหลับและอายุขัย"
 
 created: 2026-06-01 15:48
 updated: 2026-06-01 16:29

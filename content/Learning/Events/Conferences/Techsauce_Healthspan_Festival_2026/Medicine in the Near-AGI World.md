@@ -1,9 +1,14 @@
 ---
-title: "การแพทย์ในโลกยุคใกล้ AGI"
-
+title: Medicine in the Near-AGI World
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:26
-tags: [health, ai, medicine, agi, conference, techsauce-2026]
+updated: 2026-06-01 19:50
+tags:
+  - health
+  - ai
+  - medicine
+  - agi
+  - conference
+  - techsauce-2026
 publish: true
 ---
 
@@ -20,14 +25,14 @@ _Physician, Siriraj Data Innovation Center (SiData+), Faculty of Medicine Sirira
 
 ### AI is Approaching Human-Level and AGI
 
-- AI currently possesses human-like capabilities in digital roles, particularly in white-collar jobs which could decrease by 10% in 2-3 years.
-- AGI (Artificial General Intelligence) may arrive this year or next, according to predictions by Dario (CEO of Anthropic) and Chinese experts.
-- Frontier AI models are evolving from "tools" to "co-workers" that can actively assist in work.
+- AI currently has capabilities close to humans in digital roles, particularly white-collar jobs which could see a 10% reduction in 2-3 years.
+- AGI (Artificial General Intelligence) may arrive this year or next, as predicted by Dario (CEO of Anthropic) and Chinese experts.
+- Frontier AI models are evolving from "tools" to "co-workers" that can actively assist in real work.
 
 ### AI Capabilities in Medicine
 
 - GPT-4o scored 86% in MedQA (an exam similar to USMLE), placing in the 98th-99th percentile.
-- However, on a "real-world" benchmark like HelmetChart, the older GPT-4o model scored only 0%, whereas o3 scored 31.6% and GPT-5 scored 46.2% (physicians average around 40%).
+- However, on a "real-world" benchmark like HelmetChart, the older GPT-4o model scored 0%, whereas o3 scored 31.6% and GPT-5 scored 46.2% (physicians average around 40%).
 - GPT-5.2-5.4 can outperform specialists (radiologists, specialists) in several tasks, indicating that these models perform at least as well as general practitioners today.
 
 ### Model Development and Costs

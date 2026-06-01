@@ -72,6 +72,11 @@ To pull updates from your Obsidian vault and sync them to this Quartz repo:
    ```bash
    python3 Scripts/publish.py
    ```
+   **Note on Translation Workflow:** When asked to translate/publish notes, use the internal LLM translation workflow to avoid interactive CLI deadlocks:
+   - Run `python3 Scripts/pre_translate.py` to identify missing translations.
+   - Translate the items inside `Scripts/.missing_translations.json` and write a JSON dict mapping `{ "key": "translated_text" }` to `Scripts/.translated_import.json` (ensuring both titles and body text are translated cleanly into the target language without adding suffixes like `(ภาษาไทย)`).
+   - Run `python3 Scripts/pre_translate.py --import-file Scripts/.translated_import.json` to merge into the cache.
+   - Run `python3 Scripts/publish.py` to compile and publish to the garden.
 3. Run the development server in this repository to preview changes.
 4. Stage, commit, and push your changes to GitHub to trigger the Cloudflare Pages deploy runner.
 
@@ -85,3 +90,35 @@ The main content page rendering component [ContentBody.tsx](file:///Users/pongsa
 
 - If any published note (such as those under `content/Categories/` like `content/Categories/Tech.md`) specifies `filter_tags: ["tag1", "tag2"]` in its frontmatter, it will automatically render the note's text followed by a dynamic list of all notes in the garden matching _any_ of those tags (including sub-segments of nested tags).
 - This allows category indexing to be completely decoupled from physical directory structures.
+
+---
+
+## Design, Theme & Styling Direction
+
+The website is designed with a **cute, warm chibi avatar theme** combined with a clean, professional typography and layout system.
+
+### 🎨 Color Palette & Typography
+
+- **Light Mode Background:** `#faf9f6` (Warm ivory/cream)
+- **Dark Mode Background:** `#141615` (Charcoal / soft near-black)
+- **Primary Accent / Secondary Color:** `#10b981` (emerald green in Light Mode) / `#34d399` (in Dark Mode)
+- **Secondary Accent / Tertiary Color:** `#f43f5e` (rose pink in Light Mode) / `#fb7185` (in Dark Mode)
+- **Fonts:**
+  - _Title & Code:_ `JetBrains Mono`
+  - _Headers:_ `Plus Jakarta Sans`
+  - _Body Text:_ `Inter`
+
+### 🖼️ Logo & Avatar Guidelines
+
+All avatars are hand-drawn vector chibi illustrations using clean dark brown outlines, simple flat colors, and soft lighting/shading.
+
+- **Main Logo (`quartz/static/garden_logo.png`):** Features the chibi boy avatar holding a small green tree seedling with both hands. The background color is a solid `#faf9f6` color block matching the website background perfectly to ensure it blends seamlessly with the page layout.
+- **Backup Logo (`quartz/static/garden_logo_no_object.png`):** The same chibi boy avatar, but holding nothing (hands folded/resting in front).
+- **Favicon (`quartz/static/icon.png`):** A close-up crop of the chibi boy's head with a **transparent background** to render cleanly on browser tabs.
+
+### 💅 Key Styling Elements (`quartz/styles/custom.scss`)
+
+- **Homepage Logo Card:** Uses `.homepage-logo` with `border-radius: 32px`, a soft shadow, and a smooth hover-scale transition (`scale(1.04)`).
+- **Interactive Welcome Section:** Styled as a glassmorphic gradient container (`.welcome-message`) featuring a custom language switcher (`.lang-tab`), interactive contact chips (`.welcome-connect`), and custom hand-drawn highlighter effects (`.highlight-link`) for key links.
+- **Category Navigation Cards:** Styled as `.content-card` grid components with clean border-radius, soft shadows, and dynamic green borders on hover.
+- **Table Formatting:** Markdown tables (`.table-container`) are styled with horizontal borders, custom green hover states, and standard minimal padding to support detailed/wide data layout.
