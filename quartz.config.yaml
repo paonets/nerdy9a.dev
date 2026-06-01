@@ -137,7 +137,7 @@ plugins:
     enabled: true
   - source: ./custom-plugins/content-page
     enabled: true
-  - source: github:quartz-community/folder-page
+  - source: ./custom-plugins/folder-page
     enabled: true
   - source: github:quartz-community/tag-page
     enabled: true
