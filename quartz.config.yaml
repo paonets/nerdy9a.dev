@@ -229,15 +229,13 @@ plugins:
     enabled: true
     options: {}
     order: 50
-  - source: github:quartz-community/note-properties
+  - source: ./custom-plugins/note-properties
     enabled: true
     options:
-      includeAll: false
       includedProperties:
         - description
         - tags
         - aliases
-        - source
       excludedProperties: []
       hidePropertiesView: false
       delimiters: ---
