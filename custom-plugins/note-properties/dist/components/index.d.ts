@@ -1,7 +1,7 @@
-import { QuartzComponent } from '@quartz-community/types';
+import { QuartzComponent } from "@quartz-community/types";
 
 interface NotePropertiesComponentOptions {
-    collapsed?: boolean;
+  collapsed?: boolean;
 }
 declare const _default: (opts?: NotePropertiesComponentOptions) => QuartzComponent;
 
