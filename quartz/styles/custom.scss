@@ -205,7 +205,7 @@ body[data-slug="index"] {
 .welcome-message {
   background: linear-gradient(135deg, rgba(52, 211, 153, 0.05) 0%, rgba(13, 148, 136, 0.05) 100%);
   border-left: 5px solid var(--secondary);
-  padding: 1.75rem 2rem;
+  padding: 2.25rem 2.5rem;
   margin: 2.5rem 0;
   border-radius: 14px;
   font-size: 1.05rem;
@@ -227,26 +227,53 @@ body[data-slug="index"] {
   }
 }
 
-// Language divider between EN and TH sections inside the welcome message
-.welcome-lang-divider {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 1.25rem 0 1rem;
-  color: var(--gray);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  opacity: 0.75;
 
-  &::before,
-  &::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--lightgray);
+// Language tab toggle inside the welcome message
+.lang-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.lang-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid color-mix(in srgb, var(--gray) 35%, transparent);
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--bodyFont);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    background: color-mix(in srgb, var(--secondary) 8%, transparent);
+  }
+
+  &.active {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #fff;
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--secondary) 30%, transparent);
   }
 }
+
+@keyframes langFadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.lang-fade-in {
+  animation: langFadeIn 0.22s ease forwards;
+}
+
 
 // Interactive connection chips under the welcome message
 .welcome-connect {

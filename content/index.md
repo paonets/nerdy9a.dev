@@ -2,7 +2,7 @@
 title: 🌳 nerdy9a garden
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-01 17:40
+updated: 2026-06-01 17:57
 ---
 
 <div class="homepage-logo-container">
@@ -10,18 +10,25 @@ updated: 2026-06-01 17:40
   <h1 class="homepage-title">nerdy9a <span class="accent">garden</span></h1>
 </div>
 
-<h2 class="page-subtitle">Systems, startups, wellbeing, & travel in the AI era.</h2>
+<h2 class="page-subtitle">Thinking in systems. Building startups. Living with intention. Exploring the world.</h2>
 
 <div class="welcome-message">
-  <p>Hi, I'm <strong>Pongsakorn Teeraparpwong (A)</strong>. I'm a software engineer and entrepreneur, currently co-founding 
-    <span class="highlight-link"><a href="https://www.hatohub.com" target="_blank" rel="noopener">Hato Hub</a></span>. 
-    Previously, I designed distributed systems as a Senior SDE at Amazon in Seattle and earned my MS in Computer Science at UCSD.</p>
-  <p>This digital garden is a window to my personal <span class="highlight-link"><strong>Second Brain</strong></span>—an evolving space where I cultivate raw ideas into evergreen knowledge. Inside, you'll find an interconnected web of technical insights, startup frameworks, and reflections on intentional living. I hope something here inspires your own journey.</p>
+  <div class="lang-tabs" id="lang-tabs">
+    <button class="lang-tab active" id="tab-en" onclick="switchLang('en')" aria-label="English">🇬🇧 EN</button>
+    <button class="lang-tab" id="tab-th" onclick="switchLang('th')" aria-label="ภาษาไทย">🇹🇭 TH</button>
+  </div>
 
-  <div class="welcome-lang-divider"><span>🇹🇭 ภาษาไทย</span></div>
+  <div class="lang-panel" id="panel-en">
+    <p>Hi, I'm <strong>Pongsakorn Teeraparpwong (A)</strong>. I'm a software engineer and entrepreneur, currently co-founding
+      <span class="highlight-link"><a href="https://www.hatohub.com" target="_blank" rel="noopener">Hato Hub</a></span>.
+      Previously, I designed distributed systems as a Senior SDE at Amazon in Seattle and earned my MS in Computer Science at UCSD.</p>
+    <p>This digital garden is a window to my personal <span class="highlight-link"><strong>Second Brain</strong></span>—an evolving space where I cultivate raw ideas into evergreen knowledge. Inside, you'll find technical insights, startup frameworks, and reflections on intentional living. I hope something here inspires your own journey.</p>
+  </div>
 
-  <p>สวัสดีครับ ยินดีต้อนรับสู่ nerdy9a garden 🌳 เว็บนี้เป็นพื้นที่แชร์ knowledge base ที่ผมสะสมไว้ใน Obsidian ให้ทุกคนครับ โดยใช้คอนเซปต์ของ Digital Garden — คือเป็นพื้นที่บ่มเพาะไอเดียและโน้ตต่างๆ ที่อาจจะยังแค่เริ่มต้น ให้เติบโตขึ้นเรื่อยๆ ครับ ในนี้จะมีเรื่องเกี่ยวกับ Engineering, Dev, Startup, สุขภาพกายและใจ รวมถึงเรื่องท่องเที่ยว โดยเฉพาะญี่ปุ่น หวังว่าเว็บนี้จะให้ประโยชน์หรือเป็นแรงบันดาลใจให้ทุกคนไม่มากก็น้อยนะครับ</p>
-  <p>คอนเทนต์ส่วนใหญ่จะเป็นภาษาอังกฤษ แต่มีบางหน้าที่มีภาษาไทยด้วยครับ 😊</p>
+  <div class="lang-panel" id="panel-th" style="display:none;">
+    <p>สวัสดีครับ ยินดีต้อนรับสู่ nerdy9a garden 🌳 เว็บนี้เป็นพื้นที่แชร์ knowledge base ที่ผมสะสมไว้ใน Obsidian ให้ทุกคนครับ โดยใช้คอนเซปต์ของ Digital Garden — คือเป็นพื้นที่บ่มเพาะไอเดียและโน้ตต่างๆ ที่อาจจะยังแค่เริ่มต้น ให้เติบโตขึ้นเรื่อยๆ ครับ ในนี้จะมีเรื่องเกี่ยวกับ Engineering, Dev, Startup, สุขภาพกายและใจ รวมถึงเรื่องท่องเที่ยว โดยเฉพาะญี่ปุ่น หวังว่าเว็บนี้จะให้ประโยชน์หรือเป็นแรงบันดาลใจให้ทุกคนไม่มากก็น้อยนะครับ</p>
+    <p>คอนเทนต์ส่วนใหญ่จะเป็นภาษาอังกฤษ แต่มีบางหน้าที่มีภาษาไทยด้วยครับ 😊</p>
+  </div>
 
   <div class="welcome-connect">
     <span>🔗 Connect:</span>
@@ -29,6 +36,30 @@ updated: 2026-06-01 17:40
     <a href="https://www.youtube.com/@nerdy9a" target="_blank" rel="noopener">▶️ YouTube</a>
   </div>
 </div>
+
+<script>
+function switchLang(lang) {
+  var panels = document.querySelectorAll('.lang-panel');
+  var tabs = document.querySelectorAll('.lang-tab');
+  panels.forEach(function(p) {
+    if (p.id === 'panel-' + lang) {
+      p.style.display = '';
+      p.classList.add('lang-fade-in');
+    } else {
+      p.style.display = 'none';
+      p.classList.remove('lang-fade-in');
+    }
+  });
+  tabs.forEach(function(t) {
+    t.classList.toggle('active', t.id === 'tab-' + lang);
+  });
+}
+(function() {
+  var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  var isThai = lang.startsWith('th');
+  switchLang(isThai ? 'th' : 'en');
+})();
+</script>
 
 <div class="content-grid">
   <div class="content-card">
