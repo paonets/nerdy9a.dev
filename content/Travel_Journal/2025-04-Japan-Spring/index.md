@@ -4,7 +4,6 @@ publish: true
 tags:
   - travel
   - japan
-  - travel-journal
 cover: https://media.nerdy9a.dev/travel/japan-spring-2025/DSC02710.jpg
 created: 2026-06-02 07:18
 updated: 2026-06-02 18:06

@@ -2,13 +2,14 @@
 title: Travel & Japan
 publish: true
 filter_tags: ["travel", "japan", "itinerary"]
+exclude_tags: ["travel-journal", "places"]
 topics:
   - name: "🇯🇵 Japan Travel & Logs"
     tags: ["japan"]
   - name: "🗺️ General Travel & Planning"
     tags: ["travel", "itinerary"]
 created: 2026-05-31 21:18
-updated: 2026-06-01 10:14
+updated: 2026-06-02 18:30
 ---
 
 
