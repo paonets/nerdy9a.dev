@@ -11,4 +11,5 @@ created: 2026-05-31 21:18
 updated: 2026-06-01 10:14
 ---
 
+
 Welcome to the Travel hub. This section captures itineraries, logistics, and planning for travel, with a special focus on traveling in Japan.

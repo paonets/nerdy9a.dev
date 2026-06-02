@@ -671,7 +671,7 @@ a.internal.tag-link {
 }
 
 // Polish callout styling globally to match the premium rounded theme
-.callout {
+.callout:not([data-callout="photo-grid"]):not([data-callout="photo-columns"]) {
   border-radius: 14px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 
@@ -682,4 +682,398 @@ a.internal.tag-link {
     --border: color-mix(in srgb, var(--secondary) 25%, transparent) !important;
     --bg: color-mix(in srgb, var(--secondary) 6%, transparent) !important;
   }
+}
+
+// ==========================================
+// ✈️ PHOTO-FOCUSED TRAVEL JOURNAL STYLING
+// ==========================================
+
+// 1. Hero Cover Banner (Inline Flow)
+.page-cover-banner {
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+
+  @media all and ($mobile) {
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+  }
+
+  // Gradient scrim + title overlay
+  .page-cover-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 1.75rem 1.5rem;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.1) 20%,
+      rgba(0, 0, 0, 0.45) 55%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    @media all and ($mobile) {
+      padding: 1.5rem 1.25rem 1rem;
+    }
+  }
+
+  .page-cover-title {
+    margin: 0;
+    padding: 0;
+    font-family: var(--headerFont);
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.35);
+
+    @media all and ($mobile) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .page-cover-date {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+}
+
+// When a cover is present, title & meta are in the overlay — hide the beforeBody duplicates
+.center:has(.popover-hint.has-cover) {
+  .page-header {
+    .article-title {
+      display: none !important;
+    }
+    .content-meta {
+      display: none !important;
+    }
+  }
+}
+
+// 2. Photo Layout Styles: Grids, Columns, Standalone & Captions
+
+// General Standalone Image & Caption layout
+p {
+  // If paragraph only contains a single image (and optionally an em caption)
+  &:has(> img:only-of-type) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+
+    img {
+      max-width: 100%;
+      max-height: 550px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0 !important;
+    }
+
+    em {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.75rem;
+      font-style: normal;
+      transform: none !important; // Disable translateY default shift
+    }
+  }
+}
+
+// Override general image caption shift just in case
+p > img + em {
+  transform: none !important;
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 0.75rem;
+  font-style: normal;
+}
+
+// Standalone italic-only paragraph = caption (e.g. placed after a photo-grid)
+p:has(> em:only-child) {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-style: normal;
+  margin-top: 0.5rem;
+
+  em {
+    font-style: normal;
+  }
+}
+
+// Photo Grid / Gallery Callout Block (Upgraded: dynamic sizing and layout)
+.callout[data-callout="photo-grid"] {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin: 2rem 0;
+
+  & > .callout-title {
+    display: none !important;
+  }
+
+  & > .callout-content {
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    @media all and ($mobile) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    // Support single and multiple paragraph groupings
+    p {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      &:has(img + img) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 450px;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0 !important;
+    }
+
+    em {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      transform: none !important;
+      font-style: normal;
+    }
+  }
+}
+
+// Photo Columns Callout Block (Side-by-side vertical or landscape columns)
+.callout[data-callout="photo-columns"] {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin: 2rem 0;
+
+  & > .callout-title {
+    display: none !important;
+  }
+
+  & > .callout-content {
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @media all and ($mobile) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    // Support both multi-paragraph (with empty lines) and single-paragraph groups
+    p {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      &:has(img + img) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0 0 0.5rem 0 !important;
+    }
+
+    em {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+      transform: none !important;
+      font-style: normal;
+    }
+  }
+}
+
+// 3. Unified Listing Cards
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.trip-card {
+  border: 1px solid var(--lightgray);
+  border-radius: 14px;
+  background-color: var(--light);
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--secondary);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+
+    .trip-card-cover img {
+      transform: scale(1.04);
+    }
+  }
+
+  .trip-card-link-wrapper {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .trip-card-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--lightgray);
+    border-bottom: 1px solid var(--lightgray);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  .trip-card-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .meta {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin: 0 0 0.5rem 0;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-family: var(--headerFont);
+      font-size: 1.15rem;
+      margin: 0 0 0.5rem 0;
+      color: var(--dark);
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      color: var(--darkgray);
+      margin: 0 0 1rem 0;
+      line-height: 1.45;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      list-style: none;
+      padding: 0;
+      margin: auto 0 0 0;
+
+      li {
+        padding: 0;
+        margin: 0;
+
+        &::before {
+          content: none !important;
+        }
+      }
+
+      .tag-badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gray);
+        background-color: var(--lightgray);
+        padding: 0.15rem 0.5rem;
+        border-radius: 8px;
+        text-transform: lowercase;
+      }
+    }
+  }
+}
+
+// Prevent double titles on notes (since Quartz already renders ArticleTitle)
+.markdown-rendered > h1:first-child {
+  display: none !important;
 }

@@ -16,12 +16,10 @@ updated: 2026-06-02 08:44
 Coastal hot spring town in Wakayama, serving as the perfect base for exploring the Kumano Kodo pilgrimage routes.
 
 ## 🗺️ Trips & Logs
-
 - [[Travel_Journal/2025-04-Japan-Spring/Kii-Katsuura|Japan Spring 2025 Journal: Kii Katsuura Coastal Base]]
 - [[Travel_Journal/2025-04-Japan-Spring/Kumano-Nachi-Taisha|Japan Spring 2025 Journal: Kumano Nachi Taisha]]
 - [[Travel_Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha|Japan Spring 2025 Journal: Kumano Hayatama Taisha]]
 - [[Travel_Journal/2025-04-Japan-Spring/Kumano-Hongu-Taisha|Japan Spring 2025 Journal: Kumano Hongu Taisha]]
 
 ## 🏨 Accommodations
-
 - Manseiro Ryokan — Traditional, historical ryokan with boat access to Hotel Urashima's Bokido cave bath.
