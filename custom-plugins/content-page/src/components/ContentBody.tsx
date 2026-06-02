@@ -42,7 +42,12 @@ export default (() => {
       filterTags && Array.isArray(filterTags) && filterTags.length > 0
         ? ((allFiles as PageEntry[]) ?? []).filter((file) => {
             if (file.unlisted === true) return false;
-            if (file.slug?.endsWith("/index") || file.slug === "index") return false;
+            if (file.slug === "index") return false;
+            if (
+              file.slug?.endsWith("/index") &&
+              !file.slug?.toLowerCase().startsWith("travel_journal/")
+            )
+              return false;
             const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
             return filterTags.some((t) => fileTags.includes(t));
           })
