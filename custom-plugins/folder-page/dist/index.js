@@ -2890,7 +2890,7 @@ var FolderContent_default = ((opts) => {
       ] }),
       /* @__PURE__ */ u2("article", { class: classes, children: /* @__PURE__ */ u2("div", { class: "markdown-preview-view markdown-rendered", children: content }) }),
       /* @__PURE__ */ u2("div", { class: "page-listing", children: [
-        options.showFolderCount && !hasAnyCover && /* @__PURE__ */ u2("p", { children: i18n(
+        options.showFolderCount && !hasAnyCover && allPagesInFolder.length > 0 && /* @__PURE__ */ u2("p", { children: i18n(
           cfg?.locale ?? "en-US"
         ).pages.folderContent.itemsUnderFolder({
           count: allPagesInFolder.length

@@ -310,7 +310,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
           <div class="markdown-preview-view markdown-rendered">{content}</div>
         </article>
         <div class="page-listing">
-          {options.showFolderCount && !hasAnyCover && (
+          {options.showFolderCount && !hasAnyCover && allPagesInFolder.length > 0 && (
             <p>
               {i18n(
                 (cfg as { locale?: string } | undefined)?.locale ?? "en-US",
