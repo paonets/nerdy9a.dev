@@ -105,6 +105,17 @@ The main content page rendering component [ContentBody.tsx](file:///Users/pongsa
 - If any published note (such as those under `content/Categories/` like `content/Categories/Tech.md`) specifies `filter_tags: ["tag1", "tag2"]` in its frontmatter, it will automatically render the note's text followed by a dynamic list of all notes in the garden matching _any_ of those tags (including sub-segments of nested tags).
 - This allows category indexing to be completely decoupled from physical directory structures.
 
+### Local Build Speed-up (OG Image Generation Bypass)
+
+To speed up local development and test builds, the custom Open Graph (OG) image generator (`CustomOgImages` emitter) is disabled for all local runs (reducing rebuild times from ~11 seconds to under 1 second).
+
+- **How it works:** In `quartz.ts`, we check if the environment variable `CF_PAGES` is set to `"1"`. If it is not, we filter out the `CustomOgImages` emitter dynamically before building.
+- **Production builds:** Cloudflare Pages automatically injects `CF_PAGES=1` during build runs, so custom OG images are generated during standard deployments without requiring any manual settings.
+- **Testing OG image generation locally:** If you need to test or build the custom OG images locally, run the build with the environment variable set:
+  ```bash
+  CF_PAGES=1 npx quartz build
+  ```
+
 ---
 
 ## Design, Theme & Styling Direction
