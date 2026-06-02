@@ -213,6 +213,10 @@ body[data-slug="index"] {
       line-height: 1.4;
       max-width: 700px;
 
+      a[role="anchor"] {
+        display: none;
+      }
+
       @media all and ($mobile) {
         margin-bottom: 1.25rem;
 
