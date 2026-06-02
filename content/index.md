@@ -10,7 +10,7 @@ updated: 2026-06-02 00:00
   <h1 class="homepage-title">nerdy9a <span class="accent">garden</span></h1>
 </div>
 
-<h2 class="page-subtitle">Thinking in systems. Living with intention. Exploring the world.</h2>
+<h2 class="page-subtitle"><span>Thinking in systems.</span> <span>Living with intention.</span> <span>Exploring the world.</span></h2>
 
 <div class="welcome-message">
   <div class="lang-tabs" id="lang-tabs">

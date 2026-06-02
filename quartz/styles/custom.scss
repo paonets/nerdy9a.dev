@@ -212,6 +212,12 @@ body[data-slug="index"] {
       color: var(--gray);
       line-height: 1.4;
       max-width: 700px;
+
+      @media all and ($mobile) {
+        span {
+          display: block;
+        }
+      }
     }
   }
 }
