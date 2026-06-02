@@ -664,6 +664,58 @@ body[data-slug="index"] {
   }
 }
 
+@media #{$mobile} {
+  .table-container {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 1rem 0;
+    overflow-x: visible;
+
+    & > table {
+      thead {
+        display: none;
+      }
+
+      tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--lightgray);
+        border-radius: 8px;
+        padding: 0.75rem 1rem !important;
+        margin-bottom: 0.6rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      td {
+        display: block;
+        min-width: unset !important;
+        padding: 0.15rem 0 !important;
+        border-bottom: none !important;
+
+        &:first-child {
+          min-width: unset !important;
+          font-weight: 600;
+          font-size: 0.8rem;
+          color: var(--gray);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 0.2rem;
+        }
+
+        &:last-child {
+          margin-top: 0.4rem;
+          padding-top: 0.5rem !important;
+          border-top: 1px solid var(--lightgray) !important;
+        }
+      }
+    }
+  }
+}
+
 // Global custom rules to align with cute warm chibi theme
 a.internal.tag-link {
   background-color: var(--lightgray) !important;
