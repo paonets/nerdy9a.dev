@@ -1,6 +1,7 @@
 ---
 title: "Ise Sacred Shrines"
 publish: true
+unlisted: true
 tags:
   - travel
   - japan
