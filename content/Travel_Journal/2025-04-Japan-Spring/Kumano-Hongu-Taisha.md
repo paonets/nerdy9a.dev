@@ -1,13 +1,12 @@
 ---
-title: "Kumano Hongu Taisha & Kumano Kodo"
+title: Kumano Hongu Taisha & Kumano Kodo
 publish: true
-unlisted: true
 tags:
   - travel
   - japan
   - travel-journal
 created: 2026-06-02 07:18
-updated: 2026-06-02 08:35
+updated: 2026-06-02 22:27
 ---
 
 

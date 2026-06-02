@@ -1,14 +1,13 @@
 ---
-title: "Kii Katsuura"
+title: Kii Katsuura
 publish: true
-unlisted: true
 tags:
   - travel
   - japan
   - places
   - kii-katsuura
 created: 2026-06-02 08:35
-updated: 2026-06-02 08:44
+updated: 2026-06-02 22:27
 ---
 
 # Kii Katsuura

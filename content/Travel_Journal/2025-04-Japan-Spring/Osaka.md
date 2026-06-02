@@ -1,7 +1,6 @@
 ---
 title: Osaka City & Sights
 publish: true
-unlisted: true
 tags:
   - travel
   - japan
