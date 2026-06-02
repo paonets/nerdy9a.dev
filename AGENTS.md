@@ -136,3 +136,13 @@ All avatars are hand-drawn vector chibi illustrations using clean dark brown out
 - **Interactive Welcome Section:** Styled as a glassmorphic gradient container (`.welcome-message`) featuring a custom language switcher (`.lang-tab`), interactive contact chips (`.welcome-connect`), and custom hand-drawn highlighter effects (`.highlight-link`) for key links.
 - **Category Navigation Cards:** Styled as `.content-card` grid components with clean border-radius, soft shadows, and dynamic green borders on hover.
 - **Table Formatting:** Markdown tables (`.table-container`) are styled with horizontal borders, custom green hover states, and standard minimal padding to support detailed/wide data layout.
+
+---
+
+## 🗺️ Travel Journal & Place Hubs
+
+The digital garden features a public travel journal located under `content/Travel_Journal/`.
+
+- **Index/Hub Pages:** Main trip pages are named `index.md` inside their trip subfolder (e.g., `content/Travel_Journal/2025-04-Japan-Spring/index.md`).
+- **Sub-pages:** Specific day logs or topic pages (e.g., `Osaka.md`) must be unlisted (`unlisted: true` in the frontmatter) to avoid cluttering the main lists, making them accessible only via the main Hub page.
+- **Geographical Place Hubs:** Central entity nodes for major destinations are stored in `content/Travel_Journal/Places/` (e.g., `Osaka.md`, `Nagoya.md`, `Ise.md`, `Kii-Katsuura.md`). They are marked as `publish: true` and `unlisted: true` so they resolve links without showing up in main listings or search.
