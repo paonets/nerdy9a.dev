@@ -22,6 +22,8 @@ type FrontmatterWithClasses = {
   topics?: Topic[];
   cover?: string;
   description?: string;
+  title?: string;
+  date?: string | Date;
 };
 
 type PageEntry = QuartzPluginData & Record<string, unknown>;
@@ -37,7 +39,8 @@ export default (() => {
 
     const frontmatter = fileData?.frontmatter as FrontmatterWithClasses | undefined;
     const classes = frontmatter?.cssclasses ?? [];
-    const classString = ["popover-hint", ...classes].join(" ");
+    const hasCover = !!frontmatter?.cover;
+    const classString = ["popover-hint", ...classes, ...(hasCover ? ["has-cover"] : [])].join(" ");
 
     const filterTags = frontmatter?.filter_tags;
     const matchingPages =
@@ -261,6 +264,18 @@ export default (() => {
         {frontmatter?.cover && (
           <div class="page-cover-banner">
             <img src={frontmatter.cover} alt={fileData.frontmatter?.title ?? "Cover Image"} />
+            <div class="page-cover-overlay">
+              {frontmatter.title && <h1 class="page-cover-title">{frontmatter.title}</h1>}
+              {frontmatter.date && (
+                <span class="page-cover-date">
+                  {new Date(frontmatter.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </span>
+              )}
+            </div>
           </div>
         )}
         <div class="markdown-preview-view markdown-rendered">{content}</div>

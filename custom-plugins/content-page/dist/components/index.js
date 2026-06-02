@@ -4,38 +4,29 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __commonJS = (cb, mod) =>
-  function __require() {
-    return (
-      mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod),
-      mod.exports
-    );
-  };
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
 var __export = (target, all) => {
-  for (var name2 in all) __defProp(target, name2, { get: all[name2], enumerable: true });
+  for (var name2 in all)
+    __defProp(target, name2, { get: all[name2], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
-  if ((from && typeof from === "object") || typeof from === "function") {
+  if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from))
       if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, {
-          get: () => from[key],
-          enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable,
-        });
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (
-  (target = mod != null ? __create(__getProtoOf(mod)) : {}),
-  __copyProps(
-    // If the importer is in node compatibility mode or this is not an ESM
-    // file that has been converted to a CommonJS file using a Babel-
-    // compatible transform (i.e. "__esModule" has not been set), then set
-    // "default" to the CommonJS "module.exports" for node compatibility.
-    __defProp(target, "default", { value: mod, enumerable: true }),
-    mod,
-  )
-);
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  __defProp(target, "default", { value: mod, enumerable: true }) ,
+  mod
+));
 
 // node_modules/inline-style-parser/cjs/index.js
 var require_cjs = __commonJS({
@@ -70,7 +61,7 @@ var require_cjs = __commonJS({
       }
       function position3() {
         var start2 = { line: lineno, column };
-        return function (node) {
+        return function(node) {
           node.position = new Position(start2);
           whitespace2();
           return node;
@@ -83,13 +74,15 @@ var require_cjs = __commonJS({
       }
       Position.prototype.content = style;
       function error(msg) {
-        var err = new Error(options.source + ":" + lineno + ":" + column + ": " + msg);
+        var err = new Error(
+          options.source + ":" + lineno + ":" + column + ": " + msg
+        );
         err.reason = msg;
         err.filename = options.source;
         err.line = lineno;
         err.column = column;
         err.source = style;
-        if (options.silent);
+        if (options.silent) ;
         else {
           throw err;
         }
@@ -108,7 +101,7 @@ var require_cjs = __commonJS({
       function comments(rules) {
         var c2;
         rules = rules || [];
-        while ((c2 = comment())) {
+        while (c2 = comment()) {
           if (c2 !== false) {
             rules.push(c2);
           }
@@ -119,10 +112,7 @@ var require_cjs = __commonJS({
         var pos = position3();
         if (FORWARD_SLASH != style.charAt(0) || ASTERISK != style.charAt(1)) return;
         var i2 = 2;
-        while (
-          EMPTY_STRING != style.charAt(i2) &&
-          (ASTERISK != style.charAt(i2) || FORWARD_SLASH != style.charAt(i2 + 1))
-        ) {
+        while (EMPTY_STRING != style.charAt(i2) && (ASTERISK != style.charAt(i2) || FORWARD_SLASH != style.charAt(i2 + 1))) {
           ++i2;
         }
         i2 += 2;
@@ -136,7 +126,7 @@ var require_cjs = __commonJS({
         column += 2;
         return pos({
           type: TYPE_COMMENT,
-          comment: str,
+          comment: str
         });
       }
       function declaration() {
@@ -149,7 +139,7 @@ var require_cjs = __commonJS({
         var ret = pos({
           type: TYPE_DECLARATION,
           property: trim(prop[0].replace(COMMENT_REGEX, EMPTY_STRING)),
-          value: val ? trim(val[0].replace(COMMENT_REGEX, EMPTY_STRING)) : EMPTY_STRING,
+          value: val ? trim(val[0].replace(COMMENT_REGEX, EMPTY_STRING)) : EMPTY_STRING
         });
         match(SEMICOLON_REGEX);
         return ret;
@@ -158,7 +148,7 @@ var require_cjs = __commonJS({
         var decls = [];
         comments(decls);
         var decl;
-        while ((decl = declaration())) {
+        while (decl = declaration()) {
           if (decl !== false) {
             decls.push(decl);
             comments(decls);
@@ -173,17 +163,15 @@ var require_cjs = __commonJS({
       return str ? str.replace(TRIM_REGEX, EMPTY_STRING) : EMPTY_STRING;
     }
     module.exports = index2;
-  },
+  }
 });
 
 // node_modules/style-to-object/cjs/index.js
 var require_cjs2 = __commonJS({
   "node_modules/style-to-object/cjs/index.js"(exports) {
-    var __importDefault =
-      (exports && exports.__importDefault) ||
-      function (mod) {
-        return mod && mod.__esModule ? mod : { default: mod };
-      };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.default = StyleToObject;
     var inline_style_parser_1 = __importDefault(require_cjs());
@@ -208,7 +196,7 @@ var require_cjs2 = __commonJS({
       });
       return styleObject;
     }
-  },
+  }
 });
 
 // node_modules/style-to-js/cjs/utilities.js
@@ -221,16 +209,16 @@ var require_utilities = __commonJS({
     var NO_HYPHEN_REGEX = /^[^-]+$/;
     var VENDOR_PREFIX_REGEX = /^-(webkit|moz|ms|o|khtml)-/;
     var MS_VENDOR_PREFIX_REGEX = /^-(ms)-/;
-    var skipCamelCase = function (property) {
+    var skipCamelCase = function(property) {
       return !property || NO_HYPHEN_REGEX.test(property) || CUSTOM_PROPERTY_REGEX.test(property);
     };
-    var capitalize = function (match, character) {
+    var capitalize = function(match, character) {
       return character.toUpperCase();
     };
-    var trimHyphen = function (match, prefix) {
+    var trimHyphen = function(match, prefix) {
       return "".concat(prefix, "-");
     };
-    var camelCase = function (property, options) {
+    var camelCase = function(property, options) {
       if (options === void 0) {
         options = {};
       }
@@ -246,17 +234,15 @@ var require_utilities = __commonJS({
       return property.replace(HYPHEN_REGEX, capitalize);
     };
     exports.camelCase = camelCase;
-  },
+  }
 });
 
 // node_modules/style-to-js/cjs/index.js
 var require_cjs3 = __commonJS({
   "node_modules/style-to-js/cjs/index.js"(exports, module) {
-    var __importDefault =
-      (exports && exports.__importDefault) ||
-      function (mod) {
-        return mod && mod.__esModule ? mod : { default: mod };
-      };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
     var style_to_object_1 = __importDefault(require_cjs2());
     var utilities_1 = require_utilities();
     function StyleToJS(style, options) {
@@ -264,7 +250,7 @@ var require_cjs3 = __commonJS({
       if (!style || typeof style !== "string") {
         return output;
       }
-      (0, style_to_object_1.default)(style, function (property, value) {
+      (0, style_to_object_1.default)(style, function(property, value) {
         if (property && value) {
           output[(0, utilities_1.camelCase)(property, options)] = value;
         }
@@ -273,20 +259,21 @@ var require_cjs3 = __commonJS({
     }
     StyleToJS.default = StyleToJS;
     module.exports = StyleToJS;
-  },
+  }
 });
 
 // node_modules/comma-separated-tokens/index.js
 function stringify(values, options) {
   const settings = {};
   const input = values[values.length - 1] === "" ? [...values, ""] : values;
-  return input
-    .join((settings.padRight ? " " : "") + "," + (settings.padLeft === false ? "" : " "))
-    .trim();
+  return input.join(
+    (settings.padRight ? " " : "") + "," + (settings.padLeft === false ? "" : " ")
+  ).trim();
 }
 
 // node_modules/devlop/lib/default.js
-function ok() {}
+function ok() {
+}
 
 // node_modules/estree-util-is-identifier-name/lib/index.js
 var nameRe = /^[$_\p{ID_Start}][$_\u{200C}\u{200D}\p{ID_Continue}]*$/u;
@@ -301,11 +288,7 @@ function name(name2, options) {
 // node_modules/hast-util-whitespace/lib/index.js
 var re = /[ \t\n\f\r]/g;
 function whitespace(thing) {
-  return typeof thing === "object"
-    ? thing.type === "text"
-      ? empty(thing.value)
-      : false
-    : empty(thing);
+  return typeof thing === "object" ? thing.type === "text" ? empty(thing.value) : false : empty(thing);
 }
 function empty(value) {
   return value.replace(re, "") === "";
@@ -388,7 +371,7 @@ __export(types_exports, {
   commaSeparated: () => commaSeparated,
   number: () => number,
   overloadedBoolean: () => overloadedBoolean,
-  spaceSeparated: () => spaceSeparated,
+  spaceSeparated: () => spaceSeparated
 });
 var powers = 0;
 var boolean = increment();
@@ -403,9 +386,10 @@ function increment() {
 }
 
 // node_modules/property-information/lib/util/defined-info.js
-var checks =
+var checks = (
   /** @type {ReadonlyArray<keyof typeof types>} */
-  Object.keys(types_exports);
+  Object.keys(types_exports)
+);
 var DefinedInfo = class extends Info {
   /**
    * @constructor
@@ -448,7 +432,7 @@ function create(definition) {
       property,
       definition.transform(definition.attributes || {}, property),
       value,
-      definition.space,
+      definition.space
     );
     if (definition.mustUseProperty && definition.mustUseProperty.includes(property)) {
       info.mustUseProperty = true;
@@ -511,11 +495,11 @@ var aria = create({
     ariaValueMin: number,
     ariaValueNow: number,
     ariaValueText: null,
-    role: null,
+    role: null
   },
   transform(_2, property) {
     return property === "role" ? property : "aria-" + property.slice(4).toLowerCase();
-  },
+  }
 });
 
 // node_modules/property-information/lib/util/case-sensitive-transform.js
@@ -534,7 +518,7 @@ var html = create({
     acceptcharset: "accept-charset",
     classname: "class",
     htmlfor: "for",
-    httpequiv: "http-equiv",
+    httpequiv: "http-equiv"
   },
   mustUseProperty: ["checked", "multiple", "muted", "selected"],
   properties: {
@@ -896,10 +880,10 @@ var html = create({
     property: null,
     results: number,
     security: null,
-    unselectable: null,
+    unselectable: null
   },
   space: "html",
-  transform: caseInsensitiveTransform,
+  transform: caseInsensitiveTransform
 });
 
 // node_modules/property-information/lib/svg.js
@@ -1078,7 +1062,7 @@ var svg = create({
     xHeight: "x-height",
     // These were camelcased in Tiny. Now lowercased in SVG 2
     playbackOrder: "playbackorder",
-    timelineBegin: "timelinebegin",
+    timelineBegin: "timelinebegin"
   },
   properties: {
     about: commaOrSpaceSeparated,
@@ -1460,10 +1444,10 @@ var svg = create({
     y2: null,
     yChannelSelector: null,
     z: null,
-    zoomAndPan: null,
+    zoomAndPan: null
   },
   space: "svg",
-  transform: caseSensitiveTransform,
+  transform: caseSensitiveTransform
 });
 
 // node_modules/property-information/lib/xlink.js
@@ -1475,12 +1459,12 @@ var xlink = create({
     xLinkRole: null,
     xLinkShow: null,
     xLinkTitle: null,
-    xLinkType: null,
+    xLinkType: null
   },
   space: "xlink",
   transform(_2, property) {
     return "xlink:" + property.slice(5).toLowerCase();
-  },
+  }
 });
 
 // node_modules/property-information/lib/xmlns.js
@@ -1488,7 +1472,7 @@ var xmlns = create({
   attributes: { xmlnsxlink: "xmlns:xlink" },
   properties: { xmlnsXLink: null, xmlns: null },
   space: "xmlns",
-  transform: caseInsensitiveTransform,
+  transform: caseInsensitiveTransform
 });
 
 // node_modules/property-information/lib/xml.js
@@ -1497,7 +1481,7 @@ var xml = create({
   space: "xml",
   transform(_2, property) {
     return "xml:" + property.slice(3).toLowerCase();
-  },
+  }
 });
 
 // node_modules/property-information/lib/hast-to-react.js
@@ -1518,7 +1502,7 @@ var hastToReact = {
   xLinkShow: "xlinkShow",
   xLinkTitle: "xlinkTitle",
   xLinkType: "xlinkType",
-  xmlnsXLink: "xmlnsXlink",
+  xmlnsXLink: "xmlnsXlink"
 };
 
 // node_modules/property-information/lib/find.js
@@ -1572,17 +1556,12 @@ var pointStart = point("start");
 function point(type) {
   return point3;
   function point3(node) {
-    const point4 = (node && node.position && node.position[type]) || {};
-    if (
-      typeof point4.line === "number" &&
-      point4.line > 0 &&
-      typeof point4.column === "number" &&
-      point4.column > 0
-    ) {
+    const point4 = node && node.position && node.position[type] || {};
+    if (typeof point4.line === "number" && point4.line > 0 && typeof point4.column === "number" && point4.column > 0) {
       return {
         line: point4.line,
         column: point4.column,
-        offset: typeof point4.offset === "number" && point4.offset > -1 ? point4.offset : void 0,
+        offset: typeof point4.offset === "number" && point4.offset > -1 ? point4.offset : void 0
       };
     }
   }
@@ -1688,7 +1667,7 @@ var VFileMessage = class extends Error {
       } else if ("type" in optionsOrParentOrPlace) {
         options = {
           ancestors: [optionsOrParentOrPlace],
-          place: optionsOrParentOrPlace.position,
+          place: optionsOrParentOrPlace.position
         };
       } else {
         options = { ...optionsOrParentOrPlace };
@@ -1729,10 +1708,7 @@ var VFileMessage = class extends Error {
     this.reason = this.message;
     this.ruleId = options.ruleId || void 0;
     this.source = options.source || void 0;
-    this.stack =
-      legacyCause && options.cause && typeof options.cause.stack === "string"
-        ? options.cause.stack
-        : "";
+    this.stack = legacyCause && options.cause && typeof options.cause.stack === "string" ? options.cause.stack : "";
     this.actual = void 0;
     this.expected = void 0;
     this.note = void 0;
@@ -1768,7 +1744,9 @@ function toJsxRuntime(tree, options) {
   let create2;
   if (options.development) {
     if (typeof options.jsxDEV !== "function") {
-      throw new TypeError("Expected `jsxDEV` in options when `development: true`");
+      throw new TypeError(
+        "Expected `jsxDEV` in options when `development: true`"
+      );
     }
     create2 = developmentCreate(filePath, options.jsxDEV);
   } else {
@@ -1793,13 +1771,18 @@ function toJsxRuntime(tree, options) {
     passNode: options.passNode || false,
     schema: options.space === "svg" ? svg2 : html2,
     stylePropertyNameCase: options.stylePropertyNameCase || "dom",
-    tableCellAlignToStyle: options.tableCellAlignToStyle !== false,
+    tableCellAlignToStyle: options.tableCellAlignToStyle !== false
   };
   const result = one(state, tree, void 0);
   if (result && typeof result !== "string") {
     return result;
   }
-  return state.create(tree, state.Fragment, { children: result || void 0 }, void 0);
+  return state.create(
+    tree,
+    state.Fragment,
+    { children: result || void 0 },
+    void 0
+  );
 }
 function one(state, node, key) {
   if (node.type === "element") {
@@ -1833,7 +1816,7 @@ function element(state, node, key) {
   const props = createElementProps(state, node);
   let children = createChildren(state, node);
   if (tableElements.has(node.tagName)) {
-    children = children.filter(function (child) {
+    children = children.filter(function(child) {
       return typeof child === "string" ? !whitespace(child) : true;
     });
   }
@@ -1923,9 +1906,9 @@ function developmentCreate(filePath, jsxDEV) {
       {
         columnNumber: point3 ? point3.column - 1 : void 0,
         fileName: filePath,
-        lineNumber: point3 ? point3.line : void 0,
+        lineNumber: point3 ? point3.line : void 0
       },
-      void 0,
+      void 0
     );
   }
 }
@@ -1938,12 +1921,7 @@ function createElementProps(state, node) {
       const result = createProperty(state, prop, node.properties[prop]);
       if (result) {
         const [key, value] = result;
-        if (
-          state.tableCellAlignToStyle &&
-          key === "align" &&
-          typeof value === "string" &&
-          tableCellElement.has(node.tagName)
-        ) {
+        if (state.tableCellAlignToStyle && key === "align" && typeof value === "string" && tableCellElement.has(node.tagName)) {
           alignValue = value;
         } else {
           props[key] = value;
@@ -1952,9 +1930,10 @@ function createElementProps(state, node) {
     }
   }
   if (alignValue) {
-    const style =
+    const style = (
       /** @type {Style} */
-      props.style || (props.style = {});
+      props.style || (props.style = {})
+    );
     style[state.stylePropertyNameCase === "css" ? "text-align" : "textAlign"] = alignValue;
   }
   return props;
@@ -1971,7 +1950,10 @@ function createJsxElementProps(state, node) {
         ok(objectExpression.type === "ObjectExpression");
         const property = objectExpression.properties[0];
         ok(property.type === "SpreadElement");
-        Object.assign(props, state.evaluater.evaluateExpression(property.argument));
+        Object.assign(
+          props,
+          state.evaluater.evaluateExpression(property.argument)
+        );
       } else {
         crashEstree(state, node.position);
       }
@@ -1990,7 +1972,8 @@ function createJsxElementProps(state, node) {
       } else {
         value = attribute.value === null ? true : attribute.value;
       }
-      props[name2] = /** @type {Props[keyof Props]} */ value;
+      props[name2] = /** @type {Props[keyof Props]} */
+      value;
     }
   }
   return props;
@@ -2003,12 +1986,7 @@ function createChildren(state, node) {
     const child = node.children[index2];
     let key;
     if (state.passKeys) {
-      const name2 =
-        child.type === "element"
-          ? child.tagName
-          : child.type === "mdxJsxFlowElement" || child.type === "mdxJsxTextElement"
-            ? child.name
-            : void 0;
+      const name2 = child.type === "element" ? child.tagName : child.type === "mdxJsxFlowElement" || child.type === "mdxJsxTextElement" ? child.name : void 0;
       if (name2) {
         const count = countsByName.get(name2) || 0;
         key = name2 + "-" + count;
@@ -2022,7 +2000,7 @@ function createChildren(state, node) {
 }
 function createProperty(state, prop, value) {
   const info = find(state.schema, prop);
-  if (value === null || value === void 0 || (typeof value === "number" && Number.isNaN(value))) {
+  if (value === null || value === void 0 || typeof value === "number" && Number.isNaN(value)) {
     return;
   }
   if (Array.isArray(value)) {
@@ -2036,10 +2014,8 @@ function createProperty(state, prop, value) {
     return ["style", styleObject];
   }
   return [
-    state.elementAttributeNameCase === "react" && info.space
-      ? hastToReact[info.property] || info.property
-      : info.attribute,
-    value,
+    state.elementAttributeNameCase === "react" && info.space ? hastToReact[info.property] || info.property : info.attribute,
+    value
   ];
 }
 function parseStyle(state, value) {
@@ -2049,14 +2025,15 @@ function parseStyle(state, value) {
     if (state.ignoreInvalidStyle) {
       return {};
     }
-    const cause =
+    const cause = (
       /** @type {Error} */
-      error;
+      error
+    );
     const message = new VFileMessage("Cannot parse `style` attribute", {
       ancestors: state.ancestors,
       cause,
       ruleId: "style",
-      source: "hast-util-to-jsx-runtime",
+      source: "hast-util-to-jsx-runtime"
     });
     message.file = state.filePath || void 0;
     message.url = docs + "#cannot-parse-style-attribute";
@@ -2072,30 +2049,24 @@ function findComponentFromName(state, name2, allowExpression) {
     let index2 = -1;
     let node;
     while (++index2 < identifiers.length) {
-      const prop = name(identifiers[index2])
-        ? { type: "Identifier", name: identifiers[index2] }
-        : { type: "Literal", value: identifiers[index2] };
-      node = node
-        ? {
-            type: "MemberExpression",
-            object: node,
-            property: prop,
-            computed: Boolean(index2 && prop.type === "Literal"),
-            optional: false,
-          }
-        : prop;
+      const prop = name(identifiers[index2]) ? { type: "Identifier", name: identifiers[index2] } : { type: "Literal", value: identifiers[index2] };
+      node = node ? {
+        type: "MemberExpression",
+        object: node,
+        property: prop,
+        computed: Boolean(index2 && prop.type === "Literal"),
+        optional: false
+      } : prop;
     }
     result = node;
   } else {
-    result =
-      name(name2) && !/^[a-z]/.test(name2)
-        ? { type: "Identifier", name: name2 }
-        : { type: "Literal", value: name2 };
+    result = name(name2) && !/^[a-z]/.test(name2) ? { type: "Identifier", name: name2 } : { type: "Literal", value: name2 };
   }
   if (result.type === "Literal") {
-    const name3 =
+    const name3 = (
       /** @type {string | number} */
-      result.value;
+      result.value
+    );
     return own.call(state.components, name3) ? state.components[name3] : name3;
   }
   if (state.evaluater) {
@@ -2104,12 +2075,15 @@ function findComponentFromName(state, name2, allowExpression) {
   crashEstree(state);
 }
 function crashEstree(state, place) {
-  const message = new VFileMessage("Cannot handle MDX estrees without `createEvaluater`", {
-    ancestors: state.ancestors,
-    place,
-    ruleId: "mdx-estree",
-    source: "hast-util-to-jsx-runtime",
-  });
+  const message = new VFileMessage(
+    "Cannot handle MDX estrees without `createEvaluater`",
+    {
+      ancestors: state.ancestors,
+      place,
+      ruleId: "mdx-estree",
+      source: "hast-util-to-jsx-runtime"
+    }
+  );
   message.file = state.filePath || void 0;
   message.url = docs + "#cannot-handle-mdx-estrees-without-createevaluater";
   throw message;
@@ -2139,91 +2113,36 @@ var l;
 var u;
 var w = [];
 function k(l2, u3, t2) {
-  var i2,
-    r2,
-    o2,
-    e2 = {};
-  for (o2 in u3) "key" == o2 ? (i2 = u3[o2]) : "ref" == o2 ? (r2 = u3[o2]) : (e2[o2] = u3[o2]);
-  if (
-    (arguments.length > 2 && (e2.children = arguments.length > 3 ? n.call(arguments, 2) : t2),
-    "function" == typeof l2 && null != l2.defaultProps)
-  )
-    for (o2 in l2.defaultProps) void 0 === e2[o2] && (e2[o2] = l2.defaultProps[o2]);
+  var i2, r2, o2, e2 = {};
+  for (o2 in u3) "key" == o2 ? i2 = u3[o2] : "ref" == o2 ? r2 = u3[o2] : e2[o2] = u3[o2];
+  if (arguments.length > 2 && (e2.children = arguments.length > 3 ? n.call(arguments, 2) : t2), "function" == typeof l2 && null != l2.defaultProps) for (o2 in l2.defaultProps) void 0 === e2[o2] && (e2[o2] = l2.defaultProps[o2]);
   return x(l2, e2, i2, r2, null);
 }
 function x(n2, t2, i2, r2, o2) {
-  var e2 = {
-    type: n2,
-    props: t2,
-    key: i2,
-    ref: r2,
-    __k: null,
-    __: null,
-    __b: 0,
-    __e: null,
-    __c: null,
-    constructor: void 0,
-    __v: null == o2 ? ++u : o2,
-    __i: -1,
-    __u: 0,
-  };
-  return (null != l.vnode && l.vnode(e2), e2);
+  var e2 = { type: n2, props: t2, key: i2, ref: r2, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: null == o2 ? ++u : o2, __i: -1, __u: 0 };
+  return null != l.vnode && l.vnode(e2), e2;
 }
 function S(n2) {
   return n2.children;
 }
-((n = w.slice),
-  (l = {
-    __e: function (n2, l2, u3, t2) {
-      for (var i2, r2, o2; (l2 = l2.__); )
-        if ((i2 = l2.__c) && !i2.__)
-          try {
-            if (
-              ((r2 = i2.constructor) &&
-                null != r2.getDerivedStateFromError &&
-                (i2.setState(r2.getDerivedStateFromError(n2)), (o2 = i2.__d)),
-              null != i2.componentDidCatch && (i2.componentDidCatch(n2, t2 || {}), (o2 = i2.__d)),
-              o2)
-            )
-              return (i2.__E = i2);
-          } catch (l3) {
-            n2 = l3;
-          }
-      throw n2;
-    },
-  }),
-  (u = 0),
-  "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout,
-  Math.random().toString(8));
+n = w.slice, l = { __e: function(n2, l2, u3, t2) {
+  for (var i2, r2, o2; l2 = l2.__; ) if ((i2 = l2.__c) && !i2.__) try {
+    if ((r2 = i2.constructor) && null != r2.getDerivedStateFromError && (i2.setState(r2.getDerivedStateFromError(n2)), o2 = i2.__d), null != i2.componentDidCatch && (i2.componentDidCatch(n2, t2 || {}), o2 = i2.__d), o2) return i2.__E = i2;
+  } catch (l3) {
+    n2 = l3;
+  }
+  throw n2;
+} }, u = 0, "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, Math.random().toString(8);
 
 // node_modules/preact/jsx-runtime/dist/jsxRuntime.mjs
 var f2 = 0;
 function u2(e2, t2, n2, o2, i2, u3) {
   t2 || (t2 = {});
-  var a2,
-    c2,
-    p2 = t2;
-  if ("ref" in p2) for (c2 in ((p2 = {}), t2)) "ref" == c2 ? (a2 = t2[c2]) : (p2[c2] = t2[c2]);
-  var l2 = {
-    type: e2,
-    props: p2,
-    key: n2,
-    ref: a2,
-    __k: null,
-    __: null,
-    __b: 0,
-    __e: null,
-    __c: null,
-    constructor: void 0,
-    __v: --f2,
-    __i: -1,
-    __u: 0,
-    __source: i2,
-    __self: u3,
-  };
-  if ("function" == typeof e2 && (a2 = e2.defaultProps))
-    for (c2 in a2) void 0 === p2[c2] && (p2[c2] = a2[c2]);
-  return (l.vnode && l.vnode(l2), l2);
+  var a2, c2, p2 = t2;
+  if ("ref" in p2) for (c2 in p2 = {}, t2) "ref" == c2 ? a2 = t2[c2] : p2[c2] = t2[c2];
+  var l2 = { type: e2, props: p2, key: n2, ref: a2, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i2, __self: u3 };
+  if ("function" == typeof e2 && (a2 = e2.defaultProps)) for (c2 in a2) void 0 === p2[c2] && (p2[c2] = a2[c2]);
+  return l.vnode && l.vnode(l2), l2;
 }
 
 // node_modules/@quartz-community/utils/dist/jsx.js
@@ -2233,15 +2152,12 @@ function childrenToString(children) {
   return String(children ?? "");
 }
 var builtinComponents = {
-  table: (props) =>
-    /* @__PURE__ */ u2("div", {
-      class: "table-container",
-      children: /* @__PURE__ */ u2("table", { ...props }),
-    }),
-  style: ({ children, ...rest }) =>
-    k("style", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } }),
-  script: ({ children, ...rest }) =>
-    k("script", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } }),
+  table: (props) => /* @__PURE__ */ u2("div", {
+    class: "table-container",
+    children: /* @__PURE__ */ u2("table", { ...props })
+  }),
+  style: ({ children, ...rest }) => k("style", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } }),
+  script: ({ children, ...rest }) => k("script", { ...rest, dangerouslySetInnerHTML: { __html: childrenToString(children) } })
 };
 function htmlToJsx(tree, components) {
   return toJsxRuntime(tree, {
@@ -2249,7 +2165,7 @@ function htmlToJsx(tree, components) {
     jsx: u2,
     jsxs: u2,
     elementAttributeNameCase: "html",
-    components: { ...builtinComponents, ...components },
+    components: { ...builtinComponents, ...components }
   });
 }
 
@@ -2262,10 +2178,7 @@ function joinSegments(...args) {
   if (args.length === 0) {
     return "";
   }
-  let joined = args
-    .filter((segment) => segment !== "" && segment !== "/")
-    .map((segment) => stripSlashes(segment))
-    .join("/");
+  let joined = args.filter((segment) => segment !== "" && segment !== "/").map((segment) => stripSlashes(segment)).join("/");
   const first = args[0];
   const last = args[args.length - 1];
   if (first?.startsWith("/")) {
@@ -2303,12 +2216,7 @@ function getAllSegmentPrefixes(path) {
   return results;
 }
 function pathToRoot(slug2) {
-  let rootPath = slug2
-    .split("/")
-    .filter((x2) => x2 !== "")
-    .slice(0, -1)
-    .map((_2) => "..")
-    .join("/");
+  let rootPath = slug2.split("/").filter((x2) => x2 !== "").slice(0, -1).map((_2) => "..").join("/");
   if (rootPath.length === 0) {
     rootPath = ".";
   }
@@ -2320,27 +2228,27 @@ function resolveRelative(current, target) {
 }
 
 // src/components/ContentBody.tsx
-var ContentBody_default = () => {
-  const ContentBody = ({ fileData, tree, allFiles, cfg }) => {
+var ContentBody_default = (() => {
+  const ContentBody = ({
+    fileData,
+    tree,
+    allFiles,
+    cfg
+  }) => {
     const content = htmlToJsx(tree);
     const frontmatter = fileData?.frontmatter;
     const classes = frontmatter?.cssclasses ?? [];
-    const classString = ["popover-hint", ...classes].join(" ");
+    const hasCover = !!frontmatter?.cover;
+    const classString = ["popover-hint", ...classes, ...hasCover ? ["has-cover"] : []].join(" ");
     const filterTags = frontmatter?.filter_tags;
-    const matchingPages =
-      filterTags && Array.isArray(filterTags) && filterTags.length > 0
-        ? (allFiles ?? []).filter((file) => {
-            if (file.unlisted === true) return false;
-            if (file.slug === "index") return false;
-            if (
-              file.slug?.endsWith("/index") &&
-              !file.slug?.toLowerCase().startsWith("travel_journal/")
-            )
-              return false;
-            const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
-            return filterTags.some((t2) => fileTags.includes(t2));
-          })
-        : [];
+    const matchingPages = filterTags && Array.isArray(filterTags) && filterTags.length > 0 ? (allFiles ?? []).filter((file) => {
+      if (file.unlisted === true) return false;
+      if (file.slug === "index") return false;
+      if (file.slug?.endsWith("/index") && !file.slug?.toLowerCase().startsWith("travel_journal/"))
+        return false;
+      const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+      return filterTags.some((t2) => fileTags.includes(t2));
+    }) : [];
     const getPageDate = (page) => {
       const defaultDateType = page.defaultDateType ?? "modified";
       return page.dates?.[defaultDateType] ?? page.dates?.modified ?? page.dates?.created;
@@ -2364,19 +2272,17 @@ var ContentBody_default = () => {
     const sortedPages = sortPages(matchingPages);
     const topics = frontmatter?.topics;
     const hasTopics = topics && Array.isArray(topics) && topics.length > 0;
-    const topicsWithPages = hasTopics
-      ? topics.map((topic) => {
-          const topicTags = topic.tags ?? [];
-          const topicPages = matchingPages.filter((page) => {
-            const fileTags = (page.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
-            return topicTags.some((t2) => fileTags.includes(t2));
-          });
-          return {
-            ...topic,
-            pages: topicPages,
-          };
-        })
-      : [];
+    const topicsWithPages = hasTopics ? topics.map((topic) => {
+      const topicTags = topic.tags ?? [];
+      const topicPages = matchingPages.filter((page) => {
+        const fileTags = (page.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+        return topicTags.some((t2) => fileTags.includes(t2));
+      });
+      return {
+        ...topic,
+        pages: topicPages
+      };
+    }) : [];
     const categorizedPageSlugs = /* @__PURE__ */ new Set();
     if (hasTopics) {
       for (const topic of topicsWithPages) {
@@ -2387,227 +2293,149 @@ var ContentBody_default = () => {
         }
       }
     }
-    const otherPages = hasTopics
-      ? matchingPages.filter((page) => !page.slug || !categorizedPageSlugs.has(page.slug))
-      : [];
+    const otherPages = hasTopics ? matchingPages.filter((page) => !page.slug || !categorizedPageSlugs.has(page.slug)) : [];
     const renderPageList = (pages) => {
       const sorted = sortPages(pages);
       const hasAnyCover = sorted.some((page) => page.frontmatter?.cover);
       if (hasAnyCover) {
-        return /* @__PURE__ */ u2("div", {
-          class: "card-grid",
-          children: sorted.map((page) => {
-            const title = page.frontmatter?.title ?? page.slug;
-            const pageTags = page.frontmatter?.tags ?? [];
-            const date = getPageDate(page);
-            const locale = cfg?.locale ?? "en-US";
-            const cover = page.frontmatter?.cover;
-            const description = page.frontmatter?.description;
-            const createdDate = page.dates?.created;
-            const modifiedDate = page.dates?.modified;
-            const displayCreated = createdDate || date;
-            const createdStr = displayCreated
-              ? displayCreated.toLocaleDateString(locale, {
-                  year: "numeric",
-                  month: "short",
-                  day: "2-digit",
-                })
-              : "";
-            const modifiedStr = modifiedDate
-              ? modifiedDate.toLocaleDateString(locale, {
-                  year: "numeric",
-                  month: "short",
-                  day: "2-digit",
-                })
-              : "";
-            const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr);
-            const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated;
-            const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
-            return /* @__PURE__ */ u2("div", {
-              class: `trip-card ${cover ? "has-cover" : "no-cover"}`,
-              children: /* @__PURE__ */ u2("a", {
-                href: resolveRelative(fileData.slug, page.slug),
-                class: "trip-card-link-wrapper",
-                children: [
-                  cover &&
-                    /* @__PURE__ */ u2("div", {
-                      class: "trip-card-cover",
-                      children: /* @__PURE__ */ u2("img", {
-                        src: cover,
-                        alt: title,
-                        loading: "lazy",
-                      }),
-                    }),
-                  /* @__PURE__ */ u2("div", {
-                    class: "trip-card-content",
-                    children: [
-                      /* @__PURE__ */ u2("p", {
-                        class: "meta",
-                        children:
-                          displayDate &&
-                          /* @__PURE__ */ u2("time", {
-                            dateTime: displayDate.toISOString(),
-                            children: displayDateStr,
-                          }),
-                      }),
-                      /* @__PURE__ */ u2("h3", { children: title }),
-                      description &&
-                        /* @__PURE__ */ u2("p", { class: "desc", children: description }),
-                      /* @__PURE__ */ u2("ul", {
-                        class: "tags",
-                        children: pageTags.slice(0, 3).map((tag) =>
-                          /* @__PURE__ */ u2("li", {
-                            children: /* @__PURE__ */ u2("span", {
-                              class: "tag-badge",
-                              children: ["#", tag],
-                            }),
-                          }),
-                        ),
-                      }),
-                    ],
-                  }),
-                ],
-              }),
-            });
-          }),
-        });
-      }
-      return /* @__PURE__ */ u2("ul", {
-        class: "section-ul",
-        children: sorted.map((page) => {
+        return /* @__PURE__ */ u2("div", { class: "card-grid", children: sorted.map((page) => {
           const title = page.frontmatter?.title ?? page.slug;
           const pageTags = page.frontmatter?.tags ?? [];
           const date = getPageDate(page);
           const locale = cfg?.locale ?? "en-US";
+          const cover = page.frontmatter?.cover;
+          const description = page.frontmatter?.description;
           const createdDate = page.dates?.created;
           const modifiedDate = page.dates?.modified;
           const displayCreated = createdDate || date;
-          const createdStr = displayCreated
-            ? displayCreated.toLocaleDateString(locale, {
-                year: "numeric",
-                month: "short",
-                day: "2-digit",
-              })
-            : "";
-          const modifiedStr = modifiedDate
-            ? modifiedDate.toLocaleDateString(locale, {
-                year: "numeric",
-                month: "short",
-                day: "2-digit",
-              })
-            : "";
+          const createdStr = displayCreated ? displayCreated.toLocaleDateString(locale, {
+            year: "numeric",
+            month: "short",
+            day: "2-digit"
+          }) : "";
+          const modifiedStr = modifiedDate ? modifiedDate.toLocaleDateString(locale, {
+            year: "numeric",
+            month: "short",
+            day: "2-digit"
+          }) : "";
           const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr);
           const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated;
           const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
-          return /* @__PURE__ */ u2("li", {
-            class: "section-li",
-            children: /* @__PURE__ */ u2("div", {
-              class: "section",
+          return /* @__PURE__ */ u2("div", { class: `trip-card ${cover ? "has-cover" : "no-cover"}`, children: /* @__PURE__ */ u2(
+            "a",
+            {
+              href: resolveRelative(fileData.slug, page.slug),
+              class: "trip-card-link-wrapper",
               children: [
-                /* @__PURE__ */ u2("p", {
-                  class: "meta",
-                  children:
-                    displayDate &&
-                    /* @__PURE__ */ u2("time", {
-                      dateTime: displayDate.toISOString(),
-                      children: displayDateStr,
-                    }),
-                }),
-                /* @__PURE__ */ u2("div", {
-                  class: "desc",
-                  children: /* @__PURE__ */ u2("h3", {
-                    children: /* @__PURE__ */ u2("a", {
-                      href: resolveRelative(fileData.slug, page.slug),
-                      class: "internal internal-link",
-                      children: title,
-                    }),
-                  }),
-                }),
-                /* @__PURE__ */ u2("ul", {
-                  class: "tags",
-                  children: pageTags.map((tag) =>
-                    /* @__PURE__ */ u2("li", {
-                      children: /* @__PURE__ */ u2("a", {
-                        class: "internal tag-link",
-                        href: resolveRelative(fileData.slug, `tags/${tag}`),
-                        children: tag,
-                      }),
-                    }),
-                  ),
-                }),
-              ],
-            }),
-          });
-        }),
-      });
+                cover && /* @__PURE__ */ u2("div", { class: "trip-card-cover", children: /* @__PURE__ */ u2("img", { src: cover, alt: title, loading: "lazy" }) }),
+                /* @__PURE__ */ u2("div", { class: "trip-card-content", children: [
+                  /* @__PURE__ */ u2("p", { class: "meta", children: displayDate && /* @__PURE__ */ u2("time", { dateTime: displayDate.toISOString(), children: displayDateStr }) }),
+                  /* @__PURE__ */ u2("h3", { children: title }),
+                  description && /* @__PURE__ */ u2("p", { class: "desc", children: description }),
+                  /* @__PURE__ */ u2("ul", { class: "tags", children: pageTags.slice(0, 3).map((tag) => /* @__PURE__ */ u2("li", { children: /* @__PURE__ */ u2("span", { class: "tag-badge", children: [
+                    "#",
+                    tag
+                  ] }) })) })
+                ] })
+              ]
+            }
+          ) });
+        }) });
+      }
+      return /* @__PURE__ */ u2("ul", { class: "section-ul", children: sorted.map((page) => {
+        const title = page.frontmatter?.title ?? page.slug;
+        const pageTags = page.frontmatter?.tags ?? [];
+        const date = getPageDate(page);
+        const locale = cfg?.locale ?? "en-US";
+        const createdDate = page.dates?.created;
+        const modifiedDate = page.dates?.modified;
+        const displayCreated = createdDate || date;
+        const createdStr = displayCreated ? displayCreated.toLocaleDateString(locale, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit"
+        }) : "";
+        const modifiedStr = modifiedDate ? modifiedDate.toLocaleDateString(locale, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit"
+        }) : "";
+        const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr);
+        const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated;
+        const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
+        return /* @__PURE__ */ u2("li", { class: "section-li", children: /* @__PURE__ */ u2("div", { class: "section", children: [
+          /* @__PURE__ */ u2("p", { class: "meta", children: displayDate && /* @__PURE__ */ u2("time", { dateTime: displayDate.toISOString(), children: displayDateStr }) }),
+          /* @__PURE__ */ u2("div", { class: "desc", children: /* @__PURE__ */ u2("h3", { children: /* @__PURE__ */ u2(
+            "a",
+            {
+              href: resolveRelative(fileData.slug, page.slug),
+              class: "internal internal-link",
+              children: title
+            }
+          ) }) }),
+          /* @__PURE__ */ u2("ul", { class: "tags", children: pageTags.map((tag) => /* @__PURE__ */ u2("li", { children: /* @__PURE__ */ u2(
+            "a",
+            {
+              class: "internal tag-link",
+              href: resolveRelative(fileData.slug, `tags/${tag}`),
+              children: tag
+            }
+          ) })) })
+        ] }) });
+      }) });
     };
-    return /* @__PURE__ */ u2("article", {
-      class: classString,
-      children: [
-        frontmatter?.cover &&
-          /* @__PURE__ */ u2("div", {
-            class: "page-cover-banner",
-            children: /* @__PURE__ */ u2("img", {
-              src: frontmatter.cover,
-              alt: fileData.frontmatter?.title ?? "Cover Image",
-            }),
-          }),
-        /* @__PURE__ */ u2("div", {
-          class: "markdown-preview-view markdown-rendered",
-          children: content,
+    return /* @__PURE__ */ u2("article", { class: classString, children: [
+      frontmatter?.cover && /* @__PURE__ */ u2("div", { class: "page-cover-banner", children: [
+        /* @__PURE__ */ u2("img", { src: frontmatter.cover, alt: fileData.frontmatter?.title ?? "Cover Image" }),
+        /* @__PURE__ */ u2("div", { class: "page-cover-overlay", children: [
+          frontmatter.title && /* @__PURE__ */ u2("h1", { class: "page-cover-title", children: frontmatter.title }),
+          frontmatter.date && /* @__PURE__ */ u2("span", { class: "page-cover-date", children: new Date(frontmatter.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ u2("div", { class: "markdown-preview-view markdown-rendered", children: content }),
+      hasTopics ? /* @__PURE__ */ u2("div", { class: "page-listing topics-listing", children: [
+        topicsWithPages.map((topic) => {
+          if (topic.pages.length === 0) return null;
+          return /* @__PURE__ */ u2("div", { class: "topic-group", style: { marginBottom: "2rem" }, children: [
+            /* @__PURE__ */ u2(
+              "h2",
+              {
+                class: "topic-heading",
+                style: {
+                  borderBottom: "1px solid var(--lightgray)",
+                  paddingBottom: "0.5rem",
+                  marginTop: "2rem"
+                },
+                children: topic.name
+              }
+            ),
+            renderPageList(topic.pages)
+          ] });
         }),
-        hasTopics
-          ? /* @__PURE__ */ u2("div", {
-              class: "page-listing topics-listing",
-              children: [
-                topicsWithPages.map((topic) => {
-                  if (topic.pages.length === 0) return null;
-                  return /* @__PURE__ */ u2("div", {
-                    class: "topic-group",
-                    style: { marginBottom: "2rem" },
-                    children: [
-                      /* @__PURE__ */ u2("h2", {
-                        class: "topic-heading",
-                        style: {
-                          borderBottom: "1px solid var(--lightgray)",
-                          paddingBottom: "0.5rem",
-                          marginTop: "2rem",
-                        },
-                        children: topic.name,
-                      }),
-                      renderPageList(topic.pages),
-                    ],
-                  });
-                }),
-                otherPages.length > 0 &&
-                  /* @__PURE__ */ u2("div", {
-                    class: "topic-group",
-                    style: { marginBottom: "2rem" },
-                    children: [
-                      /* @__PURE__ */ u2("h2", {
-                        class: "topic-heading",
-                        style: {
-                          borderBottom: "1px solid var(--lightgray)",
-                          paddingBottom: "0.5rem",
-                          marginTop: "2rem",
-                        },
-                        children: "Other Notes",
-                      }),
-                      renderPageList(otherPages),
-                    ],
-                  }),
-              ],
-            })
-          : sortedPages.length > 0 &&
-            /* @__PURE__ */ u2("div", {
-              class: "page-listing",
-              children: renderPageList(sortedPages),
-            }),
-      ],
-    });
+        otherPages.length > 0 && /* @__PURE__ */ u2("div", { class: "topic-group", style: { marginBottom: "2rem" }, children: [
+          /* @__PURE__ */ u2(
+            "h2",
+            {
+              class: "topic-heading",
+              style: {
+                borderBottom: "1px solid var(--lightgray)",
+                paddingBottom: "0.5rem",
+                marginTop: "2rem"
+              },
+              children: "Other Notes"
+            }
+          ),
+          renderPageList(otherPages)
+        ] })
+      ] }) : sortedPages.length > 0 && /* @__PURE__ */ u2("div", { class: "page-listing", children: renderPageList(sortedPages) })
+    ] });
   };
   return ContentBody;
-};
+});
 
 export { ContentBody_default as ContentBody };
 //# sourceMappingURL=index.js.map
