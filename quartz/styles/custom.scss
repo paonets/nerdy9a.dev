@@ -214,6 +214,8 @@ body[data-slug="index"] {
       max-width: 700px;
 
       @media all and ($mobile) {
+        margin-bottom: 1.25rem;
+
         span {
           display: block;
         }
