@@ -13,6 +13,7 @@ import type { Root } from "hast";
 import { i18n } from "../i18n";
 import style from "./styles/listPage.scss";
 import { getAllSegmentPrefixes } from "@quartz-community/utils/path";
+import { resolveRelative } from "../util/path";
 
 interface FolderContentOptions {
   showFolderCount: boolean;
@@ -178,10 +179,14 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       allPagesInFolder = pagesFromAllFiles(allFiles ?? [], slug, options.showSubfolders);
     }
 
-    const cssClasses =
-      ((fileData as { frontmatter?: { cssclasses?: string[] } } | undefined)?.frontmatter
-        ?.cssclasses as string[] | undefined) ?? [];
-    const classes = cssClasses.join(" ");
+    const frontmatter = (fileData as { frontmatter?: Record<string, unknown> } | undefined)
+      ?.frontmatter;
+    const pageCover = frontmatter?.cover as string | undefined;
+    const pageTitle = frontmatter?.title as string | undefined;
+
+    const cssClasses = (frontmatter?.cssclasses as string[] | undefined) ?? [];
+    const hasCover = !!pageCover;
+    const classes = ["", ...cssClasses, ...(hasCover ? ["has-cover"] : [])].join(" ").trim();
     const listProps = {
       ...props,
       sort: options.sort,
@@ -194,15 +199,118 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         ? (fileData as { description?: unknown } | undefined)?.description
         : htmlToJsx(hastRoot);
 
-    const pageListContent = PageList(listProps) as unknown as ComponentChildren;
+    const locale = (cfg as { locale?: string } | undefined)?.locale ?? "en-US";
+    const fileSlug = (fileData as { slug?: string } | undefined)?.slug ?? "";
+
+    const getPageDate = (page: PageEntry): Date | undefined => {
+      const defaultDateType =
+        (page.defaultDateType as "created" | "modified" | "published" | undefined) ?? "modified";
+      return (page.dates?.[defaultDateType] ?? page.dates?.modified ?? page.dates?.created) as
+        | Date
+        | undefined;
+    };
+
+    const sortPages = (pages: PageEntry[]) => {
+      return [...pages].sort((f1, f2) => {
+        const d1 = getPageDate(f1);
+        const d2 = getPageDate(f2);
+        if (d1 && d2) return d2.getTime() - d1.getTime();
+        if (d1 && !d2) return -1;
+        if (!d1 && d2) return 1;
+        const t1 = (f1.frontmatter?.title as string | undefined)?.toLowerCase() ?? "";
+        const t2 = (f2.frontmatter?.title as string | undefined)?.toLowerCase() ?? "";
+        return t1.localeCompare(t2);
+      });
+    };
+
+    const hasAnyCover = allPagesInFolder.some((page) => page.frontmatter?.cover);
+
+    const renderCardGrid = (pages: PageEntry[]) => {
+      const sorted = sortPages(pages);
+      return (
+        <div class="card-grid">
+          {sorted.map((page) => {
+            const title = page.frontmatter?.title ?? page.slug;
+            const pageTags = (page.frontmatter?.tags ?? []) as string[];
+            const date = getPageDate(page);
+            const cover = page.frontmatter?.cover as string | undefined;
+            const description = page.frontmatter?.description as string | undefined;
+
+            const createdDate = page.dates?.created;
+            const modifiedDate = page.dates?.modified;
+            const displayCreated = createdDate || date;
+            const createdStr = displayCreated
+              ? displayCreated.toLocaleDateString(locale, {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })
+              : "";
+            const modifiedStr = modifiedDate
+              ? modifiedDate.toLocaleDateString(locale, {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })
+              : "";
+            const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr);
+            const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated;
+            const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
+
+            return (
+              <div class={`trip-card ${cover ? "has-cover" : "no-cover"}`}>
+                <a
+                  href={resolveRelative(fileSlug as FullSlug, page.slug as FullSlug)}
+                  class="trip-card-link-wrapper"
+                >
+                  {cover && (
+                    <div class="trip-card-cover">
+                      <img src={cover} alt={title} loading="lazy" />
+                    </div>
+                  )}
+                  <div class="trip-card-content">
+                    <p class="meta">
+                      {displayDate && (
+                        <time dateTime={displayDate.toISOString()}>{displayDateStr}</time>
+                      )}
+                    </p>
+                    <h3>{title}</h3>
+                    {description && <p class="desc">{description}</p>}
+                    <ul class="tags">
+                      {pageTags.slice(0, 3).map((tag) => (
+                        <li>
+                          <span class="tag-badge">#{tag}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      );
+    };
+
+    const pageListContent = hasAnyCover
+      ? (renderCardGrid(allPagesInFolder) as unknown as ComponentChildren)
+      : (PageList(listProps) as unknown as ComponentChildren);
 
     return (
-      <div class="popover-hint">
+      <div class={`popover-hint${hasCover ? " has-cover" : ""}`}>
+        {pageCover && (
+          <div class="page-cover-banner">
+            <img src={pageCover} alt={pageTitle ?? "Cover Image"} />
+            <div class="page-cover-overlay">
+              {pageTitle && <h1 class="page-cover-title">{pageTitle}</h1>}
+            </div>
+          </div>
+        )}
         <article class={classes}>
           <div class="markdown-preview-view markdown-rendered">{content}</div>
         </article>
         <div class="page-listing">
-          {options.showFolderCount && (
+          {options.showFolderCount && !hasAnyCover && allPagesInFolder.length > 0 && (
             <p>
               {i18n(
                 (cfg as { locale?: string } | undefined)?.locale ?? "en-US",
