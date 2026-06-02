@@ -39,7 +39,7 @@ var __toESM = (mod, isNodeMode, target) => (
 
 // node_modules/inline-style-parser/cjs/index.js
 var require_cjs = __commonJS({
-  "node_modules/inline-style-parser/cjs/index.js"(exports$1, module) {
+  "node_modules/inline-style-parser/cjs/index.js"(exports, module) {
     var COMMENT_REGEX = /\/\*[^*]*\*+([^/*][^*]*\*+)*\//g;
     var NEWLINE_REGEX = /\n/g;
     var WHITESPACE_REGEX = /^\s*/;
@@ -178,14 +178,14 @@ var require_cjs = __commonJS({
 
 // node_modules/style-to-object/cjs/index.js
 var require_cjs2 = __commonJS({
-  "node_modules/style-to-object/cjs/index.js"(exports$1) {
+  "node_modules/style-to-object/cjs/index.js"(exports) {
     var __importDefault =
-      (exports$1 && exports$1.__importDefault) ||
+      (exports && exports.__importDefault) ||
       function (mod) {
         return mod && mod.__esModule ? mod : { default: mod };
       };
-    Object.defineProperty(exports$1, "__esModule", { value: true });
-    exports$1.default = StyleToObject;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.default = StyleToObject;
     var inline_style_parser_1 = __importDefault(require_cjs());
     function StyleToObject(style, iterator) {
       let styleObject = null;
@@ -213,9 +213,9 @@ var require_cjs2 = __commonJS({
 
 // node_modules/style-to-js/cjs/utilities.js
 var require_utilities = __commonJS({
-  "node_modules/style-to-js/cjs/utilities.js"(exports$1) {
-    Object.defineProperty(exports$1, "__esModule", { value: true });
-    exports$1.camelCase = void 0;
+  "node_modules/style-to-js/cjs/utilities.js"(exports) {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.camelCase = void 0;
     var CUSTOM_PROPERTY_REGEX = /^--[a-zA-Z0-9_-]+$/;
     var HYPHEN_REGEX = /-([a-z])/g;
     var NO_HYPHEN_REGEX = /^[^-]+$/;
@@ -245,15 +245,15 @@ var require_utilities = __commonJS({
       }
       return property.replace(HYPHEN_REGEX, capitalize);
     };
-    exports$1.camelCase = camelCase;
+    exports.camelCase = camelCase;
   },
 });
 
 // node_modules/style-to-js/cjs/index.js
 var require_cjs3 = __commonJS({
-  "node_modules/style-to-js/cjs/index.js"(exports$1, module) {
+  "node_modules/style-to-js/cjs/index.js"(exports, module) {
     var __importDefault =
-      (exports$1 && exports$1.__importDefault) ||
+      (exports && exports.__importDefault) ||
       function (mod) {
         return mod && mod.__esModule ? mod : { default: mod };
       };
@@ -548,6 +548,7 @@ var html = create({
     allowFullScreen: boolean,
     allowPaymentRequest: boolean,
     allowUserMedia: boolean,
+    alpha: boolean,
     alt: null,
     as: null,
     async: boolean,
@@ -561,8 +562,12 @@ var html = create({
     checked: boolean,
     cite: null,
     className: spaceSeparated,
+    closedBy: null,
+    colorSpace: null,
     cols: number,
-    colSpan: null,
+    colSpan: number,
+    command: null,
+    commandFor: null,
     content: null,
     contentEditable: booleanish,
     controls: boolean,
@@ -742,8 +747,10 @@ var html = create({
     seamless: boolean,
     selected: boolean,
     shadowRootClonable: boolean,
+    shadowRootCustomElementRegistry: boolean,
     shadowRootDelegatesFocus: boolean,
     shadowRootMode: null,
+    shadowRootSerializable: boolean,
     shape: null,
     size: number,
     sizes: null,
@@ -880,8 +887,11 @@ var html = create({
     allowTransparency: null,
     autoCorrect: null,
     autoSave: null,
+    credentialless: boolean,
     disablePictureInPicture: boolean,
     disableRemotePlayback: boolean,
+    exportParts: commaSeparated,
+    part: spaceSeparated,
     prefix: null,
     property: null,
     results: number,
@@ -935,6 +945,7 @@ var svg = create({
     markerEnd: "marker-end",
     markerMid: "marker-mid",
     markerStart: "marker-start",
+    maskType: "mask-type",
     navDown: "nav-down",
     navDownLeft: "nav-down-left",
     navDownRight: "nav-down-right",
@@ -1205,6 +1216,7 @@ var svg = create({
     markerWidth: null,
     mask: null,
     maskContentUnits: null,
+    maskType: null,
     maskUnits: null,
     mathematical: null,
     max: null,
@@ -2319,7 +2331,12 @@ var ContentBody_default = () => {
       filterTags && Array.isArray(filterTags) && filterTags.length > 0
         ? (allFiles ?? []).filter((file) => {
             if (file.unlisted === true) return false;
-            if (file.slug?.endsWith("/index") || file.slug === "index") return false;
+            if (file.slug === "index") return false;
+            if (
+              file.slug?.endsWith("/index") &&
+              !file.slug?.toLowerCase().startsWith("travel_journal/")
+            )
+              return false;
             const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
             return filterTags.some((t2) => fileTags.includes(t2));
           })
