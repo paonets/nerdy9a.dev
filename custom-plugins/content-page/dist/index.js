@@ -2392,6 +2392,86 @@ var ContentBody_default = () => {
       : [];
     const renderPageList = (pages) => {
       const sorted = sortPages(pages);
+      const hasAnyCover = sorted.some((page) => page.frontmatter?.cover);
+      if (hasAnyCover) {
+        return /* @__PURE__ */ u2("div", {
+          class: "card-grid",
+          children: sorted.map((page) => {
+            const title = page.frontmatter?.title ?? page.slug;
+            const pageTags = page.frontmatter?.tags ?? [];
+            const date = getPageDate(page);
+            const locale = cfg?.locale ?? "en-US";
+            const cover = page.frontmatter?.cover;
+            const description = page.frontmatter?.description;
+            const createdDate = page.dates?.created;
+            const modifiedDate = page.dates?.modified;
+            const displayCreated = createdDate || date;
+            const createdStr = displayCreated
+              ? displayCreated.toLocaleDateString(locale, {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })
+              : "";
+            const modifiedStr = modifiedDate
+              ? modifiedDate.toLocaleDateString(locale, {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })
+              : "";
+            const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr);
+            const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated;
+            const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
+            return /* @__PURE__ */ u2("div", {
+              class: `trip-card ${cover ? "has-cover" : "no-cover"}`,
+              children: /* @__PURE__ */ u2("a", {
+                href: resolveRelative(fileData.slug, page.slug),
+                class: "trip-card-link-wrapper",
+                children: [
+                  cover &&
+                    /* @__PURE__ */ u2("div", {
+                      class: "trip-card-cover",
+                      children: /* @__PURE__ */ u2("img", {
+                        src: cover,
+                        alt: title,
+                        loading: "lazy",
+                      }),
+                    }),
+                  /* @__PURE__ */ u2("div", {
+                    class: "trip-card-content",
+                    children: [
+                      /* @__PURE__ */ u2("p", {
+                        class: "meta",
+                        children:
+                          displayDate &&
+                          /* @__PURE__ */ u2("time", {
+                            dateTime: displayDate.toISOString(),
+                            children: displayDateStr,
+                          }),
+                      }),
+                      /* @__PURE__ */ u2("h3", { children: title }),
+                      description &&
+                        /* @__PURE__ */ u2("p", { class: "desc", children: description }),
+                      /* @__PURE__ */ u2("ul", {
+                        class: "tags",
+                        children: pageTags.slice(0, 3).map((tag) =>
+                          /* @__PURE__ */ u2("li", {
+                            children: /* @__PURE__ */ u2("span", {
+                              class: "tag-badge",
+                              children: ["#", tag],
+                            }),
+                          }),
+                        ),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            });
+          }),
+        });
+      }
       return /* @__PURE__ */ u2("ul", {
         class: "section-ul",
         children: sorted.map((page) => {
@@ -2464,6 +2544,14 @@ var ContentBody_default = () => {
     return /* @__PURE__ */ u2("article", {
       class: classString,
       children: [
+        frontmatter?.cover &&
+          /* @__PURE__ */ u2("div", {
+            class: "page-cover-banner",
+            children: /* @__PURE__ */ u2("img", {
+              src: frontmatter.cover,
+              alt: fileData.frontmatter?.title ?? "Cover Image",
+            }),
+          }),
         /* @__PURE__ */ u2("div", {
           class: "markdown-preview-view markdown-rendered",
           children: content,

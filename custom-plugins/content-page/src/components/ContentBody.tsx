@@ -20,6 +20,8 @@ type FrontmatterWithClasses = {
   cssclasses?: string[];
   filter_tags?: string[];
   topics?: Topic[];
+  cover?: string;
+  description?: string;
 };
 
 type PageEntry = QuartzPluginData & Record<string, unknown>;
@@ -114,6 +116,77 @@ export default (() => {
 
     const renderPageList = (pages: PageEntry[]) => {
       const sorted = sortPages(pages);
+      const hasAnyCover = sorted.some((page) => page.frontmatter?.cover);
+
+      if (hasAnyCover) {
+        return (
+          <div class="card-grid">
+            {sorted.map((page) => {
+              const title = page.frontmatter?.title ?? page.slug;
+              const pageTags = page.frontmatter?.tags ?? [];
+              const date = getPageDate(page);
+              const locale = (cfg as { locale?: string } | undefined)?.locale ?? "en-US";
+              const cover = page.frontmatter?.cover as string | undefined;
+              const description = page.frontmatter?.description as string | undefined;
+
+              const createdDate = page.dates?.created;
+              const modifiedDate = page.dates?.modified;
+
+              const displayCreated = createdDate || date;
+              const createdStr = displayCreated
+                ? displayCreated.toLocaleDateString(locale, {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })
+                : "";
+              const modifiedStr = modifiedDate
+                ? modifiedDate.toLocaleDateString(locale, {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                  })
+                : "";
+
+              const showModified = !!(modifiedStr && createdStr && modifiedStr !== createdStr);
+              const displayDate = showModified && modifiedDate ? modifiedDate : displayCreated;
+              const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
+
+              return (
+                <div class={`trip-card ${cover ? "has-cover" : "no-cover"}`}>
+                  <a
+                    href={resolveRelative(fileData.slug!, page.slug!)}
+                    class="trip-card-link-wrapper"
+                  >
+                    {cover && (
+                      <div class="trip-card-cover">
+                        <img src={cover} alt={title} loading="lazy" />
+                      </div>
+                    )}
+                    <div class="trip-card-content">
+                      <p class="meta">
+                        {displayDate && (
+                          <time dateTime={displayDate.toISOString()}>{displayDateStr}</time>
+                        )}
+                      </p>
+                      <h3>{title}</h3>
+                      {description && <p class="desc">{description}</p>}
+                      <ul class="tags">
+                        {pageTags.slice(0, 3).map((tag) => (
+                          <li>
+                            <span class="tag-badge">#{tag}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        );
+      }
+
       return (
         <ul class="section-ul">
           {sorted.map((page) => {
@@ -185,6 +258,11 @@ export default (() => {
 
     return (
       <article class={classString}>
+        {frontmatter?.cover && (
+          <div class="page-cover-banner">
+            <img src={frontmatter.cover} alt={fileData.frontmatter?.title ?? "Cover Image"} />
+          </div>
+        )}
         <div class="markdown-preview-view markdown-rendered">{content}</div>
         {hasTopics ? (
           <div class="page-listing topics-listing">
