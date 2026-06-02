@@ -1,7 +1,6 @@
 ---
 title: "Kumano Hayatama Taisha (Shingu)"
 publish: true
-unlisted: true
 tags:
   - travel
   - japan

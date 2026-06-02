@@ -1,7 +1,6 @@
 ---
 title: "Kumano Hongu Taisha & Kumano Kodo"
 publish: true
-unlisted: true
 tags:
   - travel
   - japan

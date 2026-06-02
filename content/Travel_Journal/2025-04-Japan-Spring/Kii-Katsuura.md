@@ -1,7 +1,6 @@
 ---
 title: "Kii Katsuura Coastal Base"
 publish: true
-unlisted: true
 tags:
   - travel
   - japan

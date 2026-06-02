@@ -1,7 +1,6 @@
 ---
 title: "Toba Aquarium & Coastal Transit"
 publish: true
-unlisted: true
 tags:
   - travel
   - japan
