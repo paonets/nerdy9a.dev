@@ -10,12 +10,12 @@ created: 2026-06-02 07:18
 updated: 2026-06-02 08:35
 ---
 
+
 # Kumano Nachi Taisha & Nachi Falls
 
 ## 🗺️ Scope & Locations
-
 - **Days / Dates:** April 11, 2025
-- **Locations Covered:**
+- **Locations Covered:** 
   - [Daimon-zaka](https://www.google.com/maps/search/?api=1&query=Daimonzaka+Wakayama)
   - [Kumano Nachi Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Nachi+Taisha+Wakayama)
   - [Nachisan Seiganto-ji](https://www.google.com/maps/search/?api=1&query=Nachisan+Seiganto-ji+Wakayama)
@@ -24,7 +24,6 @@ updated: 2026-06-02 08:35
 ---
 
 ## 📝 Thoughts & Reflections
-
 - The [Daimonzaka](https://www.google.com/maps/search/?api=1&query=Daimonzaka+Wakayama) trail lined with giant ancient cedar trees was beautiful.
 - Getting caught in the rain created a misty forest atmosphere that felt magical and dream-like.
 

@@ -10,12 +10,12 @@ created: 2026-06-02 07:18
 updated: 2026-06-02 08:35
 ---
 
+
 # Nagoya: Sakura & Sightseeing
 
 ## 🗺️ Scope & Locations
-
 - **Days / Dates:** April 6 - April 11, 2025
-- **Locations Covered:**
+- **Locations Covered:** 
   - [Nagoya Castle](https://www.google.com/maps/search/?api=1&query=Nagoya+Castle+Nagoya)
   - [Meijo Park](https://www.google.com/maps/search/?api=1&query=Meijo+Park+Nagoya)
   - [Tsuruma Park](https://www.google.com/maps/search/?api=1&query=Tsuruma+Park+Nagoya)
@@ -27,7 +27,6 @@ updated: 2026-06-02 08:35
 ---
 
 ## 📝 Thoughts & Reflections
-
 - Nagoya Castle was stunning in full-bloom, especially with Meijo Park right next to it.
 - Nishitetsu Hotel Croom Nagoya served as a very comfortable base for Sakae food and local shopping.
 

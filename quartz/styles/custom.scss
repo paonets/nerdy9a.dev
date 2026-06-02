@@ -671,7 +671,7 @@ a.internal.tag-link {
 }
 
 // Polish callout styling globally to match the premium rounded theme
-.callout {
+.callout:not([data-callout="photo-grid"]):not([data-callout="photo-columns"]) {
   border-radius: 14px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 
@@ -708,11 +708,73 @@ a.internal.tag-link {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    border-radius: 0;
+    margin: 0;
+    display: block;
   }
 }
 
-// 2. Photo Grid / Gallery Callout Block
-div.callout[data-callout="photo-grid"] {
+// 2. Photo Layout Styles: Grids, Columns, Standalone & Captions
+
+// General Standalone Image & Caption layout
+p {
+  // If paragraph only contains a single image (and optionally an em caption)
+  &:has(> img:only-of-type) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+
+    img {
+      max-width: 100%;
+      max-height: 550px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0 !important;
+    }
+
+    em {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.75rem;
+      font-style: normal;
+      transform: none !important; // Disable translateY default shift
+    }
+  }
+}
+
+// Override general image caption shift just in case
+p > img + em {
+  transform: none !important;
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 0.75rem;
+  font-style: normal;
+}
+
+// Standalone italic-only paragraph = caption (e.g. placed after a photo-grid)
+p:has(> em:only-child) {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  font-style: normal;
+  margin-top: 0.5rem;
+
+  em {
+    font-style: normal;
+  }
+}
+
+// Photo Grid / Gallery Callout Block (Upgraded: dynamic sizing and layout)
+.callout[data-callout="photo-grid"] {
   border: none !important;
   background: transparent !important;
   padding: 0 !important;
@@ -726,29 +788,109 @@ div.callout[data-callout="photo-grid"] {
   & > .callout-content {
     padding: 0 !important;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 
-    // Support paragraph wrappers that markdown parsers sometimes add
+    @media all and ($mobile) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    // Support single and multiple paragraph groupings
     p {
-      display: contents;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      &:has(img + img) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
     }
 
     img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      transition:
-        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.3s ease;
+      height: auto;
+      max-height: 450px;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
       margin: 0 !important;
+    }
 
-      &:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    em {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      transform: none !important;
+      font-style: normal;
+    }
+  }
+}
+
+// Photo Columns Callout Block (Side-by-side vertical or landscape columns)
+.callout[data-callout="photo-columns"] {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  margin: 2rem 0;
+
+  & > .callout-title {
+    display: none !important;
+  }
+
+  & > .callout-content {
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+
+    @media all and ($mobile) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    // Support both multi-paragraph (with empty lines) and single-paragraph groups
+    p {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      &:has(img + img) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        align-items: flex-start;
       }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      object-fit: contain;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0 0 0.5rem 0 !important;
+    }
+
+    em {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+      transform: none !important;
+      font-style: normal;
     }
   }
 }
