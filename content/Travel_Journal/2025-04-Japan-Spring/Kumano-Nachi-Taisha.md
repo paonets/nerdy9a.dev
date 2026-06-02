@@ -1,6 +1,7 @@
 ---
 title: "Kumano Nachi Taisha & Nachi Falls"
 publish: true
+unlisted: true
 tags:
   - travel
   - japan

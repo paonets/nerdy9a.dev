@@ -1,13 +1,14 @@
 ---
 title: Osaka City & Sights
 publish: true
+unlisted: true
 tags:
   - travel
   - japan
   - travel-journal
 cover: https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01099-Enhanced-NR.jpg
 created: 2026-06-02 07:31
-updated: 2026-06-02 15:30
+updated: 2026-06-02 21:05
 ---
 
 
@@ -28,20 +29,25 @@ I spent our day exploring [[Travel_Journal/Places/Osaka|Osaka]] before our multi
 - **Shopping at Osaka-Umeda Station & Gundam Base:** Visited the shopping malls and department stores around [Osaka-Umeda Station](https://www.google.com/maps/search/?api=1&query=Osaka-Umeda+Station+Osaka) for dining and shopping. We also checked out the special [Gundam Base Osaka](https://www.google.com/maps/search/?api=1&query=Gundam+Base+Osaka+Umeda) exhibition/pop-up there.
 - **[teamLab Botanical Garden Osaka](https://www.google.com/maps/search/?api=1&query=teamLab+Botanical+Garden+Osaka):** Spent the evening exploring the outdoor digital art installations set inside [Nagai Park](https://www.google.com/maps/search/?api=1&query=Nagai+Park+Osaka).
 
-> [!photo-columns]
-> ![image](https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01065.jpg)
-> *Godzilla at Umeda station*
->
-> ![image](https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01074.jpg)
-> *Gundam Base Osaka*
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
+  <div>
+    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01065.jpg" style="width: 100%; height: auto; max-height: 550px; object-fit: contain;" />
+    <em style="display: block; text-align: center; font-size: 0.85rem; margin-top: 0.25rem;">Godzilla at Umeda station</em>
+  </div>
+  <div>
+    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01074.jpg" style="width: 100%; height: auto; max-height: 550px; object-fit: contain;" />
+    <em style="display: block; text-align: center; font-size: 0.85rem; margin-top: 0.25rem;">Gundam Base Osaka</em>
+  </div>
+</div>
 
-> [!photo-grid]
-> ![image](https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01099-Enhanced-NR.jpg)
-> ![image](https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01144.jpg)
-> ![image](https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01186.jpg)
-> ![image](https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01193.jpg)
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01099-Enhanced-NR.jpg" style="width: 100%; height: auto; max-height: 450px; object-fit: contain;" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01144.jpg" style="width: 100%; height: auto; max-height: 450px; object-fit: contain;" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01186.jpg" style="width: 100%; height: auto; max-height: 450px; object-fit: contain;" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025/DSC01193.jpg" style="width: 100%; height: auto; max-height: 450px; object-fit: contain;" />
+</div>
 
-*teamLab Botanical Garden Osaka light installations*
+<em style="display: block; text-align: center; font-size: 0.85rem; color: var(--gray); margin-top: 0.5rem;">teamLab Botanical Garden Osaka light installations</em>
 
 ---
 

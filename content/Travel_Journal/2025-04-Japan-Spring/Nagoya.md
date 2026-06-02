@@ -1,6 +1,7 @@
 ---
 title: "Nagoya Sakura & Sightseeing"
 publish: true
+unlisted: true
 tags:
   - travel
   - japan

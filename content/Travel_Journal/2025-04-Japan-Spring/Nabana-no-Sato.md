@@ -1,6 +1,7 @@
 ---
 title: "Nabana no Sato Illumination"
 publish: true
+unlisted: true
 tags:
   - travel
   - japan

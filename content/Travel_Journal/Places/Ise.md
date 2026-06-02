@@ -1,6 +1,7 @@
 ---
 title: "Ise"
 publish: true
+unlisted: true
 tags:
   - travel
   - japan
