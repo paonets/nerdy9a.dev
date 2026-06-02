@@ -2241,12 +2241,14 @@ var ContentBody_default = (() => {
     const hasCover = !!frontmatter?.cover;
     const classString = ["popover-hint", ...classes, ...hasCover ? ["has-cover"] : []].join(" ");
     const filterTags = frontmatter?.filter_tags;
+    const excludeTags = frontmatter?.exclude_tags ?? [];
     const matchingPages = filterTags && Array.isArray(filterTags) && filterTags.length > 0 ? (allFiles ?? []).filter((file) => {
       if (file.unlisted === true) return false;
       if (file.slug === "index") return false;
       if (file.slug?.endsWith("/index") && !file.slug?.toLowerCase().startsWith("travel_journal/"))
         return false;
       const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+      if (excludeTags.some((t2) => fileTags.includes(t2))) return false;
       return filterTags.some((t2) => fileTags.includes(t2));
     }) : [];
     const getPageDate = (page) => {
@@ -2272,12 +2274,15 @@ var ContentBody_default = (() => {
     const sortedPages = sortPages(matchingPages);
     const topics = frontmatter?.topics;
     const hasTopics = topics && Array.isArray(topics) && topics.length > 0;
+    const assignedSlugs = /* @__PURE__ */ new Set();
     const topicsWithPages = hasTopics ? topics.map((topic) => {
       const topicTags = topic.tags ?? [];
       const topicPages = matchingPages.filter((page) => {
+        if (page.slug && assignedSlugs.has(page.slug)) return false;
         const fileTags = (page.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
         return topicTags.some((t2) => fileTags.includes(t2));
       });
+      topicPages.forEach((page) => page.slug && assignedSlugs.add(page.slug));
       return {
         ...topic,
         pages: topicPages

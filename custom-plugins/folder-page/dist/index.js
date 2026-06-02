@@ -2791,11 +2791,13 @@ var FolderContent_default = ((opts) => {
     const trie = ctx?.trie;
     let allPagesInFolder;
     const filterTags = fileData?.frontmatter?.filter_tags;
+    const excludeTags = fileData?.frontmatter?.exclude_tags ?? [];
     if (filterTags && Array.isArray(filterTags) && filterTags.length > 0) {
       allPagesInFolder = (allFiles ?? []).filter((file) => {
         if (file.unlisted === true) return false;
         if (file.slug?.endsWith("/index") || file.slug === "index") return false;
         const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+        if (excludeTags.some((t2) => fileTags.includes(t2))) return false;
         return filterTags.some((t2) => fileTags.includes(t2));
       });
     } else if (trie) {

@@ -163,12 +163,14 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     let allPagesInFolder: PageEntry[];
 
     const filterTags = (fileData?.frontmatter as any)?.filter_tags as string[] | undefined;
+    const excludeTags = ((fileData?.frontmatter as any)?.exclude_tags as string[] | undefined) ?? [];
 
     if (filterTags && Array.isArray(filterTags) && filterTags.length > 0) {
       allPagesInFolder = ((allFiles as PageEntry[]) ?? []).filter((file) => {
         if (file.unlisted === true) return false;
         if (file.slug?.endsWith("/index") || file.slug === "index") return false;
         const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+        if (excludeTags.some((t) => fileTags.includes(t))) return false;
         return filterTags.some((t) => fileTags.includes(t));
       });
     } else if (trie) {

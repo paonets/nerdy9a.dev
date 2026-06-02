@@ -19,6 +19,7 @@ type Topic = {
 type FrontmatterWithClasses = {
   cssclasses?: string[];
   filter_tags?: string[];
+  exclude_tags?: string[];
   topics?: Topic[];
   cover?: string;
   description?: string;
@@ -43,6 +44,7 @@ export default (() => {
     const classString = ["popover-hint", ...classes, ...(hasCover ? ["has-cover"] : [])].join(" ");
 
     const filterTags = frontmatter?.filter_tags;
+    const excludeTags = frontmatter?.exclude_tags ?? [];
     const matchingPages =
       filterTags && Array.isArray(filterTags) && filterTags.length > 0
         ? ((allFiles as PageEntry[]) ?? []).filter((file) => {
@@ -54,6 +56,7 @@ export default (() => {
             )
               return false;
             const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+            if (excludeTags.some((t) => fileTags.includes(t))) return false;
             return filterTags.some((t) => fileTags.includes(t));
           })
         : [];
@@ -88,13 +91,16 @@ export default (() => {
     const topics = frontmatter?.topics;
     const hasTopics = topics && Array.isArray(topics) && topics.length > 0;
 
+    const assignedSlugs = new Set<string>();
     const topicsWithPages = hasTopics
       ? topics.map((topic) => {
           const topicTags = topic.tags ?? [];
           const topicPages = matchingPages.filter((page) => {
+            if (page.slug && assignedSlugs.has(page.slug)) return false;
             const fileTags = (page.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
             return topicTags.some((t) => fileTags.includes(t));
           });
+          topicPages.forEach((page) => page.slug && assignedSlugs.add(page.slug));
           return {
             ...topic,
             pages: topicPages,
