@@ -6,7 +6,7 @@ tags:
   - japan
 cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC02710.jpg
 created: 2026-06-02 07:18
-updated: 2026-06-03 10:24
+updated: 2026-06-04 06:52
 ---
 
 
@@ -20,6 +20,11 @@ updated: 2026-06-03 10:24
 
 ## 🎨 Visual Summary
 ![image](attachments/japan_spring_2025_sketchnote.png)
+
+## 📝 Thoughts & Reflections
+This trip originally centered around [[Travel Journal/2025-04 Japan Spring/Expo 2025|Expo 2025 Osaka]], and I was lucky enough to visit during its opening week. Going so early meant I avoided the massive crowds that built up later in the summer and fall. I ended up spending five full days at the Expo, and I absolutely loved it—seeing the incredible architecture, culture, and pavilions from countries all around the world was a massive highlight.
+
+In contrast to the futuristic energy of the Expo, my journey through Kumano and [[Travel Journal/Places/Ise|Ise]] offered a deep, quiet peace. Visiting the Kumano shrines (like [[Travel Journal/2025-04 Japan Spring/Kumano Nachi Taisha|Kumano Nachi Taisha]]) and the sacred grounds of [[Travel Journal/2025-04 Japan Spring/Ise|Ise Grand Shrine]] was incredibly serene. They are easily some of the most beautiful and spiritual shrines I have ever experienced in Japan.
 
 ---
 
