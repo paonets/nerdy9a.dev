@@ -10,17 +10,16 @@ created: 2026-06-02 07:18
 updated: 2026-06-03 08:52
 ---
 
+
 # Toba: Coastal Transit & Aquarium
 
 ## 🗺️ Scope & Locations
-
 - **Days / Dates:** April 13, 2025
 - **Locations Covered:** [Toba Aquarium](https://www.google.com/maps/search/?api=1&query=Toba+Aquarium+Toba), Toba Bay
 
 ---
 
 ## 📝 Thoughts & Reflections
-
 - The dugong and giant isopods are unique highlights not found in most standard aquariums.
 - Perfect indoor activity to escape a rainy day in the Mie/Ise area.
 
@@ -48,4 +47,4 @@ Japanese aquariums never disappoint—always well-designed, full of surprises, a
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Kumano Hongu Taisha|Prev: Kumano Hongu Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Ise|Next: Ise Sacred Shrines →]]
+« [[Travel Journal/2025-04 Japan Spring/Kumano Hongu Taisha|Prev: Kumano Hongu Taisha]] | [[Travel Journal/2025-04 Japan Spring/index|Trip Index]] | [[Travel Journal/2025-04 Japan Spring/Ise|Next: Ise Sacred Shrines →]]

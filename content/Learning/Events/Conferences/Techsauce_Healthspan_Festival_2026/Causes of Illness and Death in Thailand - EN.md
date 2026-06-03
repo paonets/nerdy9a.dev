@@ -13,15 +13,14 @@ tags:
 publish: true
 unlisted: true
 ---
-
 > [!NOTE]
 > 🇬🇧 English (AI-translated). Original in Thai: [[Causes of Illness and Death in Thailand|🇹🇭 อ่านภาษาไทย]]
 
 # Causes of Illness and Death in Thailand
 
 **Speaker:** Dr. Nattapan Supaka  
-_Director of the Section of Policy, Strategy, and Innovation, Thai Health Promotion Foundation (ThaiHealth)_  
-**Event:** Techsauce Healthspan Festival 2026
+*Director of the Section of Policy, Strategy, and Innovation, Thai Health Promotion Foundation (ThaiHealth)*  
+**Event:** Techsauce Healthspan Festival 2026  
 
 ---
 
