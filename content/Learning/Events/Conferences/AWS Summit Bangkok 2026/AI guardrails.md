@@ -1,8 +1,12 @@
 ---
-tags: ["aws", "aws-summit", "conference"]
+tags:
+  - aws
+  - aws-summit
+  - conference
+  - ai
 publish: true
 created: 2026-05-28 16:19
-updated: 2026-06-01 06:44
+updated: 2026-06-03 22:35
 source: Apple Notes
 ---
 

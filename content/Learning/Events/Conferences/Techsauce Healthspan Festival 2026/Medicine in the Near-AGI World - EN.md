@@ -2,7 +2,7 @@
 title: "การแพทย์ในโลกยุคใกล้ AGI"
 
 created: 2026-06-01 16:01
-updated: 2026-06-03 22:25
+updated: 2026-06-03 22:26
 tags:
   - health
   - ai
