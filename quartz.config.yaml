@@ -129,7 +129,7 @@ plugins:
       enableRSS: true
   - source: github:quartz-community/favicon
     enabled: true
-  - source: github:quartz-community/og-image
+  - source: ./custom-plugins/og-image
     enabled: true
   - source: github:quartz-community/cname
     enabled: true
