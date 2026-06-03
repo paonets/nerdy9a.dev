@@ -104,6 +104,13 @@ To speed up local development and test builds, the custom Open Graph (OG) image 
   CF_PAGES=1 npx quartz build
   ```
 
+### Translation Callout Stripping in Preview & OG Images
+
+The description plugin has been customized under [custom-plugins/description](file:///Users/pongsakorn/Projects/nerdy9a.dev/custom-plugins/description) to strip blockquote elements (like callouts `> [!NOTE]`) before extracting the page description.
+
+- **Why it was done:** The note translation/publisher script automatically injects translation notices at the very beginning of the notes (e.g. `> 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English...`). Without this customization, these banners would leak into the meta description and the generated OG social preview images.
+- **How it works:** In [transformer.ts](file:///Users/pongsakorn/Projects/nerdy9a.dev/custom-plugins/description/src/transformer.ts), we deep-clone the HAST (HTML AST) tree using `rfdc` and filter out all `blockquote` elements before running `toString(tree)`. This generates clean, banner-free descriptions for `<meta name="description">` and `og-image` while leaving the blockquotes perfectly visible in the final rendered HTML page.
+
 ---
 
 ## Design, Theme & Styling Direction
