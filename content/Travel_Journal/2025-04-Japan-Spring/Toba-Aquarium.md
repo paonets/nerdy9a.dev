@@ -1,24 +1,26 @@
 ---
-title: "Toba Aquarium & Coastal Transit"
+title: Toba Aquarium & Coastal Transit
 publish: true
 tags:
   - travel
   - japan
   - travel-journal
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00812.jpg
 created: 2026-06-02 07:18
-updated: 2026-06-02 08:35
+updated: 2026-06-03 08:52
 ---
-
 
 # Toba: Coastal Transit & Aquarium
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** April 13, 2025
 - **Locations Covered:** [Toba Aquarium](https://www.google.com/maps/search/?api=1&query=Toba+Aquarium+Toba), Toba Bay
 
 ---
 
 ## 📝 Thoughts & Reflections
+
 - The dugong and giant isopods are unique highlights not found in most standard aquariums.
 - Perfect indoor activity to escape a rainy day in the Mie/Ise area.
 
@@ -34,7 +36,13 @@ I got to see so many species I’d never seen before, like the gentle dugong and
 
 Japanese aquariums never disappoint—always well-designed, full of surprises, and just so much fun to visit. 🐬✨
 
-(Insert photo URLs from your Lightroom-R2 workflow or attachments/)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00939.jpg)
+
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00829.jpg)
+
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00749.jpg)
+
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00892.jpg)
 
 ---
 

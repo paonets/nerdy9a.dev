@@ -163,7 +163,8 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     let allPagesInFolder: PageEntry[];
 
     const filterTags = (fileData?.frontmatter as any)?.filter_tags as string[] | undefined;
-    const excludeTags = ((fileData?.frontmatter as any)?.exclude_tags as string[] | undefined) ?? [];
+    const excludeTags =
+      ((fileData?.frontmatter as any)?.exclude_tags as string[] | undefined) ?? [];
 
     if (filterTags && Array.isArray(filterTags) && filterTags.length > 0) {
       allPagesInFolder = ((allFiles as PageEntry[]) ?? []).filter((file) => {

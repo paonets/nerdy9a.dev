@@ -5,16 +5,17 @@ tags:
   - travel
   - japan
   - travel-journal
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00614.jpg
 created: 2026-06-02 07:18
-updated: 2026-06-02 22:27
+updated: 2026-06-03 09:19
 ---
-
 
 # Kumano Hongu Taisha: Sacred Trails
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** April 12, 2025
-- **Locations Covered:** 
+- **Locations Covered:**
   - [Hosshinmon-oji](https://www.google.com/maps/search/?api=1&query=Hosshinmon-oji+Tanabe)
   - [Fushiogami-oji](https://www.google.com/maps/search/?api=1&query=Fushiogami-oji+Tanabe)
   - [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe)
@@ -23,6 +24,7 @@ updated: 2026-06-02 22:27
 ---
 
 ## 📝 Thoughts & Reflections
+
 - Deeply spiritual and surrounded by forest nature, this shrine feels like stepping into another world.
 - The massive torii gate standing in the open fields of [Oyunohara](https://www.google.com/maps/search/?api=1&query=Oyunohara+Tanabe) is an unforgettable sight.
 - The Yatagarasu three-legged crow design appears on signs and souvenirs everywhere.
@@ -41,7 +43,11 @@ This shrine is also closely associated with the Yatagarasu, a mythical three-leg
 
 Visiting all three Kumano shrines was such a special journey. Each one has its own personality, but [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe) left the deepest impression on me before I returned to my base at [[Travel_Journal/Places/Kii-Katsuura|Kii Katsuura]]. ❤️
 
-(Insert photo URLs from your Lightroom-R2 workflow or attachments/)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00614.jpg)
+<em class="photo-caption">Kumano Hongu Taisha</em>
+
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00649.jpg)
+<em class="photo-caption">Oyunohara — the world's largest torii gate</em>
 
 ---
 

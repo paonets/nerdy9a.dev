@@ -853,7 +853,9 @@ a.internal.tag-link {
     color: #ffffff;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.35);
+    text-shadow:
+      0 1px 4px rgba(0, 0, 0, 0.5),
+      0 4px 16px rgba(0, 0, 0, 0.35);
 
     @media all and ($mobile) {
       font-size: 1.4rem;
@@ -916,9 +918,50 @@ p {
   }
 }
 
-// Photo captions use explicit inline HTML: <em style="display: block; text-align: center;
-// font-size: 0.85rem; color: var(--gray); margin-top: 0.5rem;">Caption</em>
-// No CSS magic needed — see Travel_Journal/AGENTS.md for the canonical pattern.
+// Reusable photo caption: use <em class="photo-caption">Caption text</em>
+em.photo-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 0.5rem;
+  font-style: normal;
+}
+
+// Reusable photo grids:
+// .photo-grid-auto — responsive multi-column (landscape/square photos)
+// .photo-grid-2    — fixed 2-column side-by-side (portrait photos)
+.photo-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+  }
+}
+
+.photo-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+  }
+
+  @media all and ($mobile) {
+    grid-template-columns: 1fr;
+  }
+}
 
 // 3. Unified Listing Cards
 .card-grid {
