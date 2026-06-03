@@ -5,7 +5,7 @@ tags:
   - travel
   - japan
 created: 2026-06-03 10:12
-updated: 2026-06-04 06:53
+updated: 2026-06-04 06:55
 ---
 
 
@@ -26,6 +26,8 @@ What I love most about autumn is the crisp, cool weather combined with the rich,
 It had been a while since my last autumn trip to Japan—as I typically travel during the spring for the Songkran holidays—and this journey was focused entirely on the autumn colors of the mountains.
 
 While October is generally too early for low-lying areas like Tokyo, it is the perfect season for high-altitude destinations. I caught the stunning autumn foliage at its peak in mountain areas like Tateyama, Kamikochi, and Shiga Kogen. By late October, the colors began moving down to the Nikko lake area, though my trip there was just slightly ahead of the absolute peak.
+
+Any missing dates in the schedule below represent my remote working and rest days.
 
 ---
 
@@ -53,4 +55,3 @@ Here are the logs and journals for the different segments of the trip:
 - **Tabino Hotel Lit Matsumoto** (Oct 18 - 20)
 - **Dormy Inn Express Asakusa** (Oct 20 - 22)
 - **Nikko Station Hotel Classic** (Oct 22 - 25)
-- **Regala Skycity Hotel** (Oct 25 - 26)
