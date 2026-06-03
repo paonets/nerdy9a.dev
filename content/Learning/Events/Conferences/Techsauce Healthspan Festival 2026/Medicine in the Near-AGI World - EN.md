@@ -1,7 +1,8 @@
 ---
-title: Medicine in the Near-AGI World
+title: "การแพทย์ในโลกยุคใกล้ AGI"
+
 created: 2026-06-01 16:01
-updated: 2026-06-02 06:14
+updated: 2026-06-03 22:25
 tags:
   - health
   - ai
@@ -12,15 +13,14 @@ tags:
 publish: true
 unlisted: true
 ---
-
 > [!NOTE]
 > 🇬🇧 English (AI-translated). Original in Thai: [[Medicine in the Near-AGI World|🇹🇭 อ่านภาษาไทย]]
 
-# Medicine in the Near-AGI World
+
 
 **Speaker:** Dr. Piyarit Ittichaiwong  
-_Physician, Siriraj Data Innovation Center (SiData+), Faculty of Medicine Siriraj Hospital, Mahidol University_  
-**Event:** Techsauce Healthspan Festival 2026
+*Physician, Siriraj Data Innovation Center (SiData+), Faculty of Medicine Siriraj Hospital, Mahidol University*  
+**Event:** Techsauce Healthspan Festival 2026  
 
 ---
 

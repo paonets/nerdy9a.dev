@@ -1,19 +1,18 @@
 ---
 created: 2026-06-01 16:01
-updated: 2026-06-01 16:26
+updated: 2026-06-03 22:09
 tags: [health, mental-health, wellness, conference, techsauce-2026]
 publish: true
 ---
-
 > [!NOTE]
 > 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Mental Healthspan - EN|🇬🇧 Read in English]]
 
-# Mental Healthspan
+
 
 **Speaker:** ดร.นพ.วรตม์ โชติพิทยสุนนท์ (Dr. Varoth Chotpitayasunondh)  
-_โฆษกกระทรวงสาธารณสุข และโฆษกกรมสุขภาพจิต กระทรวงสาธารณสุข_  
+*โฆษกกระทรวงสาธารณสุข และโฆษกกรมสุขภาพจิต กระทรวงสาธารณสุข*  
 **Host:** คุณวุฒิธร (วู้ดดี้) มิลินทจินดา (Woody Milintachinda) ผู้ก่อตั้งและประธานบริหาร บริษัท วู้ดดี้ เวิลด์ จำกัด  
-**Event:** Techsauce Healthspan Festival 2026
+**Event:** Techsauce Healthspan Festival 2026  
 
 ---
 
