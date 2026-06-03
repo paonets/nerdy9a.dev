@@ -10,7 +10,7 @@ The **PARA Method** is a productivity and knowledge-management framework designe
 ## Core Philosophy
 The acronym **PARA** stands for the four top-level categories of information:
 1. **Projects:** A series of tasks linked to a goal, with a deadline (e.g., *Publish a website*, *Finish a home renovation project*).
-2. **Areas:** Sphere of activity with a standard to be maintained over time, with no end date (e.g., *Health_and_Fitness*, *Finance*, *Teaching*).
+2. **Areas:** Sphere of activity with a standard to be maintained over time, with no end date (e.g., *Health and Fitness*, *Finance*, *Teaching*).
 3. **Resources:** Topics or themes of ongoing interest or reference (e.g., *AI*, *Japanese language*, *travel ideas*).
 4. **Archives:** Inactive items from the other three categories (e.g., *Completed projects*, *past interests*).
 
@@ -37,7 +37,7 @@ In the `WisdomWell` vault, we use a customized, **"soft" adaptation** of the PAR
 - **Folders:**
   - `Finance/` (banking, taxes, etc.)
   - `Habits/` (identity-based habit tracking, habit logging)
-  - `Health_and_Fitness/` (workouts, plans)
+  - `Health and Fitness/` (workouts, plans)
   - `Investments/` (portfolio management, strategies, logs)
   - `Teaching/` (Nerdy with Mr.A channel prep, structures)
   - `Toastmasters/` (speech drafts, agendas)

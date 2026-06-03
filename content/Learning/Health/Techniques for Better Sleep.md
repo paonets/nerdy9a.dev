@@ -4,9 +4,6 @@ updated: 2026-06-01 19:49
 tags: [habits, health, sleep, synthesis]
 publish: true
 ---
-> [!NOTE]
-> 🇬🇧 English (Original). Thai version (AI-translated): [[Techniques for Better Sleep - TH|🇹🇭 อ่านภาษาไทย]]
-
 
 
 # Techniques for Better Sleep
@@ -19,7 +16,7 @@ A synthesized collection of sleep optimization techniques from various sources.
 *   **Consistent Sleep-Wake Schedule (ตื่นและนอนเวลาเดียวกัน)**
     - Waking up and sleeping at the exact same time daily is the single most important step to lock in your circadian rhythm (body clock).
     - **Rule of Thumb:** Wake up at your target time regardless of when you fell asleep. Even if you sleep late or have a heavy workload, stick to the schedule to retrain your body clock.
-*   **The 6-4-2-1 Rule** (see [[Learning/Events/Conferences/Techsauce_Healthspan_Festival_2026/Sleep and Longevity|Sleep & Longevity (Techsauce 2026)]])
+*   **The 6-4-2-1 Rule** (see [[Learning/Events/Conferences/Techsauce Healthspan Festival 2026/Sleep and Longevity|Sleep & Longevity (Techsauce 2026)]])
     - **6 Hours before bed:** Stop all caffeine intake (coffee, tea, cola, chocolate).
     - **4 Hours before bed:** Stop eating heavy meals.
     - **2 Hours before bed:** Stop intense cardiovascular or weight workouts (restorative yoga is acceptable).
@@ -65,7 +62,7 @@ A synthesized collection of sleep optimization techniques from various sources.
 ## Sources & References
 - **Mupha's 6 Sleep Techniques:** [YouTube Video (Si Channel)](https://www.youtube.com/watch?v=OFWefvIUCwA)
 - **Luke Coutinho's 5-Minute Breathing Technique:** [YouTube Video (Luke Coutinho)](https://www.youtube.com/watch?v=xShqeXe_ovM)
-- **Dr. Chansiri Seksanwiriya's Sleep & Longevity Talk:** [[Learning/Events/Conferences/Techsauce_Healthspan_Festival_2026/Sleep and Longevity|Sleep & Longevity (Techsauce Healthspan Festival 2026)]]
+- **Dr. Chansiri Seksanwiriya's Sleep & Longevity Talk:** [[Learning/Events/Conferences/Techsauce Healthspan Festival 2026/Sleep and Longevity|Sleep & Longevity (Techsauce Healthspan Festival 2026)]]
 
 ---
 

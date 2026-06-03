@@ -142,6 +142,17 @@ All avatars are hand-drawn vector chibi illustrations using clean dark brown out
 
 The digital garden features a public travel journal located under `content/Travel Journal/`.
 
-- **Index/Hub Pages:** Main trip pages are named `index.md` inside their trip subfolder (e.g., `content/Travel Journal/2025-04-Japan-Spring/index.md`).
+### Naming Conventions:
+- **Long Trips (Multi-page):**
+  - **Directory:** `YYYY-MM Destination` (e.g. `2025-04 Japan Spring/`)
+  - **Hub Page:** `index.md` inside the trip directory (e.g., `2025-04 Japan Spring/index.md`)
+  - **Sub-pages:** Title Case with spaces representing segments or days (e.g., `2025-04 Japan Spring/Expo 2025.md` or `2025-04 Japan Spring/Osaka.md`)
+- **Short Trips (Single-page):**
+  - **Note file name:** `YYYY-MM Destination.md` at the root of `Travel Journal/` (e.g., `2026-05 Da Nang.md`)
+- **Geographical Place Hubs:**
+  - **Note file name:** Title Case (e.g., `Osaka.md`, `Kii-Katsuura.md`) inside `Travel Journal/Places/`
+- **Slug/URL Translation:** All folders and files with spaces automatically get translated to clean kebab-case URLs with hyphens on the Quartz website (e.g., `/travel-journal/2025-04-japan-spring/expo-2025/`).
+
+- **Index/Hub Pages:** Main trip pages are named `index.md` inside their trip subfolder (e.g., `content/Travel Journal/2025-04 Japan Spring/index.md`).
 - **Sub-pages:** Specific day logs or topic pages (e.g., `Osaka.md`) must be unlisted (`unlisted: true` in the frontmatter) to avoid cluttering the main lists, making them accessible only via the main Hub page.
 - **Geographical Place Hubs:** Central entity nodes for major destinations are stored in `content/Travel Journal/Places/` (e.g., `Osaka.md`, `Nagoya.md`, `Ise.md`, `Kii-Katsuura.md`). They are marked as `publish: true` and `unlisted: true` so they resolve links without showing up in main listings or search.
