@@ -5,12 +5,11 @@ tags: [health, ai, longevity, conference, techsauce-2026]
 publish: true
 ---
 
-
 # AI-powered Healthspan
 
 **Speaker:** คุณเรืองโรจน์ (กระทิง) พูนพล (Krating Poonpol)  
-*ประธานกลุ่มบริษัท KBTG และ ประธานกองทุน Disrupt Health Impact Fund*  
-**Event:** Techsauce Healthspan Festival 2026  
+_ประธานกลุ่มบริษัท KBTG และ ประธานกองทุน Disrupt Health Impact Fund_  
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 

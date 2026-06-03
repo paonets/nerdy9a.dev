@@ -52,7 +52,7 @@ export default (() => {
             if (file.slug === "index") return false;
             if (
               file.slug?.endsWith("/index") &&
-              !file.slug?.toLowerCase().startsWith("travel_journal/")
+              !file.slug?.toLowerCase().startsWith("travel-journal/")
             )
               return false;
             const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);

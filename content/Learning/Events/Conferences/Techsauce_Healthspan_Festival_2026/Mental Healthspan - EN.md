@@ -7,15 +7,16 @@ tags: [health, mental-health, wellness, conference, techsauce-2026]
 publish: true
 unlisted: true
 ---
+
 > [!NOTE]
 > 🇬🇧 English (AI-translated). Original in Thai: [[Mental Healthspan|🇹🇭 อ่านภาษาไทย]]
 
 # Mental Healthspan
 
 **Speaker:** Dr. Varoth Chotpitayasunondh, MD  
-*Spokesperson for the Ministry of Public Health and Spokesperson for the Department of Mental Health, Ministry of Public Health*  
+_Spokesperson for the Ministry of Public Health and Spokesperson for the Department of Mental Health, Ministry of Public Health_  
 **Host:** Mr. Wuthithorn (Woody) Milintachinda, Founder and CEO of Woody World Co., Ltd.  
-**Event:** Techsauce Healthspan Festival 2026  
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 

@@ -5,7 +5,6 @@ tags: [concept, health, biology, science]
 publish: true
 ---
 
-
 # Autonomic Nervous System (ANS)
 
 The **Autonomic Nervous System (ANS)** is the branch of the peripheral nervous system that regulates the body's involuntary physiological processes (e.g., heart rate, digestion, respiration, pupillary response). It acts as an autopilot system, constantly adjusting body functions to match external and internal environments.
@@ -16,14 +15,14 @@ The ANS is divided into two primary, opposing divisions that operate like an acc
 
 ## The Two Divisions
 
-| Feature | Sympathetic Nervous System (SNS) | Parasympathetic Nervous System (PNS) |
-| :--- | :--- | :--- |
-| **Common Name** | "Fight-or-Flight" (Accelerator) | "Rest-and-Digest" (Brake) |
+| Feature           | Sympathetic Nervous System (SNS)       | Parasympathetic Nervous System (PNS)   |
+| :---------------- | :------------------------------------- | :------------------------------------- |
+| **Common Name**   | "Fight-or-Flight" (Accelerator)        | "Rest-and-Digest" (Brake)              |
 | **Primary State** | Alertness, stress, energy mobilization | Calm, conservation of energy, recovery |
-| **Heart Rate** | Increases | Decreases |
-| **Breathing** | Rapid, shallow | Slow, deep |
-| **Digestion** | Inhibited (blood diverted to muscles) | Stimulated (blood diverted to gut) |
-| **Hormones** | Adrenaline, cortisol, norepinephrine | Acetylcholine |
+| **Heart Rate**    | Increases                              | Decreases                              |
+| **Breathing**     | Rapid, shallow                         | Slow, deep                             |
+| **Digestion**     | Inhibited (blood diverted to muscles)  | Stimulated (blood diverted to gut)     |
+| **Hormones**      | Adrenaline, cortisol, norepinephrine   | Acetylcholine                          |
 
 ---
 
@@ -31,12 +30,13 @@ The ANS is divided into two primary, opposing divisions that operate like an acc
 
 In modern life, chronic mental stressors (work, screen time, anxiety) keep the **Sympathetic Nervous System (SNS)** continuously active. This makes it difficult to transition into the **Parasympathetic Nervous System (PNS)** state required for deep, restorative sleep.
 
-The body shifts states through the activation of the **Vagus Nerve** (the main highway of the parasympathetic nervous system). 
+The body shifts states through the activation of the **Vagus Nerve** (the main highway of the parasympathetic nervous system).
 
 ### How Breathing Triggers the Shift
+
 Breathing is one of the only autonomic processes that can be consciously controlled. By changing breathing patterns, we can manually hack our nervous system state:
 
-1. **Inhalation (SNS Stimulation):** 
+1. **Inhalation (SNS Stimulation):**
    - When we inhale, the diaphragm contracts, drawing air in. This slightly compresses the heart, causing blood flow to slow. To compensate, the brain sends a signal to increase the heart rate.
 2. **Exhalation (PNS Stimulation & Vagus Nerve Activation):**
    - When we exhale, the diaphragm relaxes, and the heart expands. Blood flow increases, and the brain triggers the vagus nerve to release **acetylcholine**, which slows down the heart rate.
@@ -46,5 +46,6 @@ Breathing is one of the only autonomic processes that can be consciously control
 ---
 
 ## Vault Integration
+
 - **Sleep Optimization:** Used in [[Learning/Health/Techniques for Better Sleep|Techniques for Better Sleep]] to physically transition the body before bed.
 - **Stress Management:** Helps regulate focus and anxiety during daily routines in Habit Dashboard.

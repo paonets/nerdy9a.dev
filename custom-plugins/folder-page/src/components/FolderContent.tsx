@@ -315,9 +315,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
           <div class="markdown-preview-view markdown-rendered">{content}</div>
         </article>
         <div class="page-listing">
-          {isTravelJournal && allPagesInFolder.length > 0 && (
-            <h2>Trip Logs</h2>
-          )}
+          {isTravelJournal && allPagesInFolder.length > 0 && <h2>Trip Logs</h2>}
           {options.showFolderCount && !hasAnyCover && allPagesInFolder.length > 0 && (
             <p>
               {i18n(
