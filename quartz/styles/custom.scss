@@ -14,17 +14,26 @@
   padding: 1.5rem;
   background-color: var(--light);
   transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     border-color: var(--secondary);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.08);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.08);
+
+    .card-link {
+      background-color: var(--secondary) !important;
+      color: var(--light) !important;
+      border-color: var(--secondary);
+      box-shadow: 0 4px 12px color-mix(in srgb, var(--secondary) 25%, transparent);
+    }
   }
 
   h3 {
@@ -34,6 +43,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
+    z-index: 2;
 
     a {
       color: inherit;
@@ -54,23 +65,43 @@
   p {
     font-size: 0.95rem;
     line-height: 1.5;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.25rem 0;
     color: var(--darkgray);
     flex-grow: 1;
+    position: relative;
+    z-index: 2;
   }
 
   .card-link {
+    // Reset Quartz's standard a.internal inline highlights
+    background-color: color-mix(in srgb, var(--secondary) 8%, transparent) !important;
+    padding: 0.45rem 1.15rem !important;
+    border-radius: 99px !important;
+    line-height: 1.2 !important;
+
     font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--secondary);
+    font-size: 0.85rem;
+    color: var(--secondary) !important;
     text-decoration: none;
     margin-top: auto;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.25rem;
+    align-self: flex-start;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid color-mix(in srgb, var(--secondary) 15%, transparent);
+    position: static; // Keep static so pseudo-element matches content-card bounds
 
-    &:hover {
-      color: var(--tertiary);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      border-radius: 14px;
     }
   }
 }
@@ -205,16 +236,31 @@ body[data-slug="index"] {
     }
 
     .page-subtitle {
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       text-align: center;
       font-weight: 500;
       margin: 0 auto 2.5rem;
       color: var(--gray);
       line-height: 1.4;
-      max-width: 700px;
+      max-width: 800px;
 
       a[role="anchor"] {
         display: none;
+      }
+
+      span {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+
+        &:not(:last-of-type)::after {
+          content: "·";
+          margin: 0 0.75rem;
+          color: var(--gray);
+          opacity: 0.5;
+          font-weight: bold;
+          font-size: 1.25rem;
+        }
       }
 
       @media all and ($mobile) {
@@ -222,6 +268,11 @@ body[data-slug="index"] {
 
         span {
           display: block;
+          white-space: normal;
+
+          &:not(:last-of-type)::after {
+            content: none;
+          }
         }
       }
     }
