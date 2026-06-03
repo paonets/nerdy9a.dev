@@ -255,7 +255,7 @@ body[data-slug="index"] {
 
         &:not(:last-of-type)::after {
           content: "·";
-          margin: 0 0.75rem;
+          margin: 0 0.45rem;
           color: var(--gray);
           opacity: 0.5;
           font-weight: bold;
