@@ -79,7 +79,7 @@ plugins:
     options:
       markdownLinkResolution: shortest
     order: 60
-  - source: github:quartz-community/description
+  - source: ./custom-plugins/description
     enabled: true
     order: 70
   - source: github:quartz-community/latex

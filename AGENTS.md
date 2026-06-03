@@ -86,30 +86,32 @@ To pull updates from your Obsidian vault and sync them to this Quartz repo:
 
 ## Customized Features
 
-### Category Page Tag-Filtering
+All customized plugins are located in the `custom-plugins/` directory and referenced in `quartz.config.yaml` using local paths. Below is a comprehensive list of all customizations:
 
-The main content page rendering component [ContentBody.tsx](file:///Users/pongsakorn/Projects/nerdy9a.dev/.quartz/plugins/content-page/src/components/ContentBody.tsx) has been customized to support dynamic tag-filtering via the `filter_tags` frontmatter attribute:
+### 1. Tag-Filtered Category Pages (`custom-plugins/content-page`)
+The main content page rendering component [ContentBody.tsx](file:///Users/pongsakorn/Projects/nerdy9a.dev/custom-plugins/content-page/src/components/ContentBody.tsx) has been customized to support dynamic tag-filtering via YAML frontmatter:
+- **How it works:** If a note (such as category index notes under `content/Categories/`) specifies `filter_tags: ["tag1", "tag2"]`, the plugin automatically appends a list of all notes matching *any* of those tags (including sub-segments of nested tags).
+- **Tag Exclusion:** Supports `exclude_tags: ["tag3"]` to hide specific pages from category listings even if they match the filter tags. This is used to keep unlisted pages or draft trip logs from cluttering category indices.
 
-- If any published note (such as those under `content/Categories/` like `content/Categories/Tech.md`) specifies `filter_tags: ["tag1", "tag2"]` in its frontmatter, it will automatically render the note's text followed by a dynamic list of all notes in the garden matching _any_ of those tags (including sub-segments of nested tags).
-- This allows category indexing to be completely decoupled from physical directory structures.
+### 2. Enhanced Folder Index Pages (`custom-plugins/folder-page`)
+- **Cover Photo Title Overlay:** Renders folder index cover images with custom title overlay styling and rounded corners.
+- **Trip Logs Section Header:** Automatically inserts a section header (`Trip Logs` or `Travel Logs`) before the list of sub-pages/day logs at the bottom of folder index pages (specifically in the Travel Journal).
+- **Title Logic Refactoring:** Implements robust title matching using frontmatter and page tags.
 
-### Local Build Speed-up (OG Image Generation Bypass)
+### 3. Source Link Integrations (`custom-plugins/content-meta` & `custom-plugins/note-properties`)
+- **Custom Source Display:** Parses and displays a `source` YAML property (e.g. YouTube videos, external articles, or speaker profiles) as a clickable link on a new line within the metadata block.
+- **Styling Adjustments:** Wraps properties cleanly and resolves tag-list styling issues.
 
-To speed up local development and test builds, the custom Open Graph (OG) image generator (`CustomOgImages` emitter) is disabled for all local runs (reducing rebuild times from ~11 seconds to under 1 second).
+### 4. Custom Open Graph Social Images (`custom-plugins/og-image`)
+Generates social media link previews using `satori` and `sharp` during deployments.
+- **Thai Typography Support:** Modified `emitter.tsx` to dynamically fetch and register Google's `Noto Sans Thai` (regular 400 and bold 700 weights) into Satori's font engine, setting it as a fallback in the JSX CSS. This allows pages containing Thai text to render preview cards with perfect typography.
+- **Local Build Speed-up (Bypass):** Disabled for all local builds to reduce rebuild times from ~11 seconds to under 1 second.
+  - **Mechanics:** In `quartz.ts`, we check `process.env.CF_PAGES === "1" || process.env.CI === "true" || process.env.CI === "1"`. If false, we dynamically filter out the `CustomOgImages` emitter.
+  - **Testing locally:** Test image generation locally by running: `CF_PAGES=1 npx quartz build`.
 
-- **How it works:** In `quartz.ts`, we check if the environment variable `CF_PAGES` is set to `"1"`. If it is not, we filter out the `CustomOgImages` emitter dynamically before building.
-- **Production builds:** Cloudflare Pages automatically injects `CF_PAGES=1` during build runs, so custom OG images are generated during standard deployments without requiring any manual settings.
-- **Testing OG image generation locally:** If you need to test or build the custom OG images locally, run the build with the environment variable set:
-  ```bash
-  CF_PAGES=1 npx quartz build
-  ```
-
-### Translation Callout Stripping in Preview & OG Images
-
-The description plugin has been customized under [custom-plugins/description](file:///Users/pongsakorn/Projects/nerdy9a.dev/custom-plugins/description) to strip blockquote elements (like callouts `> [!NOTE]`) before extracting the page description.
-
-- **Why it was done:** The note translation/publisher script automatically injects translation notices at the very beginning of the notes (e.g. `> 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English...`). Without this customization, these banners would leak into the meta description and the generated OG social preview images.
-- **How it works:** In [transformer.ts](file:///Users/pongsakorn/Projects/nerdy9a.dev/custom-plugins/description/src/transformer.ts), we deep-clone the HAST (HTML AST) tree using `rfdc` and filter out all `blockquote` elements before running `toString(tree)`. This generates clean, banner-free descriptions for `<meta name="description">` and `og-image` while leaving the blockquotes perfectly visible in the final rendered HTML page.
+### 5. Translation Callout Stripping (`custom-plugins/description`)
+- **How it works:** Clones the HAST (HTML AST) tree using `rfdc` and filters out all `blockquote` elements (which markdown callout boxes `> [!NOTE]` map to) before extracting the text description using `toString(tree)`.
+- **Why it was done:** The note translator script automatically injects translation notices at the very beginning of the notes. Stripping blockquotes prevents these banners from leaking into `<meta name="description">` tags and the text of generated OG images, while keeping them perfectly visible on the actual rendered HTML page.
 
 ---
 
