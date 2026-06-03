@@ -2,7 +2,7 @@
 title: nerdy9a garden 🌳
 layout: custom
 created: 2026-05-31 19:51
-updated: 2026-06-02 00:00
+updated: 2026-06-03 21:47
 ---
 
 <div class="homepage-logo-container">
@@ -63,27 +63,27 @@ function switchLang(lang) {
 
 <div class="content-grid">
   <div class="content-card">
-    <h3><a href="./categories/tech">🛠️ Engineering & Startup</a></h3>
+    <h3><a href="./categories/tech" data-no-popover="true">🛠️ Engineering & Startup</a></h3>
     <p>Software engineering, distributed systems, AWS, AI tools, and lessons from building Hato Hub.</p>
-    <a class="card-link" href="./categories/tech">Explore Tech & Startup →</a>
+    <a class="card-link" href="./categories/tech" data-no-popover="true">Explore Tech & Startup →</a>
   </div>
   
   <div class="content-card">
-    <h3><a href="./categories/self-improvement">📈 Self-Improvement & PKM</a></h3>
+    <h3><a href="./categories/self-improvement" data-no-popover="true">📈 Self-Improvement & PKM</a></h3>
     <p>Personal knowledge management, productivity workflows, book summaries, and Toastmasters guides.</p>
-    <a class="card-link" href="./categories/self-improvement">Explore Self-Improvement →</a>
+    <a class="card-link" href="./categories/self-improvement" data-no-popover="true">Explore Self-Improvement →</a>
   </div>
 
   <div class="content-card">
-    <h3><a href="./categories/health">🧘‍♂️ Health & Mindfulness</a></h3>
+    <h3><a href="./categories/health" data-no-popover="true">🧘‍♂️ Health & Mindfulness</a></h3>
     <p>Notes and logs on physical health, wellness, and mindfulness.</p>
-    <a class="card-link" href="./categories/health">Explore Wellness →</a>
+    <a class="card-link" href="./categories/health" data-no-popover="true">Explore Wellness →</a>
   </div>
 
   <div class="content-card">
-    <h3><a href="./categories/travel">✈️ Travel & Japan</a></h3>
+    <h3><a href="./categories/travel" data-no-popover="true">✈️ Travel & Japan</a></h3>
     <p>Trip planning, preferences, and itineraries, with a special focus on traveling in Japan.</p>
-    <a class="card-link" href="./categories/travel">Explore Travel →</a>
+    <a class="card-link" href="./categories/travel" data-no-popover="true">Explore Travel →</a>
   </div>
 </div>
 
