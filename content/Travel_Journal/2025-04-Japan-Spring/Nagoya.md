@@ -7,13 +7,13 @@ tags:
   - travel-journal
 cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09988-Pano.jpg
 created: 2026-06-02 07:18
-updated: 2026-06-03 08:50
+updated: 2026-06-03 11:39
 ---
+
 
 # Nagoya: Sakura & Sightseeing
 
 ## 🗺️ Scope & Locations
-
 - **Days / Dates:** April 6 - April 11, 2025
 - **Locations Visited:**
   - [Nagoya Castle](https://www.google.com/maps/search/?api=1&query=Nagoya+Castle+Nagoya) — night sakura lightup (day 1) + day visit (day 2)
@@ -28,7 +28,6 @@ updated: 2026-06-03 08:50
 ---
 
 ## 📝 Thoughts & Reflections
-
 - Nagoya Castle was stunning across two visits — I caught the sakura lightup at night on the first day, then came back the next day to explore it properly in full daylight. Both were magical in completely different ways.
 - Tsuruma Park was packed — it was a proper spring sakura festival with full lightup. Lively, festive, and a very different energy from the castle.
 - Nishitetsu Hotel Croom Nagoya served as a very comfortable base for Sakae food and local dining.
@@ -50,8 +49,6 @@ Also on day 1, I walked over to [Tsuruma Park](https://www.google.com/maps/searc
 The next day I came back to explore Nagoya Castle properly in daylight — the full-bloom sakura under clear skies was just as magical 🌸🏯 Inside the Honmaru Palace was equally breathtaking.
 
 ![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09938.jpg)
-
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09824.jpg)
 
 I stayed at the [Nishitetsu Hotel Croom Nagoya](https://www.google.com/maps/search/?api=1&query=Nishitetsu+Hotel+Croom+Nagoya+Nagoya) near Sakae, which was excellent — the room was comfortable, the [[Travel_Journal/Places/Nagoya|Nagoya]] location was perfect for dining, and the hot spring bath (onsen) was a great way to wind down.
 
