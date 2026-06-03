@@ -36,9 +36,9 @@ Finally found some time to continue sharing photos from my Japan trip! 🇯🇵�
 
 After exploring [[Travel Journal/Places/Nagoya|Nagoya]], I made my way down to the Wakayama area—a bit of a long train ride (around 4 hours), but absolutely worth it. Surprisingly, I didn’t see any other Thai travelers here!
 
-The highlight of this region is the sacred Kumano Sanzan: three grand shrines connected by the historic pilgrimage route known as the Kumano Kodo (along with [[Travel Journal/2025-04-Japan-Spring/Kumano-Hongu-Taisha|Kumano Hongu Taisha]] and [[Travel Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha|Kumano Hayatama Taisha]]). Visiting all three takes a couple of days, as they’re spread out across the mountains.
+The highlight of this region is the sacred Kumano Sanzan: three grand shrines connected by the historic pilgrimage route known as the Kumano Kodo (along with [[Travel Journal/2025-04-Japan-Spring/Kumano Hongu Taisha|Kumano Hongu Taisha]] and [[Travel Journal/2025-04-Japan-Spring/Kumano Hayatama Taisha|Kumano Hayatama Taisha]]). Visiting all three takes a couple of days, as they’re spread out across the mountains.
 
-The first shrine I visited was [Kumano Nachi Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Nachi+Taisha+Wakayama), one of the most iconic, especially with the majestic [Nachi Falls](https://www.google.com/maps/search/?api=1&query=Nachi+Falls+Wakayama)—Japan’s tallest waterfall—right beside it. To get there, I hiked up the [Daimonzaka](https://www.google.com/maps/search/?api=1&query=Daimonzaka+Wakayama) trail, a stone-paved path lined with ancient Japanese cedar trees. I actually got caught in a bit of rain along the way, but afterward, the forest turned misty and magical—like something out of a dream. I based myself at my [[Travel Journal/Places/Kii-Katsuura|Kii Katsuura]] base for this exploration. 🌧️🌿⛩️
+The first shrine I visited was [Kumano Nachi Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Nachi+Taisha+Wakayama), one of the most iconic, especially with the majestic [Nachi Falls](https://www.google.com/maps/search/?api=1&query=Nachi+Falls+Wakayama)—Japan’s tallest waterfall—right beside it. To get there, I hiked up the [Daimonzaka](https://www.google.com/maps/search/?api=1&query=Daimonzaka+Wakayama) trail, a stone-paved path lined with ancient Japanese cedar trees. I actually got caught in a bit of rain along the way, but afterward, the forest turned misty and magical—like something out of a dream. I based myself at my Kii Katsuura base for this exploration. 🌧️🌿⛩️
 
 <div class="photo-grid-auto">
   <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00331.jpg" />
@@ -64,4 +64,4 @@ The first shrine I visited was [Kumano Nachi Taisha](https://www.google.com/maps
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Kii-Katsuura|Prev: Kii Katsuura Coastal Base]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha|Next: Kumano Hayatama Taisha →]]
+« [[Travel Journal/2025-04-Japan-Spring/Kii Katsuura|Prev: Kii Katsuura Coastal Base]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Kumano Hayatama Taisha|Next: Kumano Hayatama Taisha →]]

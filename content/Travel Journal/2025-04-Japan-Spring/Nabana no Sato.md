@@ -61,4 +61,4 @@ If you’re visiting the Nagoya area in spring, Nabana no Sato is 100% worth the
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Nagoya|Prev: Nagoya Sakura & Sightseeing]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Kii-Katsuura|Next: Kii Katsuura Coastal Base →]]
+« [[Travel Journal/2025-04-Japan-Spring/Nagoya|Prev: Nagoya Sakura & Sightseeing]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Kii Katsuura|Next: Kii Katsuura Coastal Base →]]

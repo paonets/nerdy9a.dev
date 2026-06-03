@@ -33,7 +33,7 @@ updated: 2026-06-03 09:19
 
 ## 📸 Journal & Photos
 
-The final stop on the Kumano Sanzan pilgrimage (following [[Travel Journal/2025-04-Japan-Spring/Kumano-Nachi-Taisha|Kumano Nachi Taisha]] and [[Travel Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha|Kumano Hayatama Taisha]]) is [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe)—and honestly, it’s my favorite of the three. ✨
+The final stop on the Kumano Sanzan pilgrimage (following [[Travel Journal/2025-04-Japan-Spring/Kumano Nachi Taisha|Kumano Nachi Taisha]] and [[Travel Journal/2025-04-Japan-Spring/Kumano Hayatama Taisha|Kumano Hayatama Taisha]]) is [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe)—and honestly, it’s my favorite of the three. ✨
 
 Located deeper in the mountains, this shrine is considered the spiritual heart of the [Kumano Kodo](https://www.google.com/maps/search/?api=1&query=Kumano+Kodo+Tanabe) pilgrimage. Surrounded by mystical nature—dense forests, peaceful rivers, and quiet mountain air—it feels like stepping into another world. The shrine itself has a unique sacred presence, with its dark wooden architecture and tranquil atmosphere.
 
@@ -41,7 +41,7 @@ Interestingly, [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&q
 
 This shrine is also closely associated with the Yatagarasu, a mythical three-legged crow believed to be a divine guide. You’ll spot the crow motif everywhere—on signs, omamori charms, and even souvenirs. 🐦⬛
 
-Visiting all three Kumano shrines was such a special journey. Each one has its own personality, but [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe) left the deepest impression on me before I returned to my base at [[Travel Journal/Places/Kii-Katsuura|Kii Katsuura]]. ❤️
+Visiting all three Kumano shrines was such a special journey. Each one has its own personality, but [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe) left the deepest impression on me before I returned to my base at Kii Katsuura. ❤️
 
 ![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00614.jpg)
 <em class="photo-caption">Kumano Hongu Taisha</em>
@@ -53,4 +53,4 @@ Visiting all three Kumano shrines was such a special journey. Each one has its o
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha|Prev: Kumano Hayatama Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Toba-Aquarium|Next: Toba Aquarium →]]
+« [[Travel Journal/2025-04-Japan-Spring/Kumano Hayatama Taisha|Prev: Kumano Hayatama Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Toba Aquarium|Next: Toba Aquarium →]]

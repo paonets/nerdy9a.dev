@@ -48,4 +48,4 @@ Japanese aquariums never disappoint—always well-designed, full of surprises, a
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Kumano-Hongu-Taisha|Prev: Kumano Hongu Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Ise|Next: Ise Sacred Shrines →]]
+« [[Travel Journal/2025-04-Japan-Spring/Kumano Hongu Taisha|Prev: Kumano Hongu Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Ise|Next: Ise Sacred Shrines →]]

@@ -17,7 +17,7 @@ The kitchen of Japan. Famous for street food, massive shopping malls in Umeda/Na
 ## 🗺️ Trips & Logs
 
 - [[Travel Journal/2025-04-Japan-Spring/Osaka|Japan Spring 2025 Journal: Osaka City & Sights]]
-- [[Travel Journal/2025-04-Japan-Spring/Expo-2025|Japan Spring 2025 Journal: Osaka Expo 2025]]
+- [[Travel Journal/2025-04-Japan-Spring/Expo 2025|Japan Spring 2025 Journal: Osaka Expo 2025]]
 
 ## 🏨 Accommodations
 

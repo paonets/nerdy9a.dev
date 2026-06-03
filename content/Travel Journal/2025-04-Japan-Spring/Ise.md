@@ -30,13 +30,13 @@ updated: 2026-06-03 08:55
 - Visiting the [Sengukan Museum](https://www.google.com/maps/search/?api=1&query=Sengukan+Museum+Ise) near the Outer Shrine provides excellent context on the shrine's architecture and carpentry.
 - Walking across the wooden [Uji Bridge](https://www.google.com/maps/search/?api=1&query=Uji+Bridge+Ise) into Naiku is a highlight.
 - Checking out [Oharai-machi](https://www.google.com/maps/search/?api=1&query=Oharai-machi+Ise) and [Okage Yokocho](https://www.google.com/maps/search/?api=1&query=Okage+Yokocho+Ise) is perfect for trying local snacks like Akafuku.
-- The sacred [Meoto Iwa](https://www.google.com/maps/search/?api=1&query=Meoto+Iwa+Ise) (Wedded Rocks) in Futami is worth a visit, and hopping over to the nearby [[Travel Journal/2025-04-Japan-Spring/Toba-Aquarium|Toba Aquarium]] was a perfect rainy day escape.
+- The sacred [Meoto Iwa](https://www.google.com/maps/search/?api=1&query=Meoto+Iwa+Ise) (Wedded Rocks) in Futami is worth a visit, and hopping over to the nearby [[Travel Journal/2025-04-Japan-Spring/Toba Aquarium|Toba Aquarium]] was a perfect rainy day escape.
 
 ---
 
 ## 📸 Journal & Photos
 
-After my time in the [[Travel Journal/Places/Kii-Katsuura|Kumano Sanzan (Kii Katsuura)]] region, I continued to [[Travel Journal/Places/Ise|Ise]] to visit the [Ise Grand Shrine](https://www.google.com/maps/search/?api=1&query=Ise+Jingu+Naiku+Ise) — Japan’s most sacred shrine. I know a few people who return here again and again.
+After my time in the Kumano Sanzan (Kii Katsuura) region, I continued to [[Travel Journal/Places/Ise|Ise]] to visit the [Ise Grand Shrine](https://www.google.com/maps/search/?api=1&query=Ise+Jingu+Naiku+Ise) — Japan’s most sacred shrine. I know a few people who return here again and again.
 
 One of its most fascinating traditions is that every 20 years, the shrine buildings are rebuilt entirely from scratch, giving the gods a “new home.” This practice has continued for over 1,300 years without interruption. Beside each building, you’ll always see an empty plot waiting for the next reconstruction.
 
@@ -62,4 +62,4 @@ Visiting Ise isn’t just sightseeing—it’s stepping into the spiritual heart
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Toba-Aquarium|Prev: Toba Aquarium]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Osaka|Next: Osaka City & Sights →]]
+« [[Travel Journal/2025-04-Japan-Spring/Toba Aquarium|Prev: Toba Aquarium]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Osaka|Next: Osaka City & Sights →]]

@@ -3090,16 +3090,14 @@ var FolderContent_default = (opts) => {
                       /* @__PURE__ */ u2("p", { class: "desc", children: description }),
                     /* @__PURE__ */ u2("ul", {
                       class: "tags",
-                      children: pageTags
-                        .slice(0, 3)
-                        .map((tag) =>
-                          /* @__PURE__ */ u2("li", {
-                            children: /* @__PURE__ */ u2("span", {
-                              class: "tag-badge",
-                              children: ["#", tag],
-                            }),
+                      children: pageTags.slice(0, 3).map((tag) =>
+                        /* @__PURE__ */ u2("li", {
+                          children: /* @__PURE__ */ u2("span", {
+                            class: "tag-badge",
+                            children: ["#", tag],
                           }),
-                        ),
+                        }),
+                      ),
                     }),
                   ],
                 }),

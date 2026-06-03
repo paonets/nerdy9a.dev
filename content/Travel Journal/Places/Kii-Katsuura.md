@@ -16,10 +16,10 @@ Coastal hot spring town in Wakayama, serving as the perfect base for exploring t
 
 ## 🗺️ Trips & Logs
 
-- [[Travel Journal/2025-04-Japan-Spring/Kii-Katsuura|Japan Spring 2025 Journal: Kii Katsuura Coastal Base]]
-- [[Travel Journal/2025-04-Japan-Spring/Kumano-Nachi-Taisha|Japan Spring 2025 Journal: Kumano Nachi Taisha]]
-- [[Travel Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha|Japan Spring 2025 Journal: Kumano Hayatama Taisha]]
-- [[Travel Journal/2025-04-Japan-Spring/Kumano-Hongu-Taisha|Japan Spring 2025 Journal: Kumano Hongu Taisha]]
+- [[Travel Journal/2025-04-Japan-Spring/Kii Katsuura|Japan Spring 2025 Journal: Kii Katsuura Coastal Base]]
+- [[Travel Journal/2025-04-Japan-Spring/Kumano Nachi Taisha|Japan Spring 2025 Journal: Kumano Nachi Taisha]]
+- [[Travel Journal/2025-04-Japan-Spring/Kumano Hayatama Taisha|Japan Spring 2025 Journal: Kumano Hayatama Taisha]]
+- [[Travel Journal/2025-04-Japan-Spring/Kumano Hongu Taisha|Japan Spring 2025 Journal: Kumano Hongu Taisha]]
 
 ## 🏨 Accommodations
 

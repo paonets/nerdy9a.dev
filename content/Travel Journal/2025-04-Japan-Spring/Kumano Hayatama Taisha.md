@@ -31,7 +31,7 @@ updated: 2026-06-03 09:21
 
 ## 📸 Journal & Photos
 
-Next stop on my Kumano pilgrimage (after [[Travel Journal/2025-04-Japan-Spring/Kumano-Nachi-Taisha|Kumano Nachi Taisha]]): [Kumano Hayatama Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hayatama+Taisha+Shingu) in [Shingu City](https://www.google.com/maps/search/?api=1&query=Shingu+City+Wakayama), utilizing my base in [[Travel Journal/Places/Kii-Katsuura|Kii Katsuura]] 🌿⛩️
+Next stop on my Kumano pilgrimage (after [[Travel Journal/2025-04-Japan-Spring/Kumano Nachi Taisha|Kumano Nachi Taisha]]): [Kumano Hayatama Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hayatama+Taisha+Shingu) in [Shingu City](https://www.google.com/maps/search/?api=1&query=Shingu+City+Wakayama), utilizing my base in Kii Katsuura 🌿⛩️
 
 Hayatama Taisha sits in a peaceful riverside area, right in the heart of Shingu. Shingu itself is a small, quiet town, but it has a unique charm.
 
@@ -53,4 +53,4 @@ One hidden gem I really loved was the [Shingu Castle Ruins](https://www.google.c
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/Kumano-Nachi-Taisha|Prev: Kumano Nachi Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Kumano-Hongu-Taisha|Next: Kumano Hongu Taisha →]]
+« [[Travel Journal/2025-04-Japan-Spring/Kumano Nachi Taisha|Prev: Kumano Nachi Taisha]] | [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Kumano Hongu Taisha|Next: Kumano Hongu Taisha →]]

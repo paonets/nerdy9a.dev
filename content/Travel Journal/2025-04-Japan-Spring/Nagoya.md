@@ -57,4 +57,4 @@ I stayed at the [Nishitetsu Hotel Croom Nagoya](https://www.google.com/maps/sear
 
 ## 🗺️ Trip Navigation
 
-« [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Nabana-no-Sato|Next: Nabana no Sato Illumination →]]
+« [[Travel Journal/2025-04-Japan-Spring/index|Trip Index]] | [[Travel Journal/2025-04-Japan-Spring/Nabana no Sato|Next: Nabana no Sato Illumination →]]

@@ -31,15 +31,15 @@ Here are the logs and journals for the different segments of the trip:
 | Days / Section | Scope & Highlights                                               | Log / Blog Link                                                                           |
 | -------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Apr 6 - 11     | **Nagoya**: Sakura castle, Tsuruma Park                          | [[Travel Journal/2025-04-Japan-Spring/Nagoya\|🌸 Nagoya & Sakura Spots]]                  |
-| Apr 7          | **Nabana no Sato**: Botanical garden & winter illumination       | [[Travel Journal/2025-04-Japan-Spring/Nabana-no-Sato\|✨ Nabana no Sato Illumination]]    |
-| Apr 11 - 13    | **Kii Katsuura**: Coastal onsen & seafood (Wakayama base)        | [[Travel Journal/2025-04-Japan-Spring/Kii-Katsuura\|⚓ Kii Katsuura Coastal Base]]        |
-| Apr 11         | **Kumano Nachi Taisha**: Daimon-zaka walk & Nachi Falls          | [[Travel Journal/2025-04-Japan-Spring/Kumano-Nachi-Taisha\|⛩️ Kumano Nachi Taisha]]       |
-| Apr 12         | **Kumano Hayatama Taisha**: Shingu shrine visit                  | [[Travel Journal/2025-04-Japan-Spring/Kumano-Hayatama-Taisha\|⛩️ Kumano Hayatama Taisha]] |
-| Apr 12         | **Kumano Hongu Taisha**: Kumano Kodo forest trail                | [[Travel Journal/2025-04-Japan-Spring/Kumano-Hongu-Taisha\|🌲 Kumano Hongu Taisha]]       |
-| Apr 13         | **Toba**: Transit stop & Aquarium                                | [[Travel Journal/2025-04-Japan-Spring/Toba-Aquarium\|🐬 Toba Aquarium]]                   |
+| Apr 7          | **Nabana no Sato**: Botanical garden & winter illumination       | [[Travel Journal/2025-04-Japan-Spring/Nabana no Sato\|✨ Nabana no Sato Illumination]]    |
+| Apr 11 - 13    | **Kii Katsuura**: Coastal onsen & seafood (Wakayama base)        | [[Travel Journal/2025-04-Japan-Spring/Kii Katsuura\|⚓ Kii Katsuura Coastal Base]]        |
+| Apr 11         | **Kumano Nachi Taisha**: Daimon-zaka walk & Nachi Falls          | [[Travel Journal/2025-04-Japan-Spring/Kumano Nachi Taisha\|⛩️ Kumano Nachi Taisha]]       |
+| Apr 12         | **Kumano Hayatama Taisha**: Shingu shrine visit                  | [[Travel Journal/2025-04-Japan-Spring/Kumano Hayatama Taisha\|⛩️ Kumano Hayatama Taisha]] |
+| Apr 12         | **Kumano Hongu Taisha**: Kumano Kodo forest trail                | [[Travel Journal/2025-04-Japan-Spring/Kumano Hongu Taisha\|🌲 Kumano Hongu Taisha]]       |
+| Apr 13         | **Toba**: Transit stop & Aquarium                                | [[Travel Journal/2025-04-Japan-Spring/Toba Aquarium\|🐬 Toba Aquarium]]                   |
 | Apr 13 - 14    | **Ise**: Outer & Inner Shrine, Okage Yokocho, Meoto Iwa          | [[Travel Journal/2025-04-Japan-Spring/Ise\|⛩️ Ise Sacred Shrines]]                        |
 | Apr 14         | **Osaka City**: Shopping at Umeda (Gundam Base pop-up) & teamLab | [[Travel Journal/2025-04-Japan-Spring/Osaka\|🏙️ Osaka City & Sights]]                     |
-| Apr 15 - 19    | **Expo 2025 Osaka**: Multi-day Expo pavilion entries             | [[Travel Journal/2025-04-Japan-Spring/Expo-2025\|🌐 Osaka Expo 2025]]                     |
+| Apr 15 - 19    | **Expo 2025 Osaka**: Multi-day Expo pavilion entries             | [[Travel Journal/2025-04-Japan-Spring/Expo 2025\|🌐 Osaka Expo 2025]]                     |
 
 ---
 
