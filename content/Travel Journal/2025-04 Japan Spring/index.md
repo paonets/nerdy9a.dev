@@ -6,7 +6,7 @@ tags:
   - japan
 cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC02710.jpg
 created: 2026-06-02 07:18
-updated: 2026-06-04 06:54
+updated: 2026-06-04 07:00
 ---
 
 
@@ -16,7 +16,6 @@ updated: 2026-06-04 06:54
 - **Dates:** April 5 - April 20, 2025
 - **Route:** Bangkok -> Nagoya -> Kii Katsuura -> Ise -> Osaka -> Bangkok
 - **Companions:** Solo & Tose (for Expo)
-- **Planning Note:** Japan Spring 2025 Planning & Itinerary
 
 ## 🎨 Visual Summary
 ![image](attachments/japan_spring_2025_sketchnote.png)

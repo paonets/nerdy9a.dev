@@ -5,7 +5,7 @@ tags:
   - travel
   - japan
 created: 2026-06-03 10:12
-updated: 2026-06-04 06:55
+updated: 2026-06-04 07:00
 ---
 
 
@@ -15,7 +15,6 @@ updated: 2026-06-04 06:55
 - **Dates:** October 11 - October 26, 2025
 - **Route:** Bangkok -> Tokyo -> Toyama -> Tateyama Kurobe Alpine Route -> Nagano -> Matsumoto -> Kamikochi -> Tokyo -> Nikko -> Tokyo -> Bangkok
 - **Companions:** Solo
-- **Planning Note:** Japan Fall 2025 Planning & Itinerary
 
 ## 🎨 Visual Summary
 ![image](attachments/japan_autumn_sketchnote.png)
