@@ -143,6 +143,7 @@ All avatars are hand-drawn vector chibi illustrations using clean dark brown out
 The digital garden features a public travel journal located under `content/Travel Journal/`.
 
 ### Naming Conventions:
+
 - **Long Trips (Multi-page):**
   - **Directory:** `YYYY-MM Destination` (e.g. `2025-04 Japan Spring/`)
   - **Hub Page:** `index.md` inside the trip directory (e.g., `2025-04 Japan Spring/index.md`)

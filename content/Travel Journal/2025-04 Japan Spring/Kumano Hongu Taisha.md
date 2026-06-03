@@ -10,12 +10,12 @@ created: 2026-06-02 07:18
 updated: 2026-06-03 09:19
 ---
 
-
 # Kumano Hongu Taisha: Sacred Trails
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** April 12, 2025
-- **Locations Covered:** 
+- **Locations Covered:**
   - [Hosshinmon-oji](https://www.google.com/maps/search/?api=1&query=Hosshinmon-oji+Tanabe)
   - [Fushiogami-oji](https://www.google.com/maps/search/?api=1&query=Fushiogami-oji+Tanabe)
   - [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe)
@@ -24,6 +24,7 @@ updated: 2026-06-03 09:19
 ---
 
 ## 📝 Thoughts & Reflections
+
 - Deeply spiritual and surrounded by forest nature, this shrine feels like stepping into another world.
 - The massive torii gate standing in the open fields of [Oyunohara](https://www.google.com/maps/search/?api=1&query=Oyunohara+Tanabe) is an unforgettable sight.
 - The Yatagarasu three-legged crow design appears on signs and souvenirs everywhere.

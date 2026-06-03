@@ -4,16 +4,15 @@ updated: 2026-06-01 16:26
 tags: [health, biomarkers, diagnostics, longevity, conference, techsauce-2026]
 publish: true
 ---
+
 > [!NOTE]
 > 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Measuring Healthspan - EN|🇬🇧 Read in English]]
-
-
 
 # Measuring Healthspan
 
 **Speaker:** พญ.วรรณวิพุธ สรรพสิทธิ์วงศ์ (Dr. Wanwiput Sanphasitvong)  
-*แพทย์ผู้เชี่ยวชาญด้านเวชศาสตร์ป้องกัน และ Wellness ศูนย์ส่งเสริมสุขภาพ VitalLife โรงพยาบาลบำรุงราษฎร์*  
-**Event:** Techsauce Healthspan Festival 2026  
+_แพทย์ผู้เชี่ยวชาญด้านเวชศาสตร์ป้องกัน และ Wellness ศูนย์ส่งเสริมสุขภาพ VitalLife โรงพยาบาลบำรุงราษฎร์_  
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 
