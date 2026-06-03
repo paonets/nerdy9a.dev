@@ -50,11 +50,6 @@ export default (() => {
         ? ((allFiles as PageEntry[]) ?? []).filter((file) => {
             if (file.unlisted === true) return false;
             if (file.slug === "index") return false;
-            if (
-              file.slug?.endsWith("/index") &&
-              !file.slug?.toLowerCase().startsWith("travel-journal/")
-            )
-              return false;
             const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
             if (excludeTags.some((t) => fileTags.includes(t))) return false;
             return filterTags.some((t) => fileTags.includes(t));

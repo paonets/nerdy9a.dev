@@ -1,3 +1,5 @@
 public
 node_modules
 .quartz-cache
+custom-plugins/*/dist
+custom-plugins/*/node_modules
