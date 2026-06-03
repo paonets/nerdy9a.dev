@@ -205,7 +205,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     const locale = (cfg as { locale?: string } | undefined)?.locale ?? "en-US";
     const fileSlug = (fileData as { slug?: string } | undefined)?.slug ?? "";
 
-    const isTravelJournal = fileSlug.toLowerCase().startsWith("travel_journal");
+    const listingTitle = (frontmatter?.listing_title as string | undefined) ?? "Browse";
 
     const getPageDate = (page: PageEntry): Date | undefined => {
       const defaultDateType =
@@ -315,7 +315,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
           <div class="markdown-preview-view markdown-rendered">{content}</div>
         </article>
         <div class="page-listing">
-          {isTravelJournal && allPagesInFolder.length > 0 && <h2>Trip Logs</h2>}
+          {listingTitle && allPagesInFolder.length > 0 && <h2>{listingTitle}</h2>}
           {options.showFolderCount && !hasAnyCover && allPagesInFolder.length > 0 && (
             <p>
               {i18n(
