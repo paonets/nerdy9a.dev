@@ -7,7 +7,7 @@ tags:
   - travel-journal
 cover: https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03041-Pano.jpg
 created: 2026-06-03 10:12
-updated: 2026-06-04 07:27
+updated: 2026-06-04 08:30
 ---
 
 # Kamikochi: Alpine Valley & Autumn Trails
@@ -67,3 +67,9 @@ _Map from the [Kamikochi Official Website](https://www.kamikochi.org/thingstodo/
 
 - **Go early and book in advance:** I used Matsumoto as my base. It is a train ride followed by a bus to get there. I left Matsumoto at 6:30 AM and arrived in Kamikochi a bit past 8:00 AM. Booking bus tickets in advance is highly recommended to secure your spot.
 - **Flexible return:** The return trip is quite flexible. I finished my hike earlier than expected, so I cancelled my original bus booking and easily booked a new return ticket online using my phone.
+
+---
+
+## 🗺️ Trip Navigation
+
+« Prev: Togakushi Shrines | [[Travel Journal/2025-10 Japan Autumn/index|Trip Index]] | Next: Nikko: Temples →
