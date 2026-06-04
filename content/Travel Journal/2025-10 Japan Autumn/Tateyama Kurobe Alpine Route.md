@@ -7,13 +7,13 @@ tags:
   - japan
   - travel-journal
 created: 2026-06-03 10:12
-updated: 2026-06-04 06:53
+updated: 2026-06-04 08:53
 ---
+
 
 # Tateyama Kurobe Alpine Route
 
 ## 🗺️ Scope & Locations
-
 - **Days / Dates:** October 12, 2025
 - **Locations Visited:**
   - [Shomyo Falls](https://www.google.com/maps/search/?api=1&query=Shomyo+Falls+Toyama)
@@ -24,11 +24,10 @@ updated: 2026-06-04 06:53
 ---
 
 ## 📝 Thoughts & Reflections
-
 - Tateyama Kurobe Alpine Route in peak autumn foliage was absolutely epic—vibrant fall colors blanketed the entire landscape.
 - Murodo felt out of this world. The volcanic gas vents, high alpine plains, and trails make it feel like walking on the roof of the world.
 - The Tateyama Ropeway offered one of the most stunning autumn foliage vistas in Japan (and likely the world).
-- Kurobe Dam was incredibly atmospheric; its sheer scale and the roar of the discharging water reminded me of Helm's Deep from _Lord of the Rings_.
+- Kurobe Dam was incredibly atmospheric; its sheer scale and the roar of the discharging water reminded me of Helm's Deep from *Lord of the Rings*.
 - Visiting Shomyo Falls was an unexpected, lucky highlight. Since I hadn't booked my ticket in advance and got a late slot, this detour made the delay well worth it.
 
 ---
@@ -37,42 +36,41 @@ updated: 2026-06-04 06:53
 
 My journey across the Tateyama Kurobe Alpine Route during the peak of autumn was nothing short of epic. Because I hadn’t booked my tickets in advance, I had to purchase them on-site. The only slot available was quite late in the morning. However, this delay turned out to be a blessing in disguise. It gave me the perfect opportunity to visit [Shomyo Falls](https://www.google.com/maps/search/?api=1&query=Shomyo+Falls+Toyama) first—a detour I hadn't originally planned. Standing before the sheer height and raw power of the falls, I felt incredibly fortunate; it was a spectacular sight that I'm glad I didn't miss.
 
-<div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01190.jpg" alt="Distant view of Shomyo Falls cascading down a deep V-shaped green mountain gorge" />
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01064.jpg" alt="Close-up of Shomyo Falls plunging down a rocky cliff face into a clear turquoise river basin" />
-</div>
-<em class="photo-caption">Shomyo Falls</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01190.jpg" alt="Distant view of Shomyo Falls cascading down a deep V-shaped green mountain gorge" />
+<em class="photo-caption">Distant view of Shomyo Falls cascading down the mountain gorge</em>
+
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01064.jpg" alt="Close-up of Shomyo Falls plunging down a rocky cliff face into a clear turquoise river basin" />
+<em class="photo-caption">Close-up of Shomyo Falls plunging into the river basin</em>
 
 The main drawback of the late start was that I had less time on the alpine route itself and couldn't backtrack. I had to traverse all the way to the Nagano side and take the Shinkansen back to Toyama.
 
 Once I officially started the route and reached Murodo, I was completely blown away. The high mountain plains, rising volcanic steam vents, and rich autumn colors made it feel like walking on another planet. I could have easily spent the entire day hiking the trails here.
 
-<div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01427.jpg" alt="Hiking trail winding along the volcanic ridge at Murodo with visitors walking along stone steps" />
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01464.jpg" alt="Tourists hiking on the alpine trail at Murodo with volcanic steam vents rising and autumn colors on mountain slopes" />
-</div>
-<em class="photo-caption">Murodo</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01427.jpg" alt="Hiking trail winding along the volcanic ridge at Murodo with visitors walking along stone steps" />
+<em class="photo-caption">Stone-paved hiking trail winding along the volcanic ridge at Murodo</em>
+
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01464.jpg" alt="Tourists hiking on the alpine trail at Murodo with volcanic steam vents rising and autumn colors on mountain slopes" />
+<em class="photo-caption">Alpine trail at Murodo with volcanic steam vents rising in the distance</em>
 
 As I continued across the route, the ropeway ride offered one of the most spectacular autumn foliage scenes I've ever witnessed. The view from above was a sweeping, vibrant sea of reds, oranges, and golds.
 
-<div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01501.jpg" alt="Panoramic view from Tateyama Ropeway showing a cable car cabin suspended over a valley filled with autumn foliage, looking towards Kurobe Lake" />
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01508.jpg" alt="Close-up of the blue Tateyama Ropeway cabin gliding over peak red and gold autumn trees with Kurobe Lake in the background" />
-</div>
-<em class="photo-caption">Tateyama Ropeway</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01501.jpg" alt="Panoramic view from Tateyama Ropeway showing a cable car cabin suspended over a valley filled with autumn foliage, looking towards Kurobe Lake" />
+<em class="photo-caption">Tateyama Ropeway suspended over a valley of autumn foliage, looking towards Kurobe Lake</em>
 
-Finally, I reached the massive Kurobe Dam. The scale of the structure is immense, and the roar of the water shooting through the discharge gates was deafening. Walking across the dam, surrounded by towering, colorful peaks, felt incredibly cinematic—reminiscent of Helm's Deep from _Lord of the Rings_.
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01508.jpg" alt="Close-up of the blue Tateyama Ropeway cabin gliding over peak red and gold autumn trees with Kurobe Lake in the background" />
+<em class="photo-caption">Tateyama Ropeway cabin gliding over peak red and gold autumn trees</em>
 
-<div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01545.jpg" alt="The massive concrete structure of Kurobe Dam with stairs leading up the steep mountain side to the observation deck" />
-  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01554.jpg" alt="High-angle view of massive water discharge spraying from Kurobe Dam into the green river valley below" />
-</div>
-<em class="photo-caption">Kurobe Dam</em>
+Finally, I reached the massive Kurobe Dam. The scale of the structure is immense, and the roar of the water shooting through the discharge gates was deafening. Walking across the dam, surrounded by towering, colorful peaks, felt incredibly cinematic—reminiscent of Helm's Deep from *Lord of the Rings*.
+
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01545.jpg" alt="The massive concrete structure of Kurobe Dam with stairs leading up the steep mountain side to the observation deck" />
+<em class="photo-caption">The massive concrete structure of Kurobe Dam</em>
+
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01554.jpg" alt="High-angle view of massive water discharge spraying from Kurobe Dam into the green river valley below" />
+<em class="photo-caption">Dramatic high-angle view of massive water discharge at Kurobe Dam</em>
 
 ---
 
 ## 🚇 Transportation & Tips
-
 Refer to the [official Alpine Route timetable](https://www.alpen-route.com/en/timetable/) for scheduling.
 
 ![image](attachments/tateyama-route.png)

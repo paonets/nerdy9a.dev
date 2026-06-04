@@ -10,13 +10,14 @@ tags:
   - techsauce-2026
 publish: true
 ---
-
 > [!NOTE]
 > 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Causes of Illness and Death in Thailand - EN|🇬🇧 Read in English]]
 
+
+
 **Speaker:** ดร.ณัฐพันธุ์ ศุภกา (Dr. Nattapan Supaka)  
-_ผู้อำนวยการสำนักนโยบาย ยุทธศาสตร์ และนวัตกรรม สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.)_  
-**Event:** Techsauce Healthspan Festival 2026
+*ผู้อำนวยการสำนักนโยบาย ยุทธศาสตร์ และนวัตกรรม สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.)*  
+**Event:** Techsauce Healthspan Festival 2026  
 
 ---
 
