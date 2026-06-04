@@ -4,8 +4,9 @@ publish: true
 tags:
   - travel
   - japan
+cover: https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01464.jpg
 created: 2026-06-03 10:12
-updated: 2026-06-04 07:00
+updated: 2026-06-04 07:23
 ---
 
 
@@ -20,7 +21,7 @@ updated: 2026-06-04 07:00
 ![image](attachments/japan_autumn_sketchnote.png)
 
 ## 📝 Thoughts & Reflections
-What I love most about autumn is the crisp, cool weather combined with the rich, warm foliage colors. The natural beauty of areas like [[Travel Journal/2025-10 Japan Autumn/Tateyama Kurobe Alpine Route|Tateyama]], Kamikochi, and Nikko is truly breathtaking.
+What I love most about autumn is the crisp, cool weather combined with the rich, warm foliage colors. The natural beauty of areas like [[Travel Journal/2025-10 Japan Autumn/Tateyama Kurobe Alpine Route|Tateyama]], [[Travel Journal/2025-10 Japan Autumn/Kamikochi|Kamikochi]], and Nikko is truly breathtaking.
 
 It had been a while since my last autumn trip to Japan—as I typically travel during the spring for the Songkran holidays—and this journey was focused entirely on the autumn colors of the mountains.
 
@@ -41,7 +42,7 @@ Here are the logs and journals for the different segments of the trip:
 | Oct 17 | **Shiga Kogen**: Highland ponds & Yokoteyama peak | 🍁 Shiga Kogen Highlands |
 | Oct 18 | **Matsumoto**: Matsumoto Castle & City Museum of Art | 🏰 Matsumoto Castle Town |
 | Oct 18 | **Togakushi**: Togakushi Shrine Cedar Forest walk | 🌲 Togakushi Shrines |
-| Oct 19 | **Kamikochi**: Autumn hiking in the valley | 🏔️ Kamikochi Valley |
+| Oct 19 | **Kamikochi**: Autumn hiking in the valley | [[Travel Journal/2025-10 Japan Autumn/Kamikochi\|🏔️ Kamikochi Valley]] |
 | Oct 22 | **Nikko Day 1**: Toshogu Shrine & heritage temples | ⛩️ Nikko: Temples |
 | Oct 23 - 24 | **Nikko Days 2 - 3**: Chuzenji Lake, Kegon Falls & Senjogahara (Lake Area) | 🌊 Nikko: Lake Area |
 
