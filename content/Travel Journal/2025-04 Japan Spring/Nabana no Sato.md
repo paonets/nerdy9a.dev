@@ -10,16 +10,17 @@ updated: 2026-06-03 09:16
 cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00237.jpg
 ---
 
-
 # Nabana no Sato: Illumination & Gardens
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** April 7, 2025 (Evening)
 - **Locations Covered:** [Nabana no Sato](https://www.google.com/maps/search/?api=1&query=Nabana+no+Sato+Kuwana) (Mie Prefecture)
 
 ---
 
 ## 📝 Thoughts & Reflections
+
 - The combination of sunset over tulip fields and night illumination was unforgettable.
 - Mount Fuji light show was the main centerpiece of the night displays.
 
