@@ -7,7 +7,7 @@ tags:
   - travel-journal
 cover: https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03041-Pano.jpg
 created: 2026-06-03 10:12
-updated: 2026-06-05 06:37
+updated: 2026-06-05 06:54
 ---
 
 # Kamikochi: Alpine Valley & Autumn Trails
@@ -42,6 +42,12 @@ The valley has a grand, dramatic feeling that reminded me of Yosemite in Califor
 
 <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03212-Pano.jpg" alt="Panoramic view from near Kappa Bridge showing the Azusa River valley with golden autumn trees and the Mount Hotaka range" />
 <em class="photo-caption">Stunning panorama of the Azusa River valley looking towards the Mount Hotaka range</em>
+
+<div class="photo-grid-2">
+  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03062.jpg" alt="Wide portrait view of Kappa Bridge packed with tourists, spanning the clear turquoise Azusa River with the dramatic, cloud-shrouded peaks of Mount Hotaka in the background" />
+  <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03067.jpg" alt="Close-up side view of the wooden structure and suspension cables of Kappa Bridge with tourists standing on the deck and a wooden lodge in the background" />
+</div>
+<em class="photo-caption">Left: Kappa Bridge with a dramatic backdrop of the cloud-wrapped Hotaka range. Right: Close-up of the wooden bridge structure and suspension cables.</em>
 
 <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03151.jpg" alt="Tourists standing on a wooden pier with a small wooden altar and a red boat at Myojin Pond, set against a forested mountain background" />
 <em class="photo-caption">Tranquil scene at Myojin Pond featuring the wooden pier and red boat</em>
