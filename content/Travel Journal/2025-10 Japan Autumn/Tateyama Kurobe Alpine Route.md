@@ -10,10 +10,10 @@ created: 2026-06-03 10:12
 updated: 2026-06-04 06:53
 ---
 
-
 # Tateyama Kurobe Alpine Route
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** October 12, 2025
 - **Locations Visited:**
   - [Shomyo Falls](https://www.google.com/maps/search/?api=1&query=Shomyo+Falls+Toyama)
@@ -24,10 +24,11 @@ updated: 2026-06-04 06:53
 ---
 
 ## 📝 Thoughts & Reflections
+
 - Tateyama Kurobe Alpine Route in peak autumn foliage was absolutely epic—vibrant fall colors blanketed the entire landscape.
 - Murodo felt out of this world. The volcanic gas vents, high alpine plains, and trails make it feel like walking on the roof of the world.
 - The Tateyama Ropeway offered one of the most stunning autumn foliage vistas in Japan (and likely the world).
-- Kurobe Dam was incredibly atmospheric; its sheer scale and the roar of the discharging water reminded me of Helm's Deep from *Lord of the Rings*.
+- Kurobe Dam was incredibly atmospheric; its sheer scale and the roar of the discharging water reminded me of Helm's Deep from _Lord of the Rings_.
 - Visiting Shomyo Falls was an unexpected, lucky highlight. Since I hadn't booked my ticket in advance and got a late slot, this detour made the delay well worth it.
 
 ---
@@ -60,7 +61,7 @@ As I continued across the route, the ropeway ride offered one of the most specta
 </div>
 <em class="photo-caption">Tateyama Ropeway</em>
 
-Finally, I reached the massive Kurobe Dam. The scale of the structure is immense, and the roar of the water shooting through the discharge gates was deafening. Walking across the dam, surrounded by towering, colorful peaks, felt incredibly cinematic—reminiscent of Helm's Deep from *Lord of the Rings*.
+Finally, I reached the massive Kurobe Dam. The scale of the structure is immense, and the roar of the water shooting through the discharge gates was deafening. Walking across the dam, surrounded by towering, colorful peaks, felt incredibly cinematic—reminiscent of Helm's Deep from _Lord of the Rings_.
 
 <div class="photo-grid-auto">
   <img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC01545.jpg" alt="The massive concrete structure of Kurobe Dam with stairs leading up the steep mountain side to the observation deck" />
@@ -71,6 +72,7 @@ Finally, I reached the massive Kurobe Dam. The scale of the structure is immense
 ---
 
 ## 🚇 Transportation & Tips
+
 Refer to the [official Alpine Route timetable](https://www.alpen-route.com/en/timetable/) for scheduling.
 
 ![image](attachments/tateyama-route.png)

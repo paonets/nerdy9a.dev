@@ -4,13 +4,14 @@ updated: 2026-05-27 08:45
 tags: [synthesis, ai, obsidian]
 ---
 
-
-The **LLM Wiki** is a stateful knowledge-management concept where an AI agent acts as an automated "librarian" to continuously build, organize, and maintain a persistent, interlinked wiki from raw notes. 
+The **LLM Wiki** is a stateful knowledge-management concept where an AI agent acts as an automated "librarian" to continuously build, organize, and maintain a persistent, interlinked wiki from raw notes.
 
 This stands in contrast to typical stateless RAG (Retrieval-Augmented Generation) systems, which process user queries on demand without long-term updates or structural synthesis of the underlying vault.
 
 ## Core Philosophy
+
 The concept was originally proposed by Andrej Karpathy (see [Karpathy's LLM Wiki Gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)), outlining these principles:
+
 1. **Stateless RAG is insufficient:** Simple retrieval of chunked text lacks a coherent, synthesized overview of a topic.
 2. **Stateful Consolidation is needed:** An agent should proactively synthesize and deduplicate incoming information, editing and appending to centralized "evergreen" articles.
 3. **Internal Backlinking:** Concept pages must be heavily interlinked to construct a dense, navigable knowledge graph.
@@ -18,6 +19,7 @@ The concept was originally proposed by Andrej Karpathy (see [Karpathy's LLM Wiki
 ---
 
 ## Vault Implementation
+
 In the `WisdomWell` vault, the LLM Wiki is operationalized natively without external plugins, using a custom agent pipeline:
 
 ```mermaid
@@ -29,6 +31,7 @@ graph TD
 ```
 
 ### 1. The Ingestion Pipeline
+
 - **Raw Captures:** Fleet notes, ideas, audio transcripts, or web articles are dumped into the `Fleeting/` directory.
 - **Triggering the Librarian:** The agent executes the custom `wiki-librarian` skill (configured in `.agents/skills/wiki-librarian/SKILL.md`).
 - **Concept Extraction & De-duplication:** For each fleeting note, the librarian identifies the main concepts:
@@ -38,7 +41,9 @@ graph TD
 - **Automatic Cleanup:** Once a fleeting note is fully synthesized, it is deleted to maintain a clean workspace.
 
 ### 2. Note Structure & Conventions
+
 Every synthesized concept note in the LLM Wiki follows these conventions:
+
 - **Location:** Saved in `Learning/Concepts/`.
 - **Frontmatter:** Contains standard fields and a `synthesis` tag:
   ```yaml
@@ -51,6 +56,7 @@ Every synthesized concept note in the LLM Wiki follows these conventions:
 ---
 
 ## Related Notes
+
 - Obsidian AI Tips
 - Home Dashboard
 - LLM Wiki Project

@@ -962,7 +962,7 @@ p {
       text-align: center;
       font-size: 0.85rem;
       color: var(--gray);
-      margin-top: 0.75rem;
+      margin-top: 0.6rem;
       font-style: normal;
       transform: none !important; // Disable translateY default shift
     }
@@ -975,7 +975,8 @@ em.photo-caption {
   text-align: center;
   font-size: 0.85rem;
   color: var(--gray);
-  margin-top: 0.5rem;
+  margin-top: -0.4rem; // Pull it closer to the preceding image (net gap 0.6rem since standard img has margin-bottom: 1rem)
+  margin-bottom: 2rem; // Push the next element further down
   font-style: normal;
 }
 
