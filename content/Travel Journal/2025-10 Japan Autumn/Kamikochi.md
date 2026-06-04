@@ -7,7 +7,7 @@ tags:
   - travel-journal
 cover: https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03041-Pano.jpg
 created: 2026-06-03 10:12
-updated: 2026-06-04 08:30
+updated: 2026-06-04 08:56
 ---
 
 
@@ -27,22 +27,20 @@ The valley has a grand, dramatic feeling that reminded me of Yosemite in Califor
 
 ---
 
-## 📸 Journal & Photos
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC02916.jpg" alt="The Azusa River flowing with driftwood on its gravel bank under a cloud-shrouded Mt. Yakedake in Kamikochi" />
+<em class="photo-caption">The Azusa River flowing under the misty slopes of Mount Yakedake</em>
 
-<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC02916.jpg" alt="Standing dead trees reflected in the calm waters of Taisho Pond under autumn-colored mountains" />
-<em class="photo-caption">Misty reflection and standing dead trees at Taisho Pond</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03041-Pano.jpg" alt="Panoramic view of the clear turquoise Azusa River, gravel banks, and golden autumn forest under the Mount Hotaka range" />
+<em class="photo-caption">Stunning panorama of the clear Azusa River and the distant mountain range</em>
 
-<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03041-Pano.jpg" alt="Wide panoramic view of the hiking trail stretching from Taisho Pond to Kappa Bridge, showcasing autumn leaves and mountain peaks" />
-<em class="photo-caption">Beautiful panoramic scene along the hiking trail from Taisho Pond to Kappa Bridge</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03072.jpg" alt="Vibrant golden larch trees in the foreground with the rocky slopes of Mount Hotaka range partially covered in autumn foliage and wispy clouds" />
+<em class="photo-caption">Vibrant golden larch trees beneath the dramatic, cloudy peaks of the Mount Hotaka range</em>
 
-<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03072.jpg" alt="Kappa Bridge crossing the pristine Azusa River in Kamikochi" />
-<em class="photo-caption">Kappa Bridge crossing the crystal-clear Azusa River</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03212-Pano.jpg" alt="Panoramic view from near Kappa Bridge showing the Azusa River valley with golden autumn trees and the Mount Hotaka range" />
+<em class="photo-caption">Stunning panorama of the Azusa River valley looking towards the Mount Hotaka range</em>
 
-<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03212-Pano.jpg" alt="Panoramic view of the majestic Mount Hotaka mountain range standing over the Kappa Bridge valley area" />
-<em class="photo-caption">Stunning panorama of the Mount Hotaka range and the valley from Kappa Bridge</em>
-
-<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03151.jpg" alt="The tranquil, clear waters of Myojin Pond inside the forest with a wooden pier" />
-<em class="photo-caption">The serene, forested waters of Myojin Pond</em>
+<img src="https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03151.jpg" alt="Tourists standing on a wooden pier with a small wooden altar and a red boat at Myojin Pond, set against a forested mountain background" />
+<em class="photo-caption">Tranquil scene at Myojin Pond featuring the wooden pier and red boat</em>
 
 ---
 
