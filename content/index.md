@@ -38,6 +38,139 @@ updated: 2026-06-03 21:47
 </div>
 
 <script>
+var recentNotesData = [];
+
+function getRelativeTime(dateStr, lang) {
+  const date = new Date(dateStr);
+  const now = new Date();
+  const diffMs = now - date;
+  const diffSec = Math.floor(diffMs / 1000);
+  const diffMin = Math.floor(diffSec / 60);
+  const diffHrs = Math.floor(diffMin / 60);
+  const diffDays = Math.floor(diffHrs / 24);
+  const diffWeeks = Math.floor(diffDays / 7);
+  const diffMonths = Math.floor(diffDays / 30);
+  const diffYears = Math.floor(diffDays / 365);
+
+  const isEn = lang === 'en';
+
+  if (diffSec < 60) {
+    return isEn ? 'just now' : 'เมื่อสักครู่';
+  } else if (diffMin < 60) {
+    return isEn ? `${diffMin}m ago` : `${diffMin} นาทีที่แล้ว`;
+  } else if (diffHrs < 24) {
+    return isEn ? `${diffHrs}h ago` : `${diffHrs} ชั่วโมงที่แล้ว`;
+  } else if (diffDays === 1) {
+    return isEn ? 'yesterday' : 'เมื่อวานนี้';
+  } else if (diffDays < 7) {
+    return isEn ? `${diffDays}d ago` : `${diffDays} วันที่แล้ว`;
+  } else if (diffWeeks < 4) {
+    return isEn 
+      ? `${diffWeeks} ${diffWeeks === 1 ? 'week' : 'weeks'} ago` 
+      : `${diffWeeks} สัปดาห์ที่แล้ว`;
+  } else if (diffMonths < 12) {
+    return isEn 
+      ? `${diffMonths} ${diffMonths === 1 ? 'month' : 'months'} ago` 
+      : `${diffMonths} เดือนที่แล้ว`;
+  } else {
+    return isEn 
+      ? `${diffYears} ${diffYears === 1 ? 'year' : 'years'} ago` 
+      : `${diffYears} ปีที่แล้ว`;
+  }
+}
+
+function renderRecentNotes(lang) {
+  const container = document.getElementById('recently-updated-list');
+  if (!container) return;
+
+  if (recentNotesData.length === 0) {
+    container.innerHTML = `<div class="empty-placeholder">${lang === 'en' ? 'No recent updates found.' : 'ไม่พบข้อมูลการอัปเดตล่าสุด'}</div>`;
+    return;
+  }
+
+  const listHtml = recentNotesData.map(function(note) {
+    const relativeTime = getRelativeTime(note.date, lang);
+    const tagsHtml = (note.tags || [])
+      .map(function(tag) {
+        return `<span class="update-tag">#${tag}</span>`;
+      })
+      .join(' ');
+
+    return `
+      <div class="update-row">
+        <span class="update-date">${relativeTime}</span>
+        <div class="update-content">
+          <a class="update-title" href="./${note.slug}">${note.title}</a>
+          ${tagsHtml ? `<span class="update-tags-container">${tagsHtml}</span>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  container.innerHTML = listHtml;
+}
+
+function initRecentNotes() {
+  if (typeof fetchData !== 'undefined') {
+    fetchData.then(function(data) {
+      processIndexData(data);
+    }).catch(function(err) {
+      console.error('Failed to load content index:', err);
+      const container = document.getElementById('recently-updated-list');
+      if (container) {
+        container.innerHTML = `<div class="error-placeholder">Failed to load updates.</div>`;
+      }
+    });
+  } else {
+    // Fallback if fetchData is not defined
+    fetch('static/contentIndex.json')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        processIndexData(data);
+      })
+      .catch(function(err) {
+        console.error('Failed to fetch content index:', err);
+      });
+  }
+}
+
+function processIndexData(data) {
+  const items = [];
+  for (const slug in data) {
+    if (Object.prototype.hasOwnProperty.call(data, slug)) {
+      const item = data[slug];
+      
+      // Exclude logic
+      if (slug === 'index') continue;
+      if (item.isVirtual) continue;
+      if (slug.startsWith('tags/')) continue;
+      if (slug.startsWith('categories/')) continue;
+      if (slug.startsWith('travel-journal/places/')) continue;
+      if (slug.startsWith('Travel-Journal/Places/')) continue;
+      if (!item.date) continue; // Must have date to sort
+
+      items.push({
+        slug: slug,
+        title: item.title,
+        date: item.date,
+        tags: item.tags
+      });
+    }
+  }
+
+  // Sort by date descending
+  items.sort(function(a, b) {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
+  // Take top 3
+  recentNotesData = items.slice(0, 3);
+
+  // Render using current language selection
+  const currentLang = document.querySelector('.lang-tab.active')?.id === 'tab-th' ? 'th' : 'en';
+  renderRecentNotes(currentLang);
+}
+
 function switchLang(lang) {
   var panels = document.querySelectorAll('.lang-panel');
   var tabs = document.querySelectorAll('.lang-tab');
@@ -53,11 +186,16 @@ function switchLang(lang) {
   tabs.forEach(function(t) {
     t.classList.toggle('active', t.id === 'tab-' + lang);
   });
+  
+  // Re-render recent notes in the active language
+  renderRecentNotes(lang);
 }
+
 (function() {
   var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
   var isThai = lang.startsWith('th');
   switchLang(isThai ? 'th' : 'en');
+  initRecentNotes();
 })();
 </script>
 
@@ -97,6 +235,16 @@ Below are some of my favorite evergreen 🌳 concepts and workflows:
 - [[The Future of Software Engineering in the AI Era|🤖 Software Engineering in the AI Era]] – How AI is shifting development from writing syntax to designing systems.
 - [[Personal Knowledge Management Frameworks|🗂️ PKM Frameworks]] – Structured notes on Zettelkasten, PARA, and GTD.
 - [[Techniques for Better Sleep|🛌 Techniques for Better Sleep]] – Actionable methods for sleep hygiene, screen limits, and vagus nerve breathing.
+
+---
+
+## 🔄 Recently Updated
+
+<div class="recently-updated-section">
+  <div id="recently-updated-list" class="recently-updated-list">
+    <div class="loading-placeholder">Loading recent updates...</div>
+  </div>
+</div>
 
 ---
 

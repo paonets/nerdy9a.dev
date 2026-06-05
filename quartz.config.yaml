@@ -42,7 +42,7 @@ configuration:
         highlight: "rgba(52, 211, 153, 0.12)"
         textHighlight: "#b3aa0288"
 plugins:
-  - source: github:quartz-community/created-modified-date
+  - source: ./custom-plugins/created-modified-date
     enabled: true
     options:
       defaultDateType: modified
@@ -122,7 +122,7 @@ plugins:
       display: all
   - source: github:quartz-community/alias-redirects
     enabled: true
-  - source: github:quartz-community/content-index
+  - source: ./custom-plugins/content-index
     enabled: true
     options:
       enableSiteMap: true

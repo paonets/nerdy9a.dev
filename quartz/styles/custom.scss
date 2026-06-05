@@ -1140,3 +1140,104 @@ em.photo-caption {
 .markdown-rendered > h1:first-child {
   display: none !important;
 }
+
+// Recently Updated Section on the Homepage
+.recently-updated-section {
+  margin: 1.25rem 0 2rem;
+
+  .recently-updated-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .update-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+    background: var(--lightgray);
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    gap: 1.5rem;
+
+    &:hover {
+      border-color: var(--secondary);
+      transform: translateX(4px);
+      background: var(--highlight);
+    }
+  }
+
+  .update-date {
+    font-size: 0.85rem;
+    font-family: var(--codeFont);
+    color: var(--gray);
+    min-width: 100px;
+    padding-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .update-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex-grow: 1;
+  }
+
+  .update-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--dark) !important;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    line-height: 1.4;
+
+    &:hover {
+      color: var(--secondary) !important;
+    }
+  }
+
+  .update-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .update-tag {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-family: var(--codeFont);
+    background: var(--lightgray);
+    border: 1px solid var(--lightgray);
+    padding: 0.1rem 0.4rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+  }
+
+  .loading-placeholder,
+  .empty-placeholder,
+  .error-placeholder {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--gray);
+    background: var(--lightgray);
+    border-radius: 12px;
+    font-style: italic;
+  }
+
+  @media all and ($mobile) {
+    .update-row {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .update-date {
+      min-width: auto;
+      font-size: 0.8rem;
+    }
+  }
+}

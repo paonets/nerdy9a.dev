@@ -37,3 +37,13 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Clones the HAST (HTML AST) tree using `rfdc` and filters out all `blockquote` elements (which markdown callout boxes `> [!NOTE]` map to) before extracting the text description using `toString(tree)`.
 - **Why it was done:** The note translator script automatically injects translation notices at the very beginning of the notes. Stripping blockquotes prevents these banners from leaking into `<meta name="description">` tags and the text of generated OG images, while keeping them perfectly visible on the actual rendered HTML page.
+
+### 6. Date and Description Retention in JSON Index (`custom-plugins/content-index`)
+
+- **How it works:** Modified `src/emitter.ts` to prevent deleting the `date` and `description` properties from the simplified JSON index (`public/static/contentIndex.json`).
+- **Why it was done:** The homepage uses client-side JavaScript to render the "Recently Updated" section dynamically. Keeping dates in the index allows client-side sorting and relative time rendering without requiring additional file fetches or RSS XML parsing, leading to instant page loads.
+
+### 7. Support for Obsidian Frontmatter Date Fields (`custom-plugins/created-modified-date`)
+
+- **How it works:** Modified `src/transformer.ts` to check `date` as a fallback for created time, and `updated` as a fallback for modified time in the Markdown frontmatter (mapped to `dates.created` and `dates.modified` respectively).
+- **Why it was done:** By default, the plugin only looks for `created` and `modified` in the frontmatter. Notes authored in the Obsidian vault use the standard keys `date` (for creation) and `updated` (for updates). Because the plugin did not recognize them, it fell back to Git commit timestamps or filesystem timestamps (which reset to "now" whenever the python publish/sync script runs), leading to incorrect modification dates for notes on the homepage.
