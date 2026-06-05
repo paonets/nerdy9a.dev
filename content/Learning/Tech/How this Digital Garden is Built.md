@@ -6,7 +6,7 @@ tags:
   - software-engineering
   - obsidian
 created: 2026-05-31 22:05
-updated: 2026-06-06 06:26
+updated: 2026-06-06 06:32
 source: "WisdomWell Original"
 ---
 
@@ -87,20 +87,6 @@ Instead of manually translating notes, the script uses an **AI-powered translati
 
 ---
 
-## 🤖 Setting Up with AI
-
-You do not need to write the publishing script or configure the build system manually. Because this architecture is standard, you can use an AI coding assistant (like Claude, Gemini, or ChatGPT) to build it for you:
-
-1. **Building the Gatekeeper & Translation Scripts**: 
-   Prompt the AI to write a Python script that runs locally inside your Obsidian vault. Describe the folders to exclude, the conditions for a note to be public (e.g., `publish: true` in the frontmatter), and ask the AI to implement:
-   - **Link sanitization**: Rewriting private `wikilinks` to plain text.
-   - **Translation cache**: Scanning for notes with `translate` properties, translating them via AI API (e.g., Gemini/Claude), caching translations to save costs, and outputting to separate language directories.
-   
-2. **Setting Up Quartz & Deployment**:
-   Refer to the official [Quartz Documentation](https://quartz.jzhao.xyz/) for setup instructions. You can feed this URL or its contents to an AI assistant and ask it to guide you step-by-step through initializing the repository, connecting it to GitHub, and setting up the automatic deploy runner in Cloudflare Pages.
-
----
-
 ## 🎨 Customized Features & Optimizations
 
 To make this digital garden both beautiful and extremely fast, it uses a modified version of Quartz 5 with several custom-built enhancements.
@@ -115,24 +101,37 @@ To make this digital garden both beautiful and extremely fast, it uses a modifie
 
 ---
 
-## 🚀 How to Build Your Own Garden (Cloning vs. Forking)
+## 🚀 How to Set Up Your Own Garden
 
-If you like this setup, you can copy the code from the public repository **[paonets/nerdy9a.dev](https://github.com/paonets/nerdy9a.dev)** to build your own.
+Setting up this pipeline involves two main parts. You don't need to write any code yourself—you can let an AI assistant (like Claude, Gemini, or ChatGPT) do it for you.
 
-### Forking vs. Cloning: Which is best?
-- **Forking** connects your project directly to this repository on GitHub.
-- **Cloning** is **recommended**. It lets you copy the layout and speed settings but keeps your personal notes completely private and separate, starting your own fresh garden history.
+### Part 1: The Obsidian Vault Script (The Gatekeeper)
+To safely copy notes from your private Obsidian vault to your public website, ask an AI to write a Python script for you with this prompt:
 
-### 🤖 Let an AI Guide You!
-You do not need to write code to get this running. You can copy the link to the [GitHub Repository](https://github.com/paonets/nerdy9a.dev) and feed it to an AI assistant (like Claude, Gemini, or ChatGPT) with the following prompt:
+> "Write a Python script that runs locally inside my Obsidian vault to publish notes. It should:
+> 1. Scan the vault and only copy notes that have `publish: true` in their frontmatter.
+> 2. Implement **link sanitization**: check all links (`wikilinks`) inside public notes. If a link points to a private note (not marked for publishing), rewrite the link to plain text so there are no broken links on the website.
+> 3. Implement an **AI translation cache**: scan for notes containing `translate: th` or `translate: en`, call an AI API to translate the title/body, cache the result locally to save API costs, and write the translated files to separate language folders (like `/th/`)."
 
-> "I want to build a personal digital garden like the one in this GitHub repository: https://github.com/paonets/nerdy9a.dev. 
-> 
-> Can you guide me step-by-step on how to:
-> 1. Clone this repository locally on my computer.
-> 2. Clean out the existing contents in the `content/` folder (keeping a blank `content/index.md` for my homepage).
-> 3. Update `quartz.config.yaml` with my own website name and details.
-> 4. Push this to my own GitHub account.
-> 5. Host it for free on Cloudflare Pages."
+### Part 2: The Quartz Website (Choose Your Path)
+
+To set up the actual website, you have two options depending on how much customization you want out of the box:
+
+- **Option A: Official Quartz (From Scratch)**
+  Initialize a clean, vanilla Quartz project by following the official [Quartz Setup Guide](https://quartz.jzhao.xyz/). This gives you the default Quartz theme and structure, which you can customize manually.
+
+- **Option B: Pre-configured Blueprint (Cloning this repository)**
+  Clone the public repository **[paonets/nerdy9a.dev](https://github.com/paonets/nerdy9a.dev)** to get all of my speed optimizations, bilingual layouts, custom font caching, and theme setups pre-installed. 
+
+  We recommend **cloning** rather than forking, as it gives you a clean history and keeps your personal garden completely separate. Copy the link to my repo and ask your AI assistant:
+
+  > "I want to build a personal digital garden using the pre-optimized Quartz template at this GitHub repository: https://github.com/paonets/nerdy9a.dev. 
+  > 
+  > Can you guide me step-by-step on how to:
+  > 1. Clone this repository locally to my computer.
+  > 2. Clean out the default content in the `content/` folder (leaving a blank `content/index.md` for my homepage).
+  > 3. Update `quartz.config.yaml` with my own website name and details.
+  > 4. Push this to my own GitHub account.
+  > 5. Host it for free on Cloudflare Pages."
 
 This setup works in tandem with the Public Digital Garden workflow, which manages the local script that pushes notes from your private Obsidian vault to your public website.
