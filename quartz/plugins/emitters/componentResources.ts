@@ -413,7 +413,11 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
       // Extract inline CSS/JS from plugin externalResources() into external files.
       // This prevents large inline payloads (e.g. theme CSS) from being duplicated
       // into every HTML page's <head>.
+      // We use a threshold (4KB) below which we keep resources inlined to avoid separate
+      // render-blocking network requests.
+      const INLINE_SIZE_THRESHOLD = 4096
       const extractedInlineResources = new Map<string, string>()
+
       for (const cssResource of resources.css) {
         if (!(cssResource.inline ?? false)) continue
 
@@ -428,6 +432,11 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
           }).code.toString()
         } catch {
           output = cssResource.content
+        }
+
+        if (output.length < INLINE_SIZE_THRESHOLD) {
+          cssResource.content = output
+          continue
         }
 
         const hash = hashContent(output)
@@ -447,6 +456,12 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         if (jsResource.contentType !== "inline") continue
 
         const minified = await joinScripts([jsResource.script])
+
+        if (minified.length < INLINE_SIZE_THRESHOLD) {
+          jsResource.script = minified
+          continue
+        }
+
         const hash = hashContent(minified)
         const loadTimePrefix = jsResource.loadTime === "beforeDOMReady" ? "before" : "after"
         const slug = `static/resource-${loadTimePrefix}-${hash}`

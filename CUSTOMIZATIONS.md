@@ -84,3 +84,8 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Configured `cdnCaching: false` under theme options.
 - **Why it was done:** Instructs the build system to fetch Google Fonts stylesheets, download the font files during build time, and host them locally under the site's own domain, merging the `@font-face` definitions directly inside the monolithic `index.css`. This removes two render-blocking external domain requests (`fonts.googleapis.com` and `fonts.gstatic.com`), saving costly DNS lookup, TCP connect, and SSL negotiation times on mobile connections.
+
+### 4. Size-Threshold-Based Plugin Resource Inlining (`quartz/plugins/emitters/componentResources.ts`)
+
+- **How it works:** Modifies the inline resource extraction loop in `componentResources.ts`. If an inline CSS or JS resource returned by a plugin is smaller than 4KB after minification, it is kept inlined (with minified contents) in the page's HTML `<head>` rather than being written to disk and injected as an external render-blocking network request.
+- **Why it was done:** Eliminates extra render-blocking network requests for tiny stylesheets/scripts (e.g. 0.8KB and 1.2KB syntax highlighting clipboard styles), saving round-trip connection times (~450ms per request) and boosting FCP/LCP scores on PageSpeed.
