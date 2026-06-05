@@ -108,7 +108,7 @@ plugins:
     options: {}
     order: 45
   - source: github:quartz-community/encrypted-pages
-    enabled: true
+    enabled: false
     options:
       iterations: 600000
       passwordField: password
@@ -121,7 +121,7 @@ plugins:
       priority: 50
       display: all
   - source: github:quartz-community/alias-redirects
-    enabled: true
+    enabled: false
   - source: ./custom-plugins/content-index
     enabled: true
     options:
@@ -134,7 +134,7 @@ plugins:
   - source: github:quartz-community/cname
     enabled: true
   - source: github:quartz-community/canvas-page
-    enabled: true
+    enabled: false
   - source: ./custom-plugins/content-page
     enabled: true
   - source: ./custom-plugins/folder-page
