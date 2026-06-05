@@ -37,7 +37,7 @@ export function pageResources(
 ): StaticResources {
   const hashedNames = ctx?.hashedResourceNames
   const cssFile = hashedNames?.["index.css"] ?? "index.css"
-  const prescriptFile = hashedNames?.["prescript.js"] ?? "prescript.js"
+  const prescriptFile = hashedNames ? hashedNames["prescript.js"] || undefined : "prescript.js"
   const postscriptFile = hashedNames?.["postscript.js"] ?? "postscript.js"
 
   const componentCssResources: CSSResource[] = []
@@ -83,11 +83,15 @@ export function pageResources(
       ...resolvedCss,
     ],
     js: [
-      {
-        src: joinSegments(baseDir, prescriptFile),
-        loadTime: "beforeDOMReady",
-        contentType: "external",
-      },
+      ...(prescriptFile
+        ? [
+            {
+              src: joinSegments(baseDir, prescriptFile),
+              loadTime: "beforeDOMReady" as const,
+              contentType: "external" as const,
+            },
+          ]
+        : []),
       {
         loadTime: "beforeDOMReady",
         contentType: "inline",

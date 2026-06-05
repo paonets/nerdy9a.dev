@@ -14,7 +14,7 @@ configuration:
     - .obsidian
   theme:
     fontOrigin: googleFonts
-    cdnCaching: true
+    cdnCaching: false
     typography:
       title: JetBrains Mono
       header: Plus Jakarta Sans
@@ -184,7 +184,7 @@ plugins:
     layout:
       position: left
       priority: 10
-  - source: github:quartz-community/darkmode
+  - source: ./custom-plugins/darkmode
     enabled: true
     layout:
       position: left

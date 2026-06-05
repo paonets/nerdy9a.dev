@@ -53,6 +53,11 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 - **How it works:** Modified `src/transformer.ts` to check `date` as a fallback for created time, and `updated` as a fallback for modified time in the Markdown frontmatter (mapped to `dates.created` and `dates.modified` respectively).
 - **Why it was done:** By default, the plugin only looks for `created` and `modified` in the frontmatter. Notes authored in the Obsidian vault use the standard keys `date` (for creation) and `updated` (for updates). Because the plugin did not recognize them, it fell back to Git commit timestamps or filesystem timestamps (which reset to "now" whenever the python publish/sync script runs), leading to incorrect modification dates for notes on the homepage.
 
+### 8. Customized Theme Toggle Script Deferral (`custom-plugins/darkmode`)
+
+- **How it works:** Extracted the theme setup/event listeners from the render-blocking pre-script phase and shifted them to run asynchronously after the DOM has fully loaded (`afterDOMLoaded`).
+- **Why it was done:** By separating the setup logic from the early theme checking (which is now inlined in `<head>`), the script no longer blocks the initial rendering of the webpage, improving First Contentful Paint (FCP).
+
 ---
 
 ## Core Framework Customizations
@@ -61,3 +66,17 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Modifies the built-in `ComponentResources` emitter to merge all styles in `componentResources.componentCssStrings` directly into the main compiled `index.css` stylesheet. It resets `ctx.componentCssMap` to an empty map so that no separate component stylesheets are written to disk or linked in the `<head>` of HTML pages.
 - **Why it was done:** Default Quartz emits a separate CSS stylesheet for every enabled component (Search, Backlinks, Dark Mode, etc.), resulting in 20+ render-blocking network requests that delay rendering by ~1.3s on mobile connections. Bundling them into the single main `index.css` stylesheet (~75 KB uncompressed, ~15 KB compressed) allows the browser to fetch all styles in a single HTTP request and cache them instantly for subsequent navigation.
+
+### 2. Elimination of Render-blocking `prescript.js` & Inlined Critical Theme Setup (`quartz/components/Head.tsx`, `quartz/plugins/emitters/componentResources.ts`, `quartz/components/renderPage.tsx`)
+
+- **How it works:**
+  1. Inlines the essential theme-detection snippet directly within `<head>` inside `Head.tsx`, completely avoiding network overhead.
+  2. Modifies `componentResources.ts` to check if `prescript` has any non-whitespace content. If empty (since the darkmode plugin now leverages `afterDOMLoaded`), it bypasses writing and hashing the file.
+  3. Modifies `renderPage.tsx` to conditionally exclude the external `prescript.js` `<script>` link if it is empty/undefined.
+- **Why it was done:** Eliminates a completely render-blocking external HTTP network request for `prescript.js` (which was ~1.1 KB), shortening the critical rendering path and decreasing time-to-first-render.
+
+### 3. Local Google Font Bundling (`quartz.config.yaml`)
+
+- **How it works:** Configured `cdnCaching: false` under theme options.
+- **Why it was done:** Instructs the build system to fetch Google Fonts stylesheets, download the font files during build time, and host them locally under the site's own domain, merging the `@font-face` definitions directly inside the monolithic `index.css`. This removes two render-blocking external domain requests (`fonts.googleapis.com` and `fonts.gstatic.com`), saving costly DNS lookup, TCP connect, and SSL negotiation times on mobile connections.
+

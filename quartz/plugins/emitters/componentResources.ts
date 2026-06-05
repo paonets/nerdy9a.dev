@@ -463,8 +463,9 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
 
       ctx.extractedInlineResources = extractedInlineResources
 
+      const hasPrescript = prescript.trim().length > 0
       const cssHash = useHashing ? hashContent(cssContent) : null
-      const prescriptHash = useHashing ? hashContent(prescript) : null
+      const prescriptHash = useHashing && hasPrescript ? hashContent(prescript) : null
       const postscriptHash = useHashing ? hashContent(postscript) : null
 
       const cssSlug = cssHash ? `index-${cssHash}` : "index"
@@ -473,7 +474,7 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
 
       ctx.hashedResourceNames = {
         "index.css": `${cssSlug}.css`,
-        "prescript.js": `${prescriptSlug}.js`,
+        "prescript.js": hasPrescript ? `${prescriptSlug}.js` : "",
         "postscript.js": `${postscriptSlug}.js`,
       }
 
@@ -484,12 +485,14 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         content: cssContent,
       })
 
-      yield write({
-        ctx,
-        slug: prescriptSlug as FullSlug,
-        ext: ".js",
-        content: prescript,
-      })
+      if (hasPrescript) {
+        yield write({
+          ctx,
+          slug: prescriptSlug as FullSlug,
+          ext: ".js",
+          content: prescript,
+        })
+      }
 
       yield write({
         ctx,
