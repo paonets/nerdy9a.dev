@@ -162,9 +162,11 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     const trie = ctx?.trie;
     let allPagesInFolder: PageEntry[];
 
-    const filterTags = (fileData?.frontmatter as any)?.filter_tags as string[] | undefined;
-    const excludeTags =
-      ((fileData?.frontmatter as any)?.exclude_tags as string[] | undefined) ?? [];
+    const folderFrontmatter = fileData?.frontmatter as
+      | { filter_tags?: string[]; exclude_tags?: string[] }
+      | undefined;
+    const filterTags = folderFrontmatter?.filter_tags;
+    const excludeTags = folderFrontmatter?.exclude_tags ?? [];
 
     if (filterTags && Array.isArray(filterTags) && filterTags.length > 0) {
       allPagesInFolder = ((allFiles as PageEntry[]) ?? []).filter((file) => {
