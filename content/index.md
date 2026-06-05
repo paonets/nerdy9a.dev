@@ -1,8 +1,9 @@
 ---
 title: nerdy9a garden 🌳
 layout: custom
+description: "Thinking in systems. Living with intention. Exploring the world. A digital garden sharing personal knowledge base on software engineering, startups, self-improvement, and travel."
 created: 2026-05-31 19:51
-updated: 2026-06-03 21:47
+updated: 2026-06-05 18:00
 ---
 
 <div class="homepage-logo-container">
@@ -10,7 +11,7 @@ updated: 2026-06-03 21:47
   <h1 class="homepage-title">nerdy9a <span class="accent">garden</span></h1>
 </div>
 
-<h2 class="page-subtitle"><span>Thinking in systems</span><span>Living with intention</span><span>Exploring the world</span></h2>
+<h2 class="page-subtitle"><span>Thinking in systems</span> <span>Living with intention</span> <span>Exploring the world</span></h2>
 
 <div class="welcome-message">
   <div class="lang-tabs" id="lang-tabs">

@@ -29,6 +29,7 @@ The main content page rendering component [ContentBody.tsx](file:///Users/pongsa
 Generates social media link previews using `satori` and `sharp` during deployments.
 
 - **Thai Typography Support:** Modified `emitter.tsx` to dynamically fetch and register Google's `Noto Sans Thai` (regular 400 and bold 700 weights) into Satori's font engine, setting it as a fallback in the JSX CSS. This allows pages containing Thai text to render preview cards with perfect typography.
+- **Dynamic MIME Type Detection:** Added dynamic detection of the site logo's MIME type (checking PNG vs JPEG magic bytes). Since `icon.png` in the static resources is actually a JPEG image renamed to PNG, declaring it with a hardcoded `data:image/png;base64` MIME type caused `librsvg` (within `sharp`) to fail silently during conversion, dropping the avatar from the generated social card. Correctly setting the MIME type dynamically allows the chibi boy logo to render beautifully on the generated cards.
 - **Local Build Speed-up (Bypass):** Disabled for all local builds to reduce rebuild times from ~11 seconds to under 1 second.
   - **Mechanics:** In `quartz.ts`, we check `process.env.CF_PAGES === "1" || process.env.CI === "true" || process.env.CI === "1"`. If false, we dynamically filter out the `CustomOgImages` emitter.
   - **Testing locally:** Test image generation locally by running: `CF_PAGES=1 npx quartz build`.

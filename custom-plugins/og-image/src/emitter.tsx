@@ -449,9 +449,15 @@ async function generateSocialImage(
 
   try {
     const iconData = await fs.readFile(iconPath);
-    iconBase64 = `data:image/png;base64,${iconData.toString("base64")}`;
-  } catch {
-    console.warn(styleText("yellow", `Warning: Could not find icon at ${iconPath}`));
+    const isPng =
+      iconData[0] === 0x89 && iconData[1] === 0x50 && iconData[2] === 0x4e && iconData[3] === 0x47;
+    const mimeType = isPng ? "image/png" : "image/jpeg";
+    iconBase64 = `data:${mimeType};base64,${iconData.toString("base64")}`;
+    console.log(
+      `[OG-Image] Successfully loaded icon from ${iconPath}, detected MIME: ${mimeType}, base64 length: ${iconBase64.length}`,
+    );
+  } catch (error) {
+    console.warn(styleText("yellow", `Warning: Could not find icon at ${iconPath}: ${error}`));
   }
 
   const imageComponent = userOpts.imageStructure({

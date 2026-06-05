@@ -595,6 +595,7 @@ export async function handleBuild(argv) {
       "package.json",
       "!.quartz/**/*",
       "!**/node_modules/**/*",
+      "!**/dist/**/*",
     ])
     chokidar
       .watch(paths, { ignoreInitial: true })
