@@ -338,14 +338,17 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         (c) => !componentResources.componentCssStrings.has(c),
       )
 
-      // Core CSS: theme + fonts + global CSS + base styles (no per-component CSS)
+      // Combine all component CSS styles into a single block
+      const allComponentCss = [...componentResources.componentCssStrings].join("\n")
+
+      // Core CSS: theme + fonts + global CSS + base styles
       const quartzBase = joinStyles(
         ctx.cfg.configuration.theme,
         googleFontsStyleSheet,
         ...globalCss,
         baseStyles,
       )
-      const stylesheet = `@layer quartz-base {\n${quartzBase}\n}\n${customStyles}`
+      const stylesheet = `@layer quartz-base {\n${quartzBase}\n${allComponentCss}\n}\n${customStyles}`
 
       const prescript = await joinScripts(componentResources.beforeDOMLoaded)
 
@@ -405,33 +408,7 @@ export const ComponentResources: QuartzEmitterPlugin = () => {
         include: Features.MediaQueries,
       }).code.toString()
 
-      const cssStringToFilename = new Map<string, string>()
-      for (const cssString of componentResources.componentCssStrings) {
-        if (cssStringToFilename.has(cssString)) continue
-
-        const wrapped = `@layer quartz-base {\n${cssString}\n}`
-        const minified = transform({
-          filename: "component.css",
-          code: Buffer.from(wrapped),
-          minify: true,
-          targets: lightningTargets,
-          include: Features.MediaQueries,
-        }).code.toString()
-
-        const hash = hashContent(minified)
-        const slug = `component-${hash}`
-        const filename = `${slug}.css`
-        cssStringToFilename.set(cssString, filename)
-
-        yield write({
-          ctx,
-          slug: slug as FullSlug,
-          ext: ".css",
-          content: minified,
-        })
-      }
-
-      ctx.componentCssMap = cssStringToFilename
+      ctx.componentCssMap = new Map()
 
       // Extract inline CSS/JS from plugin externalResources() into external files.
       // This prevents large inline payloads (e.g. theme CSS) from being duplicated
