@@ -92,16 +92,16 @@ function renderRecentNotes(lang) {
     const relativeTime = getRelativeTime(note.date, lang);
     const tagsHtml = (note.tags || [])
       .map(function(tag) {
-        return `<span class="update-tag">#${tag}</span>`;
+        return `<a class="internal tag-link" href="tags/${tag}">${tag}</a>`;
       })
       .join(' ');
 
     return `
-      <div class="update-row">
+      <div class="update-row" onclick="if(!event.target.closest('.tag-link')) this.querySelector('.update-title').click()">
         <span class="update-date">${relativeTime}</span>
         <div class="update-content">
           <a class="update-title" href="./${note.slug}">${note.title}</a>
-          ${tagsHtml ? `<span class="update-tags-container">${tagsHtml}</span>` : ''}
+          ${tagsHtml ? `<div class="update-tags-container">${tagsHtml}</div>` : ''}
         </div>
       </div>
     `;
