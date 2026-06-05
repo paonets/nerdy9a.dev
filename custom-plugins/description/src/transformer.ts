@@ -36,6 +36,29 @@ export const Description: QuartzTransformerPlugin<Partial<DescriptionOptions>> =
               file.data.frontmatter as Record<string, unknown> | undefined
             )?.description as string | undefined;
 
+            // Mutate the original tree in place to add lazy loading and async decoding to all content images
+            const traverseImages = (node: any) => {
+              if (node.type === "element" && node.tagName === "img") {
+                node.properties = node.properties || {};
+                const classNames = node.properties.className;
+                const isLogo = Array.isArray(classNames) && classNames.includes("homepage-logo");
+                if (!isLogo) {
+                  if (!node.properties.loading) {
+                    node.properties.loading = "lazy";
+                  }
+                  if (!node.properties.decoding) {
+                    node.properties.decoding = "async";
+                  }
+                }
+              }
+              if (node.children) {
+                for (const child of node.children) {
+                  traverseImages(child);
+                }
+              }
+            };
+            traverseImages(tree);
+
             // Clone the HTML AST to avoid mutating the original tree that gets rendered to the page.
             const cleanTree = dbl(tree);
 

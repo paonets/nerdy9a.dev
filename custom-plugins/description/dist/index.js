@@ -261,6 +261,27 @@ var Description = (userOpts) => {
         () => {
           return async (tree, file) => {
             let frontMatterDescription = file.data.frontmatter?.description;
+            const traverseImages = (node) => {
+              if (node.type === "element" && node.tagName === "img") {
+                node.properties = node.properties || {};
+                const classNames = node.properties.className;
+                const isLogo = Array.isArray(classNames) && classNames.includes("homepage-logo");
+                if (!isLogo) {
+                  if (!node.properties.loading) {
+                    node.properties.loading = "lazy";
+                  }
+                  if (!node.properties.decoding) {
+                    node.properties.decoding = "async";
+                  }
+                }
+              }
+              if (node.children) {
+                for (const child of node.children) {
+                  traverseImages(child);
+                }
+              }
+            };
+            traverseImages(tree);
             const cleanTree = dbl(tree);
             cleanTree.children = cleanTree.children.filter(
               (node) => !(node.type === "element" && node.tagName === "blockquote")

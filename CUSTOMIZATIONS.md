@@ -36,8 +36,12 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 ### 5. Translation Callout Stripping (`custom-plugins/description`)
 
-- **How it works:** Clones the HAST (HTML AST) tree using `rfdc` and filters out all `blockquote` elements (which markdown callout boxes `> [!NOTE]` map to) before extracting the text description using `toString(tree)`.
-- **Why it was done:** The note translator script automatically injects translation notices at the very beginning of the notes. Stripping blockquotes prevents these banners from leaking into `<meta name="description">` tags and the text of generated OG images, while keeping them perfectly visible on the actual rendered HTML page.
+- **How it works:**
+  1. Traverses the HTML AST in-place to automatically add `loading="lazy"` and `decoding="async"` attributes to all images in the post body (skipping the above-the-fold homepage logo).
+  2. Clones the HAST (HTML AST) tree using `rfdc` and filters out all `blockquote` elements (which markdown callout boxes `> [!NOTE]` map to) before extracting the text description using `toString(tree)`.
+- **Why it was done:**
+  1. Default Quartz does not lazy-load post body images, causing significant bandwidth overhead and poor PageSpeed scores for travel journals with many photos.
+  2. The note translator script automatically injects translation notices at the very beginning of the notes. Stripping blockquotes prevents these banners from leaking into `<meta name="description">` tags and the text of generated OG images, while keeping them perfectly visible on the actual rendered HTML page.
 
 ### 6. Date and Description Retention in JSON Index (`custom-plugins/content-index`)
 

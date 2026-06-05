@@ -7,7 +7,7 @@ updated: 2026-06-05 18:00
 ---
 
 <div class="homepage-logo-container">
-  <img src="static/garden_logo.png" alt="nerdy9a logo" class="homepage-logo" />
+  <img src="static/garden_logo.png" alt="nerdy9a logo" class="homepage-logo" width="140" height="140" fetchpriority="high" />
   <h1 class="homepage-title">nerdy9a <span class="accent">garden</span></h1>
 </div>
 
