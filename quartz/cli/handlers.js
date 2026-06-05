@@ -593,6 +593,8 @@ export async function handleBuild(argv) {
       "**/*.tsx",
       "**/*.scss",
       "package.json",
+      "!.quartz/**/*",
+      "!**/node_modules/**/*",
     ])
     chokidar
       .watch(paths, { ignoreInitial: true })
