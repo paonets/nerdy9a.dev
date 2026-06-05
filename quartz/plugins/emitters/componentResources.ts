@@ -24,6 +24,7 @@ import { transform as transpile } from "esbuild"
 import { write } from "./helpers"
 
 function hashContent(content: string | Buffer): string {
+  // codeql[js/insufficient-password-hash]
   return createHash("sha256").update(content).digest("hex").slice(0, 8)
 }
 
