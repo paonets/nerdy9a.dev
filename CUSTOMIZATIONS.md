@@ -58,6 +58,11 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 - **How it works:** Extracted the theme setup/event listeners from the render-blocking pre-script phase and shifted them to run asynchronously after the DOM has fully loaded (`afterDOMLoaded`).
 - **Why it was done:** By separating the setup logic from the early theme checking (which is now inlined in `<head>`), the script no longer blocks the initial rendering of the webpage, improving First Contentful Paint (FCP).
 
+### 9. Lazy-Loaded Graph Component Scripts (`custom-plugins/graph`)
+
+- **How it works:** Replaced the eager loading of D3.js and PixiJS scripts on initial load with a conditional check. The scripts are only requested when a `.graph-container` is actually visible on the page (width/height > 0), or if the user clicks the global graph toggle button.
+- **Why it was done:** Since the note connection graph is hidden inside the right sidebar on mobile devices, eagerly fetching the libraries resulted in over 1MB of unused JavaScript being downloaded and parsed on mobile page views. Lazy-loading them completely removes this overhead for mobile devices, significantly boosting mobile PageSpeed performance.
+
 ---
 
 ## Core Framework Customizations
@@ -79,4 +84,3 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Configured `cdnCaching: false` under theme options.
 - **Why it was done:** Instructs the build system to fetch Google Fonts stylesheets, download the font files during build time, and host them locally under the site's own domain, merging the `@font-face` definitions directly inside the monolithic `index.css`. This removes two render-blocking external domain requests (`fonts.googleapis.com` and `fonts.gstatic.com`), saving costly DNS lookup, TCP connect, and SSL negotiation times on mobile connections.
-
