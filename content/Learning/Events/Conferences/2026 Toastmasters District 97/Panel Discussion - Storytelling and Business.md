@@ -2,12 +2,12 @@
 tags: [toastmasters, panel, storytelling, business]
 publish: true
 created: 2026-05-17 15:34
-updated: 2026-06-01 06:46
+updated: 2026-06-05 22:10
 ---
 
 # Panel Discussion: Storytelling and Business
 
-![image](attachments/panel_discussion_storytelling_business_sketchnote.png)
+![image](attachments/panel_discussion_storytelling_business_sketchnote.webp)
 
 ## Insights from Panelists
 

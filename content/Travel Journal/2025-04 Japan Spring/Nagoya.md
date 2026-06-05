@@ -5,9 +5,9 @@ tags:
   - travel
   - japan
   - travel-journal
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09988-Pano.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC09988-Pano.webp
 created: 2026-06-02 07:18
-updated: 2026-06-03 11:39
+updated: 2026-06-05 22:11
 ---
 
 # Nagoya: Sakura & Sightseeing
@@ -39,17 +39,17 @@ updated: 2026-06-03 11:39
 
 On the first evening, I headed to [Nagoya Castle](https://www.google.com/maps/search/?api=1&query=Nagoya+Castle+Nagoya) for the **sakura lightup** 🌸✨ — the illuminated blossoms against the castle walls and towers were breathtaking.
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09659.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC09659.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09599.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC09599.webp)
 
 Also on day 1, I walked over to [Tsuruma Park](https://www.google.com/maps/search/?api=1&query=Tsuruma+Park+Nagoya) for the **spring sakura festival** 🌸🌙 — it was very crowded, full of festive energy, with rows of sakura trees lit up beautifully against the night sky. A very different vibe from the castle, but equally memorable.
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09824.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC09824.webp)
 
 The next day I came back to explore Nagoya Castle properly in daylight — the full-bloom sakura under clear skies was just as magical 🌸🏯 Inside the Honmaru Palace was equally breathtaking.
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC09938.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC09938.webp)
 
 I stayed at the [Nishitetsu Hotel Croom Nagoya](https://www.google.com/maps/search/?api=1&query=Nishitetsu+Hotel+Croom+Nagoya+Nagoya) near Sakae, which was excellent — the room was comfortable, the [[Travel Journal/Places/Nagoya|Nagoya]] location was perfect for dining, and the hot spring bath (onsen) was a great way to wind down.
 

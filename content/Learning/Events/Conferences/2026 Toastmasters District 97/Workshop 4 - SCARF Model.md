@@ -2,12 +2,12 @@
 tags: [toastmasters, workshop, psychology, scarf-model, influence]
 publish: true
 created: 2026-05-17 12:30
-updated: 2026-06-01 06:46
+updated: 2026-06-05 22:10
 ---
 
 # Workshop 4: The SCARF Model (David Rock)
 
-![image](attachments/workshop_4_scarf_model_sketchnote.png)
+![image](attachments/workshop_4_scarf_model_sketchnote.webp)
 
 The SCARF Model is a tool that helps to improve interpersonal relationships by adapting our communication based on the 5 SCARF domains. Introduced by David Rock in 2008.
 

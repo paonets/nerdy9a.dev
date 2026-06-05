@@ -5,7 +5,7 @@ tags:
   - conference
 publish: true
 created: 2026-05-28 15:09
-updated: 2026-06-01 06:44
+updated: 2026-06-05 22:10
 source: Apple Notes
 ---
 
@@ -13,7 +13,7 @@ source: Apple Notes
 
 **Speaker:** Kanin Chotvorrarak (DailiTech)
 
-![image](attachments/patterns_resilient_systems_sketchnote.png)
+![image](attachments/patterns_resilient_systems_sketchnote.webp)
 
 > "Failure is normal. Panic is optional."
 

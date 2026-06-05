@@ -1,12 +1,12 @@
 ---
 created: 2026-06-01 09:25
-updated: 2026-06-01 09:50
+updated: 2026-06-05 22:10
 tags: [learning, ai, LLM, product-development, claude, source/video]
 source: "https://www.youtube.com/watch?v=We7BZVKbCVw"
 publish: true
 ---
 
-![image](attachments/ai_engineering_principles_sketchnote.png)
+![image](attachments/ai_engineering_principles_sketchnote.webp)
 
 ## Summary
 

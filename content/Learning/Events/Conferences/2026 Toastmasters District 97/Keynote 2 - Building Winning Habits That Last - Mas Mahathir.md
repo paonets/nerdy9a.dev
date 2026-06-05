@@ -2,12 +2,12 @@
 tags: [toastmasters, keynote, habits, behavioral-change]
 publish: true
 created: 2026-05-17 12:30
-updated: 2026-06-01 09:47
+updated: 2026-06-05 22:10
 ---
 
 # Keynote 2: Building Winning Habits That Last (Mas Mahathir)
 
-![image](attachments/keynote_2_mas_mahathir_sketchnote.png)
+![image](attachments/keynote_2_mas_mahathir_sketchnote.webp)
 
 _Speaker: Mas Mahathir, 2nd Place, 2025 World Champion of Public Speaking (WCPS)._
 

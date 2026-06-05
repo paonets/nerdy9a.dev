@@ -5,9 +5,9 @@ tags:
   - travel
   - japan
   - travel-journal
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00614.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00614.webp
 created: 2026-06-02 07:18
-updated: 2026-06-03 09:19
+updated: 2026-06-05 22:11
 ---
 
 # Kumano Hongu Taisha: Sacred Trails
@@ -43,10 +43,10 @@ This shrine is also closely associated with the Yatagarasu, a mythical three-leg
 
 Visiting all three Kumano shrines was such a special journey. Each one has its own personality, but [Kumano Hongu Taisha](https://www.google.com/maps/search/?api=1&query=Kumano+Hongu+Taisha+Tanabe) left the deepest impression on me before I returned to my base at Kii Katsuura. ❤️
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00614.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00614.webp)
 <em class="photo-caption">Kumano Hongu Taisha</em>
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00649.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00649.webp)
 <em class="photo-caption">Oyunohara — the world's largest torii gate</em>
 
 ---

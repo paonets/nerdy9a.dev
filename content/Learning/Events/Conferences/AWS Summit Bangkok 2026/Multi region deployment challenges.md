@@ -5,13 +5,13 @@ tags:
   - conference
 publish: true
 created: 2026-05-28 11:08
-updated: 2026-06-01 06:44
+updated: 2026-06-05 22:10
 source: Apple Notes
 ---
 
 # Multi-Region Deployment Challenges
 
-![image](attachments/multi_region_deployment_challenges_sketchnote.png)
+![image](attachments/multi_region_deployment_challenges_sketchnote.webp)
 
 **Speaker:** Dr. Vit (DailiTech)
 

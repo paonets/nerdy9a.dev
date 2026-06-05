@@ -7,7 +7,7 @@ tags:
   - software-engineering
 publish: true
 created: 2026-05-28 14:15
-updated: 2026-06-05 21:51
+updated: 2026-06-05 22:10
 source: Apple Notes
 ---
 
@@ -15,7 +15,7 @@ source: Apple Notes
 
 The AI-Driven Development Lifecycle (AI-DLC) aligns tools, roles, and software development ceremonies to optimize human-AI collaboration.
 
-![image](attachments/ai_dlc_sketchnote.png)
+![image](attachments/ai_dlc_sketchnote.webp)
 
 ## The Human-AI Collaboration Model
 

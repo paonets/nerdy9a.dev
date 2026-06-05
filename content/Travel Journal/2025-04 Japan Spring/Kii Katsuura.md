@@ -6,8 +6,8 @@ tags:
   - japan
   - travel-journal
 created: 2026-06-02 07:18
-updated: 2026-06-03 09:38
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00520.jpg
+updated: 2026-06-05 22:11
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00520.webp
 ---
 
 # Kii Katsuura: Coastal Base & Seafood
@@ -41,8 +41,8 @@ Another highlight is the tuna market. [Kii-Katsuura Port](https://www.google.com
 If you’re planning to visit Kumano, I highly recommend using Kii-Katsuura as your base—peaceful, scenic, and well-connected to all the main sights. 🌿⛩️
 
 <div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00511.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00514.jpg" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00511.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00514.webp" />
 </div>
 <em class="photo-caption">Sunset over the port</em>
 
@@ -50,11 +50,11 @@ The tuna auction was surprisingly calm—buyers moved in silence, inspecting the
 
 <div class="photo-grid-2">
   <div>
-    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00743.jpg" />
+    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00743.webp" />
     <em class="photo-caption">Tuna auction</em>
   </div>
   <div>
-    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00736.jpg" />
+    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00736.webp" />
     <em class="photo-caption">Tuna auction</em>
   </div>
 </div>

@@ -5,9 +5,9 @@ tags:
   - travel
   - japan
   - travel-journal
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00977.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00977.webp
 created: 2026-06-02 07:18
-updated: 2026-06-03 08:55
+updated: 2026-06-05 22:11
 ---
 
 # Ise: Outer & Inner Shrines
@@ -50,13 +50,13 @@ The shrine has two main sites: the Outer Shrine (Geku) and the Inner Shrine (Nai
 
 Visiting Ise isn’t just sightseeing—it’s stepping into the spiritual heart of Japan. 🌿⛩️✨
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00987.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00987.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01009.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01009.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01021.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01021.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01050.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01050.webp)
 
 ---
 

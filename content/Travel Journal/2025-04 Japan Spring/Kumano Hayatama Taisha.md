@@ -5,9 +5,9 @@ tags:
   - travel
   - japan
   - travel-journal
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00566.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00566.webp
 created: 2026-06-02 07:18
-updated: 2026-06-03 09:21
+updated: 2026-06-05 22:11
 ---
 
 # Kumano Hayatama Taisha (Shingu)
@@ -37,16 +37,16 @@ Hayatama Taisha sits in a peaceful riverside area, right in the heart of Shingu.
 
 One hidden gem I really loved was the [Shingu Castle Ruins](https://www.google.com/maps/search/?api=1&query=Shingu+Castle+Ruins+Shingu). There’s not much of the castle left, but the short hike up is totally worth it. At the top, you get a panoramic view overlooking the city, the Kumano River, and the Pacific Ocean.
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00539.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00539.webp)
 <em class="photo-caption">River view from Shingu Castle Ruins</em>
 
 <div class="photo-grid-2">
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00568.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00574.jpg" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00568.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00574.webp" />
 </div>
 <em class="photo-caption">Kumano Hayatama Taisha</em>
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00566.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00566.webp)
 <em class="photo-caption">Kumano Hayatama Taisha</em>
 
 ---

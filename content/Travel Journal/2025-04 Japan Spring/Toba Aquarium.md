@@ -5,9 +5,9 @@ tags:
   - travel
   - japan
   - travel-journal
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00812.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00812.webp
 created: 2026-06-02 07:18
-updated: 2026-06-03 08:52
+updated: 2026-06-05 22:11
 ---
 
 # Toba: Coastal Transit & Aquarium
@@ -36,13 +36,13 @@ I got to see so many species I’d never seen before, like the gentle dugong and
 
 Japanese aquariums never disappoint—always well-designed, full of surprises, and just so much fun to visit. 🐬✨
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00939.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00939.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00829.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00829.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00749.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00749.webp)
 
-![image](https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00892.jpg)
+![image](https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00892.webp)
 
 ---
 

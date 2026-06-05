@@ -2,12 +2,12 @@
 tags: [toastmasters, keynote, persuasion, communication]
 publish: true
 created: 2026-05-17 12:30
-updated: 2026-06-01 09:47
+updated: 2026-06-05 22:10
 ---
 
 # Keynote 1: Persuade with Impact & Power (Darren Tay)
 
-![image](attachments/keynote_1_darren_tay_sketchnote.png)
+![image](attachments/keynote_1_darren_tay_sketchnote.webp)
 
 _Darren Tay: World Champion of Public Speaking 2016._
 **Express to Impress** book. Try selling it. Darren got a chance in high school to give a keynote and ended up selling 12,000 books.

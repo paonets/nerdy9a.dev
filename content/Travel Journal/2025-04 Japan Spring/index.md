@@ -4,9 +4,9 @@ publish: true
 tags:
   - travel
   - japan
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC02710.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC02710.webp
 created: 2026-06-02 07:18
-updated: 2026-06-04 08:22
+updated: 2026-06-05 22:11
 ---
 
 # From Kumano Kodo to Osaka Expo: Japan Spring 2025
@@ -19,7 +19,7 @@ updated: 2026-06-04 08:22
 
 ## 🎨 Visual Summary
 
-![image](attachments/japan_spring_2025_sketchnote.png)
+![image](attachments/japan_spring_2025_sketchnote.webp)
 
 ## 📝 Thoughts & Reflections
 

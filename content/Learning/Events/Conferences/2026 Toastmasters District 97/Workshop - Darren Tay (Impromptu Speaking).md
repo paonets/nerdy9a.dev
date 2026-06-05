@@ -6,14 +6,14 @@ tags:
   - communication
 publish: true
 created: 2026-05-17 14:13
-updated: 2026-06-01 06:52
+updated: 2026-06-05 22:10
 ---
 
 # Workshop: Impromptu Speaking (Darren Tay)
 
 _Speaker: Darren Tay, 2016 World Champion of Public Speaking (WCPS)._
 
-![image](attachments/impromptu_sketchnote.png)
+![image](attachments/impromptu_sketchnote.webp)
 
 ## Techniques for Impromptu Speaking
 

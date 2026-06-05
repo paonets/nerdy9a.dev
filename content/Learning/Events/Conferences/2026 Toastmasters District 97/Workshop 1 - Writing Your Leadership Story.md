@@ -6,12 +6,12 @@ tags:
   - storytelling
 publish: true
 created: 2026-05-17 12:30
-updated: 2026-06-01 06:48
+updated: 2026-06-05 22:10
 ---
 
 # Workshop 1: Writing Your Leadership Story (Poh Kim Siong)
 
-![image](attachments/workshop_1_leadership_story_sketchnote.png)
+![image](attachments/workshop_1_leadership_story_sketchnote.webp)
 
 **Speaker Profile: Poh Kim Siong, DTM, PID, PRA**
 

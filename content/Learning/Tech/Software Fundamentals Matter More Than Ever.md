@@ -1,6 +1,6 @@
 ---
 created: 2026-05-26 21:21
-updated: 2026-06-01 09:20
+updated: 2026-06-05 22:10
 tags:
   - source/video
   - software-engineering
@@ -9,7 +9,7 @@ publish: true
 source: "https://www.youtube.com/watch?v=v4F1gFy-hqg"
 ---
 
-![image](attachments/software_fundamentals_sketchnote.png)
+![image](attachments/software_fundamentals_sketchnote.webp)
 
 ## Summary
 

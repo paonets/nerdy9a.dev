@@ -5,9 +5,9 @@ tags:
   - travel
   - japan
   - travel-journal
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01099-Enhanced-NR.jpg
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01099-Enhanced-NR.webp
 created: 2026-06-02 07:31
-updated: 2026-06-03 09:27
+updated: 2026-06-05 22:11
 ---
 
 # Osaka City & Sights
@@ -31,20 +31,20 @@ I spent our day exploring [[Travel Journal/Places/Osaka|Osaka]] before our multi
 
 <div class="photo-grid-2">
   <div>
-    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01065.jpg" />
+    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01065.webp" />
     <em class="photo-caption">Godzilla at Umeda station</em>
   </div>
   <div>
-    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01074.jpg" />
+    <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01074.webp" />
     <em class="photo-caption">Gundam Base Osaka</em>
   </div>
 </div>
 
 <div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01099-Enhanced-NR.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01144.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01186.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC01193.jpg" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01099-Enhanced-NR.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01144.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01186.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC01193.webp" />
 </div>
 <em class="photo-caption">teamLab Botanical Garden Osaka light installations</em>
 

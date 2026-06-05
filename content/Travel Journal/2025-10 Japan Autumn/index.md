@@ -4,9 +4,9 @@ publish: true
 tags:
   - travel
   - japan
-cover: https://media.nerdy9a.dev/travel/japan-fall-2025/DSC03072.jpg
+cover: https://media.nerdy9a.dev/travel/japan-fall-2025-webp/DSC03072.webp
 created: 2026-06-03 10:12
-updated: 2026-06-04 21:22
+updated: 2026-06-05 22:11
 ---
 
 # Autumn Leaves & Alpine Slopes: Japan Fall 2025
@@ -19,7 +19,7 @@ updated: 2026-06-04 21:22
 
 ## 🎨 Visual Summary
 
-![image](attachments/japan_autumn_sketchnote.png)
+![image](attachments/japan_autumn_sketchnote.webp)
 
 ## 📝 Thoughts & Reflections
 

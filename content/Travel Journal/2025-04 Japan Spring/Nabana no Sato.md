@@ -6,8 +6,8 @@ tags:
   - japan
   - travel-journal
 created: 2026-06-02 07:18
-updated: 2026-06-03 09:16
-cover: https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00237.jpg
+updated: 2026-06-05 22:11
+cover: https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00237.webp
 ---
 
 # Nabana no Sato: Illumination & Gardens
@@ -37,23 +37,23 @@ After dark, the park transforms into a magical world with its famous night illum
 If you’re visiting the Nagoya area in spring, Nabana no Sato is 100% worth the trip—day and night.
 
 <div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00232.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00183.jpg" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00232.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00183.webp" />
 </div>
 <em class="photo-caption">Tulip fields at sunset</em>
 
 <div class="photo-grid-2">
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00053.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00241.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00096.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00070.jpg" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00053.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00241.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00096.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00070.webp" />
 </div>
 
 <div class="photo-grid-auto">
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00252.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00256.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00297.jpg" />
-  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-v2/DSC00273.jpg" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00252.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00256.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00297.webp" />
+  <img src="https://media.nerdy9a.dev/travel/japan-spring-2025-webp/DSC00273.webp" />
 </div>
 <em class="photo-caption">Night illumination</em>
 
