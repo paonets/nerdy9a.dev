@@ -19,9 +19,7 @@ Threat modeling should be integrated directly into the design phase of the Secur
 
 ![image](attachments/AI-powered-Threat-Modeling-1.png)
 
-## Where Threat Modeling Fits in the SSDLC
-
-$$\text{Requirements} \longrightarrow \mathbf{\text{Design (Threat Modeling Happens Here)}} \longrightarrow \text{Development} \longrightarrow \text{Testing} \longrightarrow \text{Deploy} \longrightarrow \text{Monitor}$$
+**Requirements** ➔ **Design (Threat Modeling Happens Here)** ➔ **Development** ➔ **Testing** ➔ **Deploy** ➔ **Monitor**
 
 ---
 

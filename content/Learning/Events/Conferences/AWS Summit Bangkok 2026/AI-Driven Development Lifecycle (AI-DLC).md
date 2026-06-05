@@ -7,7 +7,7 @@ tags:
   - software-engineering
 publish: true
 created: 2026-05-28 14:15
-updated: 2026-06-03 22:35
+updated: 2026-06-05 21:51
 source: Apple Notes
 ---
 
@@ -19,9 +19,9 @@ The AI-Driven Development Lifecycle (AI-DLC) aligns tools, roles, and software d
 
 ## The Human-AI Collaboration Model
 
-The operating model relies on strict division of labor and validation loops:
-$$\text{AI creates plan} \longrightarrow \text{Human verifies plan}$$
-$$\text{AI executes plan} \longrightarrow \text{Human verifies outcome}$$
+**AI creates plan** ➔ **Human verifies plan**
+
+**AI executes plan** ➔ **Human verifies outcome**
 
 ---
 
