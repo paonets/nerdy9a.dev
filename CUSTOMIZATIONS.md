@@ -52,3 +52,12 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Modified `src/transformer.ts` to check `date` as a fallback for created time, and `updated` as a fallback for modified time in the Markdown frontmatter (mapped to `dates.created` and `dates.modified` respectively).
 - **Why it was done:** By default, the plugin only looks for `created` and `modified` in the frontmatter. Notes authored in the Obsidian vault use the standard keys `date` (for creation) and `updated` (for updates). Because the plugin did not recognize them, it fell back to Git commit timestamps or filesystem timestamps (which reset to "now" whenever the python publish/sync script runs), leading to incorrect modification dates for notes on the homepage.
+
+---
+
+## Core Framework Customizations
+
+### 1. Monolithic Component CSS Bundling (`quartz/plugins/emitters/componentResources.ts`)
+
+- **How it works:** Modifies the built-in `ComponentResources` emitter to merge all styles in `componentResources.componentCssStrings` directly into the main compiled `index.css` stylesheet. It resets `ctx.componentCssMap` to an empty map so that no separate component stylesheets are written to disk or linked in the `<head>` of HTML pages.
+- **Why it was done:** Default Quartz emits a separate CSS stylesheet for every enabled component (Search, Backlinks, Dark Mode, etc.), resulting in 20+ render-blocking network requests that delay rendering by ~1.3s on mobile connections. Bundling them into the single main `index.css` stylesheet (~75 KB uncompressed, ~15 KB compressed) allows the browser to fetch all styles in a single HTTP request and cache them instantly for subsequent navigation.
