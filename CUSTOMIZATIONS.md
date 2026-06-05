@@ -12,12 +12,14 @@ The main content page rendering component [ContentBody.tsx](file:///Users/pongsa
 
 - **How it works:** If a note (such as category index notes under `content/Categories/`) specifies `filter_tags: ["tag1", "tag2"]`, the plugin automatically appends a list of all notes matching _any_ of those tags (including sub-segments of nested tags).
 - **Tag Exclusion:** Supports `exclude_tags: ["tag3"]` to hide specific pages from category listings even if they match the filter tags. This is used to keep unlisted pages or draft trip logs from cluttering category indices.
+- **Optimized Cover Image Loading:** Added `fetchpriority="high"` to the page-cover-banner image tag to prioritize above-the-fold hero image loading and improve LCP.
 
 ### 2. Enhanced Folder Index Pages (`custom-plugins/folder-page`)
 
 - **Cover Photo Title Overlay:** Renders folder index cover images with custom title overlay styling and rounded corners.
 - **Trip Logs Section Header:** Automatically inserts a section header (`Trip Logs` or `Travel Logs`) before the list of sub-pages/day logs at the bottom of folder index pages (specifically in the Travel Journal).
 - **Title Logic Refactoring:** Implements robust title matching using frontmatter and page tags.
+- **Optimized Cover Image Loading:** Added `fetchpriority="high"` to the page-cover-banner image tag on folder index pages to improve LCP loading speeds.
 
 ### 3. Source Link Integrations (`custom-plugins/content-meta` & `custom-plugins/note-properties`)
 

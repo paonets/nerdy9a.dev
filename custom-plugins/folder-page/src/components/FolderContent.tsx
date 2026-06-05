@@ -307,7 +307,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       <div class={`popover-hint${hasCover ? " has-cover" : ""}`}>
         {pageCover && (
           <div class="page-cover-banner">
-            <img src={pageCover} alt={pageTitle ?? "Cover Image"} />
+            <img src={pageCover} alt={pageTitle ?? "Cover Image"} fetchpriority="high" />
             <div class="page-cover-overlay">
               {pageTitle && <h1 class="page-cover-title">{pageTitle}</h1>}
             </div>

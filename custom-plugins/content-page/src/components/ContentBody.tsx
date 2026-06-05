@@ -264,7 +264,11 @@ export default (() => {
       <article class={classString}>
         {frontmatter?.cover && (
           <div class="page-cover-banner">
-            <img src={frontmatter.cover} alt={fileData.frontmatter?.title ?? "Cover Image"} />
+            <img
+              src={frontmatter.cover}
+              alt={fileData.frontmatter?.title ?? "Cover Image"}
+              fetchpriority="high"
+            />
             <div class="page-cover-overlay">
               {frontmatter.title && <h1 class="page-cover-title">{frontmatter.title}</h1>}
               {frontmatter.date && (
