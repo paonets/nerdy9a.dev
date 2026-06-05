@@ -203,14 +203,14 @@ plugins:
       priority: 5
       condition: not-index
   - source: github:quartz-community/comments
-    enabled: false
+    enabled: true
     options:
       provider: giscus
       options:
         repo: paonets/nerdy9a.dev
-        repoId: "PASTE_YOUR_REPO_ID_HERE"
+        repoId: R_kgDOSs72MA
         category: Announcements
-        categoryId: "PASTE_YOUR_CATEGORY_ID_HERE"
+        categoryId: DIC_kwDOSs72MM4C-ib9
         theme: preferred_color_scheme
         mapping: pathname
         strict: false
