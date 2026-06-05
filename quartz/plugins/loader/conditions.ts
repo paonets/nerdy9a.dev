@@ -4,6 +4,10 @@ export type ConditionPredicate = (props: QuartzComponentProps) => boolean
 
 const builtinConditions: Record<string, ConditionPredicate> = {
   "not-index": (props) => props.fileData.slug !== "index",
+  "not-index-or-category": (props) => {
+    const slug = props.fileData.slug
+    return slug !== "index" && !slug?.startsWith("categories/")
+  },
   "has-tags": (props) => {
     const tags = props.fileData.frontmatter?.tags
     return Array.isArray(tags) && tags.length > 0

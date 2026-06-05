@@ -219,6 +219,7 @@ plugins:
     layout:
       position: afterBody
       priority: 10
+      condition: not-index-or-category
   - source: github:quartz-community/footer
     enabled: true
     options:
