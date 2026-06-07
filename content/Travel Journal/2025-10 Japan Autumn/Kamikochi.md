@@ -10,10 +10,10 @@ created: 2026-06-03 10:12
 updated: 2026-06-05 22:11
 ---
 
-
 # Kamikochi: Alpine Valley & Autumn Trails
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** October 19, 2025
 - **Locations Covered:** Kamikochi Valley (Taisho Pond, Kappa Bridge, Myojin Pond, Myojin Bridge)
 - **Base Camp:** Matsumoto
@@ -21,6 +21,7 @@ updated: 2026-06-05 22:11
 ---
 
 ## 📝 Thoughts & Reflections
+
 Initially, I didn't feel that impressed by images of Kamikochi I saw online. In person, however, it is a completely different experience. Kamikochi is a stunning alpine valley with a crystal-clear river flowing through it, entirely surrounded by towering mountains. Walking along the valley path gives you a scenic 360-degree nature view at all times. Combined with the vibrant autumn colors, it is easily the best scenery of the trip.
 
 The valley has a grand, dramatic feeling that reminded me of Yosemite in California. I found myself taking pictures at almost every step, literally! The section from Taisho Pond to Kappa Bridge is definitely the best trail.
@@ -56,19 +57,21 @@ The valley has a grand, dramatic feeling that reminded me of Yosemite in Califor
 ## 🥾 Hiking Route & Map
 
 ### Route Strategy
+
 To avoid walking back and forth, a great tip is to get off the bus at **Taisho Pond** instead of Kappa Bridge (where most people get off). This allows you to walk a continuous, linear route through the valley without doubling back.
 
 My route covered the main highlights of the valley in a single day:
 `Taisho Pond` ➔ `Kappa Bridge` ➔ `Myojin Bridge` ➔ `Kappa Bridge`
 
-![image](attachments/kamikochi_route_sketch.png)
+![image](attachments/kamikochi_route_sketch.webp)
 
 ![image](https://www.kamikochi.org/wp-content/uploads/2025/06/walking_map.svg)
-*Map from the [Kamikochi Official Website](https://www.kamikochi.org/thingstodo/walking)*
+_Map from the [Kamikochi Official Website](https://www.kamikochi.org/thingstodo/walking)_
 
 ---
 
 ## 💡 Logistics & Tips
+
 - **Go early and book in advance:** I used Matsumoto as my base. It is a train ride followed by a bus to get there. I left Matsumoto at 6:30 AM and arrived in Kamikochi a bit past 8:00 AM. Booking bus tickets in advance is highly recommended to secure your spot.
 - **Flexible return:** The return trip is quite flexible. I finished my hike earlier than expected, so I cancelled my original bus booking and easily booked a new return ticket online using my phone.
 
