@@ -1,8 +1,13 @@
 ---
 created: 2026-06-07 13:52
-updated: 2026-06-07 13:52
-tags: [learning, tech, ai, software-engineering, source/article]
-source: "https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude"
+updated: 2026-06-08 07:45
+tags:
+  - learning
+  - tech
+  - ai
+  - software-engineering
+  - source/article
+source: https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude
 publish: true
 ---
 
@@ -20,7 +25,7 @@ At Anthropic, 95% of business analytics queries are automated via Claude, achiev
 
 ### 1. Data Analytics vs. Software Engineering
 
-- **Open-Ended vs. Determinstic:** Coding allows creative solutions and has deterministic feedback loops (compilers, tests, execution logs). Analytics is highly constrained: there is usually only a single correct source and answer, with no easy way to prove correctness automatically.
+- **Open-Ended vs. Deterministic:** Coding allows creative solutions and has deterministic feedback loops (compilers, tests, execution logs). Analytics is highly constrained: there is usually only a single correct source and answer, with no easy way to prove correctness automatically.
 - **The Core Bottleneck:** The primary challenge is mapping user concepts (e.g., "active users") to specific, up-to-date warehouse entities and knowing how to aggregate them. If that mapping is accurate, the resulting SQL is trivial.
 
 ### 2. Three Failure Modes
