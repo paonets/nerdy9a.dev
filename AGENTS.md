@@ -7,6 +7,7 @@
 - **Customized Plugins & Core Customizations Strategy:** All customized Quartz plugins (such as `content-page`, `folder-page`, `content-meta`, `note-properties`) MUST be stored in the `custom-plugins/` directory and referenced in `quartz.config.yaml` using local paths (e.g. `source: ./custom-plugins/plugin-name`). Do NOT edit files inside `.quartz/plugins/` directly, as `.quartz/` is gitignored and your changes will be lost upon deployment. Whenever you modify or create a custom plugin, or make changes/customizations to core framework files (such as components, layouts, or emitters in the `quartz/` directory), you MUST document the changes in the master index: [CUSTOMIZATIONS.md](file:///Users/pongsakorn/Projects/nerdy9a.dev/CUSTOMIZATIONS.md).
 - **Vault-to-Quartz Pipeline:** Do NOT write or edit Markdown files directly inside the `content/` directory (except for `index.md` which serves as the homepage). All digital garden notes must be authored in the master Obsidian vault (`WisdomWell`) and published using the sanitization script.
 - **Single Source of Truth:** This file (`AGENTS.md`) is the master instruction set for all AI agents working in this repository. `CLAUDE.md` and `ANTIGRAVITY.md` are symlinked to this file. **Always edit `AGENTS.md` directly** — edits through the symlinks will fail.
+- **Mermaid Formatting:** Do NOT use edge labels starting with `N.` (e.g., `1. Label`) — use `(1) Label` instead. Numbered-dot labels trigger Obsidian rendering errors.
 
 ---
 

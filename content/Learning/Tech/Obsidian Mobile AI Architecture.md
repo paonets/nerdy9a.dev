@@ -1,6 +1,6 @@
 ---
 created: 2025-05-25 21:56
-updated: 2026-06-09 07:56
+updated: 2026-06-09 15:40
 publish: true
 tags: [synthesis, tech, ai, obsidian, mobile, architecture]
 source: WisdomWell Original
@@ -126,3 +126,11 @@ If looking to avoid proprietary services (Obsidian Sync) or iCloud latency:
 1. **Outbound Tunnels Only:** Rely on outbound connections (like Claude Remote Control) to avoid open public ports on your home network.
 2. **Launch Paths:** Always launch terminal agents from the root directory of your vault to prevent file traversal into other system folders.
 3. **Interactive Approvals:** Keep CLI confirmation prompts enabled for remote sessions to verify file deletions or command executions.
+
+---
+
+## 📚 Related Projects & Reference
+
+- **Client-Side Companion App:** Obsidian Mobile Apple Intelligence — Standalone native iOS companion app utilizing App Intents and local Foundation Models.
+- **Server-Side Host Gateway:** Set Up Remote Claude Code (Archived) — Setup guide for hosting a remote agent gateway on a local Mac or VPS.
+- **WWDC Event Context:** [[Learning/Tech/WWDC 2026 Keynote|WWDC 2026 Keynote]] — Apple Intelligence announcements, local models, and developer protocols.
