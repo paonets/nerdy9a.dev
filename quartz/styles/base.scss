@@ -78,7 +78,8 @@ article {
 }
 
 strong {
-  font-weight: $semiBoldWeight;
+  font-weight: $boldWeight;
+  color: var(--dark);
 }
 
 a {
@@ -183,9 +184,7 @@ a {
       margin-bottom: 0;
     }
 
-    p > strong {
-      color: var(--dark);
-    }
+    // p > strong color styling moved to global strong element style
   }
 
   & > #quartz-body {

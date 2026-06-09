@@ -91,3 +91,8 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Modifies the inline resource extraction loop in `componentResources.ts`. If an inline CSS or JS resource returned by a plugin is smaller than 4KB after minification, it is kept inlined (with minified contents) in the page's HTML `<head>` rather than being written to disk and injected as an external render-blocking network request.
 - **Why it was done:** Eliminates extra render-blocking network requests for tiny stylesheets/scripts (e.g. 0.8KB and 1.2KB syntax highlighting clipboard styles), saving round-trip connection times (~450ms per request) and boosting FCP/LCP scores on PageSpeed.
+
+### 5. Increased Bold Text Prominence (`quartz/styles/base.scss`)
+
+- **How it works:** Increased global font weight of `strong` tags from `$semiBoldWeight` (600) to `$boldWeight` (700) and set global color to `var(--dark)`.
+- **Why it was done:** In dark mode, the contrast between the body text color (`#d6d3d1`) and headings/bold color (`#fafaf9`) is subtle. Setting `strong` tags to a higher font weight (700) and ensuring `var(--dark)` color applies globally (instead of just inside paragraphs `p > strong`) makes bold text significantly more prominent and easier to read across lists, callouts, blockquotes, and other elements.
