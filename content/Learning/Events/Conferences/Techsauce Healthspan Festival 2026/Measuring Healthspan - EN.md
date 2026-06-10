@@ -7,13 +7,14 @@ tags: [health, biomarkers, diagnostics, longevity, conference, techsauce-2026]
 publish: true
 unlisted: true
 ---
-
 > [!NOTE]
 > 🇬🇧 English (AI-translated). Original in Thai: [[Measuring Healthspan|🇹🇭 อ่านภาษาไทย]]
 
+
+
 **Speaker:** Dr. Wanwiput Sanphasitvong  
-_Preventive Medicine & Wellness Specialist, VitalLife Scientific Wellness Center, Bumrungrad International Hospital_  
-**Event:** Techsauce Healthspan Festival 2026
+*Preventive Medicine & Wellness Specialist, VitalLife Scientific Wellness Center, Bumrungrad International Hospital*  
+**Event:** Techsauce Healthspan Festival 2026  
 
 ---
 
