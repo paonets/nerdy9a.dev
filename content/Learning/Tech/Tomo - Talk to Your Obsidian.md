@@ -9,7 +9,7 @@ tags:
   - apple-intelligence
   - project
 created: 2026-06-09 17:35
-updated: 2026-06-10 09:05
+updated: 2026-06-14 06:42
 source: WisdomWell Original
 ---
 
@@ -99,9 +99,21 @@ For complex tasks that require writing, reviewing, and high cognitive load, the 
 
 ---
 
+## 🖥️ macOS Desktop & Deep Linking
+
+Tomo is designed as a companion app, not an editor replacement. 
+
+*   **macOS Desktop Version**: A lightweight companion app (operating in the menu bar or running as a background daemon) will handle native CoreSpotlight indexing for your local vaults on macOS.
+*   **Deep-Link Redirection**: When you select a search result in Spotlight (indexed by Tomo) or click a note within Tomo, the app opens it directly in Obsidian. This is achieved by registering Spotlight searchable items and linking in-app actions to the native Obsidian URI scheme:
+    *   **Open Note**: `obsidian://open?vault=VaultName&file=Path/To/Note.md`
+    *   **Search**: `obsidian://search?vault=VaultName&query=SearchQuery`
+    This workflow ensures you use Spotlight and Siri for rapid search and automation, but transition back to Obsidian's rich editing environment for focused writing.
+
+---
+
 ## 🚀 How It Works (Under the Hood)
 
-1.  **Select Your Vault:** Point the app to your Obsidian folder in iCloud Drive.
-2.  **On-Device Indexing:** The app scans your vault and registers every note into iOS CoreSpotlight — Apple's on-device semantic search engine. No external database, no custom embeddings.
+1.  **Select Your Vault:** Point the app to your Obsidian folder in iCloud Drive or local disk.
+2.  **On-Device Indexing:** The app scans your vault and registers every note into iOS/macOS CoreSpotlight — Apple's on-device search engine. No external database, no custom embeddings.
 3.  **Real-Time Sync:** It monitors your vault in the background, updating the search index incrementally whenever you write a note in Obsidian.
 4.  **Hybrid Routing Engine:** Intelligently routes queries — local notes are searched on-device via Apple Intelligence, short tasks run on the Neural Engine, and complex reasoning escalates to Apple's Private Cloud Compute or your own cloud API keys.
