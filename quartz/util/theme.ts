@@ -91,12 +91,15 @@ export function googleFontHref(theme: Theme) {
   const bodyFont = formatFontSpecification("body", body)
   const codeFont = formatFontSpecification("code", code)
 
+  // Append Sarabun and Bai Jamjuree for local self-hosting/bundling (Thai content & headings)
+  const thaiFont = "Sarabun:wght@400;700&family=Bai+Jamjuree:wght@400;600;700"
+
   if (title) {
     const titleFont = formatFontSpecification("title", title)
-    return `https://fonts.googleapis.com/css2?family=${titleFont}&family=${headerFont}&family=${bodyFont}&family=${codeFont}&display=swap`
+    return `https://fonts.googleapis.com/css2?family=${titleFont}&family=${headerFont}&family=${bodyFont}&family=${codeFont}&family=${thaiFont}&display=swap`
   }
 
-  return `https://fonts.googleapis.com/css2?family=${headerFont}&family=${bodyFont}&family=${codeFont}&display=swap`
+  return `https://fonts.googleapis.com/css2?family=${headerFont}&family=${bodyFont}&family=${codeFont}&family=${thaiFont}&display=swap`
 }
 
 export function googleFontSubsetHref(theme: Theme, text: string) {

@@ -11,18 +11,21 @@ updated: 2026-06-05 22:10
 
 # Workshop: Impromptu Speaking (Darren Tay)
 
-*Speaker: Darren Tay, 2016 World Champion of Public Speaking (WCPS).*
+_Speaker: Darren Tay, 2016 World Champion of Public Speaking (WCPS)._
 
 ![image](attachments/impromptu_sketchnote.webp)
 
 ## Techniques for Impromptu Speaking
 
 ### 1. Structured Response: Put story into boxes
+
 - **Past, Present, Future**
 - **Short term, Long term**
 
 ### 2. SLEEP Framework
+
 Used for brainstorming impact (e.g., How COVID-19 affected us).
+
 - **S**: Social
 - **L**: Legal
 - **E**: Economic
@@ -30,6 +33,7 @@ Used for brainstorming impact (e.g., How COVID-19 affected us).
 - **P**: Political
 
 ### 3. LNI Framework
+
 - **L**: Local
 - **N**: National
 - **I**: International
@@ -39,6 +43,7 @@ Used for brainstorming impact (e.g., How COVID-19 affected us).
 ---
 
 ## Public Speaking Layers (The Onion)
+
 - **Inner Layer**: Content (can use AI to help)
 - **Pronunciation & Enunciation**
 - **Vocal Variety**
@@ -47,6 +52,7 @@ Used for brainstorming impact (e.g., How COVID-19 affected us).
 ---
 
 ## The Pendulum Method
+
 1. **Personal Opinion Questions** (e.g., "Do you agree that...?")
    - Discuss Pros/Cons, Benefits/Detriments.
    - Finally weigh them (usually reducing the cons).
@@ -56,6 +62,7 @@ Used for brainstorming impact (e.g., How COVID-19 affected us).
 ---
 
 ## 4 Types of People
+
 - **Lion**: Meticulous – plans every step.
 - **Dolphin**: Spontaneous – doesn't plan, sees on that day.
 - **Bear**: People-oriented – as long as you are happy.
@@ -64,6 +71,7 @@ Used for brainstorming impact (e.g., How COVID-19 affected us).
 ---
 
 ## PEEL Technique (Open-ended Questions)
+
 - **Point**: One sentence.
 - **Explanation**
 - **Example**: Story.
@@ -72,11 +80,13 @@ Used for brainstorming impact (e.g., How COVID-19 affected us).
 ---
 
 ## Using Interrogative Pronouns (5W 1H)
+
 Ask your mind: Who, Why, What, Where, When, How?
 
 ---
 
 ## Storytelling in Impromptu
+
 - Tell a story and make a point.
 - Use a story to buy extra time to think – can cut it halfway if needed.
 
@@ -85,18 +95,23 @@ Ask your mind: Who, Why, What, Where, When, How?
 ---
 
 ## Workshop Exercise: "Happiness"
+
 **Approach**:
+
 1. Tell a story.
 2. Form a sentence (e.g., "Money can buy happiness").
 
 **Contrast Technique**:
+
 - Audience expects something happy.
 - Contrast with something unexpected (e.g., Failure, obstacles).
 
 **Sign Posting**:
+
 - Say what you are about to say -> Say it -> Conclude.
 
 **Ways to Conclude**:
+
 - Summary
 - Call to action
 - Quote
@@ -105,10 +120,13 @@ Ask your mind: Who, Why, What, Where, When, How?
 ---
 
 ## 🚀 Next Steps / TODO
+
 - [ ] Sign up for Darren's Public Speaking Society and review recorded impromptu techniques: [Public Speaking Society (Skool)](https://www.skool.com/public-speaking-society-2454/about)
 
 ---
+
 **Keynote Speakers**:
+
 - Darren Tay (2016 World Champion)
 - Mas Mahathir (2nd Place, 2025 WCPS)
 

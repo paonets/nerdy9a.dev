@@ -10,14 +10,13 @@ tags:
   - techsauce-2026
 publish: true
 ---
+
 > [!NOTE]
 > 🇹🇭 ภาษาไทย (ต้นฉบับ). Translated to English: [[Medicine in the Near-AGI World - EN|🇬🇧 Read in English]]
 
-
-
 **Speaker:** นพ.ปิยะฤทธิ์ อิทธิชัยวงศ์ (Dr. Piyarit Ittichaiwong)  
-*แพทย์ประจำศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล*  
-**Event:** Techsauce Healthspan Festival 2026  
+_แพทย์ประจำศูนย์นวัตกรรมข้อมูลศิริราช (SiData+) คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล_  
+**Event:** Techsauce Healthspan Festival 2026
 
 ---
 

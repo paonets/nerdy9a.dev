@@ -1259,3 +1259,80 @@ em.photo-caption {
     }
   }
 }
+
+// Custom heading styles for note content (readability and document structure)
+.markdown-rendered {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--secondary);
+    font-weight: 700;
+    transition: color 0.2s ease;
+
+    // Align heading anchor tags with theme colors
+    &[id] > a[href^="#"] {
+      color: var(--secondary);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      margin-left: 0.4rem;
+    }
+
+    &:hover > a[href^="#"] {
+      opacity: 0.5;
+    }
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    letter-spacing: -0.01em;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  // Gradually mix headings into body text color (dark) to maintain hierarchy
+  h3 {
+    font-size: 1.22rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: color-mix(in srgb, var(--secondary) 85%, var(--dark));
+  }
+
+  h4 {
+    font-size: 1.08rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: color-mix(in srgb, var(--secondary) 70%, var(--dark));
+  }
+
+  h5 {
+    font-size: 0.98rem;
+    margin-top: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: color-mix(in srgb, var(--secondary) 55%, var(--dark));
+  }
+
+  h6 {
+    font-size: 0.92rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: color-mix(in srgb, var(--secondary) 45%, var(--dark));
+  }
+}
+
+// Custom Font Fallbacks for Thai Language Support (Bai Jamjuree for headings, Sarabun for body)
+:root {
+  --bodyFont: "Inter", "Sarabun", sans-serif;
+  --headerFont: "Plus Jakarta Sans", "Bai Jamjuree", sans-serif;
+  --titleFont: "JetBrains Mono", "Bai Jamjuree", sans-serif;
+  --codeFont: "JetBrains Mono", "Sarabun", monospace;
+}

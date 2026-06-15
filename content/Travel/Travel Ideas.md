@@ -14,6 +14,7 @@ A running list of destinations, travel hubs, and spots I want to visit.
 ## 🇹🇭 ประเทศไทย (Thailand)
 
 ### ที่อยากไป (To Visit)
+
 - **แม่ฮ่องสอน** — เส้นทางโรดทริปโค้งปราบเซียน (1,864 โค้ง), ทะเลหมอก, บ้านรักไทย (หมู่บ้านชาวจีนยูนนาน), อำเภอปาย และวัดพระธาตุดอยกองมู
 - **นครราชสีมา (โคราช) (ประตูสู่อีสาน)** — อุทยานประวัติศาสตร์พิมาย, พิพิธภัณฑสถานแห่งชาติ พิมาย, ธรรมชาติและไร่องุ่นเขาใหญ่, จิม ทอมป์สัน ฟาร์ม
 - **ภาคตะวันออกเฉียงเหนือ (อีสาน):**
@@ -23,6 +24,7 @@ A running list of destinations, travel hubs, and spots I want to visit.
   - **บุรีรัมย์** — อุทยานประวัติศาสตร์พนมรุ้ง (ปราสาทหินโบราณบนยอดภูเขาไฟที่ดับสนิทแล้ว), ปราสาทเมืองต่ำ
 
 ### เคยไปแล้ว (Visited)
+
 - **เชียงคาน (เลย)** — ถนนคนเดินและบรรยากาศบ้านไม้โบราณริมแม่น้ำโขงสุดชิล
 - **สุโขทัย** — อุทยานประวัติศาสตร์และโบราณสถานเก่าแก่
 - **อยุธยา** — โบราณสถานและวัดเก่า, ตามรอยประวัติศาสตร์, โรตีสายไหมและกุ้งแม่น้ำเผา
@@ -31,6 +33,7 @@ A running list of destinations, travel hubs, and spots I want to visit.
 - **เชียงราย** — วัดร่องขุ่น, สามเหลี่ยมทองคำ, ไร่ชา
 
 ## 🇯🇵 Japan
+
 - **Tohoku** — Spring sakura itinerary, Tohoku Shinkansen logistics, and photography.
 - **Hokkaido** — Autumn nature and landscape photography.
 - **Kyushu** — Nagasaki, South Kirishima, onsens, and volcanic landscapes.
@@ -39,10 +42,12 @@ A running list of destinations, travel hubs, and spots I want to visit.
 - **Japan Travel Hub** — Master hub note for Japan trips.
 
 ## 🇨🇳 China
+
 - **China Travel Hub** — Master hub note for past and future China trips.
 - **Zhangjiajie** — Avatar Mountains, Furong Cliffside Village, Fenghuang Ancient Town.
 - **Wangxian Valley** — Spectacular cliffside village in Jiangxi.
 - **Chongqing** — Hongyadong stilt houses, Liziba train, Wulingshan Rift Valley, Wulong Karst.
 
 ## 🇻🇳 Vietnam
+
 - **Ha Noi** — Old Quarter, Hoa Lo Prison, museums, and local food.

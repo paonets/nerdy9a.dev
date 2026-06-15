@@ -96,3 +96,15 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 
 - **How it works:** Increased global font weight of `strong` tags from `$semiBoldWeight` (600) to `$boldWeight` (700) and set global color to `var(--dark)`.
 - **Why it was done:** In dark mode, the contrast between the body text color (`#d6d3d1`) and headings/bold color (`#fafaf9`) is subtle. Setting `strong` tags to a higher font weight (700) and ensuring `var(--dark)` color applies globally (instead of just inside paragraphs `p > strong`) makes bold text significantly more prominent and easier to read across lists, callouts, blockquotes, and other elements.
+
+### 6. Readability-Enhanced Heading Styling (`quartz/styles/custom.scss`)
+
+- **How it works:** Styles headings (`h1` through `h6`) in the note content (`.markdown-rendered`) with the primary brand emerald/mint color (`var(--secondary)`). Uses `color-mix()` to gradually shade heading levels from primary green (H1/H2) to darker tones closer to body text (H3-H6), maintaining structure and hierarchy.
+- **Why it was done:** By default, headings used the same near-black/near-white color as the body text, making it harder to distinguish note sections when scanning long articles. Applying theme-consistent green coloring enhances readability and mimics the structural layout of standard note-taking apps like Obsidian.
+
+### 7. Self-Hosted Thai Typography Fallback (`quartz/util/theme.ts`, `quartz/styles/custom.scss`)
+
+- **How it works:**
+  1. Modifies the Google Fonts fetch compiler in `theme.ts` to automatically request Google Fonts' `Sarabun` (regular and bold) and `Bai Jamjuree` (regular, medium, and bold) when fetching theme fonts. Since `cdnCaching: false` is set in the configuration, the site builder downloads the `.woff2` font files at compile time and self-hosts them locally under the site's own domain.
+  2. Overrides the custom property definitions for `--bodyFont`, `--headerFont`, `--titleFont`, and `--codeFont` in the `:root` section of `custom.scss` to append `"Sarabun"` (for body text and code fallbacks) and `"Bai Jamjuree"` (for headings and titles fallbacks) after the default English fonts.
+- **Why it was done:** The default English fonts (`Inter`, `Plus Jakarta Sans`, and `JetBrains Mono`) do not include Thai glyphs, causing browsers to fall back to generic system Thai fonts (which vary heavily and look inconsistent across Mac, Windows, iOS, and Android). Adding this paired looped font fallback ensures beautiful, highly readable Thai typography (stylish slab-serif `Bai Jamjuree` for headers, clean standard `Sarabun` for long body text), while keeping all font assets fully self-hosted for maximum loading speeds and privacy.
