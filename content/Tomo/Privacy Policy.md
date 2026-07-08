@@ -10,7 +10,6 @@ updated: 2026-06-15
 source: "WisdomWell Original"
 ---
 
-
 # Tomo — Privacy Policy
 
 _Last updated: 15 June 2026_

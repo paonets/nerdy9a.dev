@@ -10,16 +10,17 @@ created: 2026-06-02 07:18
 updated: 2026-06-05 22:11
 ---
 
-
 # Toba: Coastal Transit & Aquarium
 
 ## 🗺️ Scope & Locations
+
 - **Days / Dates:** April 13, 2025
 - **Locations Covered:** [Toba Aquarium](https://www.google.com/maps/search/?api=1&query=Toba+Aquarium+Toba), Toba Bay
 
 ---
 
 ## 📝 Thoughts & Reflections
+
 - The dugong and giant isopods are unique highlights not found in most standard aquariums.
 - Perfect indoor activity to escape a rainy day in the Mie/Ise area.
 
