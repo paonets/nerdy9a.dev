@@ -3,7 +3,7 @@ tags:
   - travel
   - ideas
 created: 2026-05-27 18:59
-updated: 2026-06-01 15:38
+updated: 2026-09-07 08:43
 publish: true
 ---
 
@@ -30,10 +30,11 @@ A running list of destinations, travel hubs, and spots I want to visit.
 - **อยุธยา** — โบราณสถานและวัดเก่า, ตามรอยประวัติศาสตร์, โรตีสายไหมและกุ้งแม่น้ำเผา
 - **พังงา & เขาหลัก** — เที่ยวทะเล พักผ่อนชายหาด ดำน้ำตื้นและน้ำลึก
 - **เชียงใหม่** — วัดบนดอย, เมืองเก่า, คาเฟ่และธรรมชาติ
-- **เชียงราย** — วัดร่องขุ่น, สามเหลี่ยมทองคำ, ไร่ชา
+- **เชียงราย 2022** / **เชียงราย 2026 (กฐินวัดถ้ำผาจม)** — วัดร่องขุ่น, ดอยตุง, ไร่ชาฉุยฟง, กฐินวัดถ้ำผาจม แม่สาย
 
 ## 🇯🇵 Japan
 
+- **Naoshima & Setouchi** — 2028 Setouchi Triennale art festival, Chichu Art Museum, Yayoi Kusama pumpkins, and island e-bike touring.
 - **Tohoku** — Spring sakura itinerary, Tohoku Shinkansen logistics, and photography.
 - **Hokkaido** — Autumn nature and landscape photography.
 - **Kyushu** — Nagasaki, South Kirishima, onsens, and volcanic landscapes.
