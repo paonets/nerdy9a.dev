@@ -51,7 +51,7 @@ var __toESM = (mod, isNodeMode, target) => (
 // node_modules/kind-of/index.js
 var require_kind_of = __commonJS({
   "node_modules/kind-of/index.js"(exports2, module2) {
-    var toString2 = Object.prototype.toString;
+    var toString = Object.prototype.toString;
     module2.exports = function kindOf(val) {
       if (val === void 0) return "undefined";
       if (val === null) return "null";
@@ -108,7 +108,7 @@ var require_kind_of = __commonJS({
       if (isGeneratorObj(val)) {
         return "generator";
       }
-      type2 = toString2.call(val);
+      type2 = toString.call(val);
       switch (type2) {
         case "[object Object]":
           return "object";
@@ -203,15 +203,15 @@ var require_is_extendable = __commonJS({
 // node_modules/extend-shallow/index.js
 var require_extend_shallow = __commonJS({
   "node_modules/extend-shallow/index.js"(exports2, module2) {
-    var isObject2 = require_is_extendable();
-    module2.exports = function extend3(o2) {
-      if (!isObject2(o2)) {
+    var isObject = require_is_extendable();
+    module2.exports = function extend(o2) {
+      if (!isObject(o2)) {
         o2 = {};
       }
       var len = arguments.length;
       for (var i2 = 1; i2 < len; i2++) {
         var obj = arguments[i2];
-        if (isObject2(obj)) {
+        if (isObject(obj)) {
           assign(o2, obj);
         }
       }
@@ -234,14 +234,14 @@ var require_extend_shallow = __commonJS({
 var require_section_matter = __commonJS({
   "node_modules/section-matter/index.js"(exports2, module2) {
     var typeOf = require_kind_of();
-    var extend3 = require_extend_shallow();
+    var extend = require_extend_shallow();
     module2.exports = function (input, options2) {
       if (typeof options2 === "function") {
         options2 = { parse: options2 };
       }
       var file = toObject(input);
       var defaults = { section_delimiter: "---", parse: identity };
-      var opts = extend3({}, defaults, options2);
+      var opts = extend({}, defaults, options2);
       var delim = opts.section_delimiter;
       var lines = file.content.split(/\r?\n/);
       var sections = null;
@@ -339,18 +339,18 @@ var require_section_matter = __commonJS({
 // node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/common.js
 var require_common = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/common.js"(exports2, module2) {
-    function isNothing2(subject) {
+    function isNothing(subject) {
       return typeof subject === "undefined" || subject === null;
     }
-    function isObject2(subject) {
+    function isObject(subject) {
       return typeof subject === "object" && subject !== null;
     }
-    function toArray2(sequence) {
+    function toArray(sequence) {
       if (Array.isArray(sequence)) return sequence;
-      else if (isNothing2(sequence)) return [];
+      else if (isNothing(sequence)) return [];
       return [sequence];
     }
-    function extend3(target, source) {
+    function extend(target, source) {
       var index, length, key, sourceKeys;
       if (source) {
         sourceKeys = Object.keys(source);
@@ -361,7 +361,7 @@ var require_common = __commonJS({
       }
       return target;
     }
-    function repeat2(string, count) {
+    function repeat(string, count) {
       var result = "",
         cycle;
       for (cycle = 0; cycle < count; cycle += 1) {
@@ -369,15 +369,15 @@ var require_common = __commonJS({
       }
       return result;
     }
-    function isNegativeZero2(number) {
+    function isNegativeZero(number) {
       return number === 0 && Number.NEGATIVE_INFINITY === 1 / number;
     }
-    module2.exports.isNothing = isNothing2;
-    module2.exports.isObject = isObject2;
-    module2.exports.toArray = toArray2;
-    module2.exports.repeat = repeat2;
-    module2.exports.isNegativeZero = isNegativeZero2;
-    module2.exports.extend = extend3;
+    module2.exports.isNothing = isNothing;
+    module2.exports.isObject = isObject;
+    module2.exports.toArray = toArray;
+    module2.exports.repeat = repeat;
+    module2.exports.isNegativeZero = isNegativeZero;
+    module2.exports.extend = extend;
   },
 });
 
@@ -399,7 +399,7 @@ var require_exception = __commonJS({
     }
     YAMLException2.prototype = Object.create(Error.prototype);
     YAMLException2.prototype.constructor = YAMLException2;
-    YAMLException2.prototype.toString = function toString2(compact) {
+    YAMLException2.prototype.toString = function toString(compact) {
       var result = this.name + ": ";
       result += this.reason || "(unknown reason)";
       if (!compact && this.mark) {
@@ -461,7 +461,7 @@ var require_mark = __commonJS({
         "^"
       );
     };
-    Mark.prototype.toString = function toString2(compact) {
+    Mark.prototype.toString = function toString(compact) {
       var snippet2,
         where = "";
       if (this.name) {
@@ -484,7 +484,7 @@ var require_mark = __commonJS({
 var require_type = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type.js"(exports2, module2) {
     var YAMLException2 = require_exception();
-    var TYPE_CONSTRUCTOR_OPTIONS2 = [
+    var TYPE_CONSTRUCTOR_OPTIONS = [
       "kind",
       "resolve",
       "construct",
@@ -494,8 +494,8 @@ var require_type = __commonJS({
       "defaultStyle",
       "styleAliases",
     ];
-    var YAML_NODE_KINDS2 = ["scalar", "sequence", "mapping"];
-    function compileStyleAliases2(map2) {
+    var YAML_NODE_KINDS = ["scalar", "sequence", "mapping"];
+    function compileStyleAliases(map2) {
       var result = {};
       if (map2 !== null) {
         Object.keys(map2).forEach(function (style) {
@@ -509,7 +509,7 @@ var require_type = __commonJS({
     function Type2(tag, options2) {
       options2 = options2 || {};
       Object.keys(options2).forEach(function (name) {
-        if (TYPE_CONSTRUCTOR_OPTIONS2.indexOf(name) === -1) {
+        if (TYPE_CONSTRUCTOR_OPTIONS.indexOf(name) === -1) {
           throw new YAMLException2(
             'Unknown option "' + name + '" is met in definition of "' + tag + '" YAML type.',
           );
@@ -531,8 +531,8 @@ var require_type = __commonJS({
       this.predicate = options2["predicate"] || null;
       this.represent = options2["represent"] || null;
       this.defaultStyle = options2["defaultStyle"] || null;
-      this.styleAliases = compileStyleAliases2(options2["styleAliases"] || null);
-      if (YAML_NODE_KINDS2.indexOf(this.kind) === -1) {
+      this.styleAliases = compileStyleAliases(options2["styleAliases"] || null);
+      if (YAML_NODE_KINDS.indexOf(this.kind) === -1) {
         throw new YAMLException2(
           'Unknown kind "' + this.kind + '" is specified for "' + tag + '" YAML type.',
         );
@@ -548,10 +548,10 @@ var require_schema = __commonJS({
     var common2 = require_common();
     var YAMLException2 = require_exception();
     var Type2 = require_type();
-    function compileList2(schema2, name, result) {
+    function compileList(schema2, name, result) {
       var exclude = [];
       schema2.include.forEach(function (includedSchema) {
-        result = compileList2(includedSchema, name, result);
+        result = compileList(includedSchema, name, result);
       });
       schema2[name].forEach(function (currentType) {
         result.forEach(function (previousType, previousIndex) {
@@ -565,7 +565,7 @@ var require_schema = __commonJS({
         return exclude.indexOf(index) === -1;
       });
     }
-    function compileMap2() {
+    function compileMap() {
       var result = {
           scalar: {},
           sequence: {},
@@ -593,9 +593,9 @@ var require_schema = __commonJS({
           );
         }
       });
-      this.compiledImplicit = compileList2(this, "implicit", []);
-      this.compiledExplicit = compileList2(this, "explicit", []);
-      this.compiledTypeMap = compileMap2(this.compiledImplicit, this.compiledExplicit);
+      this.compiledImplicit = compileList(this, "implicit", []);
+      this.compiledExplicit = compileList(this, "explicit", []);
+      this.compiledTypeMap = compileMap(this.compiledImplicit, this.compiledExplicit);
     }
     Schema2.DEFAULT = null;
     Schema2.create = function createSchema() {
@@ -697,7 +697,7 @@ var require_failsafe = __commonJS({
 var require_null = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/null.js"(exports2, module2) {
     var Type2 = require_type();
-    function resolveYamlNull2(data) {
+    function resolveYamlNull(data) {
       if (data === null) return true;
       var max = data.length;
       return (
@@ -705,17 +705,17 @@ var require_null = __commonJS({
         (max === 4 && (data === "null" || data === "Null" || data === "NULL"))
       );
     }
-    function constructYamlNull2() {
+    function constructYamlNull() {
       return null;
     }
-    function isNull2(object) {
+    function isNull(object) {
       return object === null;
     }
     module2.exports = new Type2("tag:yaml.org,2002:null", {
       kind: "scalar",
-      resolve: resolveYamlNull2,
-      construct: constructYamlNull2,
-      predicate: isNull2,
+      resolve: resolveYamlNull,
+      construct: constructYamlNull,
+      predicate: isNull,
       represent: {
         canonical: function () {
           return "~";
@@ -739,7 +739,7 @@ var require_null = __commonJS({
 var require_bool = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/bool.js"(exports2, module2) {
     var Type2 = require_type();
-    function resolveYamlBoolean2(data) {
+    function resolveYamlBoolean(data) {
       if (data === null) return false;
       var max = data.length;
       return (
@@ -747,17 +747,17 @@ var require_bool = __commonJS({
         (max === 5 && (data === "false" || data === "False" || data === "FALSE"))
       );
     }
-    function constructYamlBoolean2(data) {
+    function constructYamlBoolean(data) {
       return data === "true" || data === "True" || data === "TRUE";
     }
-    function isBoolean2(object) {
+    function isBoolean(object) {
       return Object.prototype.toString.call(object) === "[object Boolean]";
     }
     module2.exports = new Type2("tag:yaml.org,2002:bool", {
       kind: "scalar",
-      resolve: resolveYamlBoolean2,
-      construct: constructYamlBoolean2,
-      predicate: isBoolean2,
+      resolve: resolveYamlBoolean,
+      construct: constructYamlBoolean,
+      predicate: isBoolean,
       represent: {
         lowercase: function (object) {
           return object ? "true" : "false";
@@ -779,16 +779,16 @@ var require_int = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/int.js"(exports2, module2) {
     var common2 = require_common();
     var Type2 = require_type();
-    function isHexCode2(c2) {
+    function isHexCode(c2) {
       return (48 <= c2 && c2 <= 57) || (65 <= c2 && c2 <= 70) || (97 <= c2 && c2 <= 102);
     }
-    function isOctCode2(c2) {
+    function isOctCode(c2) {
       return 48 <= c2 && c2 <= 55;
     }
-    function isDecCode2(c2) {
+    function isDecCode(c2) {
       return 48 <= c2 && c2 <= 57;
     }
-    function resolveYamlInteger2(data) {
+    function resolveYamlInteger(data) {
       if (data === null) return false;
       var max = data.length,
         index = 0,
@@ -817,7 +817,7 @@ var require_int = __commonJS({
           for (; index < max; index++) {
             ch = data[index];
             if (ch === "_") continue;
-            if (!isHexCode2(data.charCodeAt(index))) return false;
+            if (!isHexCode(data.charCodeAt(index))) return false;
             hasDigits = true;
           }
           return hasDigits && ch !== "_";
@@ -825,7 +825,7 @@ var require_int = __commonJS({
         for (; index < max; index++) {
           ch = data[index];
           if (ch === "_") continue;
-          if (!isOctCode2(data.charCodeAt(index))) return false;
+          if (!isOctCode(data.charCodeAt(index))) return false;
           hasDigits = true;
         }
         return hasDigits && ch !== "_";
@@ -835,7 +835,7 @@ var require_int = __commonJS({
         ch = data[index];
         if (ch === "_") continue;
         if (ch === ":") break;
-        if (!isDecCode2(data.charCodeAt(index))) {
+        if (!isDecCode(data.charCodeAt(index))) {
           return false;
         }
         hasDigits = true;
@@ -844,7 +844,7 @@ var require_int = __commonJS({
       if (ch !== ":") return true;
       return /^(:[0-5]?[0-9])+$/.test(data.slice(index));
     }
-    function constructYamlInteger2(data) {
+    function constructYamlInteger(data) {
       var value2 = data,
         sign = 1,
         ch,
@@ -879,7 +879,7 @@ var require_int = __commonJS({
       }
       return sign * parseInt(value2, 10);
     }
-    function isInteger2(object) {
+    function isInteger(object) {
       return (
         Object.prototype.toString.call(object) === "[object Number]" &&
         object % 1 === 0 &&
@@ -888,9 +888,9 @@ var require_int = __commonJS({
     }
     module2.exports = new Type2("tag:yaml.org,2002:int", {
       kind: "scalar",
-      resolve: resolveYamlInteger2,
-      construct: constructYamlInteger2,
-      predicate: isInteger2,
+      resolve: resolveYamlInteger,
+      construct: constructYamlInteger,
+      predicate: isInteger,
       represent: {
         binary: function (obj) {
           return obj >= 0 ? "0b" + obj.toString(2) : "-0b" + obj.toString(2).slice(1);
@@ -924,14 +924,14 @@ var require_float = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/float.js"(exports2, module2) {
     var common2 = require_common();
     var Type2 = require_type();
-    var YAML_FLOAT_PATTERN2 = new RegExp(
+    var YAML_FLOAT_PATTERN = new RegExp(
       // 2.5e4, 2.5 and integers
       "^(?:[-+]?(?:0|[1-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?[0-9][0-9_]*(?::[0-5]?[0-9])+\\.[0-9_]*|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$",
     );
-    function resolveYamlFloat2(data) {
+    function resolveYamlFloat(data) {
       if (data === null) return false;
       if (
-        !YAML_FLOAT_PATTERN2.test(data) || // Quick hack to not allow integers end with `_`
+        !YAML_FLOAT_PATTERN.test(data) || // Quick hack to not allow integers end with `_`
         // Probably should update regexp & check speed
         data[data.length - 1] === "_"
       ) {
@@ -939,7 +939,7 @@ var require_float = __commonJS({
       }
       return true;
     }
-    function constructYamlFloat2(data) {
+    function constructYamlFloat(data) {
       var value2, sign, base, digits;
       value2 = data.replace(/_/g, "").toLowerCase();
       sign = value2[0] === "-" ? -1 : 1;
@@ -965,8 +965,8 @@ var require_float = __commonJS({
       }
       return sign * parseFloat(value2, 10);
     }
-    var SCIENTIFIC_WITHOUT_DOT2 = /^[-+]?[0-9]+e/;
-    function representYamlFloat2(object, style) {
+    var SCIENTIFIC_WITHOUT_DOT = /^[-+]?[0-9]+e/;
+    function representYamlFloat(object, style) {
       var res;
       if (isNaN(object)) {
         switch (style) {
@@ -999,9 +999,9 @@ var require_float = __commonJS({
         return "-0.0";
       }
       res = object.toString(10);
-      return SCIENTIFIC_WITHOUT_DOT2.test(res) ? res.replace("e", ".e") : res;
+      return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
     }
-    function isFloat2(object) {
+    function isFloat(object) {
       return (
         Object.prototype.toString.call(object) === "[object Number]" &&
         (object % 1 !== 0 || common2.isNegativeZero(object))
@@ -1009,10 +1009,10 @@ var require_float = __commonJS({
     }
     module2.exports = new Type2("tag:yaml.org,2002:float", {
       kind: "scalar",
-      resolve: resolveYamlFloat2,
-      construct: constructYamlFloat2,
-      predicate: isFloat2,
-      represent: representYamlFloat2,
+      resolve: resolveYamlFloat,
+      construct: constructYamlFloat,
+      predicate: isFloat,
+      represent: representYamlFloat,
       defaultStyle: "lowercase",
     });
   },
@@ -1043,17 +1043,17 @@ var require_core = __commonJS({
 var require_timestamp = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/timestamp.js"(exports2, module2) {
     var Type2 = require_type();
-    var YAML_DATE_REGEXP2 = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$");
-    var YAML_TIMESTAMP_REGEXP2 = new RegExp(
+    var YAML_DATE_REGEXP = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$");
+    var YAML_TIMESTAMP_REGEXP = new RegExp(
       "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$",
     );
-    function resolveYamlTimestamp2(data) {
+    function resolveYamlTimestamp(data) {
       if (data === null) return false;
-      if (YAML_DATE_REGEXP2.exec(data) !== null) return true;
-      if (YAML_TIMESTAMP_REGEXP2.exec(data) !== null) return true;
+      if (YAML_DATE_REGEXP.exec(data) !== null) return true;
+      if (YAML_TIMESTAMP_REGEXP.exec(data) !== null) return true;
       return false;
     }
-    function constructYamlTimestamp2(data) {
+    function constructYamlTimestamp(data) {
       var match,
         year,
         month,
@@ -1066,8 +1066,8 @@ var require_timestamp = __commonJS({
         tz_hour,
         tz_minute,
         date;
-      match = YAML_DATE_REGEXP2.exec(data);
-      if (match === null) match = YAML_TIMESTAMP_REGEXP2.exec(data);
+      match = YAML_DATE_REGEXP.exec(data);
+      if (match === null) match = YAML_TIMESTAMP_REGEXP.exec(data);
       if (match === null) throw new Error("Date resolve error");
       year = +match[1];
       month = +match[2] - 1;
@@ -1095,15 +1095,15 @@ var require_timestamp = __commonJS({
       if (delta) date.setTime(date.getTime() - delta);
       return date;
     }
-    function representYamlTimestamp2(object) {
+    function representYamlTimestamp(object) {
       return object.toISOString();
     }
     module2.exports = new Type2("tag:yaml.org,2002:timestamp", {
       kind: "scalar",
-      resolve: resolveYamlTimestamp2,
-      construct: constructYamlTimestamp2,
+      resolve: resolveYamlTimestamp,
+      construct: constructYamlTimestamp,
       instanceOf: Date,
-      represent: representYamlTimestamp2,
+      represent: representYamlTimestamp,
     });
   },
 });
@@ -1112,12 +1112,12 @@ var require_timestamp = __commonJS({
 var require_merge = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/merge.js"(exports2, module2) {
     var Type2 = require_type();
-    function resolveYamlMerge2(data) {
+    function resolveYamlMerge(data) {
       return data === "<<" || data === null;
     }
     module2.exports = new Type2("tag:yaml.org,2002:merge", {
       kind: "scalar",
-      resolve: resolveYamlMerge2,
+      resolve: resolveYamlMerge,
     });
   },
 });
@@ -1132,14 +1132,14 @@ var require_binary = __commonJS({
     } catch (__) {}
     var _require;
     var Type2 = require_type();
-    var BASE64_MAP2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
-    function resolveYamlBinary2(data) {
+    var BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
+    function resolveYamlBinary(data) {
       if (data === null) return false;
       var code,
         idx,
         bitlen = 0,
         max = data.length,
-        map2 = BASE64_MAP2;
+        map2 = BASE64_MAP;
       for (idx = 0; idx < max; idx++) {
         code = map2.indexOf(data.charAt(idx));
         if (code > 64) continue;
@@ -1148,12 +1148,12 @@ var require_binary = __commonJS({
       }
       return bitlen % 8 === 0;
     }
-    function constructYamlBinary2(data) {
+    function constructYamlBinary(data) {
       var idx,
         tailbits,
         input = data.replace(/[\r\n=]/g, ""),
         max = input.length,
-        map2 = BASE64_MAP2,
+        map2 = BASE64_MAP,
         bits = 0,
         result = [];
       for (idx = 0; idx < max; idx++) {
@@ -1180,13 +1180,13 @@ var require_binary = __commonJS({
       }
       return result;
     }
-    function representYamlBinary2(object) {
+    function representYamlBinary(object) {
       var result = "",
         bits = 0,
         idx,
         tail,
         max = object.length,
-        map2 = BASE64_MAP2;
+        map2 = BASE64_MAP;
       for (idx = 0; idx < max; idx++) {
         if (idx % 3 === 0 && idx) {
           result += map2[(bits >> 18) & 63];
@@ -1215,15 +1215,15 @@ var require_binary = __commonJS({
       }
       return result;
     }
-    function isBinary2(object) {
+    function isBinary(object) {
       return NodeBuffer && NodeBuffer.isBuffer(object);
     }
     module2.exports = new Type2("tag:yaml.org,2002:binary", {
       kind: "scalar",
-      resolve: resolveYamlBinary2,
-      construct: constructYamlBinary2,
-      predicate: isBinary2,
-      represent: representYamlBinary2,
+      resolve: resolveYamlBinary,
+      construct: constructYamlBinary,
+      predicate: isBinary,
+      represent: representYamlBinary,
     });
   },
 });
@@ -1232,11 +1232,11 @@ var require_binary = __commonJS({
 var require_omap = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/omap.js"(exports2, module2) {
     var Type2 = require_type();
-    var _hasOwnProperty2 = Object.prototype.hasOwnProperty;
-    var _toString2 = Object.prototype.toString;
-    function resolveYamlOmap2(data) {
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    var _toString = Object.prototype.toString;
+    function resolveYamlOmap(data) {
       if (data === null) return true;
-      var objectKeys = [],
+      var objectKeys = {},
         index,
         length,
         pair,
@@ -1246,26 +1246,26 @@ var require_omap = __commonJS({
       for (index = 0, length = object.length; index < length; index += 1) {
         pair = object[index];
         pairHasKey = false;
-        if (_toString2.call(pair) !== "[object Object]") return false;
+        if (_toString.call(pair) !== "[object Object]") return false;
         for (pairKey in pair) {
-          if (_hasOwnProperty2.call(pair, pairKey)) {
+          if (_hasOwnProperty.call(pair, pairKey)) {
             if (!pairHasKey) pairHasKey = true;
             else return false;
           }
         }
         if (!pairHasKey) return false;
-        if (objectKeys.indexOf(pairKey) === -1) objectKeys.push(pairKey);
-        else return false;
+        if (_hasOwnProperty.call(objectKeys, pairKey)) return false;
+        Object.defineProperty(objectKeys, pairKey, { value: true });
       }
       return true;
     }
-    function constructYamlOmap2(data) {
+    function constructYamlOmap(data) {
       return data !== null ? data : [];
     }
     module2.exports = new Type2("tag:yaml.org,2002:omap", {
       kind: "sequence",
-      resolve: resolveYamlOmap2,
-      construct: constructYamlOmap2,
+      resolve: resolveYamlOmap,
+      construct: constructYamlOmap,
     });
   },
 });
@@ -1274,8 +1274,8 @@ var require_omap = __commonJS({
 var require_pairs = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/pairs.js"(exports2, module2) {
     var Type2 = require_type();
-    var _toString2 = Object.prototype.toString;
-    function resolveYamlPairs2(data) {
+    var _toString = Object.prototype.toString;
+    function resolveYamlPairs(data) {
       if (data === null) return true;
       var index,
         length,
@@ -1286,14 +1286,14 @@ var require_pairs = __commonJS({
       result = new Array(object.length);
       for (index = 0, length = object.length; index < length; index += 1) {
         pair = object[index];
-        if (_toString2.call(pair) !== "[object Object]") return false;
+        if (_toString.call(pair) !== "[object Object]") return false;
         keys = Object.keys(pair);
         if (keys.length !== 1) return false;
         result[index] = [keys[0], pair[keys[0]]];
       }
       return true;
     }
-    function constructYamlPairs2(data) {
+    function constructYamlPairs(data) {
       if (data === null) return [];
       var index,
         length,
@@ -1311,8 +1311,8 @@ var require_pairs = __commonJS({
     }
     module2.exports = new Type2("tag:yaml.org,2002:pairs", {
       kind: "sequence",
-      resolve: resolveYamlPairs2,
-      construct: constructYamlPairs2,
+      resolve: resolveYamlPairs,
+      construct: constructYamlPairs,
     });
   },
 });
@@ -1321,25 +1321,25 @@ var require_pairs = __commonJS({
 var require_set = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/lib/js-yaml/type/set.js"(exports2, module2) {
     var Type2 = require_type();
-    var _hasOwnProperty2 = Object.prototype.hasOwnProperty;
-    function resolveYamlSet2(data) {
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    function resolveYamlSet(data) {
       if (data === null) return true;
       var key,
         object = data;
       for (key in object) {
-        if (_hasOwnProperty2.call(object, key)) {
+        if (_hasOwnProperty.call(object, key)) {
           if (object[key] !== null) return false;
         }
       }
       return true;
     }
-    function constructYamlSet2(data) {
+    function constructYamlSet(data) {
       return data !== null ? data : {};
     }
     module2.exports = new Type2("tag:yaml.org,2002:set", {
       kind: "mapping",
-      resolve: resolveYamlSet2,
-      construct: constructYamlSet2,
+      resolve: resolveYamlSet,
+      construct: constructYamlSet,
     });
   },
 });
@@ -1530,37 +1530,37 @@ var require_loader = __commonJS({
     var Mark = require_mark();
     var DEFAULT_SAFE_SCHEMA = require_default_safe();
     var DEFAULT_FULL_SCHEMA = require_default_full();
-    var _hasOwnProperty2 = Object.prototype.hasOwnProperty;
-    var CONTEXT_FLOW_IN2 = 1;
-    var CONTEXT_FLOW_OUT2 = 2;
-    var CONTEXT_BLOCK_IN2 = 3;
-    var CONTEXT_BLOCK_OUT2 = 4;
-    var CHOMPING_CLIP2 = 1;
-    var CHOMPING_STRIP2 = 2;
-    var CHOMPING_KEEP2 = 3;
-    var PATTERN_NON_PRINTABLE2 =
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    var CONTEXT_FLOW_IN = 1;
+    var CONTEXT_FLOW_OUT = 2;
+    var CONTEXT_BLOCK_IN = 3;
+    var CONTEXT_BLOCK_OUT = 4;
+    var CHOMPING_CLIP = 1;
+    var CHOMPING_STRIP = 2;
+    var CHOMPING_KEEP = 3;
+    var PATTERN_NON_PRINTABLE =
       /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
-    var PATTERN_NON_ASCII_LINE_BREAKS2 = /[\x85\u2028\u2029]/;
-    var PATTERN_FLOW_INDICATORS2 = /[,\[\]\{\}]/;
-    var PATTERN_TAG_HANDLE2 = /^(?:!|!!|![a-z\-]+!)$/i;
-    var PATTERN_TAG_URI2 =
+    var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
+    var PATTERN_FLOW_INDICATORS = /[,\[\]\{\}]/;
+    var PATTERN_TAG_HANDLE = /^(?:!|!!|![a-z\-]+!)$/i;
+    var PATTERN_TAG_URI =
       /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
-    function _class2(obj) {
+    function _class(obj) {
       return Object.prototype.toString.call(obj);
     }
-    function is_EOL2(c2) {
+    function is_EOL(c2) {
       return c2 === 10 || c2 === 13;
     }
-    function is_WHITE_SPACE2(c2) {
+    function is_WHITE_SPACE(c2) {
       return c2 === 9 || c2 === 32;
     }
-    function is_WS_OR_EOL2(c2) {
+    function is_WS_OR_EOL(c2) {
       return c2 === 9 || c2 === 32 || c2 === 10 || c2 === 13;
     }
-    function is_FLOW_INDICATOR2(c2) {
+    function is_FLOW_INDICATOR(c2) {
       return c2 === 44 || c2 === 91 || c2 === 93 || c2 === 123 || c2 === 125;
     }
-    function fromHexCode2(c2) {
+    function fromHexCode(c2) {
       var lc;
       if (48 <= c2 && c2 <= 57) {
         return c2 - 48;
@@ -1571,7 +1571,7 @@ var require_loader = __commonJS({
       }
       return -1;
     }
-    function escapedHexLen2(c2) {
+    function escapedHexLen(c2) {
       if (c2 === 120) {
         return 2;
       }
@@ -1583,13 +1583,13 @@ var require_loader = __commonJS({
       }
       return 0;
     }
-    function fromDecimalCode2(c2) {
+    function fromDecimalCode(c2) {
       if (48 <= c2 && c2 <= 57) {
         return c2 - 48;
       }
       return -1;
     }
-    function simpleEscapeSequence2(c2) {
+    function simpleEscapeSequence(c2) {
       return c2 === 48
         ? "\0"
         : c2 === 97
@@ -1628,13 +1628,13 @@ var require_loader = __commonJS({
                                           ? "\u2029"
                                           : "";
     }
-    function charFromCodepoint2(c2) {
+    function charFromCodepoint(c2) {
       if (c2 <= 65535) {
         return String.fromCharCode(c2);
       }
       return String.fromCharCode(((c2 - 65536) >> 10) + 55296, ((c2 - 65536) & 1023) + 56320);
     }
-    function setProperty2(object, key, value2) {
+    function setProperty(object, key, value2) {
       if (key === "__proto__") {
         Object.defineProperty(object, key, {
           configurable: true,
@@ -1646,14 +1646,14 @@ var require_loader = __commonJS({
         object[key] = value2;
       }
     }
-    var simpleEscapeCheck2 = new Array(256);
-    var simpleEscapeMap2 = new Array(256);
+    var simpleEscapeCheck = new Array(256);
+    var simpleEscapeMap = new Array(256);
     for (i2 = 0; i2 < 256; i2++) {
-      simpleEscapeCheck2[i2] = simpleEscapeSequence2(i2) ? 1 : 0;
-      simpleEscapeMap2[i2] = simpleEscapeSequence2(i2);
+      simpleEscapeCheck[i2] = simpleEscapeSequence(i2) ? 1 : 0;
+      simpleEscapeMap[i2] = simpleEscapeSequence(i2);
     }
     var i2;
-    function State2(input, options2) {
+    function State(input, options2) {
       this.input = input;
       this.filename = options2["filename"] || null;
       this.schema = options2["schema"] || DEFAULT_FULL_SCHEMA;
@@ -1661,6 +1661,8 @@ var require_loader = __commonJS({
       this.legacy = options2["legacy"] || false;
       this.json = options2["json"] || false;
       this.listener = options2["listener"] || null;
+      this.maxTotalMergeKeys =
+        typeof options2["maxTotalMergeKeys"] === "number" ? options2["maxTotalMergeKeys"] : 1e4;
       this.implicitTypes = this.schema.compiledImplicit;
       this.typeMap = this.schema.compiledTypeMap;
       this.length = input.length;
@@ -1668,9 +1670,10 @@ var require_loader = __commonJS({
       this.line = 0;
       this.lineStart = 0;
       this.lineIndent = 0;
+      this.totalMergeKeys = 0;
       this.documents = [];
     }
-    function generateError2(state, message) {
+    function generateError(state, message) {
       return new YAMLException2(
         message,
         new Mark(
@@ -1682,61 +1685,61 @@ var require_loader = __commonJS({
         ),
       );
     }
-    function throwError2(state, message) {
-      throw generateError2(state, message);
+    function throwError(state, message) {
+      throw generateError(state, message);
     }
-    function throwWarning2(state, message) {
+    function throwWarning(state, message) {
       if (state.onWarning) {
-        state.onWarning.call(null, generateError2(state, message));
+        state.onWarning.call(null, generateError(state, message));
       }
     }
-    var directiveHandlers2 = {
-      YAML: function handleYamlDirective2(state, name, args) {
+    var directiveHandlers = {
+      YAML: function handleYamlDirective(state, name, args) {
         var match, major, minor;
         if (state.version !== null) {
-          throwError2(state, "duplication of %YAML directive");
+          throwError(state, "duplication of %YAML directive");
         }
         if (args.length !== 1) {
-          throwError2(state, "YAML directive accepts exactly one argument");
+          throwError(state, "YAML directive accepts exactly one argument");
         }
         match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
         if (match === null) {
-          throwError2(state, "ill-formed argument of the YAML directive");
+          throwError(state, "ill-formed argument of the YAML directive");
         }
         major = parseInt(match[1], 10);
         minor = parseInt(match[2], 10);
         if (major !== 1) {
-          throwError2(state, "unacceptable YAML version of the document");
+          throwError(state, "unacceptable YAML version of the document");
         }
         state.version = args[0];
         state.checkLineBreaks = minor < 2;
         if (minor !== 1 && minor !== 2) {
-          throwWarning2(state, "unsupported YAML version of the document");
+          throwWarning(state, "unsupported YAML version of the document");
         }
       },
-      TAG: function handleTagDirective2(state, name, args) {
+      TAG: function handleTagDirective(state, name, args) {
         var handle, prefix;
         if (args.length !== 2) {
-          throwError2(state, "TAG directive accepts exactly two arguments");
+          throwError(state, "TAG directive accepts exactly two arguments");
         }
         handle = args[0];
         prefix = args[1];
-        if (!PATTERN_TAG_HANDLE2.test(handle)) {
-          throwError2(state, "ill-formed tag handle (first argument) of the TAG directive");
+        if (!PATTERN_TAG_HANDLE.test(handle)) {
+          throwError(state, "ill-formed tag handle (first argument) of the TAG directive");
         }
-        if (_hasOwnProperty2.call(state.tagMap, handle)) {
-          throwError2(
+        if (_hasOwnProperty.call(state.tagMap, handle)) {
+          throwError(
             state,
             'there is a previously declared suffix for "' + handle + '" tag handle',
           );
         }
-        if (!PATTERN_TAG_URI2.test(prefix)) {
-          throwError2(state, "ill-formed tag prefix (second argument) of the TAG directive");
+        if (!PATTERN_TAG_URI.test(prefix)) {
+          throwError(state, "ill-formed tag prefix (second argument) of the TAG directive");
         }
         state.tagMap[handle] = prefix;
       },
     };
-    function captureSegment2(state, start, end, checkJson) {
+    function captureSegment(state, start, end, checkJson) {
       var _position, _length, _character, _result;
       if (start < end) {
         _result = state.input.slice(start, end);
@@ -1744,30 +1747,41 @@ var require_loader = __commonJS({
           for (_position = 0, _length = _result.length; _position < _length; _position += 1) {
             _character = _result.charCodeAt(_position);
             if (!(_character === 9 || (32 <= _character && _character <= 1114111))) {
-              throwError2(state, "expected valid JSON character");
+              throwError(state, "expected valid JSON character");
             }
           }
-        } else if (PATTERN_NON_PRINTABLE2.test(_result)) {
-          throwError2(state, "the stream contains non-printable characters");
+        } else if (PATTERN_NON_PRINTABLE.test(_result)) {
+          throwError(state, "the stream contains non-printable characters");
         }
         state.result += _result;
       }
     }
-    function mergeMappings2(state, destination, source, overridableKeys) {
+    function chargeMergeWork(state) {
+      state.totalMergeKeys += 1;
+      if (state.maxTotalMergeKeys !== -1 && state.totalMergeKeys > state.maxTotalMergeKeys) {
+        throwError(
+          state,
+          "merge keys exceeded maxTotalMergeKeys (" + state.maxTotalMergeKeys + ")",
+        );
+      }
+    }
+    function mergeMappings(state, destination, source, overridableKeys) {
       var sourceKeys, key, index, quantity;
       if (!common2.isObject(source)) {
-        throwError2(state, "cannot merge mappings; the provided source object is unacceptable");
+        throwError(state, "cannot merge mappings; the provided source object is unacceptable");
       }
+      chargeMergeWork(state);
       sourceKeys = Object.keys(source);
       for (index = 0, quantity = sourceKeys.length; index < quantity; index += 1) {
         key = sourceKeys[index];
-        if (!_hasOwnProperty2.call(destination, key)) {
-          setProperty2(destination, key, source[key]);
+        chargeMergeWork(state);
+        if (!_hasOwnProperty.call(destination, key)) {
+          setProperty(destination, key, source[key]);
           overridableKeys[key] = true;
         }
       }
     }
-    function storeMappingPair2(
+    function storeMappingPair(
       state,
       _result,
       overridableKeys,
@@ -1782,14 +1796,14 @@ var require_loader = __commonJS({
         keyNode = Array.prototype.slice.call(keyNode);
         for (index = 0, quantity = keyNode.length; index < quantity; index += 1) {
           if (Array.isArray(keyNode[index])) {
-            throwError2(state, "nested arrays are not supported inside keys");
+            throwError(state, "nested arrays are not supported inside keys");
           }
-          if (typeof keyNode === "object" && _class2(keyNode[index]) === "[object Object]") {
+          if (typeof keyNode === "object" && _class(keyNode[index]) === "[object Object]") {
             keyNode[index] = "[object Object]";
           }
         }
       }
-      if (typeof keyNode === "object" && _class2(keyNode) === "[object Object]") {
+      if (typeof keyNode === "object" && _class(keyNode) === "[object Object]") {
         keyNode = "[object Object]";
       }
       keyNode = String(keyNode);
@@ -1798,28 +1812,31 @@ var require_loader = __commonJS({
       }
       if (keyTag === "tag:yaml.org,2002:merge") {
         if (Array.isArray(valueNode)) {
+          if (valueNode.length > 100) {
+            throwError(state, "abnormal merge sequence size");
+          }
           for (index = 0, quantity = valueNode.length; index < quantity; index += 1) {
-            mergeMappings2(state, _result, valueNode[index], overridableKeys);
+            mergeMappings(state, _result, valueNode[index], overridableKeys);
           }
         } else {
-          mergeMappings2(state, _result, valueNode, overridableKeys);
+          mergeMappings(state, _result, valueNode, overridableKeys);
         }
       } else {
         if (
           !state.json &&
-          !_hasOwnProperty2.call(overridableKeys, keyNode) &&
-          _hasOwnProperty2.call(_result, keyNode)
+          !_hasOwnProperty.call(overridableKeys, keyNode) &&
+          _hasOwnProperty.call(_result, keyNode)
         ) {
           state.line = startLine || state.line;
           state.position = startPos || state.position;
-          throwError2(state, "duplicated mapping key");
+          throwError(state, "duplicated mapping key");
         }
-        setProperty2(_result, keyNode, valueNode);
+        setProperty(_result, keyNode, valueNode);
         delete overridableKeys[keyNode];
       }
       return _result;
     }
-    function readLineBreak2(state) {
+    function readLineBreak(state) {
       var ch;
       ch = state.input.charCodeAt(state.position);
       if (ch === 10) {
@@ -1830,16 +1847,16 @@ var require_loader = __commonJS({
           state.position++;
         }
       } else {
-        throwError2(state, "a line break is expected");
+        throwError(state, "a line break is expected");
       }
       state.line += 1;
       state.lineStart = state.position;
     }
-    function skipSeparationSpace2(state, allowComments, checkIndent) {
+    function skipSeparationSpace(state, allowComments, checkIndent) {
       var lineBreaks = 0,
         ch = state.input.charCodeAt(state.position);
       while (ch !== 0) {
-        while (is_WHITE_SPACE2(ch)) {
+        while (is_WHITE_SPACE(ch)) {
           ch = state.input.charCodeAt(++state.position);
         }
         if (allowComments && ch === 35) {
@@ -1847,8 +1864,8 @@ var require_loader = __commonJS({
             ch = state.input.charCodeAt(++state.position);
           } while (ch !== 10 && ch !== 13 && ch !== 0);
         }
-        if (is_EOL2(ch)) {
-          readLineBreak2(state);
+        if (is_EOL(ch)) {
+          readLineBreak(state);
           ch = state.input.charCodeAt(state.position);
           lineBreaks++;
           state.lineIndent = 0;
@@ -1861,11 +1878,11 @@ var require_loader = __commonJS({
         }
       }
       if (checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent) {
-        throwWarning2(state, "deficient indentation");
+        throwWarning(state, "deficient indentation");
       }
       return lineBreaks;
     }
-    function testDocumentSeparator2(state) {
+    function testDocumentSeparator(state) {
       var _position = state.position,
         ch;
       ch = state.input.charCodeAt(_position);
@@ -1876,20 +1893,20 @@ var require_loader = __commonJS({
       ) {
         _position += 3;
         ch = state.input.charCodeAt(_position);
-        if (ch === 0 || is_WS_OR_EOL2(ch)) {
+        if (ch === 0 || is_WS_OR_EOL(ch)) {
           return true;
         }
       }
       return false;
     }
-    function writeFoldedLines2(state, count) {
+    function writeFoldedLines(state, count) {
       if (count === 1) {
         state.result += " ";
       } else if (count > 1) {
         state.result += common2.repeat("\n", count - 1);
       }
     }
-    function readPlainScalar2(state, nodeIndent, withinFlowCollection) {
+    function readPlainScalar(state, nodeIndent, withinFlowCollection) {
       var preceding,
         following,
         captureStart,
@@ -1903,8 +1920,8 @@ var require_loader = __commonJS({
         ch;
       ch = state.input.charCodeAt(state.position);
       if (
-        is_WS_OR_EOL2(ch) ||
-        is_FLOW_INDICATOR2(ch) ||
+        is_WS_OR_EOL(ch) ||
+        is_FLOW_INDICATOR(ch) ||
         ch === 35 ||
         ch === 38 ||
         ch === 42 ||
@@ -1921,7 +1938,7 @@ var require_loader = __commonJS({
       }
       if (ch === 63 || ch === 45) {
         following = state.input.charCodeAt(state.position + 1);
-        if (is_WS_OR_EOL2(following) || (withinFlowCollection && is_FLOW_INDICATOR2(following))) {
+        if (is_WS_OR_EOL(following) || (withinFlowCollection && is_FLOW_INDICATOR(following))) {
           return false;
         }
       }
@@ -1932,24 +1949,24 @@ var require_loader = __commonJS({
       while (ch !== 0) {
         if (ch === 58) {
           following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL2(following) || (withinFlowCollection && is_FLOW_INDICATOR2(following))) {
+          if (is_WS_OR_EOL(following) || (withinFlowCollection && is_FLOW_INDICATOR(following))) {
             break;
           }
         } else if (ch === 35) {
           preceding = state.input.charCodeAt(state.position - 1);
-          if (is_WS_OR_EOL2(preceding)) {
+          if (is_WS_OR_EOL(preceding)) {
             break;
           }
         } else if (
-          (state.position === state.lineStart && testDocumentSeparator2(state)) ||
-          (withinFlowCollection && is_FLOW_INDICATOR2(ch))
+          (state.position === state.lineStart && testDocumentSeparator(state)) ||
+          (withinFlowCollection && is_FLOW_INDICATOR(ch))
         ) {
           break;
-        } else if (is_EOL2(ch)) {
+        } else if (is_EOL(ch)) {
           _line = state.line;
           _lineStart = state.lineStart;
           _lineIndent = state.lineIndent;
-          skipSeparationSpace2(state, false, -1);
+          skipSeparationSpace(state, false, -1);
           if (state.lineIndent >= nodeIndent) {
             hasPendingContent = true;
             ch = state.input.charCodeAt(state.position);
@@ -1963,17 +1980,17 @@ var require_loader = __commonJS({
           }
         }
         if (hasPendingContent) {
-          captureSegment2(state, captureStart, captureEnd, false);
-          writeFoldedLines2(state, state.line - _line);
+          captureSegment(state, captureStart, captureEnd, false);
+          writeFoldedLines(state, state.line - _line);
           captureStart = captureEnd = state.position;
           hasPendingContent = false;
         }
-        if (!is_WHITE_SPACE2(ch)) {
+        if (!is_WHITE_SPACE(ch)) {
           captureEnd = state.position + 1;
         }
         ch = state.input.charCodeAt(++state.position);
       }
-      captureSegment2(state, captureStart, captureEnd, false);
+      captureSegment(state, captureStart, captureEnd, false);
       if (state.result) {
         return true;
       }
@@ -1981,7 +1998,7 @@ var require_loader = __commonJS({
       state.result = _result;
       return false;
     }
-    function readSingleQuotedScalar2(state, nodeIndent) {
+    function readSingleQuotedScalar(state, nodeIndent) {
       var ch, captureStart, captureEnd;
       ch = state.input.charCodeAt(state.position);
       if (ch !== 39) {
@@ -1993,7 +2010,7 @@ var require_loader = __commonJS({
       captureStart = captureEnd = state.position;
       while ((ch = state.input.charCodeAt(state.position)) !== 0) {
         if (ch === 39) {
-          captureSegment2(state, captureStart, state.position, true);
+          captureSegment(state, captureStart, state.position, true);
           ch = state.input.charCodeAt(++state.position);
           if (ch === 39) {
             captureStart = state.position;
@@ -2002,20 +2019,20 @@ var require_loader = __commonJS({
           } else {
             return true;
           }
-        } else if (is_EOL2(ch)) {
-          captureSegment2(state, captureStart, captureEnd, true);
-          writeFoldedLines2(state, skipSeparationSpace2(state, false, nodeIndent));
+        } else if (is_EOL(ch)) {
+          captureSegment(state, captureStart, captureEnd, true);
+          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
           captureStart = captureEnd = state.position;
-        } else if (state.position === state.lineStart && testDocumentSeparator2(state)) {
-          throwError2(state, "unexpected end of the document within a single quoted scalar");
+        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
+          throwError(state, "unexpected end of the document within a single quoted scalar");
         } else {
           state.position++;
           captureEnd = state.position;
         }
       }
-      throwError2(state, "unexpected end of the stream within a single quoted scalar");
+      throwError(state, "unexpected end of the stream within a single quoted scalar");
     }
-    function readDoubleQuotedScalar2(state, nodeIndent) {
+    function readDoubleQuotedScalar(state, nodeIndent) {
       var captureStart, captureEnd, hexLength, hexResult, tmp, ch;
       ch = state.input.charCodeAt(state.position);
       if (ch !== 34) {
@@ -2027,48 +2044,48 @@ var require_loader = __commonJS({
       captureStart = captureEnd = state.position;
       while ((ch = state.input.charCodeAt(state.position)) !== 0) {
         if (ch === 34) {
-          captureSegment2(state, captureStart, state.position, true);
+          captureSegment(state, captureStart, state.position, true);
           state.position++;
           return true;
         } else if (ch === 92) {
-          captureSegment2(state, captureStart, state.position, true);
+          captureSegment(state, captureStart, state.position, true);
           ch = state.input.charCodeAt(++state.position);
-          if (is_EOL2(ch)) {
-            skipSeparationSpace2(state, false, nodeIndent);
-          } else if (ch < 256 && simpleEscapeCheck2[ch]) {
-            state.result += simpleEscapeMap2[ch];
+          if (is_EOL(ch)) {
+            skipSeparationSpace(state, false, nodeIndent);
+          } else if (ch < 256 && simpleEscapeCheck[ch]) {
+            state.result += simpleEscapeMap[ch];
             state.position++;
-          } else if ((tmp = escapedHexLen2(ch)) > 0) {
+          } else if ((tmp = escapedHexLen(ch)) > 0) {
             hexLength = tmp;
             hexResult = 0;
             for (; hexLength > 0; hexLength--) {
               ch = state.input.charCodeAt(++state.position);
-              if ((tmp = fromHexCode2(ch)) >= 0) {
+              if ((tmp = fromHexCode(ch)) >= 0) {
                 hexResult = (hexResult << 4) + tmp;
               } else {
-                throwError2(state, "expected hexadecimal character");
+                throwError(state, "expected hexadecimal character");
               }
             }
-            state.result += charFromCodepoint2(hexResult);
+            state.result += charFromCodepoint(hexResult);
             state.position++;
           } else {
-            throwError2(state, "unknown escape sequence");
+            throwError(state, "unknown escape sequence");
           }
           captureStart = captureEnd = state.position;
-        } else if (is_EOL2(ch)) {
-          captureSegment2(state, captureStart, captureEnd, true);
-          writeFoldedLines2(state, skipSeparationSpace2(state, false, nodeIndent));
+        } else if (is_EOL(ch)) {
+          captureSegment(state, captureStart, captureEnd, true);
+          writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
           captureStart = captureEnd = state.position;
-        } else if (state.position === state.lineStart && testDocumentSeparator2(state)) {
-          throwError2(state, "unexpected end of the document within a double quoted scalar");
+        } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
+          throwError(state, "unexpected end of the document within a double quoted scalar");
         } else {
           state.position++;
           captureEnd = state.position;
         }
       }
-      throwError2(state, "unexpected end of the stream within a double quoted scalar");
+      throwError(state, "unexpected end of the stream within a double quoted scalar");
     }
-    function readFlowCollection2(state, nodeIndent) {
+    function readFlowCollection(state, nodeIndent) {
       var readNext = true,
         _line,
         _tag = state.tag,
@@ -2101,7 +2118,7 @@ var require_loader = __commonJS({
       }
       ch = state.input.charCodeAt(++state.position);
       while (ch !== 0) {
-        skipSeparationSpace2(state, true, nodeIndent);
+        skipSeparationSpace(state, true, nodeIndent);
         ch = state.input.charCodeAt(state.position);
         if (ch === terminator) {
           state.position++;
@@ -2111,39 +2128,39 @@ var require_loader = __commonJS({
           state.result = _result;
           return true;
         } else if (!readNext) {
-          throwError2(state, "missed comma between flow collection entries");
+          throwError(state, "missed comma between flow collection entries");
         }
         keyTag = keyNode = valueNode = null;
         isPair = isExplicitPair = false;
         if (ch === 63) {
           following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL2(following)) {
+          if (is_WS_OR_EOL(following)) {
             isPair = isExplicitPair = true;
             state.position++;
-            skipSeparationSpace2(state, true, nodeIndent);
+            skipSeparationSpace(state, true, nodeIndent);
           }
         }
         _line = state.line;
-        composeNode2(state, nodeIndent, CONTEXT_FLOW_IN2, false, true);
+        composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
         keyTag = state.tag;
         keyNode = state.result;
-        skipSeparationSpace2(state, true, nodeIndent);
+        skipSeparationSpace(state, true, nodeIndent);
         ch = state.input.charCodeAt(state.position);
         if ((isExplicitPair || state.line === _line) && ch === 58) {
           isPair = true;
           ch = state.input.charCodeAt(++state.position);
-          skipSeparationSpace2(state, true, nodeIndent);
-          composeNode2(state, nodeIndent, CONTEXT_FLOW_IN2, false, true);
+          skipSeparationSpace(state, true, nodeIndent);
+          composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
           valueNode = state.result;
         }
         if (isMapping) {
-          storeMappingPair2(state, _result, overridableKeys, keyTag, keyNode, valueNode);
+          storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode);
         } else if (isPair) {
-          _result.push(storeMappingPair2(state, null, overridableKeys, keyTag, keyNode, valueNode));
+          _result.push(storeMappingPair(state, null, overridableKeys, keyTag, keyNode, valueNode));
         } else {
           _result.push(keyNode);
         }
-        skipSeparationSpace2(state, true, nodeIndent);
+        skipSeparationSpace(state, true, nodeIndent);
         ch = state.input.charCodeAt(state.position);
         if (ch === 44) {
           readNext = true;
@@ -2152,12 +2169,12 @@ var require_loader = __commonJS({
           readNext = false;
         }
       }
-      throwError2(state, "unexpected end of the stream within a flow collection");
+      throwError(state, "unexpected end of the stream within a flow collection");
     }
-    function readBlockScalar2(state, nodeIndent) {
+    function readBlockScalar(state, nodeIndent) {
       var captureStart,
         folding,
-        chomping = CHOMPING_CLIP2,
+        chomping = CHOMPING_CLIP,
         didReadContent = false,
         detectedIndent = false,
         textIndent = nodeIndent,
@@ -2178,14 +2195,14 @@ var require_loader = __commonJS({
       while (ch !== 0) {
         ch = state.input.charCodeAt(++state.position);
         if (ch === 43 || ch === 45) {
-          if (CHOMPING_CLIP2 === chomping) {
-            chomping = ch === 43 ? CHOMPING_KEEP2 : CHOMPING_STRIP2;
+          if (CHOMPING_CLIP === chomping) {
+            chomping = ch === 43 ? CHOMPING_KEEP : CHOMPING_STRIP;
           } else {
-            throwError2(state, "repeat of a chomping mode identifier");
+            throwError(state, "repeat of a chomping mode identifier");
           }
-        } else if ((tmp = fromDecimalCode2(ch)) >= 0) {
+        } else if ((tmp = fromDecimalCode(ch)) >= 0) {
           if (tmp === 0) {
-            throwError2(
+            throwError(
               state,
               "bad explicit indentation width of a block scalar; it cannot be less than one",
             );
@@ -2193,24 +2210,24 @@ var require_loader = __commonJS({
             textIndent = nodeIndent + tmp - 1;
             detectedIndent = true;
           } else {
-            throwError2(state, "repeat of an indentation width identifier");
+            throwError(state, "repeat of an indentation width identifier");
           }
         } else {
           break;
         }
       }
-      if (is_WHITE_SPACE2(ch)) {
+      if (is_WHITE_SPACE(ch)) {
         do {
           ch = state.input.charCodeAt(++state.position);
-        } while (is_WHITE_SPACE2(ch));
+        } while (is_WHITE_SPACE(ch));
         if (ch === 35) {
           do {
             ch = state.input.charCodeAt(++state.position);
-          } while (!is_EOL2(ch) && ch !== 0);
+          } while (!is_EOL(ch) && ch !== 0);
         }
       }
       while (ch !== 0) {
-        readLineBreak2(state);
+        readLineBreak(state);
         state.lineIndent = 0;
         ch = state.input.charCodeAt(state.position);
         while ((!detectedIndent || state.lineIndent < textIndent) && ch === 32) {
@@ -2220,14 +2237,14 @@ var require_loader = __commonJS({
         if (!detectedIndent && state.lineIndent > textIndent) {
           textIndent = state.lineIndent;
         }
-        if (is_EOL2(ch)) {
+        if (is_EOL(ch)) {
           emptyLines++;
           continue;
         }
         if (state.lineIndent < textIndent) {
-          if (chomping === CHOMPING_KEEP2) {
+          if (chomping === CHOMPING_KEEP) {
             state.result += common2.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-          } else if (chomping === CHOMPING_CLIP2) {
+          } else if (chomping === CHOMPING_CLIP) {
             if (didReadContent) {
               state.result += "\n";
             }
@@ -2235,7 +2252,7 @@ var require_loader = __commonJS({
           break;
         }
         if (folding) {
-          if (is_WHITE_SPACE2(ch)) {
+          if (is_WHITE_SPACE(ch)) {
             atMoreIndented = true;
             state.result += common2.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
           } else if (atMoreIndented) {
@@ -2255,14 +2272,14 @@ var require_loader = __commonJS({
         detectedIndent = true;
         emptyLines = 0;
         captureStart = state.position;
-        while (!is_EOL2(ch) && ch !== 0) {
+        while (!is_EOL(ch) && ch !== 0) {
           ch = state.input.charCodeAt(++state.position);
         }
-        captureSegment2(state, captureStart, state.position, false);
+        captureSegment(state, captureStart, state.position, false);
       }
       return true;
     }
-    function readBlockSequence2(state, nodeIndent) {
+    function readBlockSequence(state, nodeIndent) {
       var _line,
         _tag = state.tag,
         _anchor = state.anchor,
@@ -2279,12 +2296,12 @@ var require_loader = __commonJS({
           break;
         }
         following = state.input.charCodeAt(state.position + 1);
-        if (!is_WS_OR_EOL2(following)) {
+        if (!is_WS_OR_EOL(following)) {
           break;
         }
         detected = true;
         state.position++;
-        if (skipSeparationSpace2(state, true, -1)) {
+        if (skipSeparationSpace(state, true, -1)) {
           if (state.lineIndent <= nodeIndent) {
             _result.push(null);
             ch = state.input.charCodeAt(state.position);
@@ -2292,12 +2309,12 @@ var require_loader = __commonJS({
           }
         }
         _line = state.line;
-        composeNode2(state, nodeIndent, CONTEXT_BLOCK_IN2, false, true);
+        composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
         _result.push(state.result);
-        skipSeparationSpace2(state, true, -1);
+        skipSeparationSpace(state, true, -1);
         ch = state.input.charCodeAt(state.position);
         if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
-          throwError2(state, "bad indentation of a sequence entry");
+          throwError(state, "bad indentation of a sequence entry");
         } else if (state.lineIndent < nodeIndent) {
           break;
         }
@@ -2311,7 +2328,7 @@ var require_loader = __commonJS({
       }
       return false;
     }
-    function readBlockMapping2(state, nodeIndent, flowIndent) {
+    function readBlockMapping(state, nodeIndent, flowIndent) {
       var following,
         allowCompact,
         _line,
@@ -2334,10 +2351,10 @@ var require_loader = __commonJS({
         following = state.input.charCodeAt(state.position + 1);
         _line = state.line;
         _pos = state.position;
-        if ((ch === 63 || ch === 58) && is_WS_OR_EOL2(following)) {
+        if ((ch === 63 || ch === 58) && is_WS_OR_EOL(following)) {
           if (ch === 63) {
             if (atExplicitKey) {
-              storeMappingPair2(state, _result, overridableKeys, keyTag, keyNode, null);
+              storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
               keyTag = keyNode = valueNode = null;
             }
             detected = true;
@@ -2347,29 +2364,29 @@ var require_loader = __commonJS({
             atExplicitKey = false;
             allowCompact = true;
           } else {
-            throwError2(
+            throwError(
               state,
               "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line",
             );
           }
           state.position += 1;
           ch = following;
-        } else if (composeNode2(state, flowIndent, CONTEXT_FLOW_OUT2, false, true)) {
+        } else if (composeNode(state, flowIndent, CONTEXT_FLOW_OUT, false, true)) {
           if (state.line === _line) {
             ch = state.input.charCodeAt(state.position);
-            while (is_WHITE_SPACE2(ch)) {
+            while (is_WHITE_SPACE(ch)) {
               ch = state.input.charCodeAt(++state.position);
             }
             if (ch === 58) {
               ch = state.input.charCodeAt(++state.position);
-              if (!is_WS_OR_EOL2(ch)) {
-                throwError2(
+              if (!is_WS_OR_EOL(ch)) {
+                throwError(
                   state,
                   "a whitespace character is expected after the key-value separator within a block mapping",
                 );
               }
               if (atExplicitKey) {
-                storeMappingPair2(state, _result, overridableKeys, keyTag, keyNode, null);
+                storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
                 keyTag = keyNode = valueNode = null;
               }
               detected = true;
@@ -2378,14 +2395,14 @@ var require_loader = __commonJS({
               keyTag = state.tag;
               keyNode = state.result;
             } else if (detected) {
-              throwError2(state, "can not read an implicit mapping pair; a colon is missed");
+              throwError(state, "can not read an implicit mapping pair; a colon is missed");
             } else {
               state.tag = _tag;
               state.anchor = _anchor;
               return true;
             }
           } else if (detected) {
-            throwError2(
+            throwError(
               state,
               "can not read a block mapping entry; a multiline key may not be an implicit key",
             );
@@ -2398,7 +2415,7 @@ var require_loader = __commonJS({
           break;
         }
         if (state.line === _line || state.lineIndent > nodeIndent) {
-          if (composeNode2(state, nodeIndent, CONTEXT_BLOCK_OUT2, true, allowCompact)) {
+          if (composeNode(state, nodeIndent, CONTEXT_BLOCK_OUT, true, allowCompact)) {
             if (atExplicitKey) {
               keyNode = state.result;
             } else {
@@ -2406,7 +2423,7 @@ var require_loader = __commonJS({
             }
           }
           if (!atExplicitKey) {
-            storeMappingPair2(
+            storeMappingPair(
               state,
               _result,
               overridableKeys,
@@ -2418,17 +2435,17 @@ var require_loader = __commonJS({
             );
             keyTag = keyNode = valueNode = null;
           }
-          skipSeparationSpace2(state, true, -1);
+          skipSeparationSpace(state, true, -1);
           ch = state.input.charCodeAt(state.position);
         }
         if (state.lineIndent > nodeIndent && ch !== 0) {
-          throwError2(state, "bad indentation of a mapping entry");
+          throwError(state, "bad indentation of a mapping entry");
         } else if (state.lineIndent < nodeIndent) {
           break;
         }
       }
       if (atExplicitKey) {
-        storeMappingPair2(state, _result, overridableKeys, keyTag, keyNode, null);
+        storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null);
       }
       if (detected) {
         state.tag = _tag;
@@ -2438,7 +2455,7 @@ var require_loader = __commonJS({
       }
       return detected;
     }
-    function readTagProperty2(state) {
+    function readTagProperty(state) {
       var _position,
         isVerbatim = false,
         isNamed = false,
@@ -2448,7 +2465,7 @@ var require_loader = __commonJS({
       ch = state.input.charCodeAt(state.position);
       if (ch !== 33) return false;
       if (state.tag !== null) {
-        throwError2(state, "duplication of a tag property");
+        throwError(state, "duplication of a tag property");
       }
       ch = state.input.charCodeAt(++state.position);
       if (ch === 60) {
@@ -2470,84 +2487,84 @@ var require_loader = __commonJS({
           tagName = state.input.slice(_position, state.position);
           ch = state.input.charCodeAt(++state.position);
         } else {
-          throwError2(state, "unexpected end of the stream within a verbatim tag");
+          throwError(state, "unexpected end of the stream within a verbatim tag");
         }
       } else {
-        while (ch !== 0 && !is_WS_OR_EOL2(ch)) {
+        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
           if (ch === 33) {
             if (!isNamed) {
               tagHandle = state.input.slice(_position - 1, state.position + 1);
-              if (!PATTERN_TAG_HANDLE2.test(tagHandle)) {
-                throwError2(state, "named tag handle cannot contain such characters");
+              if (!PATTERN_TAG_HANDLE.test(tagHandle)) {
+                throwError(state, "named tag handle cannot contain such characters");
               }
               isNamed = true;
               _position = state.position + 1;
             } else {
-              throwError2(state, "tag suffix cannot contain exclamation marks");
+              throwError(state, "tag suffix cannot contain exclamation marks");
             }
           }
           ch = state.input.charCodeAt(++state.position);
         }
         tagName = state.input.slice(_position, state.position);
-        if (PATTERN_FLOW_INDICATORS2.test(tagName)) {
-          throwError2(state, "tag suffix cannot contain flow indicator characters");
+        if (PATTERN_FLOW_INDICATORS.test(tagName)) {
+          throwError(state, "tag suffix cannot contain flow indicator characters");
         }
       }
-      if (tagName && !PATTERN_TAG_URI2.test(tagName)) {
-        throwError2(state, "tag name cannot contain such characters: " + tagName);
+      if (tagName && !PATTERN_TAG_URI.test(tagName)) {
+        throwError(state, "tag name cannot contain such characters: " + tagName);
       }
       if (isVerbatim) {
         state.tag = tagName;
-      } else if (_hasOwnProperty2.call(state.tagMap, tagHandle)) {
+      } else if (_hasOwnProperty.call(state.tagMap, tagHandle)) {
         state.tag = state.tagMap[tagHandle] + tagName;
       } else if (tagHandle === "!") {
         state.tag = "!" + tagName;
       } else if (tagHandle === "!!") {
         state.tag = "tag:yaml.org,2002:" + tagName;
       } else {
-        throwError2(state, 'undeclared tag handle "' + tagHandle + '"');
+        throwError(state, 'undeclared tag handle "' + tagHandle + '"');
       }
       return true;
     }
-    function readAnchorProperty2(state) {
+    function readAnchorProperty(state) {
       var _position, ch;
       ch = state.input.charCodeAt(state.position);
       if (ch !== 38) return false;
       if (state.anchor !== null) {
-        throwError2(state, "duplication of an anchor property");
+        throwError(state, "duplication of an anchor property");
       }
       ch = state.input.charCodeAt(++state.position);
       _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL2(ch) && !is_FLOW_INDICATOR2(ch)) {
+      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
         ch = state.input.charCodeAt(++state.position);
       }
       if (state.position === _position) {
-        throwError2(state, "name of an anchor node must contain at least one character");
+        throwError(state, "name of an anchor node must contain at least one character");
       }
       state.anchor = state.input.slice(_position, state.position);
       return true;
     }
-    function readAlias2(state) {
+    function readAlias(state) {
       var _position, alias, ch;
       ch = state.input.charCodeAt(state.position);
       if (ch !== 42) return false;
       ch = state.input.charCodeAt(++state.position);
       _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL2(ch) && !is_FLOW_INDICATOR2(ch)) {
+      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
         ch = state.input.charCodeAt(++state.position);
       }
       if (state.position === _position) {
-        throwError2(state, "name of an alias node must contain at least one character");
+        throwError(state, "name of an alias node must contain at least one character");
       }
       alias = state.input.slice(_position, state.position);
-      if (!_hasOwnProperty2.call(state.anchorMap, alias)) {
-        throwError2(state, 'unidentified alias "' + alias + '"');
+      if (!_hasOwnProperty.call(state.anchorMap, alias)) {
+        throwError(state, 'unidentified alias "' + alias + '"');
       }
       state.result = state.anchorMap[alias];
-      skipSeparationSpace2(state, true, -1);
+      skipSeparationSpace(state, true, -1);
       return true;
     }
-    function composeNode2(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
+    function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
       var allowBlockStyles,
         allowBlockScalars,
         allowBlockCollections,
@@ -2569,9 +2586,9 @@ var require_loader = __commonJS({
       allowBlockStyles =
         allowBlockScalars =
         allowBlockCollections =
-          CONTEXT_BLOCK_OUT2 === nodeContext || CONTEXT_BLOCK_IN2 === nodeContext;
+          CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
       if (allowToSeek) {
-        if (skipSeparationSpace2(state, true, -1)) {
+        if (skipSeparationSpace(state, true, -1)) {
           atNewLine = true;
           if (state.lineIndent > parentIndent) {
             indentStatus = 1;
@@ -2583,8 +2600,8 @@ var require_loader = __commonJS({
         }
       }
       if (indentStatus === 1) {
-        while (readTagProperty2(state) || readAnchorProperty2(state)) {
-          if (skipSeparationSpace2(state, true, -1)) {
+        while (readTagProperty(state) || readAnchorProperty(state)) {
+          if (skipSeparationSpace(state, true, -1)) {
             atNewLine = true;
             allowBlockCollections = allowBlockStyles;
             if (state.lineIndent > parentIndent) {
@@ -2602,8 +2619,8 @@ var require_loader = __commonJS({
       if (allowBlockCollections) {
         allowBlockCollections = atNewLine || allowCompact;
       }
-      if (indentStatus === 1 || CONTEXT_BLOCK_OUT2 === nodeContext) {
-        if (CONTEXT_FLOW_IN2 === nodeContext || CONTEXT_FLOW_OUT2 === nodeContext) {
+      if (indentStatus === 1 || CONTEXT_BLOCK_OUT === nodeContext) {
+        if (CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext) {
           flowIndent = parentIndent;
         } else {
           flowIndent = parentIndent + 1;
@@ -2612,24 +2629,24 @@ var require_loader = __commonJS({
         if (indentStatus === 1) {
           if (
             (allowBlockCollections &&
-              (readBlockSequence2(state, blockIndent) ||
-                readBlockMapping2(state, blockIndent, flowIndent))) ||
-            readFlowCollection2(state, flowIndent)
+              (readBlockSequence(state, blockIndent) ||
+                readBlockMapping(state, blockIndent, flowIndent))) ||
+            readFlowCollection(state, flowIndent)
           ) {
             hasContent = true;
           } else {
             if (
-              (allowBlockScalars && readBlockScalar2(state, flowIndent)) ||
-              readSingleQuotedScalar2(state, flowIndent) ||
-              readDoubleQuotedScalar2(state, flowIndent)
+              (allowBlockScalars && readBlockScalar(state, flowIndent)) ||
+              readSingleQuotedScalar(state, flowIndent) ||
+              readDoubleQuotedScalar(state, flowIndent)
             ) {
               hasContent = true;
-            } else if (readAlias2(state)) {
+            } else if (readAlias(state)) {
               hasContent = true;
               if (state.tag !== null || state.anchor !== null) {
-                throwError2(state, "alias node should not have any properties");
+                throwError(state, "alias node should not have any properties");
               }
-            } else if (readPlainScalar2(state, flowIndent, CONTEXT_FLOW_IN2 === nodeContext)) {
+            } else if (readPlainScalar(state, flowIndent, CONTEXT_FLOW_IN === nodeContext)) {
               hasContent = true;
               if (state.tag === null) {
                 state.tag = "?";
@@ -2640,13 +2657,13 @@ var require_loader = __commonJS({
             }
           }
         } else if (indentStatus === 0) {
-          hasContent = allowBlockCollections && readBlockSequence2(state, blockIndent);
+          hasContent = allowBlockCollections && readBlockSequence(state, blockIndent);
         }
       }
       if (state.tag !== null && state.tag !== "!") {
         if (state.tag === "?") {
           if (state.result !== null && state.kind !== "scalar") {
-            throwError2(
+            throwError(
               state,
               'unacceptable node kind for !<?> tag; it should be "scalar", not "' +
                 state.kind +
@@ -2668,10 +2685,10 @@ var require_loader = __commonJS({
               break;
             }
           }
-        } else if (_hasOwnProperty2.call(state.typeMap[state.kind || "fallback"], state.tag)) {
+        } else if (_hasOwnProperty.call(state.typeMap[state.kind || "fallback"], state.tag)) {
           type2 = state.typeMap[state.kind || "fallback"][state.tag];
           if (state.result !== null && type2.kind !== state.kind) {
-            throwError2(
+            throwError(
               state,
               "unacceptable node kind for !<" +
                 state.tag +
@@ -2683,7 +2700,7 @@ var require_loader = __commonJS({
             );
           }
           if (!type2.resolve(state.result)) {
-            throwError2(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
+            throwError(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
           } else {
             state.result = type2.construct(state.result);
             if (state.anchor !== null) {
@@ -2691,7 +2708,7 @@ var require_loader = __commonJS({
             }
           }
         } else {
-          throwError2(state, "unknown tag !<" + state.tag + ">");
+          throwError(state, "unknown tag !<" + state.tag + ">");
         }
       }
       if (state.listener !== null) {
@@ -2699,7 +2716,7 @@ var require_loader = __commonJS({
       }
       return state.tag !== null || state.anchor !== null || hasContent;
     }
-    function readDocument2(state) {
+    function readDocument(state) {
       var documentStart = state.position,
         _position,
         directiveName,
@@ -2711,7 +2728,7 @@ var require_loader = __commonJS({
       state.tagMap = {};
       state.anchorMap = {};
       while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-        skipSeparationSpace2(state, true, -1);
+        skipSeparationSpace(state, true, -1);
         ch = state.input.charCodeAt(state.position);
         if (state.lineIndent > 0 || ch !== 37) {
           break;
@@ -2719,39 +2736,39 @@ var require_loader = __commonJS({
         hasDirectives = true;
         ch = state.input.charCodeAt(++state.position);
         _position = state.position;
-        while (ch !== 0 && !is_WS_OR_EOL2(ch)) {
+        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
           ch = state.input.charCodeAt(++state.position);
         }
         directiveName = state.input.slice(_position, state.position);
         directiveArgs = [];
         if (directiveName.length < 1) {
-          throwError2(state, "directive name must not be less than one character in length");
+          throwError(state, "directive name must not be less than one character in length");
         }
         while (ch !== 0) {
-          while (is_WHITE_SPACE2(ch)) {
+          while (is_WHITE_SPACE(ch)) {
             ch = state.input.charCodeAt(++state.position);
           }
           if (ch === 35) {
             do {
               ch = state.input.charCodeAt(++state.position);
-            } while (ch !== 0 && !is_EOL2(ch));
+            } while (ch !== 0 && !is_EOL(ch));
             break;
           }
-          if (is_EOL2(ch)) break;
+          if (is_EOL(ch)) break;
           _position = state.position;
-          while (ch !== 0 && !is_WS_OR_EOL2(ch)) {
+          while (ch !== 0 && !is_WS_OR_EOL(ch)) {
             ch = state.input.charCodeAt(++state.position);
           }
           directiveArgs.push(state.input.slice(_position, state.position));
         }
-        if (ch !== 0) readLineBreak2(state);
-        if (_hasOwnProperty2.call(directiveHandlers2, directiveName)) {
-          directiveHandlers2[directiveName](state, directiveName, directiveArgs);
+        if (ch !== 0) readLineBreak(state);
+        if (_hasOwnProperty.call(directiveHandlers, directiveName)) {
+          directiveHandlers[directiveName](state, directiveName, directiveArgs);
         } else {
-          throwWarning2(state, 'unknown document directive "' + directiveName + '"');
+          throwWarning(state, 'unknown document directive "' + directiveName + '"');
         }
       }
-      skipSeparationSpace2(state, true, -1);
+      skipSeparationSpace(state, true, -1);
       if (
         state.lineIndent === 0 &&
         state.input.charCodeAt(state.position) === 45 &&
@@ -2759,33 +2776,33 @@ var require_loader = __commonJS({
         state.input.charCodeAt(state.position + 2) === 45
       ) {
         state.position += 3;
-        skipSeparationSpace2(state, true, -1);
+        skipSeparationSpace(state, true, -1);
       } else if (hasDirectives) {
-        throwError2(state, "directives end mark is expected");
+        throwError(state, "directives end mark is expected");
       }
-      composeNode2(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT2, false, true);
-      skipSeparationSpace2(state, true, -1);
+      composeNode(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT, false, true);
+      skipSeparationSpace(state, true, -1);
       if (
         state.checkLineBreaks &&
-        PATTERN_NON_ASCII_LINE_BREAKS2.test(state.input.slice(documentStart, state.position))
+        PATTERN_NON_ASCII_LINE_BREAKS.test(state.input.slice(documentStart, state.position))
       ) {
-        throwWarning2(state, "non-ASCII line breaks are interpreted as content");
+        throwWarning(state, "non-ASCII line breaks are interpreted as content");
       }
       state.documents.push(state.result);
-      if (state.position === state.lineStart && testDocumentSeparator2(state)) {
+      if (state.position === state.lineStart && testDocumentSeparator(state)) {
         if (state.input.charCodeAt(state.position) === 46) {
           state.position += 3;
-          skipSeparationSpace2(state, true, -1);
+          skipSeparationSpace(state, true, -1);
         }
         return;
       }
       if (state.position < state.length - 1) {
-        throwError2(state, "end of the stream or a document separator is expected");
+        throwError(state, "end of the stream or a document separator is expected");
       } else {
         return;
       }
     }
-    function loadDocuments2(input, options2) {
+    function loadDocuments(input, options2) {
       input = String(input);
       options2 = options2 || {};
       if (input.length !== 0) {
@@ -2799,11 +2816,11 @@ var require_loader = __commonJS({
           input = input.slice(1);
         }
       }
-      var state = new State2(input, options2);
+      var state = new State(input, options2);
       var nullpos = input.indexOf("\0");
       if (nullpos !== -1) {
         state.position = nullpos;
-        throwError2(state, "null byte is not allowed in input");
+        throwError(state, "null byte is not allowed in input");
       }
       state.input += "\0";
       while (state.input.charCodeAt(state.position) === 32) {
@@ -2811,7 +2828,7 @@ var require_loader = __commonJS({
         state.position += 1;
       }
       while (state.position < state.length - 1) {
-        readDocument2(state);
+        readDocument(state);
       }
       return state.documents;
     }
@@ -2820,7 +2837,7 @@ var require_loader = __commonJS({
         options2 = iterator;
         iterator = null;
       }
-      var documents = loadDocuments2(input, options2);
+      var documents = loadDocuments(input, options2);
       if (typeof iterator !== "function") {
         return documents;
       }
@@ -2829,7 +2846,7 @@ var require_loader = __commonJS({
       }
     }
     function load2(input, options2) {
-      var documents = loadDocuments2(input, options2);
+      var documents = loadDocuments(input, options2);
       if (documents.length === 0) {
         return void 0;
       } else if (documents.length === 1) {
@@ -2861,49 +2878,49 @@ var require_dumper = __commonJS({
     var YAMLException2 = require_exception();
     var DEFAULT_FULL_SCHEMA = require_default_full();
     var DEFAULT_SAFE_SCHEMA = require_default_safe();
-    var _toString2 = Object.prototype.toString;
-    var _hasOwnProperty2 = Object.prototype.hasOwnProperty;
-    var CHAR_TAB2 = 9;
-    var CHAR_LINE_FEED2 = 10;
-    var CHAR_CARRIAGE_RETURN2 = 13;
-    var CHAR_SPACE2 = 32;
-    var CHAR_EXCLAMATION2 = 33;
-    var CHAR_DOUBLE_QUOTE2 = 34;
-    var CHAR_SHARP2 = 35;
-    var CHAR_PERCENT2 = 37;
-    var CHAR_AMPERSAND2 = 38;
-    var CHAR_SINGLE_QUOTE2 = 39;
-    var CHAR_ASTERISK2 = 42;
-    var CHAR_COMMA2 = 44;
-    var CHAR_MINUS2 = 45;
-    var CHAR_COLON2 = 58;
-    var CHAR_EQUALS2 = 61;
-    var CHAR_GREATER_THAN2 = 62;
-    var CHAR_QUESTION2 = 63;
-    var CHAR_COMMERCIAL_AT2 = 64;
-    var CHAR_LEFT_SQUARE_BRACKET2 = 91;
-    var CHAR_RIGHT_SQUARE_BRACKET2 = 93;
-    var CHAR_GRAVE_ACCENT2 = 96;
-    var CHAR_LEFT_CURLY_BRACKET2 = 123;
-    var CHAR_VERTICAL_LINE2 = 124;
-    var CHAR_RIGHT_CURLY_BRACKET2 = 125;
-    var ESCAPE_SEQUENCES2 = {};
-    ESCAPE_SEQUENCES2[0] = "\\0";
-    ESCAPE_SEQUENCES2[7] = "\\a";
-    ESCAPE_SEQUENCES2[8] = "\\b";
-    ESCAPE_SEQUENCES2[9] = "\\t";
-    ESCAPE_SEQUENCES2[10] = "\\n";
-    ESCAPE_SEQUENCES2[11] = "\\v";
-    ESCAPE_SEQUENCES2[12] = "\\f";
-    ESCAPE_SEQUENCES2[13] = "\\r";
-    ESCAPE_SEQUENCES2[27] = "\\e";
-    ESCAPE_SEQUENCES2[34] = '\\"';
-    ESCAPE_SEQUENCES2[92] = "\\\\";
-    ESCAPE_SEQUENCES2[133] = "\\N";
-    ESCAPE_SEQUENCES2[160] = "\\_";
-    ESCAPE_SEQUENCES2[8232] = "\\L";
-    ESCAPE_SEQUENCES2[8233] = "\\P";
-    var DEPRECATED_BOOLEANS_SYNTAX2 = [
+    var _toString = Object.prototype.toString;
+    var _hasOwnProperty = Object.prototype.hasOwnProperty;
+    var CHAR_TAB = 9;
+    var CHAR_LINE_FEED = 10;
+    var CHAR_CARRIAGE_RETURN = 13;
+    var CHAR_SPACE = 32;
+    var CHAR_EXCLAMATION = 33;
+    var CHAR_DOUBLE_QUOTE = 34;
+    var CHAR_SHARP = 35;
+    var CHAR_PERCENT = 37;
+    var CHAR_AMPERSAND = 38;
+    var CHAR_SINGLE_QUOTE = 39;
+    var CHAR_ASTERISK = 42;
+    var CHAR_COMMA = 44;
+    var CHAR_MINUS = 45;
+    var CHAR_COLON = 58;
+    var CHAR_EQUALS = 61;
+    var CHAR_GREATER_THAN = 62;
+    var CHAR_QUESTION = 63;
+    var CHAR_COMMERCIAL_AT = 64;
+    var CHAR_LEFT_SQUARE_BRACKET = 91;
+    var CHAR_RIGHT_SQUARE_BRACKET = 93;
+    var CHAR_GRAVE_ACCENT = 96;
+    var CHAR_LEFT_CURLY_BRACKET = 123;
+    var CHAR_VERTICAL_LINE = 124;
+    var CHAR_RIGHT_CURLY_BRACKET = 125;
+    var ESCAPE_SEQUENCES = {};
+    ESCAPE_SEQUENCES[0] = "\\0";
+    ESCAPE_SEQUENCES[7] = "\\a";
+    ESCAPE_SEQUENCES[8] = "\\b";
+    ESCAPE_SEQUENCES[9] = "\\t";
+    ESCAPE_SEQUENCES[10] = "\\n";
+    ESCAPE_SEQUENCES[11] = "\\v";
+    ESCAPE_SEQUENCES[12] = "\\f";
+    ESCAPE_SEQUENCES[13] = "\\r";
+    ESCAPE_SEQUENCES[27] = "\\e";
+    ESCAPE_SEQUENCES[34] = '\\"';
+    ESCAPE_SEQUENCES[92] = "\\\\";
+    ESCAPE_SEQUENCES[133] = "\\N";
+    ESCAPE_SEQUENCES[160] = "\\_";
+    ESCAPE_SEQUENCES[8232] = "\\L";
+    ESCAPE_SEQUENCES[8233] = "\\P";
+    var DEPRECATED_BOOLEANS_SYNTAX = [
       "y",
       "Y",
       "yes",
@@ -2921,7 +2938,7 @@ var require_dumper = __commonJS({
       "Off",
       "OFF",
     ];
-    function compileStyleMap2(schema2, map2) {
+    function compileStyleMap(schema2, map2) {
       var result, keys, index, length, tag, style, type2;
       if (map2 === null) return {};
       result = {};
@@ -2933,14 +2950,14 @@ var require_dumper = __commonJS({
           tag = "tag:yaml.org,2002:" + tag.slice(2);
         }
         type2 = schema2.compiledTypeMap["fallback"][tag];
-        if (type2 && _hasOwnProperty2.call(type2.styleAliases, style)) {
+        if (type2 && _hasOwnProperty.call(type2.styleAliases, style)) {
           style = type2.styleAliases[style];
         }
         result[tag] = style;
       }
       return result;
     }
-    function encodeHex2(character) {
+    function encodeHex(character) {
       var string, handle, length;
       string = character.toString(16).toUpperCase();
       if (character <= 255) {
@@ -2957,13 +2974,13 @@ var require_dumper = __commonJS({
       }
       return "\\" + handle + common2.repeat("0", length - string.length) + string;
     }
-    function State2(options2) {
+    function State(options2) {
       this.schema = options2["schema"] || DEFAULT_FULL_SCHEMA;
       this.indent = Math.max(1, options2["indent"] || 2);
       this.noArrayIndent = options2["noArrayIndent"] || false;
       this.skipInvalid = options2["skipInvalid"] || false;
       this.flowLevel = common2.isNothing(options2["flowLevel"]) ? -1 : options2["flowLevel"];
-      this.styleMap = compileStyleMap2(this.schema, options2["styles"] || null);
+      this.styleMap = compileStyleMap(this.schema, options2["styles"] || null);
       this.sortKeys = options2["sortKeys"] || false;
       this.lineWidth = options2["lineWidth"] || 80;
       this.noRefs = options2["noRefs"] || false;
@@ -2976,7 +2993,7 @@ var require_dumper = __commonJS({
       this.duplicates = [];
       this.usedDuplicates = null;
     }
-    function indentString2(string, spaces) {
+    function indentString(string, spaces) {
       var ind = common2.repeat(" ", spaces),
         position = 0,
         next = -1,
@@ -2997,10 +3014,10 @@ var require_dumper = __commonJS({
       }
       return result;
     }
-    function generateNextLine2(state, level) {
+    function generateNextLine(state, level) {
       return "\n" + common2.repeat(" ", state.indent * level);
     }
-    function testImplicitResolving2(state, str3) {
+    function testImplicitResolving(state, str3) {
       var index, length, type2;
       for (index = 0, length = state.implicitTypes.length; index < length; index += 1) {
         type2 = state.implicitTypes[index];
@@ -3010,10 +3027,10 @@ var require_dumper = __commonJS({
       }
       return false;
     }
-    function isWhitespace2(c2) {
-      return c2 === CHAR_SPACE2 || c2 === CHAR_TAB2;
+    function isWhitespace(c2) {
+      return c2 === CHAR_SPACE || c2 === CHAR_TAB;
     }
-    function isPrintable2(c2) {
+    function isPrintable(c2) {
       return (
         (32 <= c2 && c2 <= 126) ||
         (161 <= c2 && c2 <= 55295 && c2 !== 8232 && c2 !== 8233) ||
@@ -3023,63 +3040,63 @@ var require_dumper = __commonJS({
     }
     function isNsChar(c2) {
       return (
-        isPrintable2(c2) &&
-        !isWhitespace2(c2) &&
+        isPrintable(c2) &&
+        !isWhitespace(c2) &&
         c2 !== 65279 &&
-        c2 !== CHAR_CARRIAGE_RETURN2 &&
-        c2 !== CHAR_LINE_FEED2
+        c2 !== CHAR_CARRIAGE_RETURN &&
+        c2 !== CHAR_LINE_FEED
       );
     }
-    function isPlainSafe2(c2, prev) {
+    function isPlainSafe(c2, prev) {
       return (
-        isPrintable2(c2) &&
+        isPrintable(c2) &&
         c2 !== 65279 &&
-        c2 !== CHAR_COMMA2 &&
-        c2 !== CHAR_LEFT_SQUARE_BRACKET2 &&
-        c2 !== CHAR_RIGHT_SQUARE_BRACKET2 &&
-        c2 !== CHAR_LEFT_CURLY_BRACKET2 &&
-        c2 !== CHAR_RIGHT_CURLY_BRACKET2 &&
-        c2 !== CHAR_COLON2 &&
-        (c2 !== CHAR_SHARP2 || (prev && isNsChar(prev)))
+        c2 !== CHAR_COMMA &&
+        c2 !== CHAR_LEFT_SQUARE_BRACKET &&
+        c2 !== CHAR_RIGHT_SQUARE_BRACKET &&
+        c2 !== CHAR_LEFT_CURLY_BRACKET &&
+        c2 !== CHAR_RIGHT_CURLY_BRACKET &&
+        c2 !== CHAR_COLON &&
+        (c2 !== CHAR_SHARP || (prev && isNsChar(prev)))
       );
     }
-    function isPlainSafeFirst2(c2) {
+    function isPlainSafeFirst(c2) {
       return (
-        isPrintable2(c2) &&
+        isPrintable(c2) &&
         c2 !== 65279 &&
-        !isWhitespace2(c2) &&
-        c2 !== CHAR_MINUS2 &&
-        c2 !== CHAR_QUESTION2 &&
-        c2 !== CHAR_COLON2 &&
-        c2 !== CHAR_COMMA2 &&
-        c2 !== CHAR_LEFT_SQUARE_BRACKET2 &&
-        c2 !== CHAR_RIGHT_SQUARE_BRACKET2 &&
-        c2 !== CHAR_LEFT_CURLY_BRACKET2 &&
-        c2 !== CHAR_RIGHT_CURLY_BRACKET2 &&
-        c2 !== CHAR_SHARP2 &&
-        c2 !== CHAR_AMPERSAND2 &&
-        c2 !== CHAR_ASTERISK2 &&
-        c2 !== CHAR_EXCLAMATION2 &&
-        c2 !== CHAR_VERTICAL_LINE2 &&
-        c2 !== CHAR_EQUALS2 &&
-        c2 !== CHAR_GREATER_THAN2 &&
-        c2 !== CHAR_SINGLE_QUOTE2 &&
-        c2 !== CHAR_DOUBLE_QUOTE2 &&
-        c2 !== CHAR_PERCENT2 &&
-        c2 !== CHAR_COMMERCIAL_AT2 &&
-        c2 !== CHAR_GRAVE_ACCENT2
+        !isWhitespace(c2) &&
+        c2 !== CHAR_MINUS &&
+        c2 !== CHAR_QUESTION &&
+        c2 !== CHAR_COLON &&
+        c2 !== CHAR_COMMA &&
+        c2 !== CHAR_LEFT_SQUARE_BRACKET &&
+        c2 !== CHAR_RIGHT_SQUARE_BRACKET &&
+        c2 !== CHAR_LEFT_CURLY_BRACKET &&
+        c2 !== CHAR_RIGHT_CURLY_BRACKET &&
+        c2 !== CHAR_SHARP &&
+        c2 !== CHAR_AMPERSAND &&
+        c2 !== CHAR_ASTERISK &&
+        c2 !== CHAR_EXCLAMATION &&
+        c2 !== CHAR_VERTICAL_LINE &&
+        c2 !== CHAR_EQUALS &&
+        c2 !== CHAR_GREATER_THAN &&
+        c2 !== CHAR_SINGLE_QUOTE &&
+        c2 !== CHAR_DOUBLE_QUOTE &&
+        c2 !== CHAR_PERCENT &&
+        c2 !== CHAR_COMMERCIAL_AT &&
+        c2 !== CHAR_GRAVE_ACCENT
       );
     }
-    function needIndentIndicator2(string) {
+    function needIndentIndicator(string) {
       var leadingSpaceRe = /^\n* /;
       return leadingSpaceRe.test(string);
     }
-    var STYLE_PLAIN2 = 1;
-    var STYLE_SINGLE2 = 2;
-    var STYLE_LITERAL2 = 3;
-    var STYLE_FOLDED2 = 4;
-    var STYLE_DOUBLE2 = 5;
-    function chooseScalarStyle2(
+    var STYLE_PLAIN = 1;
+    var STYLE_SINGLE = 2;
+    var STYLE_LITERAL = 3;
+    var STYLE_FOLDED = 4;
+    var STYLE_DOUBLE = 5;
+    function chooseScalarStyle(
       string,
       singleLineOnly,
       indentPerLevel,
@@ -3093,21 +3110,21 @@ var require_dumper = __commonJS({
       var shouldTrackWidth = lineWidth !== -1;
       var previousLineBreak = -1;
       var plain =
-        isPlainSafeFirst2(string.charCodeAt(0)) &&
-        !isWhitespace2(string.charCodeAt(string.length - 1));
+        isPlainSafeFirst(string.charCodeAt(0)) &&
+        !isWhitespace(string.charCodeAt(string.length - 1));
       if (singleLineOnly) {
         for (i2 = 0; i2 < string.length; i2++) {
           char = string.charCodeAt(i2);
-          if (!isPrintable2(char)) {
-            return STYLE_DOUBLE2;
+          if (!isPrintable(char)) {
+            return STYLE_DOUBLE;
           }
           prev_char = i2 > 0 ? string.charCodeAt(i2 - 1) : null;
-          plain = plain && isPlainSafe2(char, prev_char);
+          plain = plain && isPlainSafe(char, prev_char);
         }
       } else {
         for (i2 = 0; i2 < string.length; i2++) {
           char = string.charCodeAt(i2);
-          if (char === CHAR_LINE_FEED2) {
+          if (char === CHAR_LINE_FEED) {
             hasLineBreak = true;
             if (shouldTrackWidth) {
               hasFoldableLine =
@@ -3115,11 +3132,11 @@ var require_dumper = __commonJS({
                 (i2 - previousLineBreak - 1 > lineWidth && string[previousLineBreak + 1] !== " ");
               previousLineBreak = i2;
             }
-          } else if (!isPrintable2(char)) {
-            return STYLE_DOUBLE2;
+          } else if (!isPrintable(char)) {
+            return STYLE_DOUBLE;
           }
           prev_char = i2 > 0 ? string.charCodeAt(i2 - 1) : null;
-          plain = plain && isPlainSafe2(char, prev_char);
+          plain = plain && isPlainSafe(char, prev_char);
         }
         hasFoldableLine =
           hasFoldableLine ||
@@ -3128,19 +3145,19 @@ var require_dumper = __commonJS({
             string[previousLineBreak + 1] !== " ");
       }
       if (!hasLineBreak && !hasFoldableLine) {
-        return plain && !testAmbiguousType(string) ? STYLE_PLAIN2 : STYLE_SINGLE2;
+        return plain && !testAmbiguousType(string) ? STYLE_PLAIN : STYLE_SINGLE;
       }
-      if (indentPerLevel > 9 && needIndentIndicator2(string)) {
-        return STYLE_DOUBLE2;
+      if (indentPerLevel > 9 && needIndentIndicator(string)) {
+        return STYLE_DOUBLE;
       }
-      return hasFoldableLine ? STYLE_FOLDED2 : STYLE_LITERAL2;
+      return hasFoldableLine ? STYLE_FOLDED : STYLE_LITERAL;
     }
-    function writeScalar2(state, string, level, iskey) {
+    function writeScalar(state, string, level, iskey) {
       state.dump = (function () {
         if (string.length === 0) {
           return "''";
         }
-        if (!state.noCompatMode && DEPRECATED_BOOLEANS_SYNTAX2.indexOf(string) !== -1) {
+        if (!state.noCompatMode && DEPRECATED_BOOLEANS_SYNTAX.indexOf(string) !== -1) {
           return "'" + string + "'";
         }
         var indent = state.indent * Math.max(1, level);
@@ -3150,51 +3167,49 @@ var require_dumper = __commonJS({
             : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
         var singleLineOnly = iskey || (state.flowLevel > -1 && level >= state.flowLevel);
         function testAmbiguity(string2) {
-          return testImplicitResolving2(state, string2);
+          return testImplicitResolving(state, string2);
         }
-        switch (
-          chooseScalarStyle2(string, singleLineOnly, state.indent, lineWidth, testAmbiguity)
-        ) {
-          case STYLE_PLAIN2:
+        switch (chooseScalarStyle(string, singleLineOnly, state.indent, lineWidth, testAmbiguity)) {
+          case STYLE_PLAIN:
             return string;
-          case STYLE_SINGLE2:
+          case STYLE_SINGLE:
             return "'" + string.replace(/'/g, "''") + "'";
-          case STYLE_LITERAL2:
+          case STYLE_LITERAL:
             return (
               "|" +
-              blockHeader2(string, state.indent) +
-              dropEndingNewline2(indentString2(string, indent))
+              blockHeader(string, state.indent) +
+              dropEndingNewline(indentString(string, indent))
             );
-          case STYLE_FOLDED2:
+          case STYLE_FOLDED:
             return (
               ">" +
-              blockHeader2(string, state.indent) +
-              dropEndingNewline2(indentString2(foldString2(string, lineWidth), indent))
+              blockHeader(string, state.indent) +
+              dropEndingNewline(indentString(foldString(string, lineWidth), indent))
             );
-          case STYLE_DOUBLE2:
-            return '"' + escapeString2(string) + '"';
+          case STYLE_DOUBLE:
+            return '"' + escapeString(string) + '"';
           default:
             throw new YAMLException2("impossible error: invalid scalar style");
         }
       })();
     }
-    function blockHeader2(string, indentPerLevel) {
-      var indentIndicator = needIndentIndicator2(string) ? String(indentPerLevel) : "";
+    function blockHeader(string, indentPerLevel) {
+      var indentIndicator = needIndentIndicator(string) ? String(indentPerLevel) : "";
       var clip = string[string.length - 1] === "\n";
       var keep = clip && (string[string.length - 2] === "\n" || string === "\n");
       var chomp = keep ? "+" : clip ? "" : "-";
       return indentIndicator + chomp + "\n";
     }
-    function dropEndingNewline2(string) {
+    function dropEndingNewline(string) {
       return string[string.length - 1] === "\n" ? string.slice(0, -1) : string;
     }
-    function foldString2(string, width) {
+    function foldString(string, width) {
       var lineRe = /(\n+)([^\n]*)/g;
       var result = (function () {
         var nextLF = string.indexOf("\n");
         nextLF = nextLF !== -1 ? nextLF : string.length;
         lineRe.lastIndex = nextLF;
-        return foldLine2(string.slice(0, nextLF), width);
+        return foldLine(string.slice(0, nextLF), width);
       })();
       var prevMoreIndented = string[0] === "\n" || string[0] === " ";
       var moreIndented;
@@ -3206,12 +3221,12 @@ var require_dumper = __commonJS({
         result +=
           prefix +
           (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") +
-          foldLine2(line, width);
+          foldLine(line, width);
         prevMoreIndented = moreIndented;
       }
       return result;
     }
-    function foldLine2(line, width) {
+    function foldLine(line, width) {
       if (line === "" || line[0] === " ") return line;
       var breakRe = / [^ ]/g;
       var match;
@@ -3237,7 +3252,7 @@ var require_dumper = __commonJS({
       }
       return result.slice(1);
     }
-    function escapeString2(string) {
+    function escapeString(string) {
       var result = "";
       var char, nextChar;
       var escapeSeq;
@@ -3246,23 +3261,23 @@ var require_dumper = __commonJS({
         if (char >= 55296 && char <= 56319) {
           nextChar = string.charCodeAt(i2 + 1);
           if (nextChar >= 56320 && nextChar <= 57343) {
-            result += encodeHex2((char - 55296) * 1024 + nextChar - 56320 + 65536);
+            result += encodeHex((char - 55296) * 1024 + nextChar - 56320 + 65536);
             i2++;
             continue;
           }
         }
-        escapeSeq = ESCAPE_SEQUENCES2[char];
-        result += !escapeSeq && isPrintable2(char) ? string[i2] : escapeSeq || encodeHex2(char);
+        escapeSeq = ESCAPE_SEQUENCES[char];
+        result += !escapeSeq && isPrintable(char) ? string[i2] : escapeSeq || encodeHex(char);
       }
       return result;
     }
-    function writeFlowSequence2(state, level, object) {
+    function writeFlowSequence(state, level, object) {
       var _result = "",
         _tag = state.tag,
         index,
         length;
       for (index = 0, length = object.length; index < length; index += 1) {
-        if (writeNode2(state, level, object[index], false, false)) {
+        if (writeNode(state, level, object[index], false, false)) {
           if (index !== 0) _result += "," + (!state.condenseFlow ? " " : "");
           _result += state.dump;
         }
@@ -3270,17 +3285,17 @@ var require_dumper = __commonJS({
       state.tag = _tag;
       state.dump = "[" + _result + "]";
     }
-    function writeBlockSequence2(state, level, object, compact) {
+    function writeBlockSequence(state, level, object, compact) {
       var _result = "",
         _tag = state.tag,
         index,
         length;
       for (index = 0, length = object.length; index < length; index += 1) {
-        if (writeNode2(state, level + 1, object[index], true, true)) {
+        if (writeNode(state, level + 1, object[index], true, true)) {
           if (!compact || index !== 0) {
-            _result += generateNextLine2(state, level);
+            _result += generateNextLine(state, level);
           }
-          if (state.dump && CHAR_LINE_FEED2 === state.dump.charCodeAt(0)) {
+          if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
             _result += "-";
           } else {
             _result += "- ";
@@ -3291,7 +3306,7 @@ var require_dumper = __commonJS({
       state.tag = _tag;
       state.dump = _result || "[]";
     }
-    function writeFlowMapping2(state, level, object) {
+    function writeFlowMapping(state, level, object) {
       var _result = "",
         _tag = state.tag,
         objectKeyList = Object.keys(object),
@@ -3306,13 +3321,13 @@ var require_dumper = __commonJS({
         if (state.condenseFlow) pairBuffer += '"';
         objectKey = objectKeyList[index];
         objectValue = object[objectKey];
-        if (!writeNode2(state, level, objectKey, false, false)) {
+        if (!writeNode(state, level, objectKey, false, false)) {
           continue;
         }
         if (state.dump.length > 1024) pairBuffer += "? ";
         pairBuffer +=
           state.dump + (state.condenseFlow ? '"' : "") + ":" + (state.condenseFlow ? "" : " ");
-        if (!writeNode2(state, level, objectValue, false, false)) {
+        if (!writeNode(state, level, objectValue, false, false)) {
           continue;
         }
         pairBuffer += state.dump;
@@ -3321,7 +3336,7 @@ var require_dumper = __commonJS({
       state.tag = _tag;
       state.dump = "{" + _result + "}";
     }
-    function writeBlockMapping2(state, level, object, compact) {
+    function writeBlockMapping(state, level, object, compact) {
       var _result = "",
         _tag = state.tag,
         objectKeyList = Object.keys(object),
@@ -3341,17 +3356,17 @@ var require_dumper = __commonJS({
       for (index = 0, length = objectKeyList.length; index < length; index += 1) {
         pairBuffer = "";
         if (!compact || index !== 0) {
-          pairBuffer += generateNextLine2(state, level);
+          pairBuffer += generateNextLine(state, level);
         }
         objectKey = objectKeyList[index];
         objectValue = object[objectKey];
-        if (!writeNode2(state, level + 1, objectKey, true, true, true)) {
+        if (!writeNode(state, level + 1, objectKey, true, true, true)) {
           continue;
         }
         explicitPair =
           (state.tag !== null && state.tag !== "?") || (state.dump && state.dump.length > 1024);
         if (explicitPair) {
-          if (state.dump && CHAR_LINE_FEED2 === state.dump.charCodeAt(0)) {
+          if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
             pairBuffer += "?";
           } else {
             pairBuffer += "? ";
@@ -3359,12 +3374,12 @@ var require_dumper = __commonJS({
         }
         pairBuffer += state.dump;
         if (explicitPair) {
-          pairBuffer += generateNextLine2(state, level);
+          pairBuffer += generateNextLine(state, level);
         }
-        if (!writeNode2(state, level + 1, objectValue, true, explicitPair)) {
+        if (!writeNode(state, level + 1, objectValue, true, explicitPair)) {
           continue;
         }
-        if (state.dump && CHAR_LINE_FEED2 === state.dump.charCodeAt(0)) {
+        if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
           pairBuffer += ":";
         } else {
           pairBuffer += ": ";
@@ -3375,7 +3390,7 @@ var require_dumper = __commonJS({
       state.tag = _tag;
       state.dump = _result || "{}";
     }
-    function detectType2(state, object, explicit) {
+    function detectType(state, object, explicit) {
       var _result, typeList, index, length, type2, style;
       typeList = explicit ? state.explicitTypes : state.implicitTypes;
       for (index = 0, length = typeList.length; index < length; index += 1) {
@@ -3389,9 +3404,9 @@ var require_dumper = __commonJS({
           state.tag = explicit ? type2.tag : "?";
           if (type2.represent) {
             style = state.styleMap[type2.tag] || type2.defaultStyle;
-            if (_toString2.call(type2.represent) === "[object Function]") {
+            if (_toString.call(type2.represent) === "[object Function]") {
               _result = type2.represent(object, style);
-            } else if (_hasOwnProperty2.call(type2.represent, style)) {
+            } else if (_hasOwnProperty.call(type2.represent, style)) {
               _result = type2.represent[style](object, style);
             } else {
               throw new YAMLException2(
@@ -3405,13 +3420,13 @@ var require_dumper = __commonJS({
       }
       return false;
     }
-    function writeNode2(state, level, object, block, compact, iskey) {
+    function writeNode(state, level, object, block, compact, iskey) {
       state.tag = null;
       state.dump = object;
-      if (!detectType2(state, object, false)) {
-        detectType2(state, object, true);
+      if (!detectType(state, object, false)) {
+        detectType(state, object, true);
       }
-      var type2 = _toString2.call(state.dump);
+      var type2 = _toString.call(state.dump);
       if (block) {
         block = state.flowLevel < 0 || state.flowLevel > level;
       }
@@ -3437,12 +3452,12 @@ var require_dumper = __commonJS({
         }
         if (type2 === "[object Object]") {
           if (block && Object.keys(state.dump).length !== 0) {
-            writeBlockMapping2(state, level, state.dump, compact);
+            writeBlockMapping(state, level, state.dump, compact);
             if (duplicate) {
               state.dump = "&ref_" + duplicateIndex + state.dump;
             }
           } else {
-            writeFlowMapping2(state, level, state.dump);
+            writeFlowMapping(state, level, state.dump);
             if (duplicate) {
               state.dump = "&ref_" + duplicateIndex + " " + state.dump;
             }
@@ -3450,19 +3465,19 @@ var require_dumper = __commonJS({
         } else if (type2 === "[object Array]") {
           var arrayLevel = state.noArrayIndent && level > 0 ? level - 1 : level;
           if (block && state.dump.length !== 0) {
-            writeBlockSequence2(state, arrayLevel, state.dump, compact);
+            writeBlockSequence(state, arrayLevel, state.dump, compact);
             if (duplicate) {
               state.dump = "&ref_" + duplicateIndex + state.dump;
             }
           } else {
-            writeFlowSequence2(state, arrayLevel, state.dump);
+            writeFlowSequence(state, arrayLevel, state.dump);
             if (duplicate) {
               state.dump = "&ref_" + duplicateIndex + " " + state.dump;
             }
           }
         } else if (type2 === "[object String]") {
           if (state.tag !== "?") {
-            writeScalar2(state, state.dump, level, iskey);
+            writeScalar(state, state.dump, level, iskey);
           }
         } else {
           if (state.skipInvalid) return false;
@@ -3474,18 +3489,18 @@ var require_dumper = __commonJS({
       }
       return true;
     }
-    function getDuplicateReferences2(object, state) {
+    function getDuplicateReferences(object, state) {
       var objects = [],
         duplicatesIndexes = [],
         index,
         length;
-      inspectNode2(object, objects, duplicatesIndexes);
+      inspectNode(object, objects, duplicatesIndexes);
       for (index = 0, length = duplicatesIndexes.length; index < length; index += 1) {
         state.duplicates.push(objects[duplicatesIndexes[index]]);
       }
       state.usedDuplicates = new Array(length);
     }
-    function inspectNode2(object, objects, duplicatesIndexes) {
+    function inspectNode(object, objects, duplicatesIndexes) {
       var objectKeyList, index, length;
       if (object !== null && typeof object === "object") {
         index = objects.indexOf(object);
@@ -3497,12 +3512,12 @@ var require_dumper = __commonJS({
           objects.push(object);
           if (Array.isArray(object)) {
             for (index = 0, length = object.length; index < length; index += 1) {
-              inspectNode2(object[index], objects, duplicatesIndexes);
+              inspectNode(object[index], objects, duplicatesIndexes);
             }
           } else {
             objectKeyList = Object.keys(object);
             for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-              inspectNode2(object[objectKeyList[index]], objects, duplicatesIndexes);
+              inspectNode(object[objectKeyList[index]], objects, duplicatesIndexes);
             }
           }
         }
@@ -3510,9 +3525,9 @@ var require_dumper = __commonJS({
     }
     function dump2(input, options2) {
       options2 = options2 || {};
-      var state = new State2(options2);
-      if (!state.noRefs) getDuplicateReferences2(input, state);
-      if (writeNode2(state, 0, input, true, true)) return state.dump + "\n";
+      var state = new State(options2);
+      if (!state.noRefs) getDuplicateReferences(input, state);
+      if (writeNode(state, 0, input, true, true)) return state.dump + "\n";
       return "";
     }
     function safeDump2(input, options2) {
@@ -3560,14 +3575,14 @@ var require_js_yaml = __commonJS({
 // node_modules/gray-matter/node_modules/js-yaml/index.js
 var require_js_yaml2 = __commonJS({
   "node_modules/gray-matter/node_modules/js-yaml/index.js"(exports2, module2) {
-    var yaml2 = require_js_yaml();
-    module2.exports = yaml2;
+    var yaml3 = require_js_yaml();
+    module2.exports = yaml3;
   },
 });
 
 // node_modules/gray-matter/lib/engines.js
 var require_engines = __commonJS({
-  "node_modules/gray-matter/lib/engines.js"(exports$1, module) {
+  "node_modules/gray-matter/lib/engines.js"(exports, module) {
     var yaml = require_js_yaml2();
     var engines = module.exports;
     engines.yaml = {
@@ -4057,1065 +4072,921 @@ var require_format = __commonJS({
 // node_modules/toml/lib/parser.js
 var require_parser = __commonJS({
   "node_modules/toml/lib/parser.js"(exports2, module2) {
-    module2.exports = (function () {
-      function peg$subclass(child, parent) {
-        function ctor() {
-          this.constructor = child;
-        }
-        ctor.prototype = parent.prototype;
-        child.prototype = new ctor();
-      }
-      function SyntaxError2(message, expected, found, offset, line, column) {
-        this.message = message;
+    var peg$SyntaxError = class extends SyntaxError {
+      constructor(message, expected, found, location) {
+        super(message);
         this.expected = expected;
         this.found = found;
-        this.offset = offset;
-        this.line = line;
-        this.column = column;
+        this.location = location;
         this.name = "SyntaxError";
       }
-      peg$subclass(SyntaxError2, Error);
-      function parse2(input) {
-        var options2 = arguments.length > 1 ? arguments[1] : {},
-          peg$FAILED = {},
-          peg$startRuleFunctions = { start: peg$parsestart },
-          peg$startRuleFunction = peg$parsestart,
-          peg$c1 = function () {
-            return nodes;
-          },
-          peg$c2 = peg$FAILED,
-          peg$c3 = "#",
-          peg$c4 = { type: "literal", value: "#", description: '"#"' },
-          peg$c5 = void 0,
-          peg$c6 = { type: "any", description: "any character" },
-          peg$c7 = "[",
-          peg$c8 = { type: "literal", value: "[", description: '"["' },
-          peg$c9 = "]",
-          peg$c10 = { type: "literal", value: "]", description: '"]"' },
-          peg$c11 = function (name) {
-            addNode(node("ObjectPath", name, line, column));
-          },
-          peg$c12 = function (name) {
-            addNode(node("ArrayPath", name, line, column));
-          },
-          peg$c13 = function (parts, name) {
-            return parts.concat(name);
-          },
-          peg$c14 = function (name) {
-            return [name];
-          },
-          peg$c15 = function (name) {
-            return name;
-          },
-          peg$c16 = ".",
-          peg$c17 = { type: "literal", value: ".", description: '"."' },
-          peg$c18 = "=",
-          peg$c19 = { type: "literal", value: "=", description: '"="' },
-          peg$c20 = function (key, value2) {
-            addNode(node("Assign", value2, line, column, key));
-          },
-          peg$c21 = function (chars) {
-            return chars.join("");
-          },
-          peg$c22 = function (node2) {
-            return node2.value;
-          },
-          peg$c23 = '"""',
-          peg$c24 = { type: "literal", value: '"""', description: '"\\"\\"\\""' },
-          peg$c25 = null,
-          peg$c26 = function (chars) {
-            return node("String", chars.join(""), line, column);
-          },
-          peg$c27 = '"',
-          peg$c28 = { type: "literal", value: '"', description: '"\\""' },
-          peg$c29 = "'''",
-          peg$c30 = { type: "literal", value: "'''", description: `"'''"` },
-          peg$c31 = "'",
-          peg$c32 = { type: "literal", value: "'", description: `"'"` },
-          peg$c33 = function (char) {
-            return char;
-          },
-          peg$c34 = function (char) {
-            return char;
-          },
-          peg$c35 = "\\",
-          peg$c36 = { type: "literal", value: "\\", description: '"\\\\"' },
-          peg$c37 = function () {
-            return "";
-          },
-          peg$c38 = "e",
-          peg$c39 = { type: "literal", value: "e", description: '"e"' },
-          peg$c40 = "E",
-          peg$c41 = { type: "literal", value: "E", description: '"E"' },
-          peg$c42 = function (left, right) {
-            return node("Float", parseFloat(left + "e" + right), line, column);
-          },
-          peg$c43 = function (text2) {
-            return node("Float", parseFloat(text2), line, column);
-          },
-          peg$c44 = "+",
-          peg$c45 = { type: "literal", value: "+", description: '"+"' },
-          peg$c46 = function (digits) {
-            return digits.join("");
-          },
-          peg$c47 = "-",
-          peg$c48 = { type: "literal", value: "-", description: '"-"' },
-          peg$c49 = function (digits) {
-            return "-" + digits.join("");
-          },
-          peg$c50 = function (text2) {
-            return node("Integer", parseInt(text2, 10), line, column);
-          },
-          peg$c51 = "true",
-          peg$c52 = { type: "literal", value: "true", description: '"true"' },
-          peg$c53 = function () {
-            return node("Boolean", true, line, column);
-          },
-          peg$c54 = "false",
-          peg$c55 = { type: "literal", value: "false", description: '"false"' },
-          peg$c56 = function () {
-            return node("Boolean", false, line, column);
-          },
-          peg$c57 = function () {
-            return node("Array", [], line, column);
-          },
-          peg$c58 = function (value2) {
-            return node("Array", value2 ? [value2] : [], line, column);
-          },
-          peg$c59 = function (values) {
-            return node("Array", values, line, column);
-          },
-          peg$c60 = function (values, value2) {
-            return node("Array", values.concat(value2), line, column);
-          },
-          peg$c61 = function (value2) {
-            return value2;
-          },
-          peg$c62 = ",",
-          peg$c63 = { type: "literal", value: ",", description: '","' },
-          peg$c64 = "{",
-          peg$c65 = { type: "literal", value: "{", description: '"{"' },
-          peg$c66 = "}",
-          peg$c67 = { type: "literal", value: "}", description: '"}"' },
-          peg$c68 = function (values) {
-            return node("InlineTable", values, line, column);
-          },
-          peg$c69 = function (key, value2) {
-            return node("InlineTableValue", value2, line, column, key);
-          },
-          peg$c70 = function (digits) {
-            return "." + digits;
-          },
-          peg$c71 = function (date) {
-            return date.join("");
-          },
-          peg$c72 = ":",
-          peg$c73 = { type: "literal", value: ":", description: '":"' },
-          peg$c74 = function (time) {
-            return time.join("");
-          },
-          peg$c75 = "T",
-          peg$c76 = { type: "literal", value: "T", description: '"T"' },
-          peg$c77 = "Z",
-          peg$c78 = { type: "literal", value: "Z", description: '"Z"' },
-          peg$c79 = function (date, time) {
-            return node("Date", /* @__PURE__ */ new Date(date + "T" + time + "Z"), line, column);
-          },
-          peg$c80 = function (date, time) {
-            return node("Date", /* @__PURE__ */ new Date(date + "T" + time), line, column);
-          },
-          peg$c81 = /^[ \t]/,
-          peg$c82 = { type: "class", value: "[ \\t]", description: "[ \\t]" },
-          peg$c83 = "\n",
-          peg$c84 = { type: "literal", value: "\n", description: '"\\n"' },
-          peg$c85 = "\r",
-          peg$c86 = { type: "literal", value: "\r", description: '"\\r"' },
-          peg$c87 = /^[0-9a-f]/i,
-          peg$c88 = { type: "class", value: "[0-9a-f]i", description: "[0-9a-f]i" },
-          peg$c89 = /^[0-9]/,
-          peg$c90 = { type: "class", value: "[0-9]", description: "[0-9]" },
-          peg$c91 = "_",
-          peg$c92 = { type: "literal", value: "_", description: '"_"' },
-          peg$c93 = function () {
-            return "";
-          },
-          peg$c94 = /^[A-Za-z0-9_\-]/,
-          peg$c95 = { type: "class", value: "[A-Za-z0-9_\\-]", description: "[A-Za-z0-9_\\-]" },
-          peg$c96 = function (d2) {
-            return d2.join("");
-          },
-          peg$c97 = '\\"',
-          peg$c98 = { type: "literal", value: '\\"', description: '"\\\\\\""' },
-          peg$c99 = function () {
-            return '"';
-          },
-          peg$c100 = "\\\\",
-          peg$c101 = { type: "literal", value: "\\\\", description: '"\\\\\\\\"' },
-          peg$c102 = function () {
-            return "\\";
-          },
-          peg$c103 = "\\b",
-          peg$c104 = { type: "literal", value: "\\b", description: '"\\\\b"' },
-          peg$c105 = function () {
-            return "\b";
-          },
-          peg$c106 = "\\t",
-          peg$c107 = { type: "literal", value: "\\t", description: '"\\\\t"' },
-          peg$c108 = function () {
-            return "	";
-          },
-          peg$c109 = "\\n",
-          peg$c110 = { type: "literal", value: "\\n", description: '"\\\\n"' },
-          peg$c111 = function () {
-            return "\n";
-          },
-          peg$c112 = "\\f",
-          peg$c113 = { type: "literal", value: "\\f", description: '"\\\\f"' },
-          peg$c114 = function () {
-            return "\f";
-          },
-          peg$c115 = "\\r",
-          peg$c116 = { type: "literal", value: "\\r", description: '"\\\\r"' },
-          peg$c117 = function () {
-            return "\r";
-          },
-          peg$c118 = "\\U",
-          peg$c119 = { type: "literal", value: "\\U", description: '"\\\\U"' },
-          peg$c120 = function (digits) {
-            return convertCodePoint(digits.join(""));
-          },
-          peg$c121 = "\\u",
-          peg$c122 = { type: "literal", value: "\\u", description: '"\\\\u"' },
-          peg$currPos = 0,
-          peg$reportedPos = 0,
-          peg$cachedPos = 0,
-          peg$cachedPosDetails = { line: 1, column: 1, seenCR: false },
-          peg$maxFailPos = 0,
-          peg$maxFailExpected = [],
-          peg$silentFails = 0,
-          peg$cache = {},
-          peg$result;
-        if ("startRule" in options2) {
-          if (!(options2.startRule in peg$startRuleFunctions)) {
-            throw new Error(`Can't start parsing from rule "` + options2.startRule + '".');
+      format(sources) {
+        let str3 = "Error: " + this.message;
+        if (this.location) {
+          let src = null;
+          const st = sources.find((s3) => s3.source === this.location.source);
+          if (st) {
+            src = st.text.split(/\r\n|\n|\r/g);
           }
-          peg$startRuleFunction = peg$startRuleFunctions[options2.startRule];
+          const s2 = this.location.start;
+          const offset_s =
+            this.location.source && typeof this.location.source.offset === "function"
+              ? this.location.source.offset(s2)
+              : s2;
+          const loc = this.location.source + ":" + offset_s.line + ":" + offset_s.column;
+          if (src) {
+            const e2 = this.location.end;
+            const filler = "".padEnd(offset_s.line.toString().length, " ");
+            const line = src[s2.line - 1];
+            const last = s2.line === e2.line ? e2.column : line.length + 1;
+            const hatLen = last - s2.column || 1;
+            str3 +=
+              "\n --> " +
+              loc +
+              "\n" +
+              filler +
+              " |\n" +
+              offset_s.line +
+              " | " +
+              line +
+              "\n" +
+              filler +
+              " | " +
+              "".padEnd(s2.column - 1, " ") +
+              "".padEnd(hatLen, "^");
+          } else {
+            str3 += "\n at " + loc;
+          }
         }
-        function line() {
-          return peg$computePosDetails(peg$reportedPos).line;
+        return str3;
+      }
+      static buildMessage(expected, found) {
+        function hex(ch) {
+          return ch.codePointAt(0).toString(16).toUpperCase();
         }
-        function column() {
-          return peg$computePosDetails(peg$reportedPos).column;
+        const nonPrintable = Object.prototype.hasOwnProperty.call(RegExp.prototype, "unicode")
+          ? new RegExp("[\\p{C}\\p{Mn}\\p{Mc}]", "gu")
+          : null;
+        function unicodeEscape(s2) {
+          if (nonPrintable) {
+            return s2.replace(nonPrintable, (ch) => "\\u{" + hex(ch) + "}");
+          }
+          return s2;
         }
-        function peg$computePosDetails(pos) {
-          function advance(details, startPos, endPos) {
-            var p2, ch;
-            for (p2 = startPos; p2 < endPos; p2++) {
-              ch = input.charAt(p2);
-              if (ch === "\n") {
-                if (!details.seenCR) {
-                  details.line++;
-                }
-                details.column = 1;
-                details.seenCR = false;
-              } else if (ch === "\r" || ch === "\u2028" || ch === "\u2029") {
-                details.line++;
-                details.column = 1;
-                details.seenCR = true;
-              } else {
-                details.column++;
-                details.seenCR = false;
-              }
-            }
-          }
-          if (peg$cachedPos !== pos) {
-            if (peg$cachedPos > pos) {
-              peg$cachedPos = 0;
-              peg$cachedPosDetails = { line: 1, column: 1, seenCR: false };
-            }
-            advance(peg$cachedPosDetails, peg$cachedPos, pos);
-            peg$cachedPos = pos;
-          }
-          return peg$cachedPosDetails;
-        }
-        function peg$fail(expected2) {
-          if (peg$currPos < peg$maxFailPos) {
-            return;
-          }
-          if (peg$currPos > peg$maxFailPos) {
-            peg$maxFailPos = peg$currPos;
-            peg$maxFailExpected = [];
-          }
-          peg$maxFailExpected.push(expected2);
-        }
-        function peg$buildException(message, expected2, pos) {
-          function cleanupExpected(expected3) {
-            var i2 = 1;
-            expected3.sort(function (a2, b2) {
-              if (a2.description < b2.description) {
-                return -1;
-              } else if (a2.description > b2.description) {
-                return 1;
-              } else {
-                return 0;
-              }
-            });
-            while (i2 < expected3.length) {
-              if (expected3[i2 - 1] === expected3[i2]) {
-                expected3.splice(i2, 1);
-              } else {
-                i2++;
-              }
-            }
-          }
-          function buildMessage(expected3, found2) {
-            function stringEscape(s2) {
-              function hex(ch) {
-                return ch.charCodeAt(0).toString(16).toUpperCase();
-              }
-              return s2
-                .replace(/\\/g, "\\\\")
-                .replace(/"/g, '\\"')
-                .replace(/\x08/g, "\\b")
-                .replace(/\t/g, "\\t")
-                .replace(/\n/g, "\\n")
-                .replace(/\f/g, "\\f")
-                .replace(/\r/g, "\\r")
-                .replace(/[\x00-\x07\x0B\x0E\x0F]/g, function (ch) {
-                  return "\\x0" + hex(ch);
-                })
-                .replace(/[\x10-\x1F\x80-\xFF]/g, function (ch) {
-                  return "\\x" + hex(ch);
-                })
-                .replace(/[\u0180-\u0FFF]/g, function (ch) {
-                  return "\\u0" + hex(ch);
-                })
-                .replace(/[\u1080-\uFFFF]/g, function (ch) {
-                  return "\\u" + hex(ch);
-                });
-            }
-            var expectedDescs = new Array(expected3.length),
-              expectedDesc,
-              foundDesc,
-              i2;
-            for (i2 = 0; i2 < expected3.length; i2++) {
-              expectedDescs[i2] = expected3[i2].description;
-            }
-            expectedDesc =
-              expected3.length > 1
-                ? expectedDescs.slice(0, -1).join(", ") +
-                  " or " +
-                  expectedDescs[expected3.length - 1]
-                : expectedDescs[0];
-            foundDesc = found2 ? '"' + stringEscape(found2) + '"' : "end of input";
-            return "Expected " + expectedDesc + " but " + foundDesc + " found.";
-          }
-          var posDetails = peg$computePosDetails(pos),
-            found = pos < input.length ? input.charAt(pos) : null;
-          if (expected2 !== null) {
-            cleanupExpected(expected2);
-          }
-          return new SyntaxError2(
-            buildMessage(expected2, found),
-            expected2,
-            found,
-            pos,
-            posDetails.line,
-            posDetails.column,
+        function literalEscape(s2) {
+          return unicodeEscape(
+            s2
+              .replace(/\\/g, "\\\\")
+              .replace(/"/g, '\\"')
+              .replace(/\0/g, "\\0")
+              .replace(/\t/g, "\\t")
+              .replace(/\n/g, "\\n")
+              .replace(/\r/g, "\\r")
+              .replace(/[\x00-\x0F]/g, (ch) => "\\x0" + hex(ch))
+              .replace(/[\x10-\x1F\x7F-\x9F]/g, (ch) => "\\x" + hex(ch)),
           );
         }
-        function peg$parsestart() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 0,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parseline();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parseline();
-          }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c1();
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        function classEscape(s2) {
+          return unicodeEscape(
+            s2
+              .replace(/\\/g, "\\\\")
+              .replace(/\]/g, "\\]")
+              .replace(/\^/g, "\\^")
+              .replace(/-/g, "\\-")
+              .replace(/\0/g, "\\0")
+              .replace(/\t/g, "\\t")
+              .replace(/\n/g, "\\n")
+              .replace(/\r/g, "\\r")
+              .replace(/[\x00-\x0F]/g, (ch) => "\\x0" + hex(ch))
+              .replace(/[\x10-\x1F\x7F-\x9F]/g, (ch) => "\\x" + hex(ch)),
+          );
         }
-        function peg$parseline() {
-          var s0, s1, s2, s3, s4, s5, s6;
-          var key = peg$currPos * 49 + 1,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        const DESCRIBE_EXPECTATION_FNS = {
+          literal(expectation) {
+            return '"' + literalEscape(expectation.text) + '"';
+          },
+          class(expectation) {
+            const escapedParts = expectation.parts.map((part) =>
+              Array.isArray(part)
+                ? classEscape(part[0]) + "-" + classEscape(part[1])
+                : classEscape(part),
+            );
+            return (
+              "[" +
+              (expectation.inverted ? "^" : "") +
+              escapedParts.join("") +
+              "]" +
+              (expectation.unicode ? "u" : "")
+            );
+          },
+          any() {
+            return "any character";
+          },
+          end() {
+            return "end of input";
+          },
+          other(expectation) {
+            return expectation.description;
+          },
+        };
+        function describeExpectation(expectation) {
+          return DESCRIBE_EXPECTATION_FNS[expectation.type](expectation);
+        }
+        function describeExpected(expected2) {
+          const descriptions = expected2.map(describeExpectation);
+          descriptions.sort();
+          if (descriptions.length > 0) {
+            let j2 = 1;
+            for (let i2 = 1; i2 < descriptions.length; i2++) {
+              if (descriptions[i2 - 1] !== descriptions[i2]) {
+                descriptions[j2] = descriptions[i2];
+                j2++;
+              }
+            }
+            descriptions.length = j2;
           }
+          switch (descriptions.length) {
+            case 1:
+              return descriptions[0];
+            case 2:
+              return descriptions[0] + " or " + descriptions[1];
+            default:
+              return (
+                descriptions.slice(0, -1).join(", ") +
+                ", or " +
+                descriptions[descriptions.length - 1]
+              );
+          }
+        }
+        function describeFound(found2) {
+          return found2 ? '"' + literalEscape(found2) + '"' : "end of input";
+        }
+        return (
+          "Expected " + describeExpected(expected) + " but " + describeFound(found) + " found."
+        );
+      }
+    };
+    function peg$parse(input, options2) {
+      options2 = options2 !== void 0 ? options2 : {};
+      const peg$FAILED = {};
+      const peg$source = options2.grammarSource;
+      const peg$startRuleFunctions = {
+        start: peg$parsestart,
+      };
+      let peg$startRuleFunction = peg$parsestart;
+      const peg$c0 = "#";
+      const peg$c1 = "[";
+      const peg$c2 = "]";
+      const peg$c3 = ".";
+      const peg$c4 = "=";
+      const peg$c5 = "inf";
+      const peg$c6 = "nan";
+      const peg$c7 = '"""';
+      const peg$c8 = '"';
+      const peg$c9 = "'''";
+      const peg$c10 = "'";
+      const peg$c11 = "\\";
+      const peg$c12 = "\r\n";
+      const peg$c13 = '""';
+      const peg$c14 = "''";
+      const peg$c15 = "0";
+      const peg$c16 = "0x";
+      const peg$c17 = "0o";
+      const peg$c18 = "0b";
+      const peg$c19 = "true";
+      const peg$c20 = "false";
+      const peg$c21 = ",";
+      const peg$c22 = "{";
+      const peg$c23 = "}";
+      const peg$c24 = "-";
+      const peg$c25 = ":";
+      const peg$c26 = "z";
+      const peg$c27 = "t";
+      const peg$c28 = " ";
+      const peg$c29 = "\n";
+      const peg$c30 = "\r";
+      const peg$c31 = "\uFEFF";
+      const peg$c32 = "\\U";
+      const peg$c33 = "\\u";
+      const peg$c34 = "\\x";
+      const peg$r0 = /^[\t -~\x80-\uFFFF]/;
+      const peg$r1 = /^[+\-]/;
+      const peg$r2 = /^[^"\\\0-\b\v-\x1F\x7F\r]/;
+      const peg$r3 = /^[^'\0-\b\v-\x1F\x7F\r]/;
+      const peg$r4 = /^[^"\\\0-\b\n-\x1F\x7F]/;
+      const peg$r5 = /^[^'\0-\b\n-\x1F\x7F]/;
+      const peg$r6 = /^[eE]/;
+      const peg$r7 = /^[0-9_]/;
+      const peg$r8 = /^[1-9]/;
+      const peg$r9 = /^[_]/;
+      const peg$r10 = /^[0-9]/;
+      const peg$r11 = /^[0-9a-fA-F]/;
+      const peg$r12 = /^[0-7]/;
+      const peg$r13 = /^[01]/;
+      const peg$r14 = /^[ \t]/;
+      const peg$r15 = /^[A-Za-z0-9_\-]/;
+      const peg$r16 = /^["\\btnfre]/;
+      const peg$e0 = peg$literalExpectation("#", false);
+      const peg$e1 = peg$classExpectation(
+        ["	", [" ", "~"], ["\x80", "\uFFFF"]],
+        false,
+        false,
+        false,
+      );
+      const peg$e2 = peg$literalExpectation("[", false);
+      const peg$e3 = peg$literalExpectation("]", false);
+      const peg$e4 = peg$literalExpectation(".", false);
+      const peg$e5 = peg$literalExpectation("=", false);
+      const peg$e6 = peg$classExpectation(["+", "-"], false, false, false);
+      const peg$e7 = peg$literalExpectation("inf", false);
+      const peg$e8 = peg$literalExpectation("nan", false);
+      const peg$e9 = peg$literalExpectation('"""', false);
+      const peg$e10 = peg$literalExpectation('"', false);
+      const peg$e11 = peg$literalExpectation("'''", false);
+      const peg$e12 = peg$literalExpectation("'", false);
+      const peg$e13 = peg$literalExpectation("\\", false);
+      const peg$e14 = peg$anyExpectation();
+      const peg$e15 = peg$literalExpectation("\r\n", false);
+      const peg$e16 = peg$classExpectation(
+        ['"', "\\", ["\0", "\b"], ["\v", ""], "\x7F", "\r"],
+        true,
+        false,
+        false,
+      );
+      const peg$e17 = peg$literalExpectation('""', false);
+      const peg$e18 = peg$classExpectation(
+        ["'", ["\0", "\b"], ["\v", ""], "\x7F", "\r"],
+        true,
+        false,
+        false,
+      );
+      const peg$e19 = peg$literalExpectation("''", false);
+      const peg$e20 = peg$classExpectation(
+        ['"', "\\", ["\0", "\b"], ["\n", ""], "\x7F"],
+        true,
+        false,
+        false,
+      );
+      const peg$e21 = peg$classExpectation(
+        ["'", ["\0", "\b"], ["\n", ""], "\x7F"],
+        true,
+        false,
+        false,
+      );
+      const peg$e22 = peg$classExpectation(["e", "E"], false, false, false);
+      const peg$e23 = peg$literalExpectation("0", false);
+      const peg$e24 = peg$literalExpectation("0x", false);
+      const peg$e25 = peg$literalExpectation("0o", false);
+      const peg$e26 = peg$literalExpectation("0b", false);
+      const peg$e27 = peg$classExpectation([["0", "9"], "_"], false, false, false);
+      const peg$e28 = peg$classExpectation([["1", "9"]], false, false, false);
+      const peg$e29 = peg$classExpectation(["_"], false, false, false);
+      const peg$e30 = peg$classExpectation([["0", "9"]], false, false, false);
+      const peg$e31 = peg$classExpectation(
+        [
+          ["0", "9"],
+          ["a", "f"],
+          ["A", "F"],
+        ],
+        false,
+        false,
+        false,
+      );
+      const peg$e32 = peg$classExpectation([["0", "7"]], false, false, false);
+      const peg$e33 = peg$classExpectation(["0", "1"], false, false, false);
+      const peg$e34 = peg$literalExpectation("true", false);
+      const peg$e35 = peg$literalExpectation("false", false);
+      const peg$e36 = peg$literalExpectation(",", false);
+      const peg$e37 = peg$literalExpectation("{", false);
+      const peg$e38 = peg$literalExpectation("}", false);
+      const peg$e39 = peg$literalExpectation("-", false);
+      const peg$e40 = peg$literalExpectation(":", false);
+      const peg$e41 = peg$literalExpectation("Z", true);
+      const peg$e42 = peg$literalExpectation("T", true);
+      const peg$e43 = peg$literalExpectation(" ", false);
+      const peg$e44 = peg$classExpectation([" ", "	"], false, false, false);
+      const peg$e45 = peg$literalExpectation("\n", false);
+      const peg$e46 = peg$literalExpectation("\r", false);
+      const peg$e47 = peg$literalExpectation("\uFEFF", false);
+      const peg$e48 = peg$classExpectation(
+        [["A", "Z"], ["a", "z"], ["0", "9"], "_", "-"],
+        false,
+        false,
+        false,
+      );
+      const peg$e49 = peg$classExpectation(
+        ['"', "\\", "b", "t", "n", "f", "r", "e"],
+        false,
+        false,
+        false,
+      );
+      const peg$e50 = peg$literalExpectation("\\U", false);
+      const peg$e51 = peg$literalExpectation("\\u", false);
+      const peg$e52 = peg$literalExpectation("\\x", false);
+      function peg$f0() {
+        return nodes;
+      }
+      function peg$f1(name) {
+        addNode(node("ArrayPath", name, offset()));
+      }
+      function peg$f2(name) {
+        addNode(node("ObjectPath", name, offset()));
+      }
+      function peg$f3(parts, name) {
+        return parts.concat(name);
+      }
+      function peg$f4(name) {
+        return [name];
+      }
+      function peg$f5(name) {
+        return name;
+      }
+      function peg$f6(name) {
+        return name;
+      }
+      function peg$f7(keys, value2) {
+        addNode(node("Assign", value2, offset(), keys));
+      }
+      function peg$f8(node2) {
+        return node2.value;
+      }
+      function peg$f9(node2) {
+        return node2.value;
+      }
+      function peg$f10() {
+        if (++depth > MAX_DEPTH) {
+          depth--;
+          genError("Maximum nesting depth of " + MAX_DEPTH + " exceeded.", offset());
+        }
+        return true;
+      }
+      function peg$f11(v2) {
+        return v2;
+      }
+      function peg$f12(v2) {
+        depth--;
+        return v2;
+      }
+      function peg$f13() {
+        depth--;
+        return false;
+      }
+      function peg$f14(sign) {
+        return node("Float", sign === "-" ? -Infinity : Infinity, offset());
+      }
+      function peg$f15(sign) {
+        return node("Float", NaN, offset());
+      }
+      function peg$f16(body) {
+        return node("String", body, offset());
+      }
+      function peg$f17(chars) {
+        return node("String", chars.join(""), offset());
+      }
+      function peg$f18(body) {
+        return node("String", body, offset());
+      }
+      function peg$f19(chars) {
+        return node("String", chars.join(""), offset());
+      }
+      function peg$f20(head, parts, tail) {
+        var result = head.join("");
+        for (var i2 = 0; i2 < parts.length; i2++) {
+          result += parts[i2][0] + parts[i2][1].join("");
+        }
+        return result + (tail || "");
+      }
+      function peg$f21() {
+        genError("Invalid escape sequence", offset());
+      }
+      function peg$f22() {
+        return "\n";
+      }
+      function peg$f23() {
+        return "";
+      }
+      function peg$f24() {
+        return '""';
+      }
+      function peg$f25() {
+        return '"';
+      }
+      function peg$f26() {
+        return '""';
+      }
+      function peg$f27() {
+        return '"';
+      }
+      function peg$f28(head, parts, tail) {
+        var result = head.join("");
+        for (var i2 = 0; i2 < parts.length; i2++) {
+          result += parts[i2][0] + parts[i2][1].join("");
+        }
+        return result + (tail || "");
+      }
+      function peg$f29() {
+        return "\n";
+      }
+      function peg$f30() {
+        return "''";
+      }
+      function peg$f31() {
+        return "'";
+      }
+      function peg$f32() {
+        return "''";
+      }
+      function peg$f33() {
+        return "'";
+      }
+      function peg$f34() {
+        genError("Invalid escape sequence", offset());
+      }
+      function peg$f35(left, right) {
+        return node("Float", parseFloat(stripUnderscores(left + "e" + right)), offset());
+      }
+      function peg$f36(text2) {
+        return node("Float", parseFloat(stripUnderscores(text2)), offset());
+      }
+      function peg$f37(sign, digits, frac) {
+        return (sign === "-" ? "-" : "") + digits + "." + frac;
+      }
+      function peg$f38(sign, digits, frac) {
+        return (sign === "-" ? "-" : "") + digits + "." + frac;
+      }
+      function peg$f39(sign, digits) {
+        return (sign === "-" ? "-" : "") + digits;
+      }
+      function peg$f40() {
+        return "0";
+      }
+      function peg$f41(sign, digits) {
+        return (sign || "") + digits;
+      }
+      function peg$f42(digits) {
+        return integerNode(16, digits, offset());
+      }
+      function peg$f43(digits) {
+        return integerNode(8, digits, offset());
+      }
+      function peg$f44(digits) {
+        return integerNode(2, digits, offset());
+      }
+      function peg$f45(text2) {
+        return integerNode(10, text2, offset());
+      }
+      function peg$f46(sign) {
+        return (sign || "") + "0";
+      }
+      function peg$f47(sign, digits) {
+        return (sign || "") + digits;
+      }
+      function peg$f48() {
+        return node("Boolean", true, offset());
+      }
+      function peg$f49() {
+        return node("Boolean", false, offset());
+      }
+      function peg$f50() {
+        return node("Array", [], offset());
+      }
+      function peg$f51(head, v2) {
+        return v2;
+      }
+      function peg$f52(head, tail) {
+        tail.unshift(head);
+        return node("Array", tail, offset());
+      }
+      function peg$f53() {
+        return node("InlineTable", [], offset());
+      }
+      function peg$f54(head, e2) {
+        return e2;
+      }
+      function peg$f55(head, tail) {
+        tail.unshift(head);
+        return node("InlineTable", tail, offset());
+      }
+      function peg$f56(keys, value2) {
+        return node("InlineTableValue", value2, offset(), keys);
+      }
+      function peg$f57(parts, last) {
+        return parts.concat(last);
+      }
+      function peg$f58(k2) {
+        return [k2];
+      }
+      function peg$f59(k2) {
+        return k2;
+      }
+      function peg$f60(t2, frac) {
+        return frac ? t2 + frac : t2;
+      }
+      function peg$f61(t2) {
+        return t2 + ":00";
+      }
+      function peg$f62() {
+        return "Z";
+      }
+      function peg$f63(d2, t2, o2) {
+        var off = offset();
+        validateDate(d2, off);
+        validateTime(t2, off);
+        validateOffset(o2, off);
+        var n2 = node("Date", /* @__PURE__ */ new Date(d2 + "T" + t2 + o2), off);
+        n2.raw = d2 + "T" + t2;
+        n2.tz = o2;
+        return n2;
+      }
+      function peg$f64(d2, t2) {
+        var off = offset();
+        validateDate(d2, off);
+        validateTime(t2, off);
+        return node("LocalDateTime", d2 + "T" + t2, off);
+      }
+      function peg$f65(d2) {
+        var off = offset();
+        validateDate(d2, off);
+        return node("LocalDate", d2, off);
+      }
+      function peg$f66(t2) {
+        var off = offset();
+        validateTime(t2, off);
+        return node("LocalTime", t2, off);
+      }
+      function peg$f67(ch) {
+        return ch === "n"
+          ? "\n"
+          : ch === "t"
+            ? "	"
+            : ch === "r"
+              ? "\r"
+              : ch === "\\"
+                ? "\\"
+                : ch === '"'
+                  ? '"'
+                  : ch === "b"
+                    ? "\b"
+                    : ch === "f"
+                      ? "\f"
+                      : "\x1B";
+      }
+      function peg$f68(digits) {
+        return convertCodePoint(digits);
+      }
+      function peg$f69(digits) {
+        return convertCodePoint(digits);
+      }
+      function peg$f70(digits) {
+        return convertCodePoint(digits);
+      }
+      let peg$currPos = options2.peg$currPos | 0;
+      let peg$savedPos = peg$currPos;
+      const peg$posDetailsCache = [{ line: 1, column: 1 }];
+      let peg$maxFailPos = peg$currPos;
+      let peg$maxFailExpected = options2.peg$maxFailExpected || [];
+      let peg$silentFails = options2.peg$silentFails | 0;
+      let peg$result;
+      if (options2.startRule) {
+        if (!(options2.startRule in peg$startRuleFunctions)) {
+          throw new Error(`Can't start parsing from rule "` + options2.startRule + '".');
+        }
+        peg$startRuleFunction = peg$startRuleFunctions[options2.startRule];
+      }
+      function offset() {
+        return peg$savedPos;
+      }
+      function peg$getUnicode(pos = peg$currPos) {
+        const cp = input.codePointAt(pos);
+        if (cp === void 0) {
+          return "";
+        }
+        return String.fromCodePoint(cp);
+      }
+      function peg$literalExpectation(text2, ignoreCase) {
+        return { type: "literal", text: text2, ignoreCase };
+      }
+      function peg$classExpectation(parts, inverted, ignoreCase, unicode) {
+        return { type: "class", parts, inverted, ignoreCase, unicode };
+      }
+      function peg$anyExpectation() {
+        return { type: "any" };
+      }
+      function peg$endExpectation() {
+        return { type: "end" };
+      }
+      function peg$computePosDetails(pos) {
+        let details = peg$posDetailsCache[pos];
+        let p2;
+        if (details) {
+          return details;
+        } else {
+          if (pos >= peg$posDetailsCache.length) {
+            p2 = peg$posDetailsCache.length - 1;
+          } else {
+            p2 = pos;
+            while (!peg$posDetailsCache[--p2]) {}
+          }
+          details = peg$posDetailsCache[p2];
+          details = {
+            line: details.line,
+            column: details.column,
+          };
+          while (p2 < pos) {
+            if (input.charCodeAt(p2) === 10) {
+              details.line++;
+              details.column = 1;
+            } else {
+              details.column++;
+            }
+            p2++;
+          }
+          peg$posDetailsCache[pos] = details;
+          return details;
+        }
+      }
+      function peg$computeLocation(startPos, endPos, offset2) {
+        const startPosDetails = peg$computePosDetails(startPos);
+        const endPosDetails = peg$computePosDetails(endPos);
+        const res = {
+          source: peg$source,
+          start: {
+            offset: startPos,
+            line: startPosDetails.line,
+            column: startPosDetails.column,
+          },
+          end: {
+            offset: endPos,
+            line: endPosDetails.line,
+            column: endPosDetails.column,
+          },
+        };
+        return res;
+      }
+      function peg$fail(expected2) {
+        if (peg$currPos < peg$maxFailPos) {
+          return;
+        }
+        if (peg$currPos > peg$maxFailPos) {
+          peg$maxFailPos = peg$currPos;
+          peg$maxFailExpected = [];
+        }
+        peg$maxFailExpected.push(expected2);
+      }
+      function peg$buildStructuredError(expected2, found, location2) {
+        return new peg$SyntaxError(
+          peg$SyntaxError.buildMessage(expected2, found),
+          expected2,
+          found,
+          location2,
+        );
+      }
+      function peg$parsestart() {
+        let s0, s2, s3;
+        s0 = peg$currPos;
+        peg$parseBOM();
+        s2 = [];
+        s3 = peg$parseline();
+        while (s3 !== peg$FAILED) {
+          s2.push(s3);
+          s3 = peg$parseline();
+        }
+        peg$savedPos = s0;
+        s0 = peg$f0();
+        return s0;
+      }
+      function peg$parseline() {
+        let s0, s1, s2, s3, s4, s5, s6;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parseS();
+        while (s2 !== peg$FAILED) {
+          s1.push(s2);
+          s2 = peg$parseS();
+        }
+        s2 = peg$parseexpression();
+        if (s2 !== peg$FAILED) {
+          s3 = [];
+          s4 = peg$parseS();
+          while (s4 !== peg$FAILED) {
+            s3.push(s4);
+            s4 = peg$parseS();
+          }
+          s4 = peg$parsecomment();
+          if (s4 === peg$FAILED) {
+            s4 = null;
+          }
+          s5 = [];
+          s6 = peg$parseNL();
+          if (s6 !== peg$FAILED) {
+            while (s6 !== peg$FAILED) {
+              s5.push(s6);
+              s6 = peg$parseNL();
+            }
+          } else {
+            s5 = peg$FAILED;
+          }
+          if (s5 === peg$FAILED) {
+            s5 = peg$parseEOF();
+          }
+          if (s5 !== peg$FAILED) {
+            s1 = [s1, s2, s3, s4, s5];
+            s0 = s1;
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
           s1 = [];
           s2 = peg$parseS();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parseS();
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parseexpression();
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parseS();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseS();
-              }
-              if (s3 !== peg$FAILED) {
-                s4 = [];
-                s5 = peg$parsecomment();
-                while (s5 !== peg$FAILED) {
-                  s4.push(s5);
-                  s5 = peg$parsecomment();
-                }
-                if (s4 !== peg$FAILED) {
-                  s5 = [];
-                  s6 = peg$parseNL();
-                  if (s6 !== peg$FAILED) {
-                    while (s6 !== peg$FAILED) {
-                      s5.push(s6);
-                      s6 = peg$parseNL();
-                    }
-                  } else {
-                    s5 = peg$c2;
-                  }
-                  if (s5 === peg$FAILED) {
-                    s5 = peg$parseEOF();
-                  }
-                  if (s5 !== peg$FAILED) {
-                    s1 = [s1, s2, s3, s4, s5];
-                    s0 = s1;
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
+          if (s2 !== peg$FAILED) {
+            while (s2 !== peg$FAILED) {
+              s1.push(s2);
+              s2 = peg$parseS();
             }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = [];
-            s2 = peg$parseS();
-            if (s2 !== peg$FAILED) {
-              while (s2 !== peg$FAILED) {
-                s1.push(s2);
-                s2 = peg$parseS();
-              }
-            } else {
-              s1 = peg$c2;
-            }
-            if (s1 !== peg$FAILED) {
-              s2 = [];
-              s3 = peg$parseNL();
-              if (s3 !== peg$FAILED) {
-                while (s3 !== peg$FAILED) {
-                  s2.push(s3);
-                  s3 = peg$parseNL();
-                }
-              } else {
-                s2 = peg$c2;
-              }
-              if (s2 === peg$FAILED) {
-                s2 = peg$parseEOF();
-              }
-              if (s2 !== peg$FAILED) {
-                s1 = [s1, s2];
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-            if (s0 === peg$FAILED) {
-              s0 = peg$parseNL();
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseexpression() {
-          var s0;
-          var key = peg$currPos * 49 + 2,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$parsecomment();
-          if (s0 === peg$FAILED) {
-            s0 = peg$parsepath();
-            if (s0 === peg$FAILED) {
-              s0 = peg$parsetablearray();
-              if (s0 === peg$FAILED) {
-                s0 = peg$parseassignment();
-              }
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsecomment() {
-          var s0, s1, s2, s3, s4, s5;
-          var key = peg$currPos * 49 + 3,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 35) {
-            s1 = peg$c3;
-            peg$currPos++;
           } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c4);
-            }
           }
           if (s1 !== peg$FAILED) {
             s2 = [];
-            s3 = peg$currPos;
-            s4 = peg$currPos;
-            peg$silentFails++;
-            s5 = peg$parseNL();
-            if (s5 === peg$FAILED) {
-              s5 = peg$parseEOF();
-            }
-            peg$silentFails--;
-            if (s5 === peg$FAILED) {
-              s4 = peg$c5;
-            } else {
-              peg$currPos = s4;
-              s4 = peg$c2;
-            }
-            if (s4 !== peg$FAILED) {
-              if (input.length > peg$currPos) {
-                s5 = input.charAt(peg$currPos);
-                peg$currPos++;
-              } else {
-                s5 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c6);
-                }
-              }
-              if (s5 !== peg$FAILED) {
-                s4 = [s4, s5];
-                s3 = s4;
-              } else {
-                peg$currPos = s3;
-                s3 = peg$c2;
+            s3 = peg$parseNL();
+            if (s3 !== peg$FAILED) {
+              while (s3 !== peg$FAILED) {
+                s2.push(s3);
+                s3 = peg$parseNL();
               }
             } else {
-              peg$currPos = s3;
-              s3 = peg$c2;
+              s2 = peg$FAILED;
             }
-            while (s3 !== peg$FAILED) {
-              s2.push(s3);
-              s3 = peg$currPos;
-              s4 = peg$currPos;
-              peg$silentFails++;
-              s5 = peg$parseNL();
-              if (s5 === peg$FAILED) {
-                s5 = peg$parseEOF();
-              }
-              peg$silentFails--;
-              if (s5 === peg$FAILED) {
-                s4 = peg$c5;
-              } else {
-                peg$currPos = s4;
-                s4 = peg$c2;
-              }
-              if (s4 !== peg$FAILED) {
-                if (input.length > peg$currPos) {
-                  s5 = input.charAt(peg$currPos);
-                  peg$currPos++;
-                } else {
-                  s5 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c6);
-                  }
-                }
-                if (s5 !== peg$FAILED) {
-                  s4 = [s4, s5];
-                  s3 = s4;
-                } else {
-                  peg$currPos = s3;
-                  s3 = peg$c2;
-                }
-              } else {
-                peg$currPos = s3;
-                s3 = peg$c2;
-              }
+            if (s2 === peg$FAILED) {
+              s2 = peg$parseEOF();
             }
             if (s2 !== peg$FAILED) {
               s1 = [s1, s2];
               s0 = s1;
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+          if (s0 === peg$FAILED) {
+            s0 = peg$parseNL();
+          }
         }
-        function peg$parsepath() {
-          var s0, s1, s2, s3, s4, s5;
-          var key = peg$currPos * 49 + 4,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parseexpression() {
+        let s0;
+        s0 = peg$parsecomment();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parsetable_or_array_path();
+          if (s0 === peg$FAILED) {
+            s0 = peg$parseassignment();
           }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 91) {
-            s1 = peg$c7;
+        }
+        return s0;
+      }
+      function peg$parsecomment() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 35) {
+          s1 = peg$c0;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e0);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = input.charAt(peg$currPos);
+          if (peg$r0.test(s3)) {
             peg$currPos++;
           } else {
-            s1 = peg$FAILED;
+            s3 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c8);
+              peg$fail(peg$e1);
             }
           }
-          if (s1 !== peg$FAILED) {
-            s2 = [];
-            s3 = peg$parseS();
-            while (s3 !== peg$FAILED) {
-              s2.push(s3);
-              s3 = peg$parseS();
-            }
-            if (s2 !== peg$FAILED) {
-              s3 = peg$parsetable_key();
-              if (s3 !== peg$FAILED) {
-                s4 = [];
-                s5 = peg$parseS();
-                while (s5 !== peg$FAILED) {
-                  s4.push(s5);
-                  s5 = peg$parseS();
-                }
-                if (s4 !== peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 93) {
-                    s5 = peg$c9;
-                    peg$currPos++;
-                  } else {
-                    s5 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c10);
-                    }
-                  }
-                  if (s5 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c11(s3);
-                    s0 = s1;
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsetablearray() {
-          var s0, s1, s2, s3, s4, s5, s6, s7;
-          var key = peg$currPos * 49 + 5,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 91) {
-            s1 = peg$c7;
-            peg$currPos++;
-          } else {
-            s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c8);
-            }
-          }
-          if (s1 !== peg$FAILED) {
-            if (input.charCodeAt(peg$currPos) === 91) {
-              s2 = peg$c7;
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = input.charAt(peg$currPos);
+            if (peg$r0.test(s3)) {
               peg$currPos++;
             } else {
-              s2 = peg$FAILED;
+              s3 = peg$FAILED;
               if (peg$silentFails === 0) {
-                peg$fail(peg$c8);
+                peg$fail(peg$e1);
               }
             }
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parseS();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseS();
-              }
-              if (s3 !== peg$FAILED) {
-                s4 = peg$parsetable_key();
-                if (s4 !== peg$FAILED) {
-                  s5 = [];
-                  s6 = peg$parseS();
-                  while (s6 !== peg$FAILED) {
-                    s5.push(s6);
-                    s6 = peg$parseS();
-                  }
-                  if (s5 !== peg$FAILED) {
-                    if (input.charCodeAt(peg$currPos) === 93) {
-                      s6 = peg$c9;
-                      peg$currPos++;
-                    } else {
-                      s6 = peg$FAILED;
-                      if (peg$silentFails === 0) {
-                        peg$fail(peg$c10);
-                      }
-                    }
-                    if (s6 !== peg$FAILED) {
-                      if (input.charCodeAt(peg$currPos) === 93) {
-                        s7 = peg$c9;
-                        peg$currPos++;
-                      } else {
-                        s7 = peg$FAILED;
-                        if (peg$silentFails === 0) {
-                          peg$fail(peg$c10);
-                        }
-                      }
-                      if (s7 !== peg$FAILED) {
-                        peg$reportedPos = s0;
-                        s1 = peg$c12(s4);
-                        s0 = s1;
-                      } else {
-                        peg$currPos = s0;
-                        s0 = peg$c2;
-                      }
-                    } else {
-                      peg$currPos = s0;
-                      s0 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+          s1 = [s1, s2];
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parsetable_key() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 6,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsetable_or_array_path() {
+        let s0, s1, s2, s3, s4, s5, s6, s7;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 91) {
+          s1 = peg$c1;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e2);
           }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parsedot_ended_table_key_part();
+        }
+        if (s1 !== peg$FAILED) {
+          if (input.charCodeAt(peg$currPos) === 91) {
+            s2 = peg$c1;
+            peg$currPos++;
+          } else {
+            s2 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e2);
+            }
+          }
           if (s2 !== peg$FAILED) {
-            while (s2 !== peg$FAILED) {
-              s1.push(s2);
-              s2 = peg$parsedot_ended_table_key_part();
-            }
-          } else {
-            s1 = peg$c2;
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parsetable_key_part();
-            if (s2 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c13(s1, s2);
-              s0 = s1;
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = peg$parsetable_key_part();
-            if (s1 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c14(s1);
-            }
-            s0 = s1;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsetable_key_part() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 7,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parseS();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parseS();
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parsekey();
-            if (s2 !== peg$FAILED) {
-              s3 = [];
+            s3 = [];
+            s4 = peg$parseS();
+            while (s4 !== peg$FAILED) {
+              s3.push(s4);
               s4 = peg$parseS();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseS();
+            }
+            s4 = peg$parsetable_key();
+            if (s4 !== peg$FAILED) {
+              s5 = [];
+              s6 = peg$parseS();
+              while (s6 !== peg$FAILED) {
+                s5.push(s6);
+                s6 = peg$parseS();
               }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c15(s2);
-                s0 = s1;
+              if (input.charCodeAt(peg$currPos) === 93) {
+                s6 = peg$c2;
+                peg$currPos++;
               } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = [];
-            s2 = peg$parseS();
-            while (s2 !== peg$FAILED) {
-              s1.push(s2);
-              s2 = peg$parseS();
-            }
-            if (s1 !== peg$FAILED) {
-              s2 = peg$parsequoted_key();
-              if (s2 !== peg$FAILED) {
-                s3 = [];
-                s4 = peg$parseS();
-                while (s4 !== peg$FAILED) {
-                  s3.push(s4);
-                  s4 = peg$parseS();
+                s6 = peg$FAILED;
+                if (peg$silentFails === 0) {
+                  peg$fail(peg$e3);
                 }
-                if (s3 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c15(s2);
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
               }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsedot_ended_table_key_part() {
-          var s0, s1, s2, s3, s4, s5, s6;
-          var key = peg$currPos * 49 + 8,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parseS();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parseS();
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parsekey();
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parseS();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseS();
-              }
-              if (s3 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 46) {
-                  s4 = peg$c16;
+              if (s6 !== peg$FAILED) {
+                if (input.charCodeAt(peg$currPos) === 93) {
+                  s7 = peg$c2;
                   peg$currPos++;
                 } else {
-                  s4 = peg$FAILED;
+                  s7 = peg$FAILED;
                   if (peg$silentFails === 0) {
-                    peg$fail(peg$c17);
+                    peg$fail(peg$e3);
                   }
                 }
-                if (s4 !== peg$FAILED) {
-                  s5 = [];
-                  s6 = peg$parseS();
-                  while (s6 !== peg$FAILED) {
-                    s5.push(s6);
-                    s6 = peg$parseS();
-                  }
-                  if (s5 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c15(s2);
-                    s0 = s1;
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
+                if (s7 !== peg$FAILED) {
+                  peg$savedPos = s0;
+                  s0 = peg$f1(s4);
                 } else {
                   peg$currPos = s0;
-                  s0 = peg$c2;
+                  s0 = peg$FAILED;
                 }
               } else {
                 peg$currPos = s0;
-                s0 = peg$c2;
+                s0 = peg$FAILED;
               }
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = [];
-            s2 = peg$parseS();
-            while (s2 !== peg$FAILED) {
-              s1.push(s2);
-              s2 = peg$parseS();
-            }
-            if (s1 !== peg$FAILED) {
-              s2 = peg$parsequoted_key();
-              if (s2 !== peg$FAILED) {
-                s3 = [];
-                s4 = peg$parseS();
-                while (s4 !== peg$FAILED) {
-                  s3.push(s4);
-                  s4 = peg$parseS();
-                }
-                if (s3 !== peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 46) {
-                    s4 = peg$c16;
-                    peg$currPos++;
-                  } else {
-                    s4 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c17);
-                    }
-                  }
-                  if (s4 !== peg$FAILED) {
-                    s5 = [];
-                    s6 = peg$parseS();
-                    while (s6 !== peg$FAILED) {
-                      s5.push(s6);
-                      s6 = peg$parseS();
-                    }
-                    if (s5 !== peg$FAILED) {
-                      peg$reportedPos = s0;
-                      s1 = peg$c15(s2);
-                      s0 = s1;
-                    } else {
-                      peg$currPos = s0;
-                      s0 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parseassignment() {
-          var s0, s1, s2, s3, s4, s5;
-          var key = peg$currPos * 49 + 9,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          s1 = peg$parsekey();
+          if (input.charCodeAt(peg$currPos) === 91) {
+            s1 = peg$c1;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e2);
+            }
+          }
           if (s1 !== peg$FAILED) {
             s2 = [];
             s3 = peg$parseS();
@@ -5123,473 +4994,616 @@ var require_parser = __commonJS({
               s2.push(s3);
               s3 = peg$parseS();
             }
-            if (s2 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 61) {
-                s3 = peg$c18;
+            s3 = peg$parsetable_key();
+            if (s3 !== peg$FAILED) {
+              s4 = [];
+              s5 = peg$parseS();
+              while (s5 !== peg$FAILED) {
+                s4.push(s5);
+                s5 = peg$parseS();
+              }
+              if (input.charCodeAt(peg$currPos) === 93) {
+                s5 = peg$c2;
                 peg$currPos++;
               } else {
-                s3 = peg$FAILED;
+                s5 = peg$FAILED;
                 if (peg$silentFails === 0) {
-                  peg$fail(peg$c19);
+                  peg$fail(peg$e3);
                 }
               }
-              if (s3 !== peg$FAILED) {
-                s4 = [];
-                s5 = peg$parseS();
-                while (s5 !== peg$FAILED) {
-                  s4.push(s5);
-                  s5 = peg$parseS();
-                }
-                if (s4 !== peg$FAILED) {
-                  s5 = peg$parsevalue();
-                  if (s5 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c20(s1, s5);
-                    s0 = s1;
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
+              if (s5 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s0 = peg$f2(s3);
               } else {
                 peg$currPos = s0;
-                s0 = peg$c2;
+                s0 = peg$FAILED;
               }
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = peg$parsequoted_key();
-            if (s1 !== peg$FAILED) {
-              s2 = [];
-              s3 = peg$parseS();
-              while (s3 !== peg$FAILED) {
-                s2.push(s3);
-                s3 = peg$parseS();
-              }
-              if (s2 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 61) {
-                  s3 = peg$c18;
-                  peg$currPos++;
-                } else {
-                  s3 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c19);
-                  }
-                }
-                if (s3 !== peg$FAILED) {
-                  s4 = [];
-                  s5 = peg$parseS();
-                  while (s5 !== peg$FAILED) {
-                    s4.push(s5);
-                    s5 = peg$parseS();
-                  }
-                  if (s4 !== peg$FAILED) {
-                    s5 = peg$parsevalue();
-                    if (s5 !== peg$FAILED) {
-                      peg$reportedPos = s0;
-                      s1 = peg$c20(s1, s5);
-                      s0 = s1;
-                    } else {
-                      peg$currPos = s0;
-                      s0 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
+        }
+        return s0;
+      }
+      function peg$parsetable_key() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parsedot_ended_table_key_part();
+        if (s2 !== peg$FAILED) {
+          while (s2 !== peg$FAILED) {
+            s1.push(s2);
+            s2 = peg$parsedot_ended_table_key_part();
+          }
+        } else {
+          s1 = peg$FAILED;
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$parsetable_key_part();
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f3(s1, s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = peg$parsetable_key_part();
+          if (s1 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s1 = peg$f4(s1);
+          }
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsetable_key_part() {
+        let s0, s1, s2, s3, s4;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parseS();
+        while (s2 !== peg$FAILED) {
+          s1.push(s2);
+          s2 = peg$parseS();
+        }
+        s2 = peg$parsesimple_key();
+        if (s2 !== peg$FAILED) {
+          s3 = [];
+          s4 = peg$parseS();
+          while (s4 !== peg$FAILED) {
+            s3.push(s4);
+            s4 = peg$parseS();
+          }
+          peg$savedPos = s0;
+          s0 = peg$f5(s2);
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsedot_ended_table_key_part() {
+        let s0, s1, s2, s3, s4;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parseS();
+        while (s2 !== peg$FAILED) {
+          s1.push(s2);
+          s2 = peg$parseS();
+        }
+        s2 = peg$parsesimple_key();
+        if (s2 !== peg$FAILED) {
+          s3 = [];
+          s4 = peg$parseS();
+          while (s4 !== peg$FAILED) {
+            s3.push(s4);
+            s4 = peg$parseS();
+          }
+          if (input.charCodeAt(peg$currPos) === 46) {
+            s4 = peg$c3;
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e4);
+            }
+          }
+          if (s4 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f6(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseassignment() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = peg$parseinline_key();
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parseS();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parseS();
+          }
+          if (input.charCodeAt(peg$currPos) === 61) {
+            s3 = peg$c4;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e5);
+            }
+          }
+          if (s3 !== peg$FAILED) {
+            s4 = [];
+            s5 = peg$parseS();
+            while (s5 !== peg$FAILED) {
+              s4.push(s5);
+              s5 = peg$parseS();
+            }
+            s5 = peg$parsevalue();
+            if (s5 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f7(s1, s5);
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsekey() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 10,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parseASCII_BASIC();
-          if (s2 !== peg$FAILED) {
-            while (s2 !== peg$FAILED) {
-              s1.push(s2);
-              s2 = peg$parseASCII_BASIC();
+              s0 = peg$FAILED;
             }
           } else {
-            s1 = peg$c2;
+            peg$currPos = s0;
+            s0 = peg$FAILED;
           }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c21(s1);
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parsequoted_key() {
-          var s0, s1;
-          var key = peg$currPos * 49 + 11,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsekey() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parseASCII_BASIC();
+        if (s2 !== peg$FAILED) {
+          while (s2 !== peg$FAILED) {
+            s1.push(s2);
+            s2 = peg$parseASCII_BASIC();
           }
+        } else {
+          s1 = peg$FAILED;
+        }
+        if (s1 !== peg$FAILED) {
+          s0 = input.substring(s0, peg$currPos);
+        } else {
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsequoted_key() {
+        let s0, s1;
+        s0 = peg$currPos;
+        s1 = peg$parsedouble_quoted_single_line_string();
+        if (s1 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$f8(s1);
+        }
+        s0 = s1;
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          s1 = peg$parsedouble_quoted_single_line_string();
+          s1 = peg$parsesingle_quoted_single_line_string();
           if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c22(s1);
+            peg$savedPos = s0;
+            s1 = peg$f9(s1);
           }
           s0 = s1;
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = peg$parsesingle_quoted_single_line_string();
-            if (s1 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c22(s1);
-            }
-            s0 = s1;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parsevalue() {
-          var s0;
-          var key = peg$currPos * 49 + 12,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsevalue() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        peg$savedPos = peg$currPos;
+        s1 = peg$f10();
+        if (s1) {
+          s1 = void 0;
+        } else {
+          s1 = peg$FAILED;
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$parsevalue_choice();
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f11(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
           }
-          s0 = peg$parsestring();
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsevalue_choice() {
+        let s0, s1;
+        s0 = peg$currPos;
+        s1 = peg$parsevalue_body();
+        if (s1 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$f12(s1);
+        }
+        s0 = s1;
+        if (s0 === peg$FAILED) {
+          peg$savedPos = peg$currPos;
+          s0 = peg$f13();
+          if (s0) {
+            s0 = void 0;
+          } else {
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parsevalue_body() {
+        let s0;
+        s0 = peg$parsestring();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parsenumber_or_date();
+          if (s0 === peg$FAILED) {
+            s0 = peg$parseboolean();
+            if (s0 === peg$FAILED) {
+              s0 = peg$parsearray();
+              if (s0 === peg$FAILED) {
+                s0 = peg$parseinline_table();
+              }
+            }
+          }
+        }
+        return s0;
+      }
+      function peg$parsenumber_or_date() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r1.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e6);
+          }
+        }
+        if (s1 === peg$FAILED) {
+          s1 = null;
+        }
+        if (input.substr(peg$currPos, 3) === peg$c5) {
+          s2 = peg$c5;
+          peg$currPos += 3;
+        } else {
+          s2 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e7);
+          }
+        }
+        if (s2 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s0 = peg$f14(s1);
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = input.charAt(peg$currPos);
+          if (peg$r1.test(s1)) {
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e6);
+            }
+          }
+          if (s1 === peg$FAILED) {
+            s1 = null;
+          }
+          if (input.substr(peg$currPos, 3) === peg$c6) {
+            s2 = peg$c6;
+            peg$currPos += 3;
+          } else {
+            s2 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e8);
+            }
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f15();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
           if (s0 === peg$FAILED) {
             s0 = peg$parsedatetime();
             if (s0 === peg$FAILED) {
               s0 = peg$parsefloat();
               if (s0 === peg$FAILED) {
                 s0 = peg$parseinteger();
-                if (s0 === peg$FAILED) {
-                  s0 = peg$parseboolean();
-                  if (s0 === peg$FAILED) {
-                    s0 = peg$parsearray();
-                    if (s0 === peg$FAILED) {
-                      s0 = peg$parseinline_table();
-                    }
-                  }
-                }
               }
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parsestring() {
-          var s0;
-          var key = peg$currPos * 49 + 13,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$parsedouble_quoted_multiline_string();
+        return s0;
+      }
+      function peg$parsestring() {
+        let s0;
+        s0 = peg$parsedouble_quoted_multiline_string();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parsedouble_quoted_single_line_string();
           if (s0 === peg$FAILED) {
-            s0 = peg$parsedouble_quoted_single_line_string();
+            s0 = peg$parsesingle_quoted_multiline_string();
             if (s0 === peg$FAILED) {
-              s0 = peg$parsesingle_quoted_multiline_string();
-              if (s0 === peg$FAILED) {
-                s0 = peg$parsesingle_quoted_single_line_string();
-              }
+              s0 = peg$parsesingle_quoted_single_line_string();
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parsedouble_quoted_multiline_string() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 14,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsedouble_quoted_multiline_string() {
+        let s0, s1, s3, s4;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 3) === peg$c7) {
+          s1 = peg$c7;
+          peg$currPos += 3;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e9);
           }
-          s0 = peg$currPos;
-          if (input.substr(peg$currPos, 3) === peg$c23) {
-            s1 = peg$c23;
+        }
+        if (s1 !== peg$FAILED) {
+          peg$parseNL();
+          s3 = peg$parsemlb_body();
+          if (input.substr(peg$currPos, 3) === peg$c7) {
+            s4 = peg$c7;
             peg$currPos += 3;
           } else {
-            s1 = peg$FAILED;
+            s4 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c24);
+              peg$fail(peg$e9);
             }
           }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parseNL();
-            if (s2 === peg$FAILED) {
-              s2 = peg$c25;
-            }
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parsemultiline_string_char();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parsemultiline_string_char();
-              }
-              if (s3 !== peg$FAILED) {
-                if (input.substr(peg$currPos, 3) === peg$c23) {
-                  s4 = peg$c23;
-                  peg$currPos += 3;
-                } else {
-                  s4 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c24);
-                  }
-                }
-                if (s4 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c26(s3);
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
+          if (s4 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f16(s3);
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parsedouble_quoted_single_line_string() {
-          var s0, s1, s2, s3;
-          var key = peg$currPos * 49 + 15,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsedouble_quoted_single_line_string() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 34) {
+          s1 = peg$c8;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e10);
           }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 34) {
-            s1 = peg$c27;
-            peg$currPos++;
-          } else {
-            s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c28);
-            }
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = [];
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parsestring_char();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
             s3 = peg$parsestring_char();
-            while (s3 !== peg$FAILED) {
-              s2.push(s3);
-              s3 = peg$parsestring_char();
-            }
-            if (s2 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 34) {
-                s3 = peg$c27;
-                peg$currPos++;
-              } else {
-                s3 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c28);
-                }
-              }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c26(s2);
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsesingle_quoted_multiline_string() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 16,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          if (input.substr(peg$currPos, 3) === peg$c29) {
-            s1 = peg$c29;
-            peg$currPos += 3;
-          } else {
-            s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c30);
-            }
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parseNL();
-            if (s2 === peg$FAILED) {
-              s2 = peg$c25;
-            }
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parsemultiline_literal_char();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parsemultiline_literal_char();
-              }
-              if (s3 !== peg$FAILED) {
-                if (input.substr(peg$currPos, 3) === peg$c29) {
-                  s4 = peg$c29;
-                  peg$currPos += 3;
-                } else {
-                  s4 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c30);
-                  }
-                }
-                if (s4 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c26(s3);
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsesingle_quoted_single_line_string() {
-          var s0, s1, s2, s3;
-          var key = peg$currPos * 49 + 17,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 39) {
-            s1 = peg$c31;
+          if (input.charCodeAt(peg$currPos) === 34) {
+            s3 = peg$c8;
             peg$currPos++;
           } else {
-            s1 = peg$FAILED;
+            s3 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c32);
+              peg$fail(peg$e10);
             }
           }
-          if (s1 !== peg$FAILED) {
-            s2 = [];
-            s3 = peg$parseliteral_char();
-            while (s3 !== peg$FAILED) {
-              s2.push(s3);
-              s3 = peg$parseliteral_char();
-            }
-            if (s2 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 39) {
-                s3 = peg$c31;
-                peg$currPos++;
-              } else {
-                s3 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c32);
-                }
-              }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c26(s2);
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
+          if (s3 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f17(s2);
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parsestring_char() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 18,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsesingle_quoted_multiline_string() {
+        let s0, s1, s3, s4;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 3) === peg$c9) {
+          s1 = peg$c9;
+          peg$currPos += 3;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e11);
           }
-          s0 = peg$parseESCAPED();
+        }
+        if (s1 !== peg$FAILED) {
+          peg$parseNL();
+          s3 = peg$parsemll_body();
+          if (input.substr(peg$currPos, 3) === peg$c9) {
+            s4 = peg$c9;
+            peg$currPos += 3;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e11);
+            }
+          }
+          if (s4 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f18(s3);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsesingle_quoted_single_line_string() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 39) {
+          s1 = peg$c10;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e12);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parseliteral_char();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parseliteral_char();
+          }
+          if (input.charCodeAt(peg$currPos) === 39) {
+            s3 = peg$c10;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e12);
+            }
+          }
+          if (s3 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f19(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsemlb_body() {
+        let s0, s1, s2, s3, s4, s5, s6;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parsemlb_content();
+        while (s2 !== peg$FAILED) {
+          s1.push(s2);
+          s2 = peg$parsemlb_content();
+        }
+        s2 = [];
+        s3 = peg$currPos;
+        s4 = peg$parsemlb_quotes();
+        if (s4 !== peg$FAILED) {
+          s5 = [];
+          s6 = peg$parsemlb_content();
+          if (s6 !== peg$FAILED) {
+            while (s6 !== peg$FAILED) {
+              s5.push(s6);
+              s6 = peg$parsemlb_content();
+            }
+          } else {
+            s5 = peg$FAILED;
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s3;
+          s3 = peg$FAILED;
+        }
+        while (s3 !== peg$FAILED) {
+          s2.push(s3);
+          s3 = peg$currPos;
+          s4 = peg$parsemlb_quotes();
+          if (s4 !== peg$FAILED) {
+            s5 = [];
+            s6 = peg$parsemlb_content();
+            if (s6 !== peg$FAILED) {
+              while (s6 !== peg$FAILED) {
+                s5.push(s6);
+                s6 = peg$parsemlb_content();
+              }
+            } else {
+              s5 = peg$FAILED;
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+        }
+        s3 = peg$parsemlb_trailing();
+        if (s3 === peg$FAILED) {
+          s3 = null;
+        }
+        peg$savedPos = s0;
+        s0 = peg$f20(s1, s2, s3);
+        return s0;
+      }
+      function peg$parsemlb_content() {
+        let s0, s1, s2;
+        s0 = peg$parseESCAPED();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parsemlb_escaped_newline();
           if (s0 === peg$FAILED) {
             s0 = peg$currPos;
-            s1 = peg$currPos;
-            peg$silentFails++;
-            if (input.charCodeAt(peg$currPos) === 34) {
-              s2 = peg$c27;
+            if (input.charCodeAt(peg$currPos) === 92) {
+              s1 = peg$c11;
               peg$currPos++;
             } else {
-              s2 = peg$FAILED;
+              s1 = peg$FAILED;
               if (peg$silentFails === 0) {
-                peg$fail(peg$c28);
+                peg$fail(peg$e13);
               }
-            }
-            peg$silentFails--;
-            if (s2 === peg$FAILED) {
-              s1 = peg$c5;
-            } else {
-              peg$currPos = s1;
-              s1 = peg$c2;
             }
             if (s1 !== peg$FAILED) {
               if (input.length > peg$currPos) {
@@ -5598,207 +5612,593 @@ var require_parser = __commonJS({
               } else {
                 s2 = peg$FAILED;
                 if (peg$silentFails === 0) {
-                  peg$fail(peg$c6);
+                  peg$fail(peg$e14);
                 }
               }
               if (s2 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c33(s2);
-                s0 = s1;
+                peg$savedPos = s0;
+                s0 = peg$f21();
               } else {
                 peg$currPos = s0;
-                s0 = peg$c2;
+                s0 = peg$FAILED;
               }
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseliteral_char() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 19,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = peg$currPos;
-          peg$silentFails++;
-          if (input.charCodeAt(peg$currPos) === 39) {
-            s2 = peg$c31;
-            peg$currPos++;
-          } else {
-            s2 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c32);
-            }
-          }
-          peg$silentFails--;
-          if (s2 === peg$FAILED) {
-            s1 = peg$c5;
-          } else {
-            peg$currPos = s1;
-            s1 = peg$c2;
-          }
-          if (s1 !== peg$FAILED) {
-            if (input.length > peg$currPos) {
-              s2 = input.charAt(peg$currPos);
-              peg$currPos++;
-            } else {
-              s2 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c6);
-              }
-            }
-            if (s2 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c33(s2);
-              s0 = s1;
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsemultiline_string_char() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 20,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$parseESCAPED();
-          if (s0 === peg$FAILED) {
-            s0 = peg$parsemultiline_string_delim();
             if (s0 === peg$FAILED) {
               s0 = peg$currPos;
-              s1 = peg$currPos;
-              peg$silentFails++;
-              if (input.substr(peg$currPos, 3) === peg$c23) {
-                s2 = peg$c23;
-                peg$currPos += 3;
+              if (input.substr(peg$currPos, 2) === peg$c12) {
+                s1 = peg$c12;
+                peg$currPos += 2;
               } else {
-                s2 = peg$FAILED;
+                s1 = peg$FAILED;
                 if (peg$silentFails === 0) {
-                  peg$fail(peg$c24);
+                  peg$fail(peg$e15);
                 }
               }
-              peg$silentFails--;
-              if (s2 === peg$FAILED) {
-                s1 = peg$c5;
-              } else {
-                peg$currPos = s1;
-                s1 = peg$c2;
-              }
               if (s1 !== peg$FAILED) {
-                if (input.length > peg$currPos) {
-                  s2 = input.charAt(peg$currPos);
+                peg$savedPos = s0;
+                s1 = peg$f22();
+              }
+              s0 = s1;
+              if (s0 === peg$FAILED) {
+                s0 = peg$currPos;
+                s1 = [];
+                s2 = input.charAt(peg$currPos);
+                if (peg$r2.test(s2)) {
                   peg$currPos++;
                 } else {
                   s2 = peg$FAILED;
                   if (peg$silentFails === 0) {
-                    peg$fail(peg$c6);
+                    peg$fail(peg$e16);
                   }
                 }
                 if (s2 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c34(s2);
-                  s0 = s1;
+                  while (s2 !== peg$FAILED) {
+                    s1.push(s2);
+                    s2 = input.charAt(peg$currPos);
+                    if (peg$r2.test(s2)) {
+                      peg$currPos++;
+                    } else {
+                      s2 = peg$FAILED;
+                      if (peg$silentFails === 0) {
+                        peg$fail(peg$e16);
+                      }
+                    }
+                  }
                 } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
+                  s1 = peg$FAILED;
                 }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
+                if (s1 !== peg$FAILED) {
+                  s0 = input.substring(s0, peg$currPos);
+                } else {
+                  s0 = s1;
+                }
               }
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parsemultiline_string_delim() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 21,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsemlb_escaped_newline() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 92) {
+          s1 = peg$c11;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e13);
           }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parseS();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parseS();
+          }
+          s3 = peg$parseNL();
+          if (s3 !== peg$FAILED) {
+            s4 = [];
+            s5 = peg$parseNLS();
+            while (s5 !== peg$FAILED) {
+              s4.push(s5);
+              s5 = peg$parseNLS();
+            }
+            peg$savedPos = s0;
+            s0 = peg$f23();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsemlb_quotes() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c13) {
+          s1 = peg$c13;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e17);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$currPos;
+          peg$silentFails++;
+          if (input.charCodeAt(peg$currPos) === 34) {
+            s3 = peg$c8;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e10);
+            }
+          }
+          peg$silentFails--;
+          if (s3 === peg$FAILED) {
+            s2 = void 0;
+          } else {
+            peg$currPos = s2;
+            s2 = peg$FAILED;
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f24();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 92) {
-            s1 = peg$c35;
+          if (input.charCodeAt(peg$currPos) === 34) {
+            s1 = peg$c8;
             peg$currPos++;
           } else {
             s1 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c36);
+              peg$fail(peg$e10);
             }
           }
           if (s1 !== peg$FAILED) {
-            s2 = peg$parseNL();
+            s2 = peg$currPos;
+            peg$silentFails++;
+            if (input.charCodeAt(peg$currPos) === 34) {
+              s3 = peg$c8;
+              peg$currPos++;
+            } else {
+              s3 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e10);
+              }
+            }
+            peg$silentFails--;
+            if (s3 === peg$FAILED) {
+              s2 = void 0;
+            } else {
+              peg$currPos = s2;
+              s2 = peg$FAILED;
+            }
             if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parseNLS();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseNLS();
-              }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c37();
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
+              peg$savedPos = s0;
+              s0 = peg$f25();
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parsemultiline_literal_char() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 22,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsemlb_trailing() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c13) {
+          s1 = peg$c13;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e17);
           }
-          s0 = peg$currPos;
-          s1 = peg$currPos;
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$currPos;
           peg$silentFails++;
-          if (input.substr(peg$currPos, 3) === peg$c29) {
-            s2 = peg$c29;
+          if (input.substr(peg$currPos, 3) === peg$c7) {
+            s3 = peg$c7;
             peg$currPos += 3;
           } else {
-            s2 = peg$FAILED;
+            s3 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c30);
+              peg$fail(peg$e9);
             }
           }
           peg$silentFails--;
-          if (s2 === peg$FAILED) {
-            s1 = peg$c5;
+          if (s3 !== peg$FAILED) {
+            peg$currPos = s2;
+            s2 = void 0;
           } else {
-            peg$currPos = s1;
-            s1 = peg$c2;
+            s2 = peg$FAILED;
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f26();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.charCodeAt(peg$currPos) === 34) {
+            s1 = peg$c8;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e10);
+            }
+          }
+          if (s1 !== peg$FAILED) {
+            s2 = peg$currPos;
+            peg$silentFails++;
+            if (input.substr(peg$currPos, 3) === peg$c7) {
+              s3 = peg$c7;
+              peg$currPos += 3;
+            } else {
+              s3 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e9);
+              }
+            }
+            peg$silentFails--;
+            if (s3 !== peg$FAILED) {
+              peg$currPos = s2;
+              s2 = void 0;
+            } else {
+              s2 = peg$FAILED;
+            }
+            if (s2 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f27();
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parsemll_body() {
+        let s0, s1, s2, s3, s4, s5, s6;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parsemll_content();
+        while (s2 !== peg$FAILED) {
+          s1.push(s2);
+          s2 = peg$parsemll_content();
+        }
+        s2 = [];
+        s3 = peg$currPos;
+        s4 = peg$parsemll_quotes();
+        if (s4 !== peg$FAILED) {
+          s5 = [];
+          s6 = peg$parsemll_content();
+          if (s6 !== peg$FAILED) {
+            while (s6 !== peg$FAILED) {
+              s5.push(s6);
+              s6 = peg$parsemll_content();
+            }
+          } else {
+            s5 = peg$FAILED;
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s3;
+          s3 = peg$FAILED;
+        }
+        while (s3 !== peg$FAILED) {
+          s2.push(s3);
+          s3 = peg$currPos;
+          s4 = peg$parsemll_quotes();
+          if (s4 !== peg$FAILED) {
+            s5 = [];
+            s6 = peg$parsemll_content();
+            if (s6 !== peg$FAILED) {
+              while (s6 !== peg$FAILED) {
+                s5.push(s6);
+                s6 = peg$parsemll_content();
+              }
+            } else {
+              s5 = peg$FAILED;
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+        }
+        s3 = peg$parsemll_trailing();
+        if (s3 === peg$FAILED) {
+          s3 = null;
+        }
+        peg$savedPos = s0;
+        s0 = peg$f28(s1, s2, s3);
+        return s0;
+      }
+      function peg$parsemll_content() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c12) {
+          s1 = peg$c12;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e15);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$f29();
+        }
+        s0 = s1;
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = [];
+          s2 = input.charAt(peg$currPos);
+          if (peg$r3.test(s2)) {
+            peg$currPos++;
+          } else {
+            s2 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e18);
+            }
+          }
+          if (s2 !== peg$FAILED) {
+            while (s2 !== peg$FAILED) {
+              s1.push(s2);
+              s2 = input.charAt(peg$currPos);
+              if (peg$r3.test(s2)) {
+                peg$currPos++;
+              } else {
+                s2 = peg$FAILED;
+                if (peg$silentFails === 0) {
+                  peg$fail(peg$e18);
+                }
+              }
+            }
+          } else {
+            s1 = peg$FAILED;
+          }
+          if (s1 !== peg$FAILED) {
+            s0 = input.substring(s0, peg$currPos);
+          } else {
+            s0 = s1;
+          }
+        }
+        return s0;
+      }
+      function peg$parsemll_quotes() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c14) {
+          s1 = peg$c14;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e19);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$currPos;
+          peg$silentFails++;
+          if (input.charCodeAt(peg$currPos) === 39) {
+            s3 = peg$c10;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e12);
+            }
+          }
+          peg$silentFails--;
+          if (s3 === peg$FAILED) {
+            s2 = void 0;
+          } else {
+            peg$currPos = s2;
+            s2 = peg$FAILED;
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f30();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.charCodeAt(peg$currPos) === 39) {
+            s1 = peg$c10;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e12);
+            }
+          }
+          if (s1 !== peg$FAILED) {
+            s2 = peg$currPos;
+            peg$silentFails++;
+            if (input.charCodeAt(peg$currPos) === 39) {
+              s3 = peg$c10;
+              peg$currPos++;
+            } else {
+              s3 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e12);
+              }
+            }
+            peg$silentFails--;
+            if (s3 === peg$FAILED) {
+              s2 = void 0;
+            } else {
+              peg$currPos = s2;
+              s2 = peg$FAILED;
+            }
+            if (s2 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f31();
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parsemll_trailing() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c14) {
+          s1 = peg$c14;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e19);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$currPos;
+          peg$silentFails++;
+          if (input.substr(peg$currPos, 3) === peg$c9) {
+            s3 = peg$c9;
+            peg$currPos += 3;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e11);
+            }
+          }
+          peg$silentFails--;
+          if (s3 !== peg$FAILED) {
+            peg$currPos = s2;
+            s2 = void 0;
+          } else {
+            s2 = peg$FAILED;
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f32();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.charCodeAt(peg$currPos) === 39) {
+            s1 = peg$c10;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e12);
+            }
+          }
+          if (s1 !== peg$FAILED) {
+            s2 = peg$currPos;
+            peg$silentFails++;
+            if (input.substr(peg$currPos, 3) === peg$c9) {
+              s3 = peg$c9;
+              peg$currPos += 3;
+            } else {
+              s3 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e11);
+              }
+            }
+            peg$silentFails--;
+            if (s3 !== peg$FAILED) {
+              peg$currPos = s2;
+              s2 = void 0;
+            } else {
+              s2 = peg$FAILED;
+            }
+            if (s2 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f33();
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parsestring_char() {
+        let s0, s1, s2;
+        s0 = peg$parseESCAPED();
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.charCodeAt(peg$currPos) === 92) {
+            s1 = peg$c11;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e13);
+            }
           }
           if (s1 !== peg$FAILED) {
             if (input.length > peg$currPos) {
@@ -5807,413 +6207,1053 @@ var require_parser = __commonJS({
             } else {
               s2 = peg$FAILED;
               if (peg$silentFails === 0) {
-                peg$fail(peg$c6);
+                peg$fail(peg$e14);
               }
             }
             if (s2 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c33(s2);
-              s0 = s1;
+              peg$savedPos = s0;
+              s0 = peg$f34();
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsefloat() {
-          var s0, s1, s2, s3;
-          var key = peg$currPos * 49 + 23,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = peg$parsefloat_text();
-          if (s1 === peg$FAILED) {
-            s1 = peg$parseinteger_text();
-          }
-          if (s1 !== peg$FAILED) {
-            if (input.charCodeAt(peg$currPos) === 101) {
-              s2 = peg$c38;
+          if (s0 === peg$FAILED) {
+            s0 = peg$currPos;
+            s1 = [];
+            s2 = input.charAt(peg$currPos);
+            if (peg$r4.test(s2)) {
               peg$currPos++;
             } else {
               s2 = peg$FAILED;
               if (peg$silentFails === 0) {
-                peg$fail(peg$c39);
-              }
-            }
-            if (s2 === peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 69) {
-                s2 = peg$c40;
-                peg$currPos++;
-              } else {
-                s2 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c41);
-                }
+                peg$fail(peg$e20);
               }
             }
             if (s2 !== peg$FAILED) {
-              s3 = peg$parseinteger_text();
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c42(s1, s3);
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
+              while (s2 !== peg$FAILED) {
+                s1.push(s2);
+                s2 = input.charAt(peg$currPos);
+                if (peg$r4.test(s2)) {
+                  peg$currPos++;
+                } else {
+                  s2 = peg$FAILED;
+                  if (peg$silentFails === 0) {
+                    peg$fail(peg$e20);
+                  }
+                }
               }
             } else {
+              s1 = peg$FAILED;
+            }
+            if (s1 !== peg$FAILED) {
+              s0 = input.substring(s0, peg$currPos);
+            } else {
+              s0 = s1;
+            }
+          }
+        }
+        return s0;
+      }
+      function peg$parseliteral_char() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = input.charAt(peg$currPos);
+        if (peg$r5.test(s2)) {
+          peg$currPos++;
+        } else {
+          s2 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e21);
+          }
+        }
+        if (s2 !== peg$FAILED) {
+          while (s2 !== peg$FAILED) {
+            s1.push(s2);
+            s2 = input.charAt(peg$currPos);
+            if (peg$r5.test(s2)) {
+              peg$currPos++;
+            } else {
+              s2 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e21);
+              }
+            }
+          }
+        } else {
+          s1 = peg$FAILED;
+        }
+        if (s1 !== peg$FAILED) {
+          s0 = input.substring(s0, peg$currPos);
+        } else {
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsefloat() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        s1 = peg$parsefloat_or_int_text();
+        if (s1 !== peg$FAILED) {
+          s2 = input.charAt(peg$currPos);
+          if (peg$r6.test(s2)) {
+            peg$currPos++;
+          } else {
+            s2 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e22);
+            }
+          }
+          if (s2 !== peg$FAILED) {
+            s3 = peg$parsefloat_exp_text();
+            if (s3 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f35(s1, s3);
+            } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = peg$parsefloat_text();
-            if (s1 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c43(s1);
-            }
-            s0 = s1;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parsefloat_text() {
-          var s0, s1, s2, s3, s4, s5;
-          var key = peg$currPos * 49 + 24,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 43) {
-            s1 = peg$c44;
+          s1 = peg$parsefloat_text();
+          if (s1 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s1 = peg$f36(s1);
+          }
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsefloat_text() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r1.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e6);
+          }
+        }
+        if (s1 === peg$FAILED) {
+          s1 = null;
+        }
+        s2 = peg$parseFLOAT_DEC_INT();
+        if (s2 !== peg$FAILED) {
+          if (input.charCodeAt(peg$currPos) === 46) {
+            s3 = peg$c3;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e4);
+            }
+          }
+          if (s3 !== peg$FAILED) {
+            s4 = peg$currPos;
+            s5 = peg$parseDEC_DIGIT_SEQ();
+            if (s5 !== peg$FAILED) {
+              s4 = input.substring(s4, peg$currPos);
+            } else {
+              s4 = s5;
+            }
+            if (s4 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f37(s1, s2, s4);
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsefloat_or_int_text() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r1.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e6);
+          }
+        }
+        if (s1 === peg$FAILED) {
+          s1 = null;
+        }
+        s2 = peg$parseFLOAT_DEC_INT();
+        if (s2 !== peg$FAILED) {
+          if (input.charCodeAt(peg$currPos) === 46) {
+            s3 = peg$c3;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e4);
+            }
+          }
+          if (s3 !== peg$FAILED) {
+            s4 = peg$currPos;
+            s5 = peg$parseDEC_DIGIT_SEQ();
+            if (s5 !== peg$FAILED) {
+              s4 = input.substring(s4, peg$currPos);
+            } else {
+              s4 = s5;
+            }
+            if (s4 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f38(s1, s2, s4);
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = input.charAt(peg$currPos);
+          if (peg$r1.test(s1)) {
             peg$currPos++;
           } else {
             s1 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c45);
+              peg$fail(peg$e6);
             }
           }
           if (s1 === peg$FAILED) {
-            s1 = peg$c25;
+            s1 = null;
+          }
+          s2 = peg$parseFLOAT_DEC_INT();
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f39(s1, s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parseFLOAT_DEC_INT() {
+        let s0, s1;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 48) {
+          s1 = peg$c15;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e23);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$f40();
+        }
+        s0 = s1;
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = peg$parseDEC_INT_NOZERO_SEQ();
+          if (s1 !== peg$FAILED) {
+            s0 = input.substring(s0, peg$currPos);
+          } else {
+            s0 = s1;
+          }
+        }
+        return s0;
+      }
+      function peg$parsefloat_exp_text() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r1.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e6);
+          }
+        }
+        if (s1 === peg$FAILED) {
+          s1 = null;
+        }
+        s2 = peg$currPos;
+        s3 = peg$parseDEC_DIGIT_SEQ();
+        if (s3 !== peg$FAILED) {
+          s2 = input.substring(s2, peg$currPos);
+        } else {
+          s2 = s3;
+        }
+        if (s2 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s0 = peg$f41(s1, s2);
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseinteger() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c16) {
+          s1 = peg$c16;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e24);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$currPos;
+          s3 = peg$parseHEX_DIGIT_SEQ();
+          if (s3 !== peg$FAILED) {
+            s2 = input.substring(s2, peg$currPos);
+          } else {
+            s2 = s3;
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f42(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.substr(peg$currPos, 2) === peg$c17) {
+            s1 = peg$c17;
+            peg$currPos += 2;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e25);
+            }
           }
           if (s1 !== peg$FAILED) {
             s2 = peg$currPos;
-            s3 = peg$parseDIGITS();
+            s3 = peg$parseOCT_DIGIT_SEQ();
             if (s3 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 46) {
-                s4 = peg$c16;
-                peg$currPos++;
-              } else {
-                s4 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c17);
-                }
-              }
-              if (s4 !== peg$FAILED) {
-                s5 = peg$parseDIGITS();
-                if (s5 !== peg$FAILED) {
-                  s3 = [s3, s4, s5];
-                  s2 = s3;
-                } else {
-                  peg$currPos = s2;
-                  s2 = peg$c2;
-                }
-              } else {
-                peg$currPos = s2;
-                s2 = peg$c2;
-              }
+              s2 = input.substring(s2, peg$currPos);
             } else {
-              peg$currPos = s2;
-              s2 = peg$c2;
+              s2 = s3;
             }
             if (s2 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c46(s2);
-              s0 = s1;
+              peg$savedPos = s0;
+              s0 = peg$f43(s2);
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
           if (s0 === peg$FAILED) {
             s0 = peg$currPos;
-            if (input.charCodeAt(peg$currPos) === 45) {
-              s1 = peg$c47;
-              peg$currPos++;
+            if (input.substr(peg$currPos, 2) === peg$c18) {
+              s1 = peg$c18;
+              peg$currPos += 2;
             } else {
               s1 = peg$FAILED;
               if (peg$silentFails === 0) {
-                peg$fail(peg$c48);
+                peg$fail(peg$e26);
               }
             }
             if (s1 !== peg$FAILED) {
               s2 = peg$currPos;
-              s3 = peg$parseDIGITS();
+              s3 = peg$parseBIN_DIGIT_SEQ();
               if (s3 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 46) {
-                  s4 = peg$c16;
-                  peg$currPos++;
-                } else {
-                  s4 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c17);
-                  }
-                }
-                if (s4 !== peg$FAILED) {
-                  s5 = peg$parseDIGITS();
-                  if (s5 !== peg$FAILED) {
-                    s3 = [s3, s4, s5];
-                    s2 = s3;
-                  } else {
-                    peg$currPos = s2;
-                    s2 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s2;
-                  s2 = peg$c2;
-                }
+                s2 = input.substring(s2, peg$currPos);
               } else {
-                peg$currPos = s2;
-                s2 = peg$c2;
+                s2 = s3;
               }
               if (s2 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c49(s2);
-                s0 = s1;
+                peg$savedPos = s0;
+                s0 = peg$f44(s2);
               } else {
                 peg$currPos = s0;
-                s0 = peg$c2;
+                s0 = peg$FAILED;
               }
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
+            }
+            if (s0 === peg$FAILED) {
+              s0 = peg$currPos;
+              s1 = peg$parsedec_integer_text();
+              if (s1 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s1 = peg$f45(s1);
+              }
+              s0 = s1;
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parseinteger() {
-          var s0, s1;
-          var key = peg$currPos * 49 + 25,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsedec_integer_text() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r1.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e6);
           }
-          s0 = peg$currPos;
-          s1 = peg$parseinteger_text();
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c50(s1);
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parseinteger_text() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 26,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        if (s1 === peg$FAILED) {
+          s1 = null;
+        }
+        if (input.charCodeAt(peg$currPos) === 48) {
+          s2 = peg$c15;
+          peg$currPos++;
+        } else {
+          s2 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e23);
           }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 43) {
-            s1 = peg$c44;
+        }
+        if (s2 !== peg$FAILED) {
+          s3 = peg$currPos;
+          peg$silentFails++;
+          s4 = input.charAt(peg$currPos);
+          if (peg$r7.test(s4)) {
             peg$currPos++;
           } else {
-            s1 = peg$FAILED;
+            s4 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c45);
+              peg$fail(peg$e27);
             }
           }
-          if (s1 === peg$FAILED) {
-            s1 = peg$c25;
+          peg$silentFails--;
+          if (s4 === peg$FAILED) {
+            s3 = void 0;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
           }
-          if (s1 !== peg$FAILED) {
-            s2 = [];
-            s3 = peg$parseDIGIT_OR_UNDER();
-            if (s3 !== peg$FAILED) {
-              while (s3 !== peg$FAILED) {
-                s2.push(s3);
-                s3 = peg$parseDIGIT_OR_UNDER();
-              }
+          if (s3 !== peg$FAILED) {
+            s4 = peg$currPos;
+            peg$silentFails++;
+            if (input.charCodeAt(peg$currPos) === 46) {
+              s5 = peg$c3;
+              peg$currPos++;
             } else {
-              s2 = peg$c2;
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e4);
+              }
             }
-            if (s2 !== peg$FAILED) {
-              s3 = peg$currPos;
-              peg$silentFails++;
-              if (input.charCodeAt(peg$currPos) === 46) {
-                s4 = peg$c16;
-                peg$currPos++;
-              } else {
-                s4 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c17);
-                }
-              }
-              peg$silentFails--;
-              if (s4 === peg$FAILED) {
-                s3 = peg$c5;
-              } else {
-                peg$currPos = s3;
-                s3 = peg$c2;
-              }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c46(s2);
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
+            peg$silentFails--;
+            if (s5 === peg$FAILED) {
+              s4 = void 0;
+            } else {
+              peg$currPos = s4;
+              s4 = peg$FAILED;
+            }
+            if (s4 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f46(s1);
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            if (input.charCodeAt(peg$currPos) === 45) {
-              s1 = peg$c47;
-              peg$currPos++;
-            } else {
-              s1 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c48);
-              }
-            }
-            if (s1 !== peg$FAILED) {
-              s2 = [];
-              s3 = peg$parseDIGIT_OR_UNDER();
-              if (s3 !== peg$FAILED) {
-                while (s3 !== peg$FAILED) {
-                  s2.push(s3);
-                  s3 = peg$parseDIGIT_OR_UNDER();
-                }
-              } else {
-                s2 = peg$c2;
-              }
-              if (s2 !== peg$FAILED) {
-                s3 = peg$currPos;
-                peg$silentFails++;
-                if (input.charCodeAt(peg$currPos) === 46) {
-                  s4 = peg$c16;
-                  peg$currPos++;
-                } else {
-                  s4 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c17);
-                  }
-                }
-                peg$silentFails--;
-                if (s4 === peg$FAILED) {
-                  s3 = peg$c5;
-                } else {
-                  peg$currPos = s3;
-                  s3 = peg$c2;
-                }
-                if (s3 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c49(s2);
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parseboolean() {
-          var s0, s1;
-          var key = peg$currPos * 49 + 27,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 4) === peg$c51) {
-            s1 = peg$c51;
-            peg$currPos += 4;
-          } else {
-            s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c52);
-            }
-          }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c53();
-          }
-          s0 = s1;
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            if (input.substr(peg$currPos, 5) === peg$c54) {
-              s1 = peg$c54;
-              peg$currPos += 5;
-            } else {
-              s1 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c55);
-              }
-            }
-            if (s1 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c56();
-            }
-            s0 = s1;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsearray() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 28,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 91) {
-            s1 = peg$c7;
+          s1 = input.charAt(peg$currPos);
+          if (peg$r1.test(s1)) {
             peg$currPos++;
           } else {
             s1 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c8);
+              peg$fail(peg$e6);
+            }
+          }
+          if (s1 === peg$FAILED) {
+            s1 = null;
+          }
+          s2 = peg$currPos;
+          s3 = peg$parseDEC_INT_NOZERO_SEQ();
+          if (s3 !== peg$FAILED) {
+            s2 = input.substring(s2, peg$currPos);
+          } else {
+            s2 = s3;
+          }
+          if (s2 !== peg$FAILED) {
+            s3 = peg$currPos;
+            peg$silentFails++;
+            if (input.charCodeAt(peg$currPos) === 46) {
+              s4 = peg$c3;
+              peg$currPos++;
+            } else {
+              s4 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e4);
+              }
+            }
+            peg$silentFails--;
+            if (s4 === peg$FAILED) {
+              s3 = void 0;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+            if (s3 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f47(s1, s2);
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parseDEC_INT_NOZERO_SEQ() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r8.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e28);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$currPos;
+          s4 = input.charAt(peg$currPos);
+          if (peg$r9.test(s4)) {
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e29);
+            }
+          }
+          if (s4 === peg$FAILED) {
+            s4 = null;
+          }
+          s5 = input.charAt(peg$currPos);
+          if (peg$r10.test(s5)) {
+            peg$currPos++;
+          } else {
+            s5 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e30);
+            }
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$currPos;
+            s4 = input.charAt(peg$currPos);
+            if (peg$r9.test(s4)) {
+              peg$currPos++;
+            } else {
+              s4 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e29);
+              }
+            }
+            if (s4 === peg$FAILED) {
+              s4 = null;
+            }
+            s5 = input.charAt(peg$currPos);
+            if (peg$r10.test(s5)) {
+              peg$currPos++;
+            } else {
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e30);
+              }
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          }
+          s1 = [s1, s2];
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseDEC_DIGIT_SEQ() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r10.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e30);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$currPos;
+          s4 = input.charAt(peg$currPos);
+          if (peg$r9.test(s4)) {
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e29);
+            }
+          }
+          if (s4 === peg$FAILED) {
+            s4 = null;
+          }
+          s5 = input.charAt(peg$currPos);
+          if (peg$r10.test(s5)) {
+            peg$currPos++;
+          } else {
+            s5 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e30);
+            }
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$currPos;
+            s4 = input.charAt(peg$currPos);
+            if (peg$r9.test(s4)) {
+              peg$currPos++;
+            } else {
+              s4 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e29);
+              }
+            }
+            if (s4 === peg$FAILED) {
+              s4 = null;
+            }
+            s5 = input.charAt(peg$currPos);
+            if (peg$r10.test(s5)) {
+              peg$currPos++;
+            } else {
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e30);
+              }
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          }
+          s1 = [s1, s2];
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseHEX_DIGIT_SEQ() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r11.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e31);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$currPos;
+          s4 = input.charAt(peg$currPos);
+          if (peg$r9.test(s4)) {
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e29);
+            }
+          }
+          if (s4 === peg$FAILED) {
+            s4 = null;
+          }
+          s5 = input.charAt(peg$currPos);
+          if (peg$r11.test(s5)) {
+            peg$currPos++;
+          } else {
+            s5 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e31);
+            }
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$currPos;
+            s4 = input.charAt(peg$currPos);
+            if (peg$r9.test(s4)) {
+              peg$currPos++;
+            } else {
+              s4 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e29);
+              }
+            }
+            if (s4 === peg$FAILED) {
+              s4 = null;
+            }
+            s5 = input.charAt(peg$currPos);
+            if (peg$r11.test(s5)) {
+              peg$currPos++;
+            } else {
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e31);
+              }
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          }
+          s1 = [s1, s2];
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseOCT_DIGIT_SEQ() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r12.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e32);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$currPos;
+          s4 = input.charAt(peg$currPos);
+          if (peg$r9.test(s4)) {
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e29);
+            }
+          }
+          if (s4 === peg$FAILED) {
+            s4 = null;
+          }
+          s5 = input.charAt(peg$currPos);
+          if (peg$r12.test(s5)) {
+            peg$currPos++;
+          } else {
+            s5 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e32);
+            }
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$currPos;
+            s4 = input.charAt(peg$currPos);
+            if (peg$r9.test(s4)) {
+              peg$currPos++;
+            } else {
+              s4 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e29);
+              }
+            }
+            if (s4 === peg$FAILED) {
+              s4 = null;
+            }
+            s5 = input.charAt(peg$currPos);
+            if (peg$r12.test(s5)) {
+              peg$currPos++;
+            } else {
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e32);
+              }
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          }
+          s1 = [s1, s2];
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseBIN_DIGIT_SEQ() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (peg$r13.test(s1)) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e33);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$currPos;
+          s4 = input.charAt(peg$currPos);
+          if (peg$r9.test(s4)) {
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e29);
+            }
+          }
+          if (s4 === peg$FAILED) {
+            s4 = null;
+          }
+          s5 = input.charAt(peg$currPos);
+          if (peg$r13.test(s5)) {
+            peg$currPos++;
+          } else {
+            s5 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e33);
+            }
+          }
+          if (s5 !== peg$FAILED) {
+            s4 = [s4, s5];
+            s3 = s4;
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$currPos;
+            s4 = input.charAt(peg$currPos);
+            if (peg$r9.test(s4)) {
+              peg$currPos++;
+            } else {
+              s4 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e29);
+              }
+            }
+            if (s4 === peg$FAILED) {
+              s4 = null;
+            }
+            s5 = input.charAt(peg$currPos);
+            if (peg$r13.test(s5)) {
+              peg$currPos++;
+            } else {
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e33);
+              }
+            }
+            if (s5 !== peg$FAILED) {
+              s4 = [s4, s5];
+              s3 = s4;
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          }
+          s1 = [s1, s2];
+          s0 = s1;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseboolean() {
+        let s0, s1;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 4) === peg$c19) {
+          s1 = peg$c19;
+          peg$currPos += 4;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e34);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$f48();
+        }
+        s0 = s1;
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.substr(peg$currPos, 5) === peg$c20) {
+            s1 = peg$c20;
+            peg$currPos += 5;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e35);
+            }
+          }
+          if (s1 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s1 = peg$f49();
+          }
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsearray() {
+        let s0, s1, s2, s3, s4, s5, s6, s7, s8, s9;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 91) {
+          s1 = peg$c1;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e2);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parsearray_sep();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parsearray_sep();
+          }
+          if (input.charCodeAt(peg$currPos) === 93) {
+            s3 = peg$c2;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e3);
+            }
+          }
+          if (s3 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f50();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.charCodeAt(peg$currPos) === 91) {
+            s1 = peg$c1;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e2);
             }
           }
           if (s1 !== peg$FAILED) {
@@ -6223,1618 +7263,1526 @@ var require_parser = __commonJS({
               s2.push(s3);
               s3 = peg$parsearray_sep();
             }
-            if (s2 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 93) {
-                s3 = peg$c9;
+            s3 = peg$parsevalue();
+            if (s3 !== peg$FAILED) {
+              s4 = [];
+              s5 = peg$currPos;
+              s6 = [];
+              s7 = peg$parsearray_sep();
+              while (s7 !== peg$FAILED) {
+                s6.push(s7);
+                s7 = peg$parsearray_sep();
+              }
+              if (input.charCodeAt(peg$currPos) === 44) {
+                s7 = peg$c21;
                 peg$currPos++;
               } else {
-                s3 = peg$FAILED;
+                s7 = peg$FAILED;
                 if (peg$silentFails === 0) {
-                  peg$fail(peg$c10);
+                  peg$fail(peg$e36);
                 }
               }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c57();
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            if (input.charCodeAt(peg$currPos) === 91) {
-              s1 = peg$c7;
-              peg$currPos++;
-            } else {
-              s1 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c8);
-              }
-            }
-            if (s1 !== peg$FAILED) {
-              s2 = peg$parsearray_value();
-              if (s2 === peg$FAILED) {
-                s2 = peg$c25;
-              }
-              if (s2 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 93) {
-                  s3 = peg$c9;
-                  peg$currPos++;
-                } else {
-                  s3 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c10);
-                  }
+              if (s7 !== peg$FAILED) {
+                s8 = [];
+                s9 = peg$parsearray_sep();
+                while (s9 !== peg$FAILED) {
+                  s8.push(s9);
+                  s9 = peg$parsearray_sep();
                 }
-                if (s3 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c58(s2);
-                  s0 = s1;
+                s9 = peg$parsevalue();
+                if (s9 !== peg$FAILED) {
+                  peg$savedPos = s5;
+                  s5 = peg$f51(s3, s9);
                 } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
+                  peg$currPos = s5;
+                  s5 = peg$FAILED;
                 }
               } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
+                peg$currPos = s5;
+                s5 = peg$FAILED;
               }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-            if (s0 === peg$FAILED) {
-              s0 = peg$currPos;
-              if (input.charCodeAt(peg$currPos) === 91) {
-                s1 = peg$c7;
-                peg$currPos++;
-              } else {
-                s1 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c8);
+              while (s5 !== peg$FAILED) {
+                s4.push(s5);
+                s5 = peg$currPos;
+                s6 = [];
+                s7 = peg$parsearray_sep();
+                while (s7 !== peg$FAILED) {
+                  s6.push(s7);
+                  s7 = peg$parsearray_sep();
                 }
-              }
-              if (s1 !== peg$FAILED) {
-                s2 = [];
-                s3 = peg$parsearray_value_list();
-                if (s3 !== peg$FAILED) {
-                  while (s3 !== peg$FAILED) {
-                    s2.push(s3);
-                    s3 = peg$parsearray_value_list();
-                  }
-                } else {
-                  s2 = peg$c2;
-                }
-                if (s2 !== peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 93) {
-                    s3 = peg$c9;
-                    peg$currPos++;
-                  } else {
-                    s3 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c10);
-                    }
-                  }
-                  if (s3 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c59(s2);
-                    s0 = s1;
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-              if (s0 === peg$FAILED) {
-                s0 = peg$currPos;
-                if (input.charCodeAt(peg$currPos) === 91) {
-                  s1 = peg$c7;
-                  peg$currPos++;
-                } else {
-                  s1 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c8);
-                  }
-                }
-                if (s1 !== peg$FAILED) {
-                  s2 = [];
-                  s3 = peg$parsearray_value_list();
-                  if (s3 !== peg$FAILED) {
-                    while (s3 !== peg$FAILED) {
-                      s2.push(s3);
-                      s3 = peg$parsearray_value_list();
-                    }
-                  } else {
-                    s2 = peg$c2;
-                  }
-                  if (s2 !== peg$FAILED) {
-                    s3 = peg$parsearray_value();
-                    if (s3 !== peg$FAILED) {
-                      if (input.charCodeAt(peg$currPos) === 93) {
-                        s4 = peg$c9;
-                        peg$currPos++;
-                      } else {
-                        s4 = peg$FAILED;
-                        if (peg$silentFails === 0) {
-                          peg$fail(peg$c10);
-                        }
-                      }
-                      if (s4 !== peg$FAILED) {
-                        peg$reportedPos = s0;
-                        s1 = peg$c60(s2, s3);
-                        s0 = s1;
-                      } else {
-                        peg$currPos = s0;
-                        s0 = peg$c2;
-                      }
-                    } else {
-                      peg$currPos = s0;
-                      s0 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              }
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsearray_value() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 29,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parsearray_sep();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parsearray_sep();
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parsevalue();
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parsearray_sep();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parsearray_sep();
-              }
-              if (s3 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c61(s2);
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsearray_value_list() {
-          var s0, s1, s2, s3, s4, s5, s6;
-          var key = peg$currPos * 49 + 30,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parsearray_sep();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parsearray_sep();
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parsevalue();
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parsearray_sep();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parsearray_sep();
-              }
-              if (s3 !== peg$FAILED) {
                 if (input.charCodeAt(peg$currPos) === 44) {
-                  s4 = peg$c62;
+                  s7 = peg$c21;
                   peg$currPos++;
                 } else {
-                  s4 = peg$FAILED;
+                  s7 = peg$FAILED;
                   if (peg$silentFails === 0) {
-                    peg$fail(peg$c63);
+                    peg$fail(peg$e36);
                   }
                 }
-                if (s4 !== peg$FAILED) {
-                  s5 = [];
-                  s6 = peg$parsearray_sep();
-                  while (s6 !== peg$FAILED) {
-                    s5.push(s6);
-                    s6 = peg$parsearray_sep();
+                if (s7 !== peg$FAILED) {
+                  s8 = [];
+                  s9 = peg$parsearray_sep();
+                  while (s9 !== peg$FAILED) {
+                    s8.push(s9);
+                    s9 = peg$parsearray_sep();
                   }
-                  if (s5 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c61(s2);
-                    s0 = s1;
+                  s9 = peg$parsevalue();
+                  if (s9 !== peg$FAILED) {
+                    peg$savedPos = s5;
+                    s5 = peg$f51(s3, s9);
                   } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
+                    peg$currPos = s5;
+                    s5 = peg$FAILED;
                   }
                 } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
+                  peg$currPos = s5;
+                  s5 = peg$FAILED;
                 }
+              }
+              s5 = [];
+              s6 = peg$parsearray_sep();
+              while (s6 !== peg$FAILED) {
+                s5.push(s6);
+                s6 = peg$parsearray_sep();
+              }
+              if (input.charCodeAt(peg$currPos) === 44) {
+                s6 = peg$c21;
+                peg$currPos++;
+              } else {
+                s6 = peg$FAILED;
+                if (peg$silentFails === 0) {
+                  peg$fail(peg$e36);
+                }
+              }
+              if (s6 === peg$FAILED) {
+                s6 = null;
+              }
+              s7 = [];
+              s8 = peg$parsearray_sep();
+              while (s8 !== peg$FAILED) {
+                s7.push(s8);
+                s8 = peg$parsearray_sep();
+              }
+              if (input.charCodeAt(peg$currPos) === 93) {
+                s8 = peg$c2;
+                peg$currPos++;
+              } else {
+                s8 = peg$FAILED;
+                if (peg$silentFails === 0) {
+                  peg$fail(peg$e3);
+                }
+              }
+              if (s8 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s0 = peg$f52(s3, s4);
               } else {
                 peg$currPos = s0;
-                s0 = peg$c2;
+                s0 = peg$FAILED;
               }
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parsearray_sep() {
-          var s0;
-          var key = peg$currPos * 49 + 31,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$parseS();
+        return s0;
+      }
+      function peg$parsearray_sep() {
+        let s0;
+        s0 = peg$parseS();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parseNL();
           if (s0 === peg$FAILED) {
-            s0 = peg$parseNL();
-            if (s0 === peg$FAILED) {
-              s0 = peg$parsecomment();
+            s0 = peg$parsecomment();
+          }
+        }
+        return s0;
+      }
+      function peg$parseinline_table() {
+        let s0, s1, s2, s3, s4, s5, s6, s7, s8, s9;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 123) {
+          s1 = peg$c22;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e37);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parseinline_sep();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parseinline_sep();
+          }
+          if (input.charCodeAt(peg$currPos) === 125) {
+            s3 = peg$c23;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e38);
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseinline_table() {
-          var s0, s1, s2, s3, s4, s5;
-          var key = peg$currPos * 49 + 32,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+          if (s3 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f53();
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
           }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
           if (input.charCodeAt(peg$currPos) === 123) {
-            s1 = peg$c64;
+            s1 = peg$c22;
             peg$currPos++;
           } else {
             s1 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c65);
+              peg$fail(peg$e37);
             }
           }
           if (s1 !== peg$FAILED) {
             s2 = [];
-            s3 = peg$parseS();
+            s3 = peg$parseinline_sep();
             while (s3 !== peg$FAILED) {
               s2.push(s3);
-              s3 = peg$parseS();
+              s3 = peg$parseinline_sep();
             }
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parseinline_table_assignment();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseinline_table_assignment();
-              }
-              if (s3 !== peg$FAILED) {
-                s4 = [];
-                s5 = peg$parseS();
-                while (s5 !== peg$FAILED) {
-                  s4.push(s5);
-                  s5 = peg$parseS();
-                }
-                if (s4 !== peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 125) {
-                    s5 = peg$c66;
-                    peg$currPos++;
-                  } else {
-                    s5 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c67);
-                    }
-                  }
-                  if (s5 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c68(s3);
-                    s0 = s1;
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseinline_table_assignment() {
-          var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
-          var key = peg$currPos * 49 + 33,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parseS();
-          while (s2 !== peg$FAILED) {
-            s1.push(s2);
-            s2 = peg$parseS();
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parsekey();
-            if (s2 !== peg$FAILED) {
-              s3 = [];
-              s4 = peg$parseS();
-              while (s4 !== peg$FAILED) {
-                s3.push(s4);
-                s4 = peg$parseS();
-              }
-              if (s3 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 61) {
-                  s4 = peg$c18;
-                  peg$currPos++;
-                } else {
-                  s4 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c19);
-                  }
-                }
-                if (s4 !== peg$FAILED) {
-                  s5 = [];
-                  s6 = peg$parseS();
-                  while (s6 !== peg$FAILED) {
-                    s5.push(s6);
-                    s6 = peg$parseS();
-                  }
-                  if (s5 !== peg$FAILED) {
-                    s6 = peg$parsevalue();
-                    if (s6 !== peg$FAILED) {
-                      s7 = [];
-                      s8 = peg$parseS();
-                      while (s8 !== peg$FAILED) {
-                        s7.push(s8);
-                        s8 = peg$parseS();
-                      }
-                      if (s7 !== peg$FAILED) {
-                        if (input.charCodeAt(peg$currPos) === 44) {
-                          s8 = peg$c62;
-                          peg$currPos++;
-                        } else {
-                          s8 = peg$FAILED;
-                          if (peg$silentFails === 0) {
-                            peg$fail(peg$c63);
-                          }
-                        }
-                        if (s8 !== peg$FAILED) {
-                          s9 = [];
-                          s10 = peg$parseS();
-                          while (s10 !== peg$FAILED) {
-                            s9.push(s10);
-                            s10 = peg$parseS();
-                          }
-                          if (s9 !== peg$FAILED) {
-                            peg$reportedPos = s0;
-                            s1 = peg$c69(s2, s6);
-                            s0 = s1;
-                          } else {
-                            peg$currPos = s0;
-                            s0 = peg$c2;
-                          }
-                        } else {
-                          peg$currPos = s0;
-                          s0 = peg$c2;
-                        }
-                      } else {
-                        peg$currPos = s0;
-                        s0 = peg$c2;
-                      }
-                    } else {
-                      peg$currPos = s0;
-                      s0 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = [];
-            s2 = peg$parseS();
-            while (s2 !== peg$FAILED) {
-              s1.push(s2);
-              s2 = peg$parseS();
-            }
-            if (s1 !== peg$FAILED) {
-              s2 = peg$parsekey();
-              if (s2 !== peg$FAILED) {
-                s3 = [];
-                s4 = peg$parseS();
-                while (s4 !== peg$FAILED) {
-                  s3.push(s4);
-                  s4 = peg$parseS();
-                }
-                if (s3 !== peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 61) {
-                    s4 = peg$c18;
-                    peg$currPos++;
-                  } else {
-                    s4 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c19);
-                    }
-                  }
-                  if (s4 !== peg$FAILED) {
-                    s5 = [];
-                    s6 = peg$parseS();
-                    while (s6 !== peg$FAILED) {
-                      s5.push(s6);
-                      s6 = peg$parseS();
-                    }
-                    if (s5 !== peg$FAILED) {
-                      s6 = peg$parsevalue();
-                      if (s6 !== peg$FAILED) {
-                        peg$reportedPos = s0;
-                        s1 = peg$c69(s2, s6);
-                        s0 = s1;
-                      } else {
-                        peg$currPos = s0;
-                        s0 = peg$c2;
-                      }
-                    } else {
-                      peg$currPos = s0;
-                      s0 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s0;
-                    s0 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsesecfragment() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 34,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          if (input.charCodeAt(peg$currPos) === 46) {
-            s1 = peg$c16;
-            peg$currPos++;
-          } else {
-            s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c17);
-            }
-          }
-          if (s1 !== peg$FAILED) {
-            s2 = peg$parseDIGITS();
-            if (s2 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c70(s2);
-              s0 = s1;
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsedate() {
-          var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11;
-          var key = peg$currPos * 49 + 35,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = peg$currPos;
-          s2 = peg$parseDIGIT_OR_UNDER();
-          if (s2 !== peg$FAILED) {
-            s3 = peg$parseDIGIT_OR_UNDER();
+            s3 = peg$parseinline_table_entry();
             if (s3 !== peg$FAILED) {
-              s4 = peg$parseDIGIT_OR_UNDER();
-              if (s4 !== peg$FAILED) {
-                s5 = peg$parseDIGIT_OR_UNDER();
-                if (s5 !== peg$FAILED) {
-                  if (input.charCodeAt(peg$currPos) === 45) {
-                    s6 = peg$c47;
-                    peg$currPos++;
-                  } else {
-                    s6 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c48);
-                    }
-                  }
-                  if (s6 !== peg$FAILED) {
-                    s7 = peg$parseDIGIT_OR_UNDER();
-                    if (s7 !== peg$FAILED) {
-                      s8 = peg$parseDIGIT_OR_UNDER();
-                      if (s8 !== peg$FAILED) {
-                        if (input.charCodeAt(peg$currPos) === 45) {
-                          s9 = peg$c47;
-                          peg$currPos++;
-                        } else {
-                          s9 = peg$FAILED;
-                          if (peg$silentFails === 0) {
-                            peg$fail(peg$c48);
-                          }
-                        }
-                        if (s9 !== peg$FAILED) {
-                          s10 = peg$parseDIGIT_OR_UNDER();
-                          if (s10 !== peg$FAILED) {
-                            s11 = peg$parseDIGIT_OR_UNDER();
-                            if (s11 !== peg$FAILED) {
-                              s2 = [s2, s3, s4, s5, s6, s7, s8, s9, s10, s11];
-                              s1 = s2;
-                            } else {
-                              peg$currPos = s1;
-                              s1 = peg$c2;
-                            }
-                          } else {
-                            peg$currPos = s1;
-                            s1 = peg$c2;
-                          }
-                        } else {
-                          peg$currPos = s1;
-                          s1 = peg$c2;
-                        }
-                      } else {
-                        peg$currPos = s1;
-                        s1 = peg$c2;
-                      }
-                    } else {
-                      peg$currPos = s1;
-                      s1 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s1;
-                    s1 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s1;
-                  s1 = peg$c2;
-                }
-              } else {
-                peg$currPos = s1;
-                s1 = peg$c2;
+              s4 = [];
+              s5 = peg$currPos;
+              s6 = [];
+              s7 = peg$parseinline_sep();
+              while (s7 !== peg$FAILED) {
+                s6.push(s7);
+                s7 = peg$parseinline_sep();
               }
-            } else {
-              peg$currPos = s1;
-              s1 = peg$c2;
-            }
-          } else {
-            peg$currPos = s1;
-            s1 = peg$c2;
-          }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c71(s1);
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsetime() {
-          var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
-          var key = peg$currPos * 49 + 36,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = peg$currPos;
-          s2 = peg$parseDIGIT_OR_UNDER();
-          if (s2 !== peg$FAILED) {
-            s3 = peg$parseDIGIT_OR_UNDER();
-            if (s3 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 58) {
-                s4 = peg$c72;
+              if (input.charCodeAt(peg$currPos) === 44) {
+                s7 = peg$c21;
                 peg$currPos++;
               } else {
-                s4 = peg$FAILED;
+                s7 = peg$FAILED;
                 if (peg$silentFails === 0) {
-                  peg$fail(peg$c73);
+                  peg$fail(peg$e36);
                 }
               }
-              if (s4 !== peg$FAILED) {
-                s5 = peg$parseDIGIT_OR_UNDER();
-                if (s5 !== peg$FAILED) {
-                  s6 = peg$parseDIGIT_OR_UNDER();
-                  if (s6 !== peg$FAILED) {
-                    if (input.charCodeAt(peg$currPos) === 58) {
-                      s7 = peg$c72;
-                      peg$currPos++;
-                    } else {
-                      s7 = peg$FAILED;
-                      if (peg$silentFails === 0) {
-                        peg$fail(peg$c73);
+              if (s7 !== peg$FAILED) {
+                s8 = [];
+                s9 = peg$parseinline_sep();
+                while (s9 !== peg$FAILED) {
+                  s8.push(s9);
+                  s9 = peg$parseinline_sep();
+                }
+                s9 = peg$parseinline_table_entry();
+                if (s9 !== peg$FAILED) {
+                  peg$savedPos = s5;
+                  s5 = peg$f54(s3, s9);
+                } else {
+                  peg$currPos = s5;
+                  s5 = peg$FAILED;
+                }
+              } else {
+                peg$currPos = s5;
+                s5 = peg$FAILED;
+              }
+              while (s5 !== peg$FAILED) {
+                s4.push(s5);
+                s5 = peg$currPos;
+                s6 = [];
+                s7 = peg$parseinline_sep();
+                while (s7 !== peg$FAILED) {
+                  s6.push(s7);
+                  s7 = peg$parseinline_sep();
+                }
+                if (input.charCodeAt(peg$currPos) === 44) {
+                  s7 = peg$c21;
+                  peg$currPos++;
+                } else {
+                  s7 = peg$FAILED;
+                  if (peg$silentFails === 0) {
+                    peg$fail(peg$e36);
+                  }
+                }
+                if (s7 !== peg$FAILED) {
+                  s8 = [];
+                  s9 = peg$parseinline_sep();
+                  while (s9 !== peg$FAILED) {
+                    s8.push(s9);
+                    s9 = peg$parseinline_sep();
+                  }
+                  s9 = peg$parseinline_table_entry();
+                  if (s9 !== peg$FAILED) {
+                    peg$savedPos = s5;
+                    s5 = peg$f54(s3, s9);
+                  } else {
+                    peg$currPos = s5;
+                    s5 = peg$FAILED;
+                  }
+                } else {
+                  peg$currPos = s5;
+                  s5 = peg$FAILED;
+                }
+              }
+              s5 = [];
+              s6 = peg$parseinline_sep();
+              while (s6 !== peg$FAILED) {
+                s5.push(s6);
+                s6 = peg$parseinline_sep();
+              }
+              if (input.charCodeAt(peg$currPos) === 44) {
+                s6 = peg$c21;
+                peg$currPos++;
+              } else {
+                s6 = peg$FAILED;
+                if (peg$silentFails === 0) {
+                  peg$fail(peg$e36);
+                }
+              }
+              if (s6 === peg$FAILED) {
+                s6 = null;
+              }
+              s7 = [];
+              s8 = peg$parseinline_sep();
+              while (s8 !== peg$FAILED) {
+                s7.push(s8);
+                s8 = peg$parseinline_sep();
+              }
+              if (input.charCodeAt(peg$currPos) === 125) {
+                s8 = peg$c23;
+                peg$currPos++;
+              } else {
+                s8 = peg$FAILED;
+                if (peg$silentFails === 0) {
+                  peg$fail(peg$e38);
+                }
+              }
+              if (s8 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s0 = peg$f55(s3, s4);
+              } else {
+                peg$currPos = s0;
+                s0 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parseinline_table_entry() {
+        let s0, s1, s2, s3, s4, s5;
+        s0 = peg$currPos;
+        s1 = peg$parseinline_key();
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parseS();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parseS();
+          }
+          if (input.charCodeAt(peg$currPos) === 61) {
+            s3 = peg$c4;
+            peg$currPos++;
+          } else {
+            s3 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e5);
+            }
+          }
+          if (s3 !== peg$FAILED) {
+            s4 = [];
+            s5 = peg$parseS();
+            while (s5 !== peg$FAILED) {
+              s4.push(s5);
+              s5 = peg$parseS();
+            }
+            s5 = peg$parsevalue();
+            if (s5 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f56(s1, s5);
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseinline_sep() {
+        let s0;
+        s0 = peg$parseS();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parseNL();
+          if (s0 === peg$FAILED) {
+            s0 = peg$parsecomment();
+          }
+        }
+        return s0;
+      }
+      function peg$parseinline_key() {
+        let s0, s1, s2, s3;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parseinline_dot_key_part();
+        if (s2 !== peg$FAILED) {
+          while (s2 !== peg$FAILED) {
+            s1.push(s2);
+            s2 = peg$parseinline_dot_key_part();
+          }
+        } else {
+          s1 = peg$FAILED;
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = [];
+          s3 = peg$parseS();
+          while (s3 !== peg$FAILED) {
+            s2.push(s3);
+            s3 = peg$parseS();
+          }
+          s3 = peg$parsesimple_key();
+          if (s3 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f57(s1, s3);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = peg$parsesimple_key();
+          if (s1 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s1 = peg$f58(s1);
+          }
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parseinline_dot_key_part() {
+        let s0, s1, s2, s3, s4;
+        s0 = peg$currPos;
+        s1 = [];
+        s2 = peg$parseS();
+        while (s2 !== peg$FAILED) {
+          s1.push(s2);
+          s2 = peg$parseS();
+        }
+        s2 = peg$parsesimple_key();
+        if (s2 !== peg$FAILED) {
+          s3 = [];
+          s4 = peg$parseS();
+          while (s4 !== peg$FAILED) {
+            s3.push(s4);
+            s4 = peg$parseS();
+          }
+          if (input.charCodeAt(peg$currPos) === 46) {
+            s4 = peg$c3;
+            peg$currPos++;
+          } else {
+            s4 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e4);
+            }
+          }
+          if (s4 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f59(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parsesimple_key() {
+        let s0;
+        s0 = peg$parsekey();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parsequoted_key();
+        }
+        return s0;
+      }
+      function peg$parsesecfragment() {
+        let s0, s1, s2, s3, s4;
+        s0 = peg$currPos;
+        s1 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 46) {
+          s2 = peg$c3;
+          peg$currPos++;
+        } else {
+          s2 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e4);
+          }
+        }
+        if (s2 !== peg$FAILED) {
+          s3 = [];
+          s4 = peg$parseDIGIT();
+          if (s4 !== peg$FAILED) {
+            while (s4 !== peg$FAILED) {
+              s3.push(s4);
+              s4 = peg$parseDIGIT();
+            }
+          } else {
+            s3 = peg$FAILED;
+          }
+          if (s3 !== peg$FAILED) {
+            s2 = [s2, s3];
+            s1 = s2;
+          } else {
+            peg$currPos = s1;
+            s1 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s1;
+          s1 = peg$FAILED;
+        }
+        if (s1 !== peg$FAILED) {
+          s0 = input.substring(s0, peg$currPos);
+        } else {
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsedate_part() {
+        let s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11;
+        s0 = peg$currPos;
+        s1 = peg$currPos;
+        s2 = peg$parseDIGIT();
+        if (s2 !== peg$FAILED) {
+          s3 = peg$parseDIGIT();
+          if (s3 !== peg$FAILED) {
+            s4 = peg$parseDIGIT();
+            if (s4 !== peg$FAILED) {
+              s5 = peg$parseDIGIT();
+              if (s5 !== peg$FAILED) {
+                if (input.charCodeAt(peg$currPos) === 45) {
+                  s6 = peg$c24;
+                  peg$currPos++;
+                } else {
+                  s6 = peg$FAILED;
+                  if (peg$silentFails === 0) {
+                    peg$fail(peg$e39);
+                  }
+                }
+                if (s6 !== peg$FAILED) {
+                  s7 = peg$parseDIGIT();
+                  if (s7 !== peg$FAILED) {
+                    s8 = peg$parseDIGIT();
+                    if (s8 !== peg$FAILED) {
+                      if (input.charCodeAt(peg$currPos) === 45) {
+                        s9 = peg$c24;
+                        peg$currPos++;
+                      } else {
+                        s9 = peg$FAILED;
+                        if (peg$silentFails === 0) {
+                          peg$fail(peg$e39);
+                        }
                       }
-                    }
-                    if (s7 !== peg$FAILED) {
-                      s8 = peg$parseDIGIT_OR_UNDER();
-                      if (s8 !== peg$FAILED) {
-                        s9 = peg$parseDIGIT_OR_UNDER();
-                        if (s9 !== peg$FAILED) {
-                          s10 = peg$parsesecfragment();
-                          if (s10 === peg$FAILED) {
-                            s10 = peg$c25;
-                          }
-                          if (s10 !== peg$FAILED) {
-                            s2 = [s2, s3, s4, s5, s6, s7, s8, s9, s10];
+                      if (s9 !== peg$FAILED) {
+                        s10 = peg$parseDIGIT();
+                        if (s10 !== peg$FAILED) {
+                          s11 = peg$parseDIGIT();
+                          if (s11 !== peg$FAILED) {
+                            s2 = [s2, s3, s4, s5, s6, s7, s8, s9, s10, s11];
                             s1 = s2;
                           } else {
                             peg$currPos = s1;
-                            s1 = peg$c2;
+                            s1 = peg$FAILED;
                           }
                         } else {
                           peg$currPos = s1;
-                          s1 = peg$c2;
+                          s1 = peg$FAILED;
                         }
                       } else {
                         peg$currPos = s1;
-                        s1 = peg$c2;
+                        s1 = peg$FAILED;
                       }
                     } else {
                       peg$currPos = s1;
-                      s1 = peg$c2;
+                      s1 = peg$FAILED;
                     }
                   } else {
                     peg$currPos = s1;
-                    s1 = peg$c2;
+                    s1 = peg$FAILED;
                   }
                 } else {
                   peg$currPos = s1;
-                  s1 = peg$c2;
+                  s1 = peg$FAILED;
                 }
               } else {
                 peg$currPos = s1;
-                s1 = peg$c2;
+                s1 = peg$FAILED;
               }
             } else {
               peg$currPos = s1;
-              s1 = peg$c2;
+              s1 = peg$FAILED;
             }
           } else {
             peg$currPos = s1;
-            s1 = peg$c2;
+            s1 = peg$FAILED;
           }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c74(s1);
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s1;
+          s1 = peg$FAILED;
         }
-        function peg$parsetime_with_offset() {
-          var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16;
-          var key = peg$currPos * 49 + 37,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        if (s1 !== peg$FAILED) {
+          s0 = input.substring(s0, peg$currPos);
+        } else {
+          s0 = s1;
+        }
+        return s0;
+      }
+      function peg$parsetime_part() {
+        let s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
+        s0 = peg$currPos;
+        s1 = peg$currPos;
+        s2 = peg$currPos;
+        s3 = peg$parseDIGIT();
+        if (s3 !== peg$FAILED) {
+          s4 = peg$parseDIGIT();
+          if (s4 !== peg$FAILED) {
+            if (input.charCodeAt(peg$currPos) === 58) {
+              s5 = peg$c25;
+              peg$currPos++;
+            } else {
+              s5 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e40);
+              }
+            }
+            if (s5 !== peg$FAILED) {
+              s6 = peg$parseDIGIT();
+              if (s6 !== peg$FAILED) {
+                s7 = peg$parseDIGIT();
+                if (s7 !== peg$FAILED) {
+                  if (input.charCodeAt(peg$currPos) === 58) {
+                    s8 = peg$c25;
+                    peg$currPos++;
+                  } else {
+                    s8 = peg$FAILED;
+                    if (peg$silentFails === 0) {
+                      peg$fail(peg$e40);
+                    }
+                  }
+                  if (s8 !== peg$FAILED) {
+                    s9 = peg$parseDIGIT();
+                    if (s9 !== peg$FAILED) {
+                      s10 = peg$parseDIGIT();
+                      if (s10 !== peg$FAILED) {
+                        s3 = [s3, s4, s5, s6, s7, s8, s9, s10];
+                        s2 = s3;
+                      } else {
+                        peg$currPos = s2;
+                        s2 = peg$FAILED;
+                      }
+                    } else {
+                      peg$currPos = s2;
+                      s2 = peg$FAILED;
+                    }
+                  } else {
+                    peg$currPos = s2;
+                    s2 = peg$FAILED;
+                  }
+                } else {
+                  peg$currPos = s2;
+                  s2 = peg$FAILED;
+                }
+              } else {
+                peg$currPos = s2;
+                s2 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s2;
+              s2 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s2;
+            s2 = peg$FAILED;
           }
+        } else {
+          peg$currPos = s2;
+          s2 = peg$FAILED;
+        }
+        if (s2 !== peg$FAILED) {
+          s1 = input.substring(s1, peg$currPos);
+        } else {
+          s1 = s2;
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$parsesecfragment();
+          if (s2 === peg$FAILED) {
+            s2 = null;
+          }
+          peg$savedPos = s0;
+          s0 = peg$f60(s1, s2);
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
           s1 = peg$currPos;
-          s2 = peg$parseDIGIT_OR_UNDER();
-          if (s2 !== peg$FAILED) {
-            s3 = peg$parseDIGIT_OR_UNDER();
-            if (s3 !== peg$FAILED) {
+          s2 = peg$currPos;
+          s3 = peg$parseDIGIT();
+          if (s3 !== peg$FAILED) {
+            s4 = peg$parseDIGIT();
+            if (s4 !== peg$FAILED) {
               if (input.charCodeAt(peg$currPos) === 58) {
-                s4 = peg$c72;
+                s5 = peg$c25;
                 peg$currPos++;
               } else {
-                s4 = peg$FAILED;
+                s5 = peg$FAILED;
                 if (peg$silentFails === 0) {
-                  peg$fail(peg$c73);
+                  peg$fail(peg$e40);
                 }
               }
+              if (s5 !== peg$FAILED) {
+                s6 = peg$parseDIGIT();
+                if (s6 !== peg$FAILED) {
+                  s7 = peg$parseDIGIT();
+                  if (s7 !== peg$FAILED) {
+                    s3 = [s3, s4, s5, s6, s7];
+                    s2 = s3;
+                  } else {
+                    peg$currPos = s2;
+                    s2 = peg$FAILED;
+                  }
+                } else {
+                  peg$currPos = s2;
+                  s2 = peg$FAILED;
+                }
+              } else {
+                peg$currPos = s2;
+                s2 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s2;
+              s2 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s2;
+            s2 = peg$FAILED;
+          }
+          if (s2 !== peg$FAILED) {
+            s1 = input.substring(s1, peg$currPos);
+          } else {
+            s1 = s2;
+          }
+          if (s1 !== peg$FAILED) {
+            s2 = peg$currPos;
+            peg$silentFails++;
+            if (input.charCodeAt(peg$currPos) === 58) {
+              s3 = peg$c25;
+              peg$currPos++;
+            } else {
+              s3 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e40);
+              }
+            }
+            peg$silentFails--;
+            if (s3 === peg$FAILED) {
+              s2 = void 0;
+            } else {
+              peg$currPos = s2;
+              s2 = peg$FAILED;
+            }
+            if (s2 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f61(s1);
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parseoffset() {
+        let s0, s1, s2, s3, s4, s5, s6, s7;
+        s0 = peg$currPos;
+        s1 = input.charAt(peg$currPos);
+        if (s1.toLowerCase() === peg$c26) {
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e41);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          peg$savedPos = s0;
+          s1 = peg$f62();
+        }
+        s0 = s1;
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          s1 = peg$currPos;
+          s2 = input.charAt(peg$currPos);
+          if (peg$r1.test(s2)) {
+            peg$currPos++;
+          } else {
+            s2 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e6);
+            }
+          }
+          if (s2 !== peg$FAILED) {
+            s3 = peg$parseDIGIT();
+            if (s3 !== peg$FAILED) {
+              s4 = peg$parseDIGIT();
               if (s4 !== peg$FAILED) {
-                s5 = peg$parseDIGIT_OR_UNDER();
+                if (input.charCodeAt(peg$currPos) === 58) {
+                  s5 = peg$c25;
+                  peg$currPos++;
+                } else {
+                  s5 = peg$FAILED;
+                  if (peg$silentFails === 0) {
+                    peg$fail(peg$e40);
+                  }
+                }
                 if (s5 !== peg$FAILED) {
-                  s6 = peg$parseDIGIT_OR_UNDER();
+                  s6 = peg$parseDIGIT();
                   if (s6 !== peg$FAILED) {
-                    if (input.charCodeAt(peg$currPos) === 58) {
-                      s7 = peg$c72;
-                      peg$currPos++;
-                    } else {
-                      s7 = peg$FAILED;
-                      if (peg$silentFails === 0) {
-                        peg$fail(peg$c73);
-                      }
-                    }
+                    s7 = peg$parseDIGIT();
                     if (s7 !== peg$FAILED) {
-                      s8 = peg$parseDIGIT_OR_UNDER();
-                      if (s8 !== peg$FAILED) {
-                        s9 = peg$parseDIGIT_OR_UNDER();
-                        if (s9 !== peg$FAILED) {
-                          s10 = peg$parsesecfragment();
-                          if (s10 === peg$FAILED) {
-                            s10 = peg$c25;
-                          }
-                          if (s10 !== peg$FAILED) {
-                            if (input.charCodeAt(peg$currPos) === 45) {
-                              s11 = peg$c47;
-                              peg$currPos++;
-                            } else {
-                              s11 = peg$FAILED;
-                              if (peg$silentFails === 0) {
-                                peg$fail(peg$c48);
-                              }
-                            }
-                            if (s11 === peg$FAILED) {
-                              if (input.charCodeAt(peg$currPos) === 43) {
-                                s11 = peg$c44;
-                                peg$currPos++;
-                              } else {
-                                s11 = peg$FAILED;
-                                if (peg$silentFails === 0) {
-                                  peg$fail(peg$c45);
-                                }
-                              }
-                            }
-                            if (s11 !== peg$FAILED) {
-                              s12 = peg$parseDIGIT_OR_UNDER();
-                              if (s12 !== peg$FAILED) {
-                                s13 = peg$parseDIGIT_OR_UNDER();
-                                if (s13 !== peg$FAILED) {
-                                  if (input.charCodeAt(peg$currPos) === 58) {
-                                    s14 = peg$c72;
-                                    peg$currPos++;
-                                  } else {
-                                    s14 = peg$FAILED;
-                                    if (peg$silentFails === 0) {
-                                      peg$fail(peg$c73);
-                                    }
-                                  }
-                                  if (s14 !== peg$FAILED) {
-                                    s15 = peg$parseDIGIT_OR_UNDER();
-                                    if (s15 !== peg$FAILED) {
-                                      s16 = peg$parseDIGIT_OR_UNDER();
-                                      if (s16 !== peg$FAILED) {
-                                        s2 = [
-                                          s2,
-                                          s3,
-                                          s4,
-                                          s5,
-                                          s6,
-                                          s7,
-                                          s8,
-                                          s9,
-                                          s10,
-                                          s11,
-                                          s12,
-                                          s13,
-                                          s14,
-                                          s15,
-                                          s16,
-                                        ];
-                                        s1 = s2;
-                                      } else {
-                                        peg$currPos = s1;
-                                        s1 = peg$c2;
-                                      }
-                                    } else {
-                                      peg$currPos = s1;
-                                      s1 = peg$c2;
-                                    }
-                                  } else {
-                                    peg$currPos = s1;
-                                    s1 = peg$c2;
-                                  }
-                                } else {
-                                  peg$currPos = s1;
-                                  s1 = peg$c2;
-                                }
-                              } else {
-                                peg$currPos = s1;
-                                s1 = peg$c2;
-                              }
-                            } else {
-                              peg$currPos = s1;
-                              s1 = peg$c2;
-                            }
-                          } else {
-                            peg$currPos = s1;
-                            s1 = peg$c2;
-                          }
-                        } else {
-                          peg$currPos = s1;
-                          s1 = peg$c2;
-                        }
-                      } else {
-                        peg$currPos = s1;
-                        s1 = peg$c2;
-                      }
+                      s2 = [s2, s3, s4, s5, s6, s7];
+                      s1 = s2;
                     } else {
                       peg$currPos = s1;
-                      s1 = peg$c2;
+                      s1 = peg$FAILED;
                     }
                   } else {
                     peg$currPos = s1;
-                    s1 = peg$c2;
+                    s1 = peg$FAILED;
                   }
                 } else {
                   peg$currPos = s1;
-                  s1 = peg$c2;
+                  s1 = peg$FAILED;
                 }
               } else {
                 peg$currPos = s1;
-                s1 = peg$c2;
+                s1 = peg$FAILED;
               }
             } else {
               peg$currPos = s1;
-              s1 = peg$c2;
+              s1 = peg$FAILED;
             }
           } else {
             peg$currPos = s1;
-            s1 = peg$c2;
-          }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c74(s1);
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parsedatetime() {
-          var s0, s1, s2, s3, s4;
-          var key = peg$currPos * 49 + 38,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = peg$parsedate();
-          if (s1 !== peg$FAILED) {
-            if (input.charCodeAt(peg$currPos) === 84) {
-              s2 = peg$c75;
-              peg$currPos++;
-            } else {
-              s2 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c76);
-              }
-            }
-            if (s2 !== peg$FAILED) {
-              s3 = peg$parsetime();
-              if (s3 !== peg$FAILED) {
-                if (input.charCodeAt(peg$currPos) === 90) {
-                  s4 = peg$c77;
-                  peg$currPos++;
-                } else {
-                  s4 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c78);
-                  }
-                }
-                if (s4 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c79(s1, s3);
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            s1 = peg$parsedate();
-            if (s1 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 84) {
-                s2 = peg$c75;
-                peg$currPos++;
-              } else {
-                s2 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c76);
-                }
-              }
-              if (s2 !== peg$FAILED) {
-                s3 = peg$parsetime_with_offset();
-                if (s3 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c80(s1, s3);
-                  s0 = s1;
-                } else {
-                  peg$currPos = s0;
-                  s0 = peg$c2;
-                }
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseS() {
-          var s0;
-          var key = peg$currPos * 49 + 39,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          if (peg$c81.test(input.charAt(peg$currPos))) {
-            s0 = input.charAt(peg$currPos);
-            peg$currPos++;
-          } else {
-            s0 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c82);
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseNL() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 40,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          if (input.charCodeAt(peg$currPos) === 10) {
-            s0 = peg$c83;
-            peg$currPos++;
-          } else {
-            s0 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c84);
-            }
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            if (input.charCodeAt(peg$currPos) === 13) {
-              s1 = peg$c85;
-              peg$currPos++;
-            } else {
-              s1 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c86);
-              }
-            }
-            if (s1 !== peg$FAILED) {
-              if (input.charCodeAt(peg$currPos) === 10) {
-                s2 = peg$c83;
-                peg$currPos++;
-              } else {
-                s2 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c84);
-                }
-              }
-              if (s2 !== peg$FAILED) {
-                s1 = [s1, s2];
-                s0 = s1;
-              } else {
-                peg$currPos = s0;
-                s0 = peg$c2;
-              }
-            } else {
-              peg$currPos = s0;
-              s0 = peg$c2;
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseNLS() {
-          var s0;
-          var key = peg$currPos * 49 + 41,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$parseNL();
-          if (s0 === peg$FAILED) {
-            s0 = peg$parseS();
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseEOF() {
-          var s0, s1;
-          var key = peg$currPos * 49 + 42,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          peg$silentFails++;
-          if (input.length > peg$currPos) {
-            s1 = input.charAt(peg$currPos);
-            peg$currPos++;
-          } else {
             s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c6);
-            }
           }
-          peg$silentFails--;
-          if (s1 === peg$FAILED) {
-            s0 = peg$c5;
+          if (s1 !== peg$FAILED) {
+            s0 = input.substring(s0, peg$currPos);
           } else {
-            peg$currPos = s0;
-            s0 = peg$c2;
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseHEX() {
-          var s0;
-          var key = peg$currPos * 49 + 43,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          if (peg$c87.test(input.charAt(peg$currPos))) {
-            s0 = input.charAt(peg$currPos);
-            peg$currPos++;
-          } else {
-            s0 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c88);
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseDIGIT_OR_UNDER() {
-          var s0, s1;
-          var key = peg$currPos * 49 + 44,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          if (peg$c89.test(input.charAt(peg$currPos))) {
-            s0 = input.charAt(peg$currPos);
-            peg$currPos++;
-          } else {
-            s0 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c90);
-            }
-          }
-          if (s0 === peg$FAILED) {
-            s0 = peg$currPos;
-            if (input.charCodeAt(peg$currPos) === 95) {
-              s1 = peg$c91;
-              peg$currPos++;
-            } else {
-              s1 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c92);
-              }
-            }
-            if (s1 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c93();
-            }
             s0 = s1;
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parseASCII_BASIC() {
-          var s0;
-          var key = peg$currPos * 49 + 45,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          if (peg$c94.test(input.charAt(peg$currPos))) {
-            s0 = input.charAt(peg$currPos);
-            peg$currPos++;
-          } else {
-            s0 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c95);
-            }
-          }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
-        }
-        function peg$parseDIGITS() {
-          var s0, s1, s2;
-          var key = peg$currPos * 49 + 46,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
-          s0 = peg$currPos;
-          s1 = [];
-          s2 = peg$parseDIGIT_OR_UNDER();
+        return s0;
+      }
+      function peg$parsedatetime() {
+        let s0, s1, s2, s3, s4;
+        s0 = peg$currPos;
+        s1 = peg$parsedate_part();
+        if (s1 !== peg$FAILED) {
+          s2 = peg$parsedatetime_delim();
           if (s2 !== peg$FAILED) {
-            while (s2 !== peg$FAILED) {
-              s1.push(s2);
-              s2 = peg$parseDIGIT_OR_UNDER();
+            s3 = peg$parsetime_part();
+            if (s3 !== peg$FAILED) {
+              s4 = peg$parseoffset();
+              if (s4 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s0 = peg$f63(s1, s3, s4);
+              } else {
+                peg$currPos = s0;
+                s0 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
             }
           } else {
-            s1 = peg$c2;
+            peg$currPos = s0;
+            s0 = peg$FAILED;
           }
-          if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c96(s1);
-          }
-          s0 = s1;
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
         }
-        function peg$parseESCAPED() {
-          var s0, s1;
-          var key = peg$currPos * 49 + 47,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
-          }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 2) === peg$c97) {
-            s1 = peg$c97;
-            peg$currPos += 2;
-          } else {
-            s1 = peg$FAILED;
-            if (peg$silentFails === 0) {
-              peg$fail(peg$c98);
-            }
-          }
+          s1 = peg$parsedate_part();
           if (s1 !== peg$FAILED) {
-            peg$reportedPos = s0;
-            s1 = peg$c99();
+            s2 = peg$parsedatetime_delim();
+            if (s2 !== peg$FAILED) {
+              s3 = peg$parsetime_part();
+              if (s3 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s0 = peg$f64(s1, s3);
+              } else {
+                peg$currPos = s0;
+                s0 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
           }
-          s0 = s1;
           if (s0 === peg$FAILED) {
             s0 = peg$currPos;
-            if (input.substr(peg$currPos, 2) === peg$c100) {
-              s1 = peg$c100;
-              peg$currPos += 2;
-            } else {
-              s1 = peg$FAILED;
-              if (peg$silentFails === 0) {
-                peg$fail(peg$c101);
-              }
-            }
+            s1 = peg$parsedate_part();
             if (s1 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c102();
+              s2 = peg$currPos;
+              peg$silentFails++;
+              s3 = peg$parsedatetime_delim();
+              peg$silentFails--;
+              if (s3 === peg$FAILED) {
+                s2 = void 0;
+              } else {
+                peg$currPos = s2;
+                s2 = peg$FAILED;
+              }
+              if (s2 !== peg$FAILED) {
+                peg$savedPos = s0;
+                s0 = peg$f65(s1);
+              } else {
+                peg$currPos = s0;
+                s0 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
             }
-            s0 = s1;
             if (s0 === peg$FAILED) {
               s0 = peg$currPos;
-              if (input.substr(peg$currPos, 2) === peg$c103) {
-                s1 = peg$c103;
-                peg$currPos += 2;
-              } else {
-                s1 = peg$FAILED;
-                if (peg$silentFails === 0) {
-                  peg$fail(peg$c104);
-                }
-              }
+              s1 = peg$parsetime_part();
               if (s1 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c105();
+                peg$savedPos = s0;
+                s1 = peg$f66(s1);
               }
               s0 = s1;
-              if (s0 === peg$FAILED) {
-                s0 = peg$currPos;
-                if (input.substr(peg$currPos, 2) === peg$c106) {
-                  s1 = peg$c106;
-                  peg$currPos += 2;
-                } else {
-                  s1 = peg$FAILED;
-                  if (peg$silentFails === 0) {
-                    peg$fail(peg$c107);
-                  }
-                }
-                if (s1 !== peg$FAILED) {
-                  peg$reportedPos = s0;
-                  s1 = peg$c108();
-                }
-                s0 = s1;
-                if (s0 === peg$FAILED) {
-                  s0 = peg$currPos;
-                  if (input.substr(peg$currPos, 2) === peg$c109) {
-                    s1 = peg$c109;
-                    peg$currPos += 2;
-                  } else {
-                    s1 = peg$FAILED;
-                    if (peg$silentFails === 0) {
-                      peg$fail(peg$c110);
-                    }
-                  }
-                  if (s1 !== peg$FAILED) {
-                    peg$reportedPos = s0;
-                    s1 = peg$c111();
-                  }
-                  s0 = s1;
-                  if (s0 === peg$FAILED) {
-                    s0 = peg$currPos;
-                    if (input.substr(peg$currPos, 2) === peg$c112) {
-                      s1 = peg$c112;
-                      peg$currPos += 2;
-                    } else {
-                      s1 = peg$FAILED;
-                      if (peg$silentFails === 0) {
-                        peg$fail(peg$c113);
-                      }
-                    }
-                    if (s1 !== peg$FAILED) {
-                      peg$reportedPos = s0;
-                      s1 = peg$c114();
-                    }
-                    s0 = s1;
-                    if (s0 === peg$FAILED) {
-                      s0 = peg$currPos;
-                      if (input.substr(peg$currPos, 2) === peg$c115) {
-                        s1 = peg$c115;
-                        peg$currPos += 2;
-                      } else {
-                        s1 = peg$FAILED;
-                        if (peg$silentFails === 0) {
-                          peg$fail(peg$c116);
-                        }
-                      }
-                      if (s1 !== peg$FAILED) {
-                        peg$reportedPos = s0;
-                        s1 = peg$c117();
-                      }
-                      s0 = s1;
-                      if (s0 === peg$FAILED) {
-                        s0 = peg$parseESCAPED_UNICODE();
-                      }
-                    }
-                  }
-                }
-              }
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        function peg$parseESCAPED_UNICODE() {
-          var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
-          var key = peg$currPos * 49 + 48,
-            cached = peg$cache[key];
-          if (cached) {
-            peg$currPos = cached.nextPos;
-            return cached.result;
+        return s0;
+      }
+      function peg$parsedatetime_delim() {
+        let s0, s1, s2, s3;
+        s0 = input.charAt(peg$currPos);
+        if (s0.toLowerCase() === peg$c27) {
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e42);
           }
+        }
+        if (s0 === peg$FAILED) {
           s0 = peg$currPos;
-          if (input.substr(peg$currPos, 2) === peg$c118) {
-            s1 = peg$c118;
-            peg$currPos += 2;
+          if (input.charCodeAt(peg$currPos) === 32) {
+            s1 = peg$c28;
+            peg$currPos++;
           } else {
             s1 = peg$FAILED;
             if (peg$silentFails === 0) {
-              peg$fail(peg$c119);
+              peg$fail(peg$e43);
             }
           }
           if (s1 !== peg$FAILED) {
             s2 = peg$currPos;
-            s3 = peg$parseHEX();
+            peg$silentFails++;
+            s3 = peg$parseDIGIT();
+            peg$silentFails--;
             if (s3 !== peg$FAILED) {
-              s4 = peg$parseHEX();
-              if (s4 !== peg$FAILED) {
-                s5 = peg$parseHEX();
-                if (s5 !== peg$FAILED) {
-                  s6 = peg$parseHEX();
-                  if (s6 !== peg$FAILED) {
-                    s7 = peg$parseHEX();
-                    if (s7 !== peg$FAILED) {
-                      s8 = peg$parseHEX();
-                      if (s8 !== peg$FAILED) {
-                        s9 = peg$parseHEX();
-                        if (s9 !== peg$FAILED) {
-                          s10 = peg$parseHEX();
-                          if (s10 !== peg$FAILED) {
-                            s3 = [s3, s4, s5, s6, s7, s8, s9, s10];
-                            s2 = s3;
-                          } else {
-                            peg$currPos = s2;
-                            s2 = peg$c2;
-                          }
-                        } else {
-                          peg$currPos = s2;
-                          s2 = peg$c2;
-                        }
-                      } else {
-                        peg$currPos = s2;
-                        s2 = peg$c2;
-                      }
-                    } else {
-                      peg$currPos = s2;
-                      s2 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s2;
-                    s2 = peg$c2;
-                  }
-                } else {
-                  peg$currPos = s2;
-                  s2 = peg$c2;
-                }
-              } else {
-                peg$currPos = s2;
-                s2 = peg$c2;
-              }
-            } else {
               peg$currPos = s2;
-              s2 = peg$c2;
+              s2 = void 0;
+            } else {
+              s2 = peg$FAILED;
             }
             if (s2 !== peg$FAILED) {
-              peg$reportedPos = s0;
-              s1 = peg$c120(s2);
+              s1 = [s1, s2];
               s0 = s1;
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           } else {
             peg$currPos = s0;
-            s0 = peg$c2;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parseS() {
+        let s0;
+        s0 = input.charAt(peg$currPos);
+        if (peg$r14.test(s0)) {
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e44);
+          }
+        }
+        return s0;
+      }
+      function peg$parseNL() {
+        let s0, s1, s2;
+        if (input.charCodeAt(peg$currPos) === 10) {
+          s0 = peg$c29;
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e45);
+          }
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.charCodeAt(peg$currPos) === 13) {
+            s1 = peg$c30;
+            peg$currPos++;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e46);
+            }
+          }
+          if (s1 !== peg$FAILED) {
+            if (input.charCodeAt(peg$currPos) === 10) {
+              s2 = peg$c29;
+              peg$currPos++;
+            } else {
+              s2 = peg$FAILED;
+              if (peg$silentFails === 0) {
+                peg$fail(peg$e45);
+              }
+            }
+            if (s2 !== peg$FAILED) {
+              s1 = [s1, s2];
+              s0 = s1;
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        }
+        return s0;
+      }
+      function peg$parseNLS() {
+        let s0;
+        s0 = peg$parseNL();
+        if (s0 === peg$FAILED) {
+          s0 = peg$parseS();
+        }
+        return s0;
+      }
+      function peg$parseEOF() {
+        let s0, s1;
+        s0 = peg$currPos;
+        peg$silentFails++;
+        if (input.length > peg$currPos) {
+          s1 = input.charAt(peg$currPos);
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e14);
+          }
+        }
+        peg$silentFails--;
+        if (s1 === peg$FAILED) {
+          s0 = void 0;
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        return s0;
+      }
+      function peg$parseBOM() {
+        let s0;
+        if (input.charCodeAt(peg$currPos) === 65279) {
+          s0 = peg$c31;
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e47);
+          }
+        }
+        return s0;
+      }
+      function peg$parseDIGIT() {
+        let s0;
+        s0 = input.charAt(peg$currPos);
+        if (peg$r10.test(s0)) {
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e30);
+          }
+        }
+        return s0;
+      }
+      function peg$parseHEX() {
+        let s0;
+        s0 = input.charAt(peg$currPos);
+        if (peg$r11.test(s0)) {
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e31);
+          }
+        }
+        return s0;
+      }
+      function peg$parseASCII_BASIC() {
+        let s0;
+        s0 = input.charAt(peg$currPos);
+        if (peg$r15.test(s0)) {
+          peg$currPos++;
+        } else {
+          s0 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e48);
+          }
+        }
+        return s0;
+      }
+      function peg$parseESCAPED() {
+        let s0, s1, s2;
+        s0 = peg$currPos;
+        if (input.charCodeAt(peg$currPos) === 92) {
+          s1 = peg$c11;
+          peg$currPos++;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e13);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = input.charAt(peg$currPos);
+          if (peg$r16.test(s2)) {
+            peg$currPos++;
+          } else {
+            s2 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e49);
+            }
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f67(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$parseESCAPED_UNICODE();
+        }
+        return s0;
+      }
+      function peg$parseESCAPED_UNICODE() {
+        let s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11;
+        s0 = peg$currPos;
+        if (input.substr(peg$currPos, 2) === peg$c32) {
+          s1 = peg$c32;
+          peg$currPos += 2;
+        } else {
+          s1 = peg$FAILED;
+          if (peg$silentFails === 0) {
+            peg$fail(peg$e50);
+          }
+        }
+        if (s1 !== peg$FAILED) {
+          s2 = peg$currPos;
+          s3 = peg$currPos;
+          s4 = peg$parseHEX();
+          if (s4 !== peg$FAILED) {
+            s5 = peg$parseHEX();
+            if (s5 !== peg$FAILED) {
+              s6 = peg$parseHEX();
+              if (s6 !== peg$FAILED) {
+                s7 = peg$parseHEX();
+                if (s7 !== peg$FAILED) {
+                  s8 = peg$parseHEX();
+                  if (s8 !== peg$FAILED) {
+                    s9 = peg$parseHEX();
+                    if (s9 !== peg$FAILED) {
+                      s10 = peg$parseHEX();
+                      if (s10 !== peg$FAILED) {
+                        s11 = peg$parseHEX();
+                        if (s11 !== peg$FAILED) {
+                          s4 = [s4, s5, s6, s7, s8, s9, s10, s11];
+                          s3 = s4;
+                        } else {
+                          peg$currPos = s3;
+                          s3 = peg$FAILED;
+                        }
+                      } else {
+                        peg$currPos = s3;
+                        s3 = peg$FAILED;
+                      }
+                    } else {
+                      peg$currPos = s3;
+                      s3 = peg$FAILED;
+                    }
+                  } else {
+                    peg$currPos = s3;
+                    s3 = peg$FAILED;
+                  }
+                } else {
+                  peg$currPos = s3;
+                  s3 = peg$FAILED;
+                }
+              } else {
+                peg$currPos = s3;
+                s3 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s3;
+            s3 = peg$FAILED;
+          }
+          if (s3 !== peg$FAILED) {
+            s2 = input.substring(s2, peg$currPos);
+          } else {
+            s2 = s3;
+          }
+          if (s2 !== peg$FAILED) {
+            peg$savedPos = s0;
+            s0 = peg$f68(s2);
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
+          }
+        } else {
+          peg$currPos = s0;
+          s0 = peg$FAILED;
+        }
+        if (s0 === peg$FAILED) {
+          s0 = peg$currPos;
+          if (input.substr(peg$currPos, 2) === peg$c33) {
+            s1 = peg$c33;
+            peg$currPos += 2;
+          } else {
+            s1 = peg$FAILED;
+            if (peg$silentFails === 0) {
+              peg$fail(peg$e51);
+            }
+          }
+          if (s1 !== peg$FAILED) {
+            s2 = peg$currPos;
+            s3 = peg$currPos;
+            s4 = peg$parseHEX();
+            if (s4 !== peg$FAILED) {
+              s5 = peg$parseHEX();
+              if (s5 !== peg$FAILED) {
+                s6 = peg$parseHEX();
+                if (s6 !== peg$FAILED) {
+                  s7 = peg$parseHEX();
+                  if (s7 !== peg$FAILED) {
+                    s4 = [s4, s5, s6, s7];
+                    s3 = s4;
+                  } else {
+                    peg$currPos = s3;
+                    s3 = peg$FAILED;
+                  }
+                } else {
+                  peg$currPos = s3;
+                  s3 = peg$FAILED;
+                }
+              } else {
+                peg$currPos = s3;
+                s3 = peg$FAILED;
+              }
+            } else {
+              peg$currPos = s3;
+              s3 = peg$FAILED;
+            }
+            if (s3 !== peg$FAILED) {
+              s2 = input.substring(s2, peg$currPos);
+            } else {
+              s2 = s3;
+            }
+            if (s2 !== peg$FAILED) {
+              peg$savedPos = s0;
+              s0 = peg$f69(s2);
+            } else {
+              peg$currPos = s0;
+              s0 = peg$FAILED;
+            }
+          } else {
+            peg$currPos = s0;
+            s0 = peg$FAILED;
           }
           if (s0 === peg$FAILED) {
             s0 = peg$currPos;
-            if (input.substr(peg$currPos, 2) === peg$c121) {
-              s1 = peg$c121;
+            if (input.substr(peg$currPos, 2) === peg$c34) {
+              s1 = peg$c34;
               peg$currPos += 2;
             } else {
               s1 = peg$FAILED;
               if (peg$silentFails === 0) {
-                peg$fail(peg$c122);
+                peg$fail(peg$e52);
               }
             }
             if (s1 !== peg$FAILED) {
               s2 = peg$currPos;
-              s3 = peg$parseHEX();
-              if (s3 !== peg$FAILED) {
-                s4 = peg$parseHEX();
-                if (s4 !== peg$FAILED) {
-                  s5 = peg$parseHEX();
-                  if (s5 !== peg$FAILED) {
-                    s6 = peg$parseHEX();
-                    if (s6 !== peg$FAILED) {
-                      s3 = [s3, s4, s5, s6];
-                      s2 = s3;
-                    } else {
-                      peg$currPos = s2;
-                      s2 = peg$c2;
-                    }
-                  } else {
-                    peg$currPos = s2;
-                    s2 = peg$c2;
-                  }
+              s3 = peg$currPos;
+              s4 = peg$parseHEX();
+              if (s4 !== peg$FAILED) {
+                s5 = peg$parseHEX();
+                if (s5 !== peg$FAILED) {
+                  s4 = [s4, s5];
+                  s3 = s4;
                 } else {
-                  peg$currPos = s2;
-                  s2 = peg$c2;
+                  peg$currPos = s3;
+                  s3 = peg$FAILED;
                 }
               } else {
-                peg$currPos = s2;
-                s2 = peg$c2;
+                peg$currPos = s3;
+                s3 = peg$FAILED;
+              }
+              if (s3 !== peg$FAILED) {
+                s2 = input.substring(s2, peg$currPos);
+              } else {
+                s2 = s3;
               }
               if (s2 !== peg$FAILED) {
-                peg$reportedPos = s0;
-                s1 = peg$c120(s2);
-                s0 = s1;
+                peg$savedPos = s0;
+                s0 = peg$f70(s2);
               } else {
                 peg$currPos = s0;
-                s0 = peg$c2;
+                s0 = peg$FAILED;
               }
             } else {
               peg$currPos = s0;
-              s0 = peg$c2;
+              s0 = peg$FAILED;
             }
           }
-          peg$cache[key] = { nextPos: peg$currPos, result: s0 };
-          return s0;
         }
-        var nodes = [];
-        function genError(err, line2, col) {
-          var ex = new Error(err);
-          ex.line = line2;
-          ex.column = col;
-          throw ex;
-        }
-        function addNode(node2) {
-          nodes.push(node2);
-        }
-        function node(type2, value2, line2, column2, key) {
-          var obj = { type: type2, value: value2, line: line2(), column: column2() };
-          if (key) obj.key = key;
-          return obj;
-        }
-        function convertCodePoint(str3, line2, col) {
-          var num = parseInt("0x" + str3);
-          if (
-            !isFinite(num) ||
-            Math.floor(num) != num ||
-            num < 0 ||
-            num > 1114111 ||
-            (num > 55295 && num < 57344)
-          ) {
-            genError("Invalid Unicode escape code: " + str3, line2, col);
+        return s0;
+      }
+      var nodes = [];
+      var inputText = input;
+      var depth = 0;
+      var MAX_DEPTH = options2 && options2.maxDepth != null ? options2.maxDepth : 500;
+      function resolveLineCol(off) {
+        var line = 1,
+          col = 1;
+        for (var i2 = 0; i2 < off; i2++) {
+          if (inputText.charCodeAt(i2) === 10) {
+            line++;
+            col = 1;
           } else {
-            return fromCodePoint(num);
+            col++;
           }
         }
-        function fromCodePoint() {
-          var MAX_SIZE = 16384;
-          var codeUnits = [];
-          var highSurrogate;
-          var lowSurrogate;
-          var index = -1;
-          var length = arguments.length;
-          if (!length) {
-            return "";
-          }
-          var result = "";
-          while (++index < length) {
-            var codePoint = Number(arguments[index]);
-            if (codePoint <= 65535) {
-              codeUnits.push(codePoint);
-            } else {
-              codePoint -= 65536;
-              highSurrogate = (codePoint >> 10) + 55296;
-              lowSurrogate = (codePoint % 1024) + 56320;
-              codeUnits.push(highSurrogate, lowSurrogate);
-            }
-            if (index + 1 == length || codeUnits.length > MAX_SIZE) {
-              result += String.fromCharCode.apply(null, codeUnits);
-              codeUnits.length = 0;
-            }
-          }
-          return result;
+        return { line, column: col };
+      }
+      function genError(err, off) {
+        var pos = resolveLineCol(off);
+        var ex = new Error(err);
+        ex.line = pos.line;
+        ex.column = pos.column;
+        throw ex;
+      }
+      function addNode(node2) {
+        nodes.push(node2);
+      }
+      function node(type2, value2, off, key) {
+        var obj = { type: type2, value: value2, offset: off };
+        if (key) obj.key = key;
+        return obj;
+      }
+      function validateDate(dateStr, off) {
+        var year =
+          dateStr.charCodeAt(0) * 1e3 +
+          dateStr.charCodeAt(1) * 100 +
+          dateStr.charCodeAt(2) * 10 +
+          dateStr.charCodeAt(3) -
+          53328;
+        var month = (dateStr.charCodeAt(5) - 48) * 10 + dateStr.charCodeAt(6) - 48;
+        var day = (dateStr.charCodeAt(8) - 48) * 10 + dateStr.charCodeAt(9) - 48;
+        if (month < 1 || month > 12) {
+          genError("Invalid date: month " + month + " out of range.", off);
         }
-        peg$result = peg$startRuleFunction();
-        if (peg$result !== peg$FAILED && peg$currPos === input.length) {
-          return peg$result;
-        } else {
-          if (peg$result !== peg$FAILED && peg$currPos < input.length) {
-            peg$fail({ type: "end", description: "end of input" });
-          }
-          throw peg$buildException(null, peg$maxFailExpected, peg$maxFailPos);
+        var maxDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+          maxDays[1] = 29;
+        }
+        if (day < 1 || day > maxDays[month - 1]) {
+          genError("Invalid date: day " + day + " out of range for month " + month + ".", off);
         }
       }
-      return {
-        SyntaxError: SyntaxError2,
-        parse: parse2,
-      };
-    })();
+      function validateTime(timeStr, off) {
+        var hour = (timeStr.charCodeAt(0) - 48) * 10 + timeStr.charCodeAt(1) - 48;
+        var minute = (timeStr.charCodeAt(3) - 48) * 10 + timeStr.charCodeAt(4) - 48;
+        var second = (timeStr.charCodeAt(6) - 48) * 10 + timeStr.charCodeAt(7) - 48;
+        if (hour > 23) {
+          genError("Invalid time: hour " + hour + " out of range.", off);
+        }
+        if (minute > 59) {
+          genError("Invalid time: minute " + minute + " out of range.", off);
+        }
+        if (second > 59) {
+          genError("Invalid time: second " + second + " out of range.", off);
+        }
+      }
+      function validateOffset(offsetStr, off) {
+        if (offsetStr === "Z" || offsetStr === "z") return;
+        var hour = (offsetStr.charCodeAt(1) - 48) * 10 + offsetStr.charCodeAt(2) - 48;
+        var minute = (offsetStr.charCodeAt(4) - 48) * 10 + offsetStr.charCodeAt(5) - 48;
+        if (hour > 23) {
+          genError("Invalid offset: hour " + hour + " out of range.", off);
+        }
+        if (minute > 59) {
+          genError("Invalid offset: minute " + minute + " out of range.", off);
+        }
+      }
+      function stripUnderscores(str3) {
+        return str3.indexOf("_") === -1 ? str3 : str3.replace(/_/g, "");
+      }
+      var MAX_INT64_DIGITS = { 2: 63, 8: 21, 10: 19, 16: 16 };
+      var RADIX_PREFIX = { 2: "0b", 8: "0o", 10: "", 16: "0x" };
+      function integerNode(radix, text2, off) {
+        var digits = stripUnderscores(text2);
+        var significant = digits.replace(/^[+-]?0*/, "");
+        if (significant.length > MAX_INT64_DIGITS[radix]) {
+          genError(
+            "Integer literal is outside the 64-bit signed integer range required by TOML.",
+            off,
+          );
+        }
+        return node("Integer", BigInt(RADIX_PREFIX[radix] + digits), off);
+      }
+      function convertCodePoint(str3) {
+        var num = parseInt(str3, 16);
+        if (num !== num || num < 0 || num > 1114111 || (num > 55295 && num < 57344)) {
+          genError("Invalid Unicode escape code: " + str3, offset());
+        } else {
+          return String.fromCodePoint(num);
+        }
+      }
+      peg$result = peg$startRuleFunction();
+      const peg$success = peg$result !== peg$FAILED && peg$currPos === input.length;
+      function peg$throw() {
+        if (peg$result !== peg$FAILED && peg$currPos < input.length) {
+          peg$fail(peg$endExpectation());
+        }
+        throw peg$buildStructuredError(
+          peg$maxFailExpected,
+          peg$maxFailPos < input.length ? peg$getUnicode(peg$maxFailPos) : null,
+          peg$maxFailPos < input.length
+            ? peg$computeLocation(peg$maxFailPos, peg$maxFailPos + 1)
+            : peg$computeLocation(peg$maxFailPos, peg$maxFailPos),
+        );
+      }
+      if (options2.peg$library) {
+        return (
+          /** @type {any} */
+          {
+            peg$result,
+            peg$currPos,
+            peg$FAILED,
+            peg$maxFailExpected,
+            peg$maxFailPos,
+            peg$success,
+            peg$throw: peg$success ? void 0 : peg$throw,
+          }
+        );
+      }
+      if (peg$success) {
+        return peg$result;
+      } else {
+        peg$throw();
+      }
+    }
+    module2.exports = {
+      StartRules: ["start"],
+      SyntaxError: peg$SyntaxError,
+      parse: peg$parse,
+    };
   },
 });
 
 // node_modules/toml/lib/compiler.js
 var require_compiler = __commonJS({
   "node_modules/toml/lib/compiler.js"(exports2, module2) {
-    function compile(nodes) {
-      var assignedPaths = [];
-      var valueAssignments = [];
-      var currentPath = "";
-      var data = /* @__PURE__ */ Object.create(null);
+    var INT64_MIN = -(2n ** 63n);
+    var INT64_MAX = 2n ** 63n - 1n;
+    var MAX_SAFE = BigInt(Number.MAX_SAFE_INTEGER);
+    var MIN_SAFE = BigInt(Number.MIN_SAFE_INTEGER);
+    var HEADER_TABLE = "header";
+    var IMPLICIT_TABLE = "implicit";
+    var DOTTED_TABLE = "dotted";
+    var INLINE_TABLE = "inline";
+    var TABLE_ARRAY = "table-array";
+    function compile(nodes, inputText, options2) {
+      options2 = options2 || {};
+      var temporal = null;
+      if (options2.useTemporal) {
+        temporal = options2.temporal || (typeof Temporal !== "undefined" ? Temporal : null);
+        if (!temporal) {
+          throw new Error(
+            "The `useTemporal` option was set, but no Temporal implementation is available. Use a runtime with global `Temporal` support, or provide an implementation (e.g. from the `@js-temporal/polyfill` package) via the `temporal` option.",
+          );
+        }
+      }
+      var containerKinds = /* @__PURE__ */ new WeakMap();
+      var data = createTable(HEADER_TABLE);
       var context = data;
+      var currentPath = [];
       return reduce(nodes);
       function reduce(nodes2) {
         var node;
@@ -7854,132 +8802,193 @@ var require_compiler = __commonJS({
         }
         return data;
       }
-      function genError(err, line, col) {
+      function resolveLineCol(off) {
+        var line = 1,
+          col = 1;
+        for (var i2 = 0; i2 < off; i2++) {
+          if (inputText.charCodeAt(i2) === 10) {
+            line++;
+            col = 1;
+          } else {
+            col++;
+          }
+        }
+        return { line, column: col };
+      }
+      function genError(err, off) {
+        var pos = resolveLineCol(off);
         var ex = new Error(err);
-        ex.line = line;
-        ex.column = col;
+        ex.line = pos.line;
+        ex.column = pos.column;
         throw ex;
       }
       function assign(node) {
-        var key = node.key;
-        var value2 = node.value;
-        var line = node.line;
-        var column = node.column;
-        var fullPath;
-        if (currentPath) {
-          fullPath = currentPath + "." + key;
-        } else {
-          fullPath = key;
-        }
-        if (typeof context[key] !== "undefined") {
-          genError("Cannot redefine existing key '" + fullPath + "'.", line, column);
-        }
-        context[key] = reduceValueNode(value2);
-        if (!pathAssigned(fullPath)) {
-          assignedPaths.push(fullPath);
-          valueAssignments.push(fullPath);
-        }
+        var keys = Array.isArray(node.key) ? node.key : [node.key];
+        assignDotted(context, keys, reduceValueNode(node.value), node.offset, currentPath);
       }
-      function pathAssigned(path) {
-        return assignedPaths.indexOf(path) !== -1;
+      function assignDotted(table, keys, value2, off, prefix) {
+        for (var i2 = 0; i2 < keys.length - 1; i2++) {
+          var key = keys[i2];
+          var next = table[key];
+          if (next === void 0) {
+            next = createTable(DOTTED_TABLE);
+            table[key] = next;
+          } else {
+            var kind = containerKinds.get(next);
+            if (kind !== DOTTED_TABLE && kind !== IMPLICIT_TABLE) {
+              var path = pathKey(prefix.concat(keys.slice(0, i2 + 1)));
+              if (kind === HEADER_TABLE) {
+                genError(
+                  "Cannot use dotted keys to extend table '" + path + "' defined elsewhere.",
+                  off,
+                );
+              }
+              if (kind === INLINE_TABLE) {
+                genError("Cannot extend inline table '" + path + "'.", off);
+              }
+              genError("Cannot redefine existing key '" + path + "'.", off);
+            }
+          }
+          table = next;
+        }
+        var lastKey = keys[keys.length - 1];
+        if (table[lastKey] !== void 0) {
+          genError("Cannot redefine existing key '" + pathKey(prefix.concat(keys)) + "'.", off);
+        }
+        table[lastKey] = value2;
       }
       function reduceValueNode(node) {
-        if (node.type === "Array") {
-          return reduceArrayWithTypeChecking(node.value);
+        if (node.type === "Integer") {
+          return reduceInteger(node);
+        } else if (node.type === "Array") {
+          return reduceArray(node.value);
         } else if (node.type === "InlineTable") {
           return reduceInlineTableNode(node.value);
-        } else {
-          return node.value;
-        }
-      }
-      function reduceInlineTableNode(values) {
-        var obj = /* @__PURE__ */ Object.create(null);
-        for (var i2 = 0; i2 < values.length; i2++) {
-          var val = values[i2];
-          if (val.value.type === "InlineTable") {
-            obj[val.key] = reduceInlineTableNode(val.value.value);
-          } else if (val.type === "InlineTableValue") {
-            obj[val.key] = reduceValueNode(val.value);
+        } else if (temporal) {
+          switch (node.type) {
+            case "Date":
+              return temporal.ZonedDateTime.from(
+                truncateFractionalSeconds(node.raw) +
+                  node.tz +
+                  "[" +
+                  (node.tz === "Z" ? "UTC" : node.tz) +
+                  "]",
+              );
+            case "LocalDateTime":
+              return temporal.PlainDateTime.from(truncateFractionalSeconds(node.value));
+            case "LocalDate":
+              return temporal.PlainDate.from(node.value);
+            case "LocalTime":
+              return temporal.PlainTime.from(truncateFractionalSeconds(node.value));
           }
         }
-        return obj;
+        return node.value;
+      }
+      function truncateFractionalSeconds(str3) {
+        return str3.replace(/\.(\d{9})\d+/, ".$1");
+      }
+      function reduceInteger(node) {
+        var value2 = node.value;
+        if (value2 < INT64_MIN || value2 > INT64_MAX) {
+          genError(
+            "Integer " + value2 + " is outside the 64-bit signed integer range required by TOML.",
+            node.offset,
+          );
+        }
+        if (options2.bigint) {
+          return value2;
+        }
+        if (value2 < MIN_SAFE || value2 > MAX_SAFE) {
+          genError(
+            "Integer " +
+              value2 +
+              " cannot be represented losslessly as a JavaScript number. Use the `bigint` option to parse integers as BigInt values.",
+            node.offset,
+          );
+        }
+        return Number(value2);
+      }
+      function reduceInlineTableNode(values) {
+        var table = createTable(INLINE_TABLE);
+        for (var i2 = 0; i2 < values.length; i2++) {
+          var val = values[i2];
+          if (val.type !== "InlineTableValue") continue;
+          var keys = Array.isArray(val.key) ? val.key : [val.key];
+          assignDotted(table, keys, reduceValueNode(val.value), val.offset, []);
+        }
+        return table;
       }
       function setPath(node) {
         var path = node.value;
-        var quotedPath = path.map(quoteDottedString).join(".");
-        var line = node.line;
-        var column = node.column;
-        if (pathAssigned(quotedPath)) {
-          genError("Cannot redefine existing key '" + path + "'.", line, column);
+        var off = node.offset;
+        var parent = resolveParentTable(path, off);
+        var name = path[path.length - 1];
+        var table = parent[name];
+        if (table === void 0) {
+          table = createTable(HEADER_TABLE);
+          parent[name] = table;
+        } else if (containerKinds.get(table) === IMPLICIT_TABLE) {
+          containerKinds.set(table, HEADER_TABLE);
+        } else {
+          genError("Cannot redefine existing key '" + pathKey(path) + "'.", off);
         }
-        assignedPaths.push(quotedPath);
-        context = deepRef(data, path, /* @__PURE__ */ Object.create(null), line, column);
+        context = table;
         currentPath = path;
       }
       function addTableArray(node) {
         var path = node.value;
-        var quotedPath = path.map(quoteDottedString).join(".");
-        var line = node.line;
-        var column = node.column;
-        if (!pathAssigned(quotedPath)) {
-          assignedPaths.push(quotedPath);
+        var off = node.offset;
+        var parent = resolveParentTable(path, off);
+        var name = path[path.length - 1];
+        var tableArray = parent[name];
+        if (tableArray === void 0) {
+          tableArray = createTableArray();
+          parent[name] = tableArray;
+        } else if (containerKinds.get(tableArray) !== TABLE_ARRAY) {
+          if (Array.isArray(tableArray)) {
+            genError("Cannot append to statically defined array '" + pathKey(path) + "'.", off);
+          }
+          genError("Cannot redefine existing key '" + pathKey(path) + "'.", off);
         }
-        assignedPaths = assignedPaths.filter(function (p2) {
-          return p2.indexOf(quotedPath) !== 0;
-        });
-        assignedPaths.push(quotedPath);
-        context = deepRef(data, path, [], line, column);
-        currentPath = quotedPath;
-        if (context instanceof Array) {
-          var newObj = /* @__PURE__ */ Object.create(null);
-          context.push(newObj);
-          context = newObj;
-        } else {
-          genError("Cannot redefine existing key '" + path + "'.", line, column);
-        }
+        var table = createTable(HEADER_TABLE);
+        tableArray.push(table);
+        context = table;
+        currentPath = path;
       }
-      function deepRef(start, keys, value2, line, column) {
-        var traversed = [];
-        var traversedPath = "";
-        keys.join(".");
-        var ctx = start;
-        for (var i2 = 0; i2 < keys.length; i2++) {
-          var key = keys[i2];
-          traversed.push(key);
-          traversedPath = traversed.join(".");
-          if (typeof ctx[key] === "undefined") {
-            if (i2 === keys.length - 1) {
-              ctx[key] = value2;
-            } else {
-              ctx[key] = /* @__PURE__ */ Object.create(null);
-            }
-          } else if (i2 !== keys.length - 1 && valueAssignments.indexOf(traversedPath) > -1) {
-            genError("Cannot redefine existing key '" + traversedPath + "'.", line, column);
+      function resolveParentTable(path, off) {
+        var table = data;
+        for (var i2 = 0; i2 < path.length - 1; i2++) {
+          var key = path[i2];
+          var next = table[key];
+          if (next === void 0) {
+            next = createTable(IMPLICIT_TABLE);
+            table[key] = next;
           }
-          ctx = ctx[key];
-          if (ctx instanceof Array && ctx.length && i2 < keys.length - 1) {
-            ctx = ctx[ctx.length - 1];
+          var kind = containerKinds.get(next);
+          if (kind === TABLE_ARRAY) {
+            next = next[next.length - 1];
+          } else if (kind === void 0 || kind === INLINE_TABLE) {
+            genError("Cannot redefine existing key '" + pathKey(path.slice(0, i2 + 1)) + "'.", off);
           }
+          table = next;
         }
-        return ctx;
+        return table;
       }
-      function reduceArrayWithTypeChecking(array) {
-        var firstType = null;
-        for (var i2 = 0; i2 < array.length; i2++) {
-          var node = array[i2];
-          if (firstType === null) {
-            firstType = node.type;
-          } else {
-            if (node.type !== firstType) {
-              genError(
-                "Cannot add value of type " + node.type + " to array of type " + firstType + ".",
-                node.line,
-                node.column,
-              );
-            }
-          }
-        }
+      function reduceArray(array) {
         return array.map(reduceValueNode);
+      }
+      function createTable(kind) {
+        var table = /* @__PURE__ */ Object.create(null);
+        containerKinds.set(table, kind);
+        return table;
+      }
+      function createTableArray() {
+        var tableArray = [];
+        containerKinds.set(tableArray, TABLE_ARRAY);
+        return tableArray;
+      }
+      function pathKey(keys) {
+        return keys.map(quoteDottedString).join(".");
       }
       function quoteDottedString(str3) {
         if (str3.indexOf(".") > -1) {
@@ -8001,9 +9010,10 @@ var require_toml = __commonJS({
     var parser = require_parser();
     var compiler = require_compiler();
     module2.exports = {
-      parse: function (input) {
-        var nodes = parser.parse(input.toString());
-        return compiler.compile(nodes);
+      parse: function (input, options2) {
+        var str3 = input.toString();
+        var nodes = parser.parse(str3, options2);
+        return compiler.compile(nodes, str3, options2);
       },
     };
   },
@@ -8347,259 +9357,292 @@ function remarkFrontmatter(options2) {
 }
 
 // node_modules/js-yaml/dist/js-yaml.mjs
-function isNothing(subject) {
-  return typeof subject === "undefined" || subject === null;
+function getDefaultExportFromCjs(x2) {
+  return x2 && x2.__esModule && Object.prototype.hasOwnProperty.call(x2, "default")
+    ? x2["default"]
+    : x2;
 }
-function isObject(subject) {
-  return typeof subject === "object" && subject !== null;
+var jsYaml = {};
+var loader = {};
+var common = {};
+var hasRequiredCommon;
+function requireCommon() {
+  if (hasRequiredCommon) return common;
+  hasRequiredCommon = 1;
+  function isNothing(subject) {
+    return typeof subject === "undefined" || subject === null;
+  }
+  function isObject(subject) {
+    return typeof subject === "object" && subject !== null;
+  }
+  function toArray(sequence) {
+    if (Array.isArray(sequence)) return sequence;
+    else if (isNothing(sequence)) return [];
+    return [sequence];
+  }
+  function extend(target, source) {
+    if (source) {
+      const sourceKeys = Object.keys(source);
+      for (let index = 0, length = sourceKeys.length; index < length; index += 1) {
+        const key = sourceKeys[index];
+        target[key] = source[key];
+      }
+    }
+    return target;
+  }
+  function repeat(string, count) {
+    let result = "";
+    for (let cycle = 0; cycle < count; cycle += 1) {
+      result += string;
+    }
+    return result;
+  }
+  function isNegativeZero(number) {
+    return number === 0 && Number.NEGATIVE_INFINITY === 1 / number;
+  }
+  common.isNothing = isNothing;
+  common.isObject = isObject;
+  common.toArray = toArray;
+  common.repeat = repeat;
+  common.isNegativeZero = isNegativeZero;
+  common.extend = extend;
+  return common;
 }
-function toArray(sequence) {
-  if (Array.isArray(sequence)) return sequence;
-  else if (isNothing(sequence)) return [];
-  return [sequence];
-}
-function extend(target, source) {
-  var index, length, key, sourceKeys;
-  if (source) {
-    sourceKeys = Object.keys(source);
-    for (index = 0, length = sourceKeys.length; index < length; index += 1) {
-      key = sourceKeys[index];
-      target[key] = source[key];
+var exception;
+var hasRequiredException;
+function requireException() {
+  if (hasRequiredException) return exception;
+  hasRequiredException = 1;
+  function formatError(exception2, compact) {
+    let where = "";
+    const message = exception2.reason || "(unknown reason)";
+    if (!exception2.mark) return message;
+    if (exception2.mark.name) {
+      where += 'in "' + exception2.mark.name + '" ';
+    }
+    where += "(" + (exception2.mark.line + 1) + ":" + (exception2.mark.column + 1) + ")";
+    if (!compact && exception2.mark.snippet) {
+      where += "\n\n" + exception2.mark.snippet;
+    }
+    return message + " " + where;
+  }
+  function YAMLException2(reason, mark) {
+    Error.call(this);
+    this.name = "YAMLException";
+    this.reason = reason;
+    this.mark = mark;
+    this.message = formatError(this, false);
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    } else {
+      this.stack = new Error().stack || "";
     }
   }
-  return target;
-}
-function repeat(string, count) {
-  var result = "",
-    cycle;
-  for (cycle = 0; cycle < count; cycle += 1) {
-    result += string;
-  }
-  return result;
-}
-function isNegativeZero(number) {
-  return number === 0 && Number.NEGATIVE_INFINITY === 1 / number;
-}
-var isNothing_1 = isNothing;
-var isObject_1 = isObject;
-var toArray_1 = toArray;
-var repeat_1 = repeat;
-var isNegativeZero_1 = isNegativeZero;
-var extend_1 = extend;
-var common = {
-  isNothing: isNothing_1,
-  isObject: isObject_1,
-  toArray: toArray_1,
-  repeat: repeat_1,
-  isNegativeZero: isNegativeZero_1,
-  extend: extend_1,
-};
-function formatError(exception2, compact) {
-  var where = "",
-    message = exception2.reason || "(unknown reason)";
-  if (!exception2.mark) return message;
-  if (exception2.mark.name) {
-    where += 'in "' + exception2.mark.name + '" ';
-  }
-  where += "(" + (exception2.mark.line + 1) + ":" + (exception2.mark.column + 1) + ")";
-  if (!compact && exception2.mark.snippet) {
-    where += "\n\n" + exception2.mark.snippet;
-  }
-  return message + " " + where;
-}
-function YAMLException$1(reason, mark) {
-  Error.call(this);
-  this.name = "YAMLException";
-  this.reason = reason;
-  this.mark = mark;
-  this.message = formatError(this, false);
-  if (Error.captureStackTrace) {
-    Error.captureStackTrace(this, this.constructor);
-  } else {
-    this.stack = new Error().stack || "";
-  }
-}
-YAMLException$1.prototype = Object.create(Error.prototype);
-YAMLException$1.prototype.constructor = YAMLException$1;
-YAMLException$1.prototype.toString = function toString(compact) {
-  return this.name + ": " + formatError(this, compact);
-};
-var exception = YAMLException$1;
-function getLine(buffer, lineStart, lineEnd, position, maxLineLength) {
-  var head = "";
-  var tail = "";
-  var maxHalfLength = Math.floor(maxLineLength / 2) - 1;
-  if (position - lineStart > maxHalfLength) {
-    head = " ... ";
-    lineStart = position - maxHalfLength + head.length;
-  }
-  if (lineEnd - position > maxHalfLength) {
-    tail = " ...";
-    lineEnd = position + maxHalfLength - tail.length;
-  }
-  return {
-    str: head + buffer.slice(lineStart, lineEnd).replace(/\t/g, "\u2192") + tail,
-    pos: position - lineStart + head.length,
-    // relative position
+  YAMLException2.prototype = Object.create(Error.prototype);
+  YAMLException2.prototype.constructor = YAMLException2;
+  YAMLException2.prototype.toString = function toString(compact) {
+    return this.name + ": " + formatError(this, compact);
   };
+  exception = YAMLException2;
+  return exception;
 }
-function padStart(string, max) {
-  return common.repeat(" ", max - string.length) + string;
-}
-function makeSnippet(mark, options2) {
-  options2 = Object.create(options2 || null);
-  if (!mark.buffer) return null;
-  if (!options2.maxLength) options2.maxLength = 79;
-  if (typeof options2.indent !== "number") options2.indent = 1;
-  if (typeof options2.linesBefore !== "number") options2.linesBefore = 3;
-  if (typeof options2.linesAfter !== "number") options2.linesAfter = 2;
-  var re = /\r?\n|\r|\0/g;
-  var lineStarts = [0];
-  var lineEnds = [];
-  var match;
-  var foundLineNo = -1;
-  while ((match = re.exec(mark.buffer))) {
-    lineEnds.push(match.index);
-    lineStarts.push(match.index + match[0].length);
-    if (mark.position <= match.index && foundLineNo < 0) {
-      foundLineNo = lineStarts.length - 2;
+var snippet;
+var hasRequiredSnippet;
+function requireSnippet() {
+  if (hasRequiredSnippet) return snippet;
+  hasRequiredSnippet = 1;
+  const common2 = requireCommon();
+  function getLine(buffer, lineStart, lineEnd, position, maxLineLength) {
+    let head = "";
+    let tail = "";
+    const maxHalfLength = Math.floor(maxLineLength / 2) - 1;
+    if (position - lineStart > maxHalfLength) {
+      head = " ... ";
+      lineStart = position - maxHalfLength + head.length;
     }
+    if (lineEnd - position > maxHalfLength) {
+      tail = " ...";
+      lineEnd = position + maxHalfLength - tail.length;
+    }
+    return {
+      str: head + buffer.slice(lineStart, lineEnd).replace(/\t/g, "\u2192") + tail,
+      pos: position - lineStart + head.length,
+      // relative position
+    };
   }
-  if (foundLineNo < 0) foundLineNo = lineStarts.length - 1;
-  var result = "",
-    i2,
-    line;
-  var lineNoLength = Math.min(mark.line + options2.linesAfter, lineEnds.length).toString().length;
-  var maxLineLength = options2.maxLength - (options2.indent + lineNoLength + 3);
-  for (i2 = 1; i2 <= options2.linesBefore; i2++) {
-    if (foundLineNo - i2 < 0) break;
-    line = getLine(
-      mark.buffer,
-      lineStarts[foundLineNo - i2],
-      lineEnds[foundLineNo - i2],
-      mark.position - (lineStarts[foundLineNo] - lineStarts[foundLineNo - i2]),
-      maxLineLength,
-    );
-    result =
-      common.repeat(" ", options2.indent) +
-      padStart((mark.line - i2 + 1).toString(), lineNoLength) +
-      " | " +
-      line.str +
-      "\n" +
-      result;
+  function padStart(string, max) {
+    return common2.repeat(" ", max - string.length) + string;
   }
-  line = getLine(
-    mark.buffer,
-    lineStarts[foundLineNo],
-    lineEnds[foundLineNo],
-    mark.position,
-    maxLineLength,
-  );
-  result +=
-    common.repeat(" ", options2.indent) +
-    padStart((mark.line + 1).toString(), lineNoLength) +
-    " | " +
-    line.str +
-    "\n";
-  result += common.repeat("-", options2.indent + lineNoLength + 3 + line.pos) + "^\n";
-  for (i2 = 1; i2 <= options2.linesAfter; i2++) {
-    if (foundLineNo + i2 >= lineEnds.length) break;
-    line = getLine(
+  function makeSnippet(mark, options2) {
+    options2 = Object.create(options2 || null);
+    if (!mark.buffer) return null;
+    if (!options2.maxLength) options2.maxLength = 79;
+    if (typeof options2.indent !== "number") options2.indent = 1;
+    if (typeof options2.linesBefore !== "number") options2.linesBefore = 3;
+    if (typeof options2.linesAfter !== "number") options2.linesAfter = 2;
+    const re = /\r?\n|\r|\0/g;
+    const lineStarts = [0];
+    const lineEnds = [];
+    let match;
+    let foundLineNo = -1;
+    while ((match = re.exec(mark.buffer))) {
+      lineEnds.push(match.index);
+      lineStarts.push(match.index + match[0].length);
+      if (mark.position <= match.index && foundLineNo < 0) {
+        foundLineNo = lineStarts.length - 2;
+      }
+    }
+    if (foundLineNo < 0) foundLineNo = lineStarts.length - 1;
+    let result = "";
+    const lineNoLength = Math.min(mark.line + options2.linesAfter, lineEnds.length).toString()
+      .length;
+    const maxLineLength = options2.maxLength - (options2.indent + lineNoLength + 3);
+    for (let i2 = 1; i2 <= options2.linesBefore; i2++) {
+      if (foundLineNo - i2 < 0) break;
+      const line2 = getLine(
+        mark.buffer,
+        lineStarts[foundLineNo - i2],
+        lineEnds[foundLineNo - i2],
+        mark.position - (lineStarts[foundLineNo] - lineStarts[foundLineNo - i2]),
+        maxLineLength,
+      );
+      result =
+        common2.repeat(" ", options2.indent) +
+        padStart((mark.line - i2 + 1).toString(), lineNoLength) +
+        " | " +
+        line2.str +
+        "\n" +
+        result;
+    }
+    const line = getLine(
       mark.buffer,
-      lineStarts[foundLineNo + i2],
-      lineEnds[foundLineNo + i2],
-      mark.position - (lineStarts[foundLineNo] - lineStarts[foundLineNo + i2]),
+      lineStarts[foundLineNo],
+      lineEnds[foundLineNo],
+      mark.position,
       maxLineLength,
     );
     result +=
-      common.repeat(" ", options2.indent) +
-      padStart((mark.line + i2 + 1).toString(), lineNoLength) +
+      common2.repeat(" ", options2.indent) +
+      padStart((mark.line + 1).toString(), lineNoLength) +
       " | " +
       line.str +
       "\n";
-  }
-  return result.replace(/\n$/, "");
-}
-var snippet = makeSnippet;
-var TYPE_CONSTRUCTOR_OPTIONS = [
-  "kind",
-  "multi",
-  "resolve",
-  "construct",
-  "instanceOf",
-  "predicate",
-  "represent",
-  "representName",
-  "defaultStyle",
-  "styleAliases",
-];
-var YAML_NODE_KINDS = ["scalar", "sequence", "mapping"];
-function compileStyleAliases(map2) {
-  var result = {};
-  if (map2 !== null) {
-    Object.keys(map2).forEach(function (style) {
-      map2[style].forEach(function (alias) {
-        result[String(alias)] = style;
-      });
-    });
-  }
-  return result;
-}
-function Type$1(tag, options2) {
-  options2 = options2 || {};
-  Object.keys(options2).forEach(function (name) {
-    if (TYPE_CONSTRUCTOR_OPTIONS.indexOf(name) === -1) {
-      throw new exception(
-        'Unknown option "' + name + '" is met in definition of "' + tag + '" YAML type.',
+    result += common2.repeat("-", options2.indent + lineNoLength + 3 + line.pos) + "^\n";
+    for (let i2 = 1; i2 <= options2.linesAfter; i2++) {
+      if (foundLineNo + i2 >= lineEnds.length) break;
+      const line2 = getLine(
+        mark.buffer,
+        lineStarts[foundLineNo + i2],
+        lineEnds[foundLineNo + i2],
+        mark.position - (lineStarts[foundLineNo] - lineStarts[foundLineNo + i2]),
+        maxLineLength,
       );
+      result +=
+        common2.repeat(" ", options2.indent) +
+        padStart((mark.line + i2 + 1).toString(), lineNoLength) +
+        " | " +
+        line2.str +
+        "\n";
     }
-  });
-  this.options = options2;
-  this.tag = tag;
-  this.kind = options2["kind"] || null;
-  this.resolve =
-    options2["resolve"] ||
-    function () {
-      return true;
-    };
-  this.construct =
-    options2["construct"] ||
-    function (data) {
-      return data;
-    };
-  this.instanceOf = options2["instanceOf"] || null;
-  this.predicate = options2["predicate"] || null;
-  this.represent = options2["represent"] || null;
-  this.representName = options2["representName"] || null;
-  this.defaultStyle = options2["defaultStyle"] || null;
-  this.multi = options2["multi"] || false;
-  this.styleAliases = compileStyleAliases(options2["styleAliases"] || null);
-  if (YAML_NODE_KINDS.indexOf(this.kind) === -1) {
-    throw new exception(
-      'Unknown kind "' + this.kind + '" is specified for "' + tag + '" YAML type.',
-    );
+    return result.replace(/\n$/, "");
   }
+  snippet = makeSnippet;
+  return snippet;
 }
-var type = Type$1;
-function compileList(schema2, name) {
-  var result = [];
-  schema2[name].forEach(function (currentType) {
-    var newIndex = result.length;
-    result.forEach(function (previousType, previousIndex) {
-      if (
-        previousType.tag === currentType.tag &&
-        previousType.kind === currentType.kind &&
-        previousType.multi === currentType.multi
-      ) {
-        newIndex = previousIndex;
+var type;
+var hasRequiredType;
+function requireType() {
+  if (hasRequiredType) return type;
+  hasRequiredType = 1;
+  const YAMLException2 = requireException();
+  const TYPE_CONSTRUCTOR_OPTIONS = [
+    "kind",
+    "multi",
+    "resolve",
+    "construct",
+    "instanceOf",
+    "predicate",
+    "represent",
+    "representName",
+    "defaultStyle",
+    "styleAliases",
+  ];
+  const YAML_NODE_KINDS = ["scalar", "sequence", "mapping"];
+  function compileStyleAliases(map2) {
+    const result = {};
+    if (map2 !== null) {
+      Object.keys(map2).forEach(function (style) {
+        map2[style].forEach(function (alias) {
+          result[String(alias)] = style;
+        });
+      });
+    }
+    return result;
+  }
+  function Type2(tag, options2) {
+    options2 = options2 || {};
+    Object.keys(options2).forEach(function (name) {
+      if (TYPE_CONSTRUCTOR_OPTIONS.indexOf(name) === -1) {
+        throw new YAMLException2(
+          'Unknown option "' + name + '" is met in definition of "' + tag + '" YAML type.',
+        );
       }
     });
-    result[newIndex] = currentType;
-  });
-  return result;
+    this.options = options2;
+    this.tag = tag;
+    this.kind = options2["kind"] || null;
+    this.resolve =
+      options2["resolve"] ||
+      function () {
+        return true;
+      };
+    this.construct =
+      options2["construct"] ||
+      function (data) {
+        return data;
+      };
+    this.instanceOf = options2["instanceOf"] || null;
+    this.predicate = options2["predicate"] || null;
+    this.represent = options2["represent"] || null;
+    this.representName = options2["representName"] || null;
+    this.defaultStyle = options2["defaultStyle"] || null;
+    this.multi = options2["multi"] || false;
+    this.styleAliases = compileStyleAliases(options2["styleAliases"] || null);
+    if (YAML_NODE_KINDS.indexOf(this.kind) === -1) {
+      throw new YAMLException2(
+        'Unknown kind "' + this.kind + '" is specified for "' + tag + '" YAML type.',
+      );
+    }
+  }
+  type = Type2;
+  return type;
 }
-function compileMap() {
-  var result = {
+var schema;
+var hasRequiredSchema;
+function requireSchema() {
+  if (hasRequiredSchema) return schema;
+  hasRequiredSchema = 1;
+  const YAMLException2 = requireException();
+  const Type2 = requireType();
+  function compileList(schema2, name) {
+    const result = [];
+    schema2[name].forEach(function (currentType) {
+      let newIndex = result.length;
+      result.forEach(function (previousType, previousIndex) {
+        if (
+          previousType.tag === currentType.tag &&
+          previousType.kind === currentType.kind &&
+          previousType.multi === currentType.multi
+        ) {
+          newIndex = previousIndex;
+        }
+      });
+      result[newIndex] = currentType;
+    });
+    return result;
+  }
+  function compileMap() {
+    const result = {
       scalar: {},
       sequence: {},
       mapping: {},
@@ -8610,1270 +9653,1434 @@ function compileMap() {
         mapping: [],
         fallback: [],
       },
-    },
-    index,
-    length;
-  function collectType(type2) {
-    if (type2.multi) {
-      result.multi[type2.kind].push(type2);
-      result.multi["fallback"].push(type2);
-    } else {
-      result[type2.kind][type2.tag] = result["fallback"][type2.tag] = type2;
+    };
+    function collectType(type2) {
+      if (type2.multi) {
+        result.multi[type2.kind].push(type2);
+        result.multi["fallback"].push(type2);
+      } else {
+        result[type2.kind][type2.tag] = result["fallback"][type2.tag] = type2;
+      }
     }
+    for (let index = 0, length = arguments.length; index < length; index += 1) {
+      arguments[index].forEach(collectType);
+    }
+    return result;
   }
-  for (index = 0, length = arguments.length; index < length; index += 1) {
-    arguments[index].forEach(collectType);
+  function Schema2(definition) {
+    return this.extend(definition);
   }
-  return result;
+  Schema2.prototype.extend = function extend(definition) {
+    let implicit = [];
+    let explicit = [];
+    if (definition instanceof Type2) {
+      explicit.push(definition);
+    } else if (Array.isArray(definition)) {
+      explicit = explicit.concat(definition);
+    } else if (
+      definition &&
+      (Array.isArray(definition.implicit) || Array.isArray(definition.explicit))
+    ) {
+      if (definition.implicit) implicit = implicit.concat(definition.implicit);
+      if (definition.explicit) explicit = explicit.concat(definition.explicit);
+    } else {
+      throw new YAMLException2(
+        "Schema.extend argument should be a Type, [ Type ], or a schema definition ({ implicit: [...], explicit: [...] })",
+      );
+    }
+    implicit.forEach(function (type2) {
+      if (!(type2 instanceof Type2)) {
+        throw new YAMLException2(
+          "Specified list of YAML types (or a single Type object) contains a non-Type object.",
+        );
+      }
+      if (type2.loadKind && type2.loadKind !== "scalar") {
+        throw new YAMLException2(
+          "There is a non-scalar type in the implicit list of a schema. Implicit resolving of such types is not supported.",
+        );
+      }
+      if (type2.multi) {
+        throw new YAMLException2(
+          "There is a multi type in the implicit list of a schema. Multi tags can only be listed as explicit.",
+        );
+      }
+    });
+    explicit.forEach(function (type2) {
+      if (!(type2 instanceof Type2)) {
+        throw new YAMLException2(
+          "Specified list of YAML types (or a single Type object) contains a non-Type object.",
+        );
+      }
+    });
+    const result = Object.create(Schema2.prototype);
+    result.implicit = (this.implicit || []).concat(implicit);
+    result.explicit = (this.explicit || []).concat(explicit);
+    result.compiledImplicit = compileList(result, "implicit");
+    result.compiledExplicit = compileList(result, "explicit");
+    result.compiledTypeMap = compileMap(result.compiledImplicit, result.compiledExplicit);
+    return result;
+  };
+  schema = Schema2;
+  return schema;
 }
-function Schema$1(definition) {
-  return this.extend(definition);
+var str2;
+var hasRequiredStr;
+function requireStr() {
+  if (hasRequiredStr) return str2;
+  hasRequiredStr = 1;
+  const Type2 = requireType();
+  str2 = new Type2("tag:yaml.org,2002:str", {
+    kind: "scalar",
+    construct: function (data) {
+      return data !== null ? data : "";
+    },
+  });
+  return str2;
 }
-Schema$1.prototype.extend = function extend2(definition) {
-  var implicit = [];
-  var explicit = [];
-  if (definition instanceof type) {
-    explicit.push(definition);
-  } else if (Array.isArray(definition)) {
-    explicit = explicit.concat(definition);
-  } else if (
-    definition &&
-    (Array.isArray(definition.implicit) || Array.isArray(definition.explicit))
-  ) {
-    if (definition.implicit) implicit = implicit.concat(definition.implicit);
-    if (definition.explicit) explicit = explicit.concat(definition.explicit);
-  } else {
-    throw new exception(
-      "Schema.extend argument should be a Type, [ Type ], or a schema definition ({ implicit: [...], explicit: [...] })",
+var seq;
+var hasRequiredSeq;
+function requireSeq() {
+  if (hasRequiredSeq) return seq;
+  hasRequiredSeq = 1;
+  const Type2 = requireType();
+  seq = new Type2("tag:yaml.org,2002:seq", {
+    kind: "sequence",
+    construct: function (data) {
+      return data !== null ? data : [];
+    },
+  });
+  return seq;
+}
+var map;
+var hasRequiredMap;
+function requireMap() {
+  if (hasRequiredMap) return map;
+  hasRequiredMap = 1;
+  const Type2 = requireType();
+  map = new Type2("tag:yaml.org,2002:map", {
+    kind: "mapping",
+    construct: function (data) {
+      return data !== null ? data : {};
+    },
+  });
+  return map;
+}
+var failsafe;
+var hasRequiredFailsafe;
+function requireFailsafe() {
+  if (hasRequiredFailsafe) return failsafe;
+  hasRequiredFailsafe = 1;
+  const Schema2 = requireSchema();
+  failsafe = new Schema2({
+    explicit: [requireStr(), requireSeq(), requireMap()],
+  });
+  return failsafe;
+}
+var _null;
+var hasRequired_null;
+function require_null2() {
+  if (hasRequired_null) return _null;
+  hasRequired_null = 1;
+  const Type2 = requireType();
+  function resolveYamlNull(data) {
+    if (data === null) return true;
+    const max = data.length;
+    return (
+      (max === 1 && data === "~") ||
+      (max === 4 && (data === "null" || data === "Null" || data === "NULL"))
     );
   }
-  implicit.forEach(function (type$1) {
-    if (!(type$1 instanceof type)) {
-      throw new exception(
-        "Specified list of YAML types (or a single Type object) contains a non-Type object.",
-      );
-    }
-    if (type$1.loadKind && type$1.loadKind !== "scalar") {
-      throw new exception(
-        "There is a non-scalar type in the implicit list of a schema. Implicit resolving of such types is not supported.",
-      );
-    }
-    if (type$1.multi) {
-      throw new exception(
-        "There is a multi type in the implicit list of a schema. Multi tags can only be listed as explicit.",
-      );
-    }
-  });
-  explicit.forEach(function (type$1) {
-    if (!(type$1 instanceof type)) {
-      throw new exception(
-        "Specified list of YAML types (or a single Type object) contains a non-Type object.",
-      );
-    }
-  });
-  var result = Object.create(Schema$1.prototype);
-  result.implicit = (this.implicit || []).concat(implicit);
-  result.explicit = (this.explicit || []).concat(explicit);
-  result.compiledImplicit = compileList(result, "implicit");
-  result.compiledExplicit = compileList(result, "explicit");
-  result.compiledTypeMap = compileMap(result.compiledImplicit, result.compiledExplicit);
-  return result;
-};
-var schema = Schema$1;
-var str2 = new type("tag:yaml.org,2002:str", {
-  kind: "scalar",
-  construct: function (data) {
-    return data !== null ? data : "";
-  },
-});
-var seq = new type("tag:yaml.org,2002:seq", {
-  kind: "sequence",
-  construct: function (data) {
-    return data !== null ? data : [];
-  },
-});
-var map = new type("tag:yaml.org,2002:map", {
-  kind: "mapping",
-  construct: function (data) {
-    return data !== null ? data : {};
-  },
-});
-var failsafe = new schema({
-  explicit: [str2, seq, map],
-});
-function resolveYamlNull(data) {
-  if (data === null) return true;
-  var max = data.length;
-  return (
-    (max === 1 && data === "~") ||
-    (max === 4 && (data === "null" || data === "Null" || data === "NULL"))
-  );
-}
-function constructYamlNull() {
-  return null;
-}
-function isNull(object) {
-  return object === null;
-}
-var _null = new type("tag:yaml.org,2002:null", {
-  kind: "scalar",
-  resolve: resolveYamlNull,
-  construct: constructYamlNull,
-  predicate: isNull,
-  represent: {
-    canonical: function () {
-      return "~";
-    },
-    lowercase: function () {
-      return "null";
-    },
-    uppercase: function () {
-      return "NULL";
-    },
-    camelcase: function () {
-      return "Null";
-    },
-    empty: function () {
-      return "";
-    },
-  },
-  defaultStyle: "lowercase",
-});
-function resolveYamlBoolean(data) {
-  if (data === null) return false;
-  var max = data.length;
-  return (
-    (max === 4 && (data === "true" || data === "True" || data === "TRUE")) ||
-    (max === 5 && (data === "false" || data === "False" || data === "FALSE"))
-  );
-}
-function constructYamlBoolean(data) {
-  return data === "true" || data === "True" || data === "TRUE";
-}
-function isBoolean(object) {
-  return Object.prototype.toString.call(object) === "[object Boolean]";
-}
-var bool = new type("tag:yaml.org,2002:bool", {
-  kind: "scalar",
-  resolve: resolveYamlBoolean,
-  construct: constructYamlBoolean,
-  predicate: isBoolean,
-  represent: {
-    lowercase: function (object) {
-      return object ? "true" : "false";
-    },
-    uppercase: function (object) {
-      return object ? "TRUE" : "FALSE";
-    },
-    camelcase: function (object) {
-      return object ? "True" : "False";
-    },
-  },
-  defaultStyle: "lowercase",
-});
-function isHexCode(c2) {
-  return (48 <= c2 && c2 <= 57) || (65 <= c2 && c2 <= 70) || (97 <= c2 && c2 <= 102);
-}
-function isOctCode(c2) {
-  return 48 <= c2 && c2 <= 55;
-}
-function isDecCode(c2) {
-  return 48 <= c2 && c2 <= 57;
-}
-function resolveYamlInteger(data) {
-  if (data === null) return false;
-  var max = data.length,
-    index = 0,
-    hasDigits = false,
-    ch;
-  if (!max) return false;
-  ch = data[index];
-  if (ch === "-" || ch === "+") {
-    ch = data[++index];
+  function constructYamlNull() {
+    return null;
   }
-  if (ch === "0") {
-    if (index + 1 === max) return true;
-    ch = data[++index];
-    if (ch === "b") {
-      index++;
-      for (; index < max; index++) {
-        ch = data[index];
-        if (ch === "_") continue;
-        if (ch !== "0" && ch !== "1") return false;
-        hasDigits = true;
-      }
-      return hasDigits && ch !== "_";
-    }
-    if (ch === "x") {
-      index++;
-      for (; index < max; index++) {
-        ch = data[index];
-        if (ch === "_") continue;
-        if (!isHexCode(data.charCodeAt(index))) return false;
-        hasDigits = true;
-      }
-      return hasDigits && ch !== "_";
-    }
-    if (ch === "o") {
-      index++;
-      for (; index < max; index++) {
-        ch = data[index];
-        if (ch === "_") continue;
-        if (!isOctCode(data.charCodeAt(index))) return false;
-        hasDigits = true;
-      }
-      return hasDigits && ch !== "_";
-    }
+  function isNull(object) {
+    return object === null;
   }
-  if (ch === "_") return false;
-  for (; index < max; index++) {
-    ch = data[index];
-    if (ch === "_") continue;
-    if (!isDecCode(data.charCodeAt(index))) {
+  _null = new Type2("tag:yaml.org,2002:null", {
+    kind: "scalar",
+    resolve: resolveYamlNull,
+    construct: constructYamlNull,
+    predicate: isNull,
+    represent: {
+      canonical: function () {
+        return "~";
+      },
+      lowercase: function () {
+        return "null";
+      },
+      uppercase: function () {
+        return "NULL";
+      },
+      camelcase: function () {
+        return "Null";
+      },
+      empty: function () {
+        return "";
+      },
+    },
+    defaultStyle: "lowercase",
+  });
+  return _null;
+}
+var bool;
+var hasRequiredBool;
+function requireBool() {
+  if (hasRequiredBool) return bool;
+  hasRequiredBool = 1;
+  const Type2 = requireType();
+  function resolveYamlBoolean(data) {
+    if (data === null) return false;
+    const max = data.length;
+    return (
+      (max === 4 && (data === "true" || data === "True" || data === "TRUE")) ||
+      (max === 5 && (data === "false" || data === "False" || data === "FALSE"))
+    );
+  }
+  function constructYamlBoolean(data) {
+    return data === "true" || data === "True" || data === "TRUE";
+  }
+  function isBoolean(object) {
+    return Object.prototype.toString.call(object) === "[object Boolean]";
+  }
+  bool = new Type2("tag:yaml.org,2002:bool", {
+    kind: "scalar",
+    resolve: resolveYamlBoolean,
+    construct: constructYamlBoolean,
+    predicate: isBoolean,
+    represent: {
+      lowercase: function (object) {
+        return object ? "true" : "false";
+      },
+      uppercase: function (object) {
+        return object ? "TRUE" : "FALSE";
+      },
+      camelcase: function (object) {
+        return object ? "True" : "False";
+      },
+    },
+    defaultStyle: "lowercase",
+  });
+  return bool;
+}
+var int;
+var hasRequiredInt;
+function requireInt() {
+  if (hasRequiredInt) return int;
+  hasRequiredInt = 1;
+  const common2 = requireCommon();
+  const Type2 = requireType();
+  function isHexCode(c2) {
+    return (c2 >= 48 && c2 <= 57) || (c2 >= 65 && c2 <= 70) || (c2 >= 97 && c2 <= 102);
+  }
+  function isOctCode(c2) {
+    return c2 >= 48 && c2 <= 55;
+  }
+  function isDecCode(c2) {
+    return c2 >= 48 && c2 <= 57;
+  }
+  function resolveYamlInteger(data) {
+    if (data === null) return false;
+    const max = data.length;
+    let index = 0;
+    let hasDigits = false;
+    if (!max) return false;
+    let ch = data[index];
+    if (ch === "-" || ch === "+") {
+      ch = data[++index];
+    }
+    if (ch === "0") {
+      if (index + 1 === max) return true;
+      ch = data[++index];
+      if (ch === "b") {
+        index++;
+        for (; index < max; index++) {
+          ch = data[index];
+          if (ch !== "0" && ch !== "1") return false;
+          hasDigits = true;
+        }
+        return hasDigits && isFinite(parseYamlInteger(data));
+      }
+      if (ch === "x") {
+        index++;
+        for (; index < max; index++) {
+          if (!isHexCode(data.charCodeAt(index))) return false;
+          hasDigits = true;
+        }
+        return hasDigits && isFinite(parseYamlInteger(data));
+      }
+      if (ch === "o") {
+        index++;
+        for (; index < max; index++) {
+          if (!isOctCode(data.charCodeAt(index))) return false;
+          hasDigits = true;
+        }
+        return hasDigits && isFinite(parseYamlInteger(data));
+      }
+    }
+    for (; index < max; index++) {
+      if (!isDecCode(data.charCodeAt(index))) {
+        return false;
+      }
+      hasDigits = true;
+    }
+    if (!hasDigits) return false;
+    return isFinite(parseYamlInteger(data));
+  }
+  function parseYamlInteger(data) {
+    let value2 = data;
+    let sign = 1;
+    let ch = value2[0];
+    if (ch === "-" || ch === "+") {
+      if (ch === "-") sign = -1;
+      value2 = value2.slice(1);
+      ch = value2[0];
+    }
+    if (value2 === "0") return 0;
+    if (ch === "0") {
+      if (value2[1] === "b") return sign * parseInt(value2.slice(2), 2);
+      if (value2[1] === "x") return sign * parseInt(value2.slice(2), 16);
+      if (value2[1] === "o") return sign * parseInt(value2.slice(2), 8);
+    }
+    return sign * parseInt(value2, 10);
+  }
+  function constructYamlInteger(data) {
+    return parseYamlInteger(data);
+  }
+  function isInteger(object) {
+    return (
+      Object.prototype.toString.call(object) === "[object Number]" &&
+      object % 1 === 0 &&
+      !common2.isNegativeZero(object)
+    );
+  }
+  int = new Type2("tag:yaml.org,2002:int", {
+    kind: "scalar",
+    resolve: resolveYamlInteger,
+    construct: constructYamlInteger,
+    predicate: isInteger,
+    represent: {
+      binary: function (obj) {
+        return obj >= 0 ? "0b" + obj.toString(2) : "-0b" + obj.toString(2).slice(1);
+      },
+      octal: function (obj) {
+        return obj >= 0 ? "0o" + obj.toString(8) : "-0o" + obj.toString(8).slice(1);
+      },
+      decimal: function (obj) {
+        return obj.toString(10);
+      },
+      hexadecimal: function (obj) {
+        return obj >= 0
+          ? "0x" + obj.toString(16).toUpperCase()
+          : "-0x" + obj.toString(16).toUpperCase().slice(1);
+      },
+    },
+    defaultStyle: "decimal",
+    styleAliases: {
+      binary: [2, "bin"],
+      octal: [8, "oct"],
+      decimal: [10, "dec"],
+      hexadecimal: [16, "hex"],
+    },
+  });
+  return int;
+}
+var float;
+var hasRequiredFloat;
+function requireFloat() {
+  if (hasRequiredFloat) return float;
+  hasRequiredFloat = 1;
+  const common2 = requireCommon();
+  const Type2 = requireType();
+  const YAML_FLOAT_PATTERN = new RegExp(
+    // 2.5e4, 2.5 and integers
+    "^(?:[-+]?(?:[0-9]+)(?:\\.[0-9]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9]+(?:[eE][-+]?[0-9]+)?|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$",
+  );
+  const YAML_FLOAT_SPECIAL_PATTERN = new RegExp("^(?:[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$");
+  function resolveYamlFloat(data) {
+    if (data === null) return false;
+    if (!YAML_FLOAT_PATTERN.test(data)) {
       return false;
     }
-    hasDigits = true;
+    if (isFinite(parseFloat(data, 10))) {
+      return true;
+    }
+    return YAML_FLOAT_SPECIAL_PATTERN.test(data);
   }
-  if (!hasDigits || ch === "_") return false;
-  return true;
+  function constructYamlFloat(data) {
+    let value2 = data.toLowerCase();
+    const sign = value2[0] === "-" ? -1 : 1;
+    if ("+-".indexOf(value2[0]) >= 0) {
+      value2 = value2.slice(1);
+    }
+    if (value2 === ".inf") {
+      return sign === 1 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+    } else if (value2 === ".nan") {
+      return NaN;
+    }
+    return sign * parseFloat(value2, 10);
+  }
+  const SCIENTIFIC_WITHOUT_DOT = /^[-+]?[0-9]+e/;
+  function representYamlFloat(object, style) {
+    if (isNaN(object)) {
+      switch (style) {
+        case "lowercase":
+          return ".nan";
+        case "uppercase":
+          return ".NAN";
+        case "camelcase":
+          return ".NaN";
+      }
+    } else if (Number.POSITIVE_INFINITY === object) {
+      switch (style) {
+        case "lowercase":
+          return ".inf";
+        case "uppercase":
+          return ".INF";
+        case "camelcase":
+          return ".Inf";
+      }
+    } else if (Number.NEGATIVE_INFINITY === object) {
+      switch (style) {
+        case "lowercase":
+          return "-.inf";
+        case "uppercase":
+          return "-.INF";
+        case "camelcase":
+          return "-.Inf";
+      }
+    } else if (common2.isNegativeZero(object)) {
+      return "-0.0";
+    }
+    const res = object.toString(10);
+    return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
+  }
+  function isFloat(object) {
+    return (
+      Object.prototype.toString.call(object) === "[object Number]" &&
+      (object % 1 !== 0 || common2.isNegativeZero(object))
+    );
+  }
+  float = new Type2("tag:yaml.org,2002:float", {
+    kind: "scalar",
+    resolve: resolveYamlFloat,
+    construct: constructYamlFloat,
+    predicate: isFloat,
+    represent: representYamlFloat,
+    defaultStyle: "lowercase",
+  });
+  return float;
 }
-function constructYamlInteger(data) {
-  var value2 = data,
-    sign = 1,
-    ch;
-  if (value2.indexOf("_") !== -1) {
-    value2 = value2.replace(/_/g, "");
-  }
-  ch = value2[0];
-  if (ch === "-" || ch === "+") {
-    if (ch === "-") sign = -1;
-    value2 = value2.slice(1);
-    ch = value2[0];
-  }
-  if (value2 === "0") return 0;
-  if (ch === "0") {
-    if (value2[1] === "b") return sign * parseInt(value2.slice(2), 2);
-    if (value2[1] === "x") return sign * parseInt(value2.slice(2), 16);
-    if (value2[1] === "o") return sign * parseInt(value2.slice(2), 8);
-  }
-  return sign * parseInt(value2, 10);
+var json;
+var hasRequiredJson;
+function requireJson() {
+  if (hasRequiredJson) return json;
+  hasRequiredJson = 1;
+  json = requireFailsafe().extend({
+    implicit: [require_null2(), requireBool(), requireInt(), requireFloat()],
+  });
+  return json;
 }
-function isInteger(object) {
-  return (
-    Object.prototype.toString.call(object) === "[object Number]" &&
-    object % 1 === 0 &&
-    !common.isNegativeZero(object)
+var core;
+var hasRequiredCore;
+function requireCore() {
+  if (hasRequiredCore) return core;
+  hasRequiredCore = 1;
+  core = requireJson();
+  return core;
+}
+var timestamp;
+var hasRequiredTimestamp;
+function requireTimestamp() {
+  if (hasRequiredTimestamp) return timestamp;
+  hasRequiredTimestamp = 1;
+  const Type2 = requireType();
+  const YAML_DATE_REGEXP = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$");
+  const YAML_TIMESTAMP_REGEXP = new RegExp(
+    "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$",
   );
-}
-var int = new type("tag:yaml.org,2002:int", {
-  kind: "scalar",
-  resolve: resolveYamlInteger,
-  construct: constructYamlInteger,
-  predicate: isInteger,
-  represent: {
-    binary: function (obj) {
-      return obj >= 0 ? "0b" + obj.toString(2) : "-0b" + obj.toString(2).slice(1);
-    },
-    octal: function (obj) {
-      return obj >= 0 ? "0o" + obj.toString(8) : "-0o" + obj.toString(8).slice(1);
-    },
-    decimal: function (obj) {
-      return obj.toString(10);
-    },
-    /* eslint-disable max-len */
-    hexadecimal: function (obj) {
-      return obj >= 0
-        ? "0x" + obj.toString(16).toUpperCase()
-        : "-0x" + obj.toString(16).toUpperCase().slice(1);
-    },
-  },
-  defaultStyle: "decimal",
-  styleAliases: {
-    binary: [2, "bin"],
-    octal: [8, "oct"],
-    decimal: [10, "dec"],
-    hexadecimal: [16, "hex"],
-  },
-});
-var YAML_FLOAT_PATTERN = new RegExp(
-  // 2.5e4, 2.5 and integers
-  "^(?:[-+]?(?:[0-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$",
-);
-function resolveYamlFloat(data) {
-  if (data === null) return false;
-  if (
-    !YAML_FLOAT_PATTERN.test(data) || // Quick hack to not allow integers end with `_`
-    // Probably should update regexp & check speed
-    data[data.length - 1] === "_"
-  ) {
+  function resolveYamlTimestamp(data) {
+    if (data === null) return false;
+    if (YAML_DATE_REGEXP.exec(data) !== null) return true;
+    if (YAML_TIMESTAMP_REGEXP.exec(data) !== null) return true;
     return false;
   }
-  return true;
-}
-function constructYamlFloat(data) {
-  var value2, sign;
-  value2 = data.replace(/_/g, "").toLowerCase();
-  sign = value2[0] === "-" ? -1 : 1;
-  if ("+-".indexOf(value2[0]) >= 0) {
-    value2 = value2.slice(1);
-  }
-  if (value2 === ".inf") {
-    return sign === 1 ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
-  } else if (value2 === ".nan") {
-    return NaN;
-  }
-  return sign * parseFloat(value2, 10);
-}
-var SCIENTIFIC_WITHOUT_DOT = /^[-+]?[0-9]+e/;
-function representYamlFloat(object, style) {
-  var res;
-  if (isNaN(object)) {
-    switch (style) {
-      case "lowercase":
-        return ".nan";
-      case "uppercase":
-        return ".NAN";
-      case "camelcase":
-        return ".NaN";
+  function constructYamlTimestamp(data) {
+    let fraction = 0;
+    let delta = null;
+    let match = YAML_DATE_REGEXP.exec(data);
+    if (match === null) match = YAML_TIMESTAMP_REGEXP.exec(data);
+    if (match === null) throw new Error("Date resolve error");
+    const year = +match[1];
+    const month = +match[2] - 1;
+    const day = +match[3];
+    if (!match[4]) {
+      return new Date(Date.UTC(year, month, day));
     }
-  } else if (Number.POSITIVE_INFINITY === object) {
-    switch (style) {
-      case "lowercase":
-        return ".inf";
-      case "uppercase":
-        return ".INF";
-      case "camelcase":
-        return ".Inf";
+    const hour = +match[4];
+    const minute = +match[5];
+    const second = +match[6];
+    if (match[7]) {
+      fraction = match[7].slice(0, 3);
+      while (fraction.length < 3) {
+        fraction += "0";
+      }
+      fraction = +fraction;
     }
-  } else if (Number.NEGATIVE_INFINITY === object) {
-    switch (style) {
-      case "lowercase":
-        return "-.inf";
-      case "uppercase":
-        return "-.INF";
-      case "camelcase":
-        return "-.Inf";
+    if (match[9]) {
+      const tzHour = +match[10];
+      const tzMinute = +(match[11] || 0);
+      delta = (tzHour * 60 + tzMinute) * 6e4;
+      if (match[9] === "-") delta = -delta;
     }
-  } else if (common.isNegativeZero(object)) {
-    return "-0.0";
+    const date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
+    if (delta) date.setTime(date.getTime() - delta);
+    return date;
   }
-  res = object.toString(10);
-  return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
-}
-function isFloat(object) {
-  return (
-    Object.prototype.toString.call(object) === "[object Number]" &&
-    (object % 1 !== 0 || common.isNegativeZero(object))
-  );
-}
-var float = new type("tag:yaml.org,2002:float", {
-  kind: "scalar",
-  resolve: resolveYamlFloat,
-  construct: constructYamlFloat,
-  predicate: isFloat,
-  represent: representYamlFloat,
-  defaultStyle: "lowercase",
-});
-var json = failsafe.extend({
-  implicit: [_null, bool, int, float],
-});
-var core = json;
-var YAML_DATE_REGEXP = new RegExp("^([0-9][0-9][0-9][0-9])-([0-9][0-9])-([0-9][0-9])$");
-var YAML_TIMESTAMP_REGEXP = new RegExp(
-  "^([0-9][0-9][0-9][0-9])-([0-9][0-9]?)-([0-9][0-9]?)(?:[Tt]|[ \\t]+)([0-9][0-9]?):([0-9][0-9]):([0-9][0-9])(?:\\.([0-9]*))?(?:[ \\t]*(Z|([-+])([0-9][0-9]?)(?::([0-9][0-9]))?))?$",
-);
-function resolveYamlTimestamp(data) {
-  if (data === null) return false;
-  if (YAML_DATE_REGEXP.exec(data) !== null) return true;
-  if (YAML_TIMESTAMP_REGEXP.exec(data) !== null) return true;
-  return false;
-}
-function constructYamlTimestamp(data) {
-  var match,
-    year,
-    month,
-    day,
-    hour,
-    minute,
-    second,
-    fraction = 0,
-    delta = null,
-    tz_hour,
-    tz_minute,
-    date;
-  match = YAML_DATE_REGEXP.exec(data);
-  if (match === null) match = YAML_TIMESTAMP_REGEXP.exec(data);
-  if (match === null) throw new Error("Date resolve error");
-  year = +match[1];
-  month = +match[2] - 1;
-  day = +match[3];
-  if (!match[4]) {
-    return new Date(Date.UTC(year, month, day));
+  function representYamlTimestamp(object) {
+    return object.toISOString();
   }
-  hour = +match[4];
-  minute = +match[5];
-  second = +match[6];
-  if (match[7]) {
-    fraction = match[7].slice(0, 3);
-    while (fraction.length < 3) {
-      fraction += "0";
+  timestamp = new Type2("tag:yaml.org,2002:timestamp", {
+    kind: "scalar",
+    resolve: resolveYamlTimestamp,
+    construct: constructYamlTimestamp,
+    instanceOf: Date,
+    represent: representYamlTimestamp,
+  });
+  return timestamp;
+}
+var merge;
+var hasRequiredMerge;
+function requireMerge() {
+  if (hasRequiredMerge) return merge;
+  hasRequiredMerge = 1;
+  const Type2 = requireType();
+  function resolveYamlMerge(data) {
+    return data === "<<" || data === null;
+  }
+  merge = new Type2("tag:yaml.org,2002:merge", {
+    kind: "scalar",
+    resolve: resolveYamlMerge,
+  });
+  return merge;
+}
+var binary;
+var hasRequiredBinary;
+function requireBinary() {
+  if (hasRequiredBinary) return binary;
+  hasRequiredBinary = 1;
+  const Type2 = requireType();
+  const BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
+  function resolveYamlBinary(data) {
+    if (data === null) return false;
+    let bitlen = 0;
+    const max = data.length;
+    const map2 = BASE64_MAP;
+    for (let idx = 0; idx < max; idx++) {
+      const code = map2.indexOf(data.charAt(idx));
+      if (code > 64) continue;
+      if (code < 0) return false;
+      bitlen += 6;
     }
-    fraction = +fraction;
+    return bitlen % 8 === 0;
   }
-  if (match[9]) {
-    tz_hour = +match[10];
-    tz_minute = +(match[11] || 0);
-    delta = (tz_hour * 60 + tz_minute) * 6e4;
-    if (match[9] === "-") delta = -delta;
-  }
-  date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
-  if (delta) date.setTime(date.getTime() - delta);
-  return date;
-}
-function representYamlTimestamp(object) {
-  return object.toISOString();
-}
-var timestamp = new type("tag:yaml.org,2002:timestamp", {
-  kind: "scalar",
-  resolve: resolveYamlTimestamp,
-  construct: constructYamlTimestamp,
-  instanceOf: Date,
-  represent: representYamlTimestamp,
-});
-function resolveYamlMerge(data) {
-  return data === "<<" || data === null;
-}
-var merge = new type("tag:yaml.org,2002:merge", {
-  kind: "scalar",
-  resolve: resolveYamlMerge,
-});
-var BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
-function resolveYamlBinary(data) {
-  if (data === null) return false;
-  var code,
-    idx,
-    bitlen = 0,
-    max = data.length,
-    map2 = BASE64_MAP;
-  for (idx = 0; idx < max; idx++) {
-    code = map2.indexOf(data.charAt(idx));
-    if (code > 64) continue;
-    if (code < 0) return false;
-    bitlen += 6;
-  }
-  return bitlen % 8 === 0;
-}
-function constructYamlBinary(data) {
-  var idx,
-    tailbits,
-    input = data.replace(/[\r\n=]/g, ""),
-    max = input.length,
-    map2 = BASE64_MAP,
-    bits = 0,
-    result = [];
-  for (idx = 0; idx < max; idx++) {
-    if (idx % 4 === 0 && idx) {
+  function constructYamlBinary(data) {
+    const input = data.replace(/[\r\n=]/g, "");
+    const max = input.length;
+    const map2 = BASE64_MAP;
+    let bits = 0;
+    const result = [];
+    for (let idx = 0; idx < max; idx++) {
+      if (idx % 4 === 0 && idx) {
+        result.push((bits >> 16) & 255);
+        result.push((bits >> 8) & 255);
+        result.push(bits & 255);
+      }
+      bits = (bits << 6) | map2.indexOf(input.charAt(idx));
+    }
+    const tailbits = (max % 4) * 6;
+    if (tailbits === 0) {
       result.push((bits >> 16) & 255);
       result.push((bits >> 8) & 255);
       result.push(bits & 255);
+    } else if (tailbits === 18) {
+      result.push((bits >> 10) & 255);
+      result.push((bits >> 2) & 255);
+    } else if (tailbits === 12) {
+      result.push((bits >> 4) & 255);
     }
-    bits = (bits << 6) | map2.indexOf(input.charAt(idx));
+    return new Uint8Array(result);
   }
-  tailbits = (max % 4) * 6;
-  if (tailbits === 0) {
-    result.push((bits >> 16) & 255);
-    result.push((bits >> 8) & 255);
-    result.push(bits & 255);
-  } else if (tailbits === 18) {
-    result.push((bits >> 10) & 255);
-    result.push((bits >> 2) & 255);
-  } else if (tailbits === 12) {
-    result.push((bits >> 4) & 255);
-  }
-  return new Uint8Array(result);
-}
-function representYamlBinary(object) {
-  var result = "",
-    bits = 0,
-    idx,
-    tail,
-    max = object.length,
-    map2 = BASE64_MAP;
-  for (idx = 0; idx < max; idx++) {
-    if (idx % 3 === 0 && idx) {
+  function representYamlBinary(object) {
+    let result = "";
+    let bits = 0;
+    const max = object.length;
+    const map2 = BASE64_MAP;
+    for (let idx = 0; idx < max; idx++) {
+      if (idx % 3 === 0 && idx) {
+        result += map2[(bits >> 18) & 63];
+        result += map2[(bits >> 12) & 63];
+        result += map2[(bits >> 6) & 63];
+        result += map2[bits & 63];
+      }
+      bits = (bits << 8) + object[idx];
+    }
+    const tail = max % 3;
+    if (tail === 0) {
       result += map2[(bits >> 18) & 63];
       result += map2[(bits >> 12) & 63];
       result += map2[(bits >> 6) & 63];
       result += map2[bits & 63];
+    } else if (tail === 2) {
+      result += map2[(bits >> 10) & 63];
+      result += map2[(bits >> 4) & 63];
+      result += map2[(bits << 2) & 63];
+      result += map2[64];
+    } else if (tail === 1) {
+      result += map2[(bits >> 2) & 63];
+      result += map2[(bits << 4) & 63];
+      result += map2[64];
+      result += map2[64];
     }
-    bits = (bits << 8) + object[idx];
+    return result;
   }
-  tail = max % 3;
-  if (tail === 0) {
-    result += map2[(bits >> 18) & 63];
-    result += map2[(bits >> 12) & 63];
-    result += map2[(bits >> 6) & 63];
-    result += map2[bits & 63];
-  } else if (tail === 2) {
-    result += map2[(bits >> 10) & 63];
-    result += map2[(bits >> 4) & 63];
-    result += map2[(bits << 2) & 63];
-    result += map2[64];
-  } else if (tail === 1) {
-    result += map2[(bits >> 2) & 63];
-    result += map2[(bits << 4) & 63];
-    result += map2[64];
-    result += map2[64];
+  function isBinary(obj) {
+    return Object.prototype.toString.call(obj) === "[object Uint8Array]";
   }
-  return result;
+  binary = new Type2("tag:yaml.org,2002:binary", {
+    kind: "scalar",
+    resolve: resolveYamlBinary,
+    construct: constructYamlBinary,
+    predicate: isBinary,
+    represent: representYamlBinary,
+  });
+  return binary;
 }
-function isBinary(obj) {
-  return Object.prototype.toString.call(obj) === "[object Uint8Array]";
-}
-var binary = new type("tag:yaml.org,2002:binary", {
-  kind: "scalar",
-  resolve: resolveYamlBinary,
-  construct: constructYamlBinary,
-  predicate: isBinary,
-  represent: representYamlBinary,
-});
-var _hasOwnProperty$3 = Object.prototype.hasOwnProperty;
-var _toString$2 = Object.prototype.toString;
-function resolveYamlOmap(data) {
-  if (data === null) return true;
-  var objectKeys = [],
-    index,
-    length,
-    pair,
-    pairKey,
-    pairHasKey,
-    object = data;
-  for (index = 0, length = object.length; index < length; index += 1) {
-    pair = object[index];
-    pairHasKey = false;
-    if (_toString$2.call(pair) !== "[object Object]") return false;
-    for (pairKey in pair) {
-      if (_hasOwnProperty$3.call(pair, pairKey)) {
-        if (!pairHasKey) pairHasKey = true;
-        else return false;
-      }
-    }
-    if (!pairHasKey) return false;
-    if (objectKeys.indexOf(pairKey) === -1) objectKeys.push(pairKey);
-    else return false;
-  }
-  return true;
-}
-function constructYamlOmap(data) {
-  return data !== null ? data : [];
-}
-var omap = new type("tag:yaml.org,2002:omap", {
-  kind: "sequence",
-  resolve: resolveYamlOmap,
-  construct: constructYamlOmap,
-});
-var _toString$1 = Object.prototype.toString;
-function resolveYamlPairs(data) {
-  if (data === null) return true;
-  var index,
-    length,
-    pair,
-    keys,
-    result,
-    object = data;
-  result = new Array(object.length);
-  for (index = 0, length = object.length; index < length; index += 1) {
-    pair = object[index];
-    if (_toString$1.call(pair) !== "[object Object]") return false;
-    keys = Object.keys(pair);
-    if (keys.length !== 1) return false;
-    result[index] = [keys[0], pair[keys[0]]];
-  }
-  return true;
-}
-function constructYamlPairs(data) {
-  if (data === null) return [];
-  var index,
-    length,
-    pair,
-    keys,
-    result,
-    object = data;
-  result = new Array(object.length);
-  for (index = 0, length = object.length; index < length; index += 1) {
-    pair = object[index];
-    keys = Object.keys(pair);
-    result[index] = [keys[0], pair[keys[0]]];
-  }
-  return result;
-}
-var pairs = new type("tag:yaml.org,2002:pairs", {
-  kind: "sequence",
-  resolve: resolveYamlPairs,
-  construct: constructYamlPairs,
-});
-var _hasOwnProperty$2 = Object.prototype.hasOwnProperty;
-function resolveYamlSet(data) {
-  if (data === null) return true;
-  var key,
-    object = data;
-  for (key in object) {
-    if (_hasOwnProperty$2.call(object, key)) {
-      if (object[key] !== null) return false;
-    }
-  }
-  return true;
-}
-function constructYamlSet(data) {
-  return data !== null ? data : {};
-}
-var set = new type("tag:yaml.org,2002:set", {
-  kind: "mapping",
-  resolve: resolveYamlSet,
-  construct: constructYamlSet,
-});
-var _default = core.extend({
-  implicit: [timestamp, merge],
-  explicit: [binary, omap, pairs, set],
-});
-var _hasOwnProperty$1 = Object.prototype.hasOwnProperty;
-var CONTEXT_FLOW_IN = 1;
-var CONTEXT_FLOW_OUT = 2;
-var CONTEXT_BLOCK_IN = 3;
-var CONTEXT_BLOCK_OUT = 4;
-var CHOMPING_CLIP = 1;
-var CHOMPING_STRIP = 2;
-var CHOMPING_KEEP = 3;
-var PATTERN_NON_PRINTABLE =
-  /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
-var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
-var PATTERN_FLOW_INDICATORS = /[,\[\]\{\}]/;
-var PATTERN_TAG_HANDLE = /^(?:!|!!|![a-z\-]+!)$/i;
-var PATTERN_TAG_URI =
-  /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
-function _class(obj) {
-  return Object.prototype.toString.call(obj);
-}
-function is_EOL(c2) {
-  return c2 === 10 || c2 === 13;
-}
-function is_WHITE_SPACE(c2) {
-  return c2 === 9 || c2 === 32;
-}
-function is_WS_OR_EOL(c2) {
-  return c2 === 9 || c2 === 32 || c2 === 10 || c2 === 13;
-}
-function is_FLOW_INDICATOR(c2) {
-  return c2 === 44 || c2 === 91 || c2 === 93 || c2 === 123 || c2 === 125;
-}
-function fromHexCode(c2) {
-  var lc;
-  if (48 <= c2 && c2 <= 57) {
-    return c2 - 48;
-  }
-  lc = c2 | 32;
-  if (97 <= lc && lc <= 102) {
-    return lc - 97 + 10;
-  }
-  return -1;
-}
-function escapedHexLen(c2) {
-  if (c2 === 120) {
-    return 2;
-  }
-  if (c2 === 117) {
-    return 4;
-  }
-  if (c2 === 85) {
-    return 8;
-  }
-  return 0;
-}
-function fromDecimalCode(c2) {
-  if (48 <= c2 && c2 <= 57) {
-    return c2 - 48;
-  }
-  return -1;
-}
-function simpleEscapeSequence(c2) {
-  return c2 === 48
-    ? "\0"
-    : c2 === 97
-      ? "\x07"
-      : c2 === 98
-        ? "\b"
-        : c2 === 116
-          ? "	"
-          : c2 === 9
-            ? "	"
-            : c2 === 110
-              ? "\n"
-              : c2 === 118
-                ? "\v"
-                : c2 === 102
-                  ? "\f"
-                  : c2 === 114
-                    ? "\r"
-                    : c2 === 101
-                      ? "\x1B"
-                      : c2 === 32
-                        ? " "
-                        : c2 === 34
-                          ? '"'
-                          : c2 === 47
-                            ? "/"
-                            : c2 === 92
-                              ? "\\"
-                              : c2 === 78
-                                ? "\x85"
-                                : c2 === 95
-                                  ? "\xA0"
-                                  : c2 === 76
-                                    ? "\u2028"
-                                    : c2 === 80
-                                      ? "\u2029"
-                                      : "";
-}
-function charFromCodepoint(c2) {
-  if (c2 <= 65535) {
-    return String.fromCharCode(c2);
-  }
-  return String.fromCharCode(((c2 - 65536) >> 10) + 55296, ((c2 - 65536) & 1023) + 56320);
-}
-function setProperty(object, key, value2) {
-  if (key === "__proto__") {
-    Object.defineProperty(object, key, {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: value2,
-    });
-  } else {
-    object[key] = value2;
-  }
-}
-var simpleEscapeCheck = new Array(256);
-var simpleEscapeMap = new Array(256);
-for (i2 = 0; i2 < 256; i2++) {
-  simpleEscapeCheck[i2] = simpleEscapeSequence(i2) ? 1 : 0;
-  simpleEscapeMap[i2] = simpleEscapeSequence(i2);
-}
-var i2;
-function State$1(input, options2) {
-  this.input = input;
-  this.filename = options2["filename"] || null;
-  this.schema = options2["schema"] || _default;
-  this.onWarning = options2["onWarning"] || null;
-  this.legacy = options2["legacy"] || false;
-  this.json = options2["json"] || false;
-  this.listener = options2["listener"] || null;
-  this.implicitTypes = this.schema.compiledImplicit;
-  this.typeMap = this.schema.compiledTypeMap;
-  this.length = input.length;
-  this.position = 0;
-  this.line = 0;
-  this.lineStart = 0;
-  this.lineIndent = 0;
-  this.firstTabInLine = -1;
-  this.documents = [];
-}
-function generateError(state, message) {
-  var mark = {
-    name: state.filename,
-    buffer: state.input.slice(0, -1),
-    // omit trailing \0
-    position: state.position,
-    line: state.line,
-    column: state.position - state.lineStart,
-  };
-  mark.snippet = snippet(mark);
-  return new exception(message, mark);
-}
-function throwError(state, message) {
-  throw generateError(state, message);
-}
-function throwWarning(state, message) {
-  if (state.onWarning) {
-    state.onWarning.call(null, generateError(state, message));
-  }
-}
-var directiveHandlers = {
-  YAML: function handleYamlDirective(state, name, args) {
-    var match, major, minor;
-    if (state.version !== null) {
-      throwError(state, "duplication of %YAML directive");
-    }
-    if (args.length !== 1) {
-      throwError(state, "YAML directive accepts exactly one argument");
-    }
-    match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
-    if (match === null) {
-      throwError(state, "ill-formed argument of the YAML directive");
-    }
-    major = parseInt(match[1], 10);
-    minor = parseInt(match[2], 10);
-    if (major !== 1) {
-      throwError(state, "unacceptable YAML version of the document");
-    }
-    state.version = args[0];
-    state.checkLineBreaks = minor < 2;
-    if (minor !== 1 && minor !== 2) {
-      throwWarning(state, "unsupported YAML version of the document");
-    }
-  },
-  TAG: function handleTagDirective(state, name, args) {
-    var handle, prefix;
-    if (args.length !== 2) {
-      throwError(state, "TAG directive accepts exactly two arguments");
-    }
-    handle = args[0];
-    prefix = args[1];
-    if (!PATTERN_TAG_HANDLE.test(handle)) {
-      throwError(state, "ill-formed tag handle (first argument) of the TAG directive");
-    }
-    if (_hasOwnProperty$1.call(state.tagMap, handle)) {
-      throwError(state, 'there is a previously declared suffix for "' + handle + '" tag handle');
-    }
-    if (!PATTERN_TAG_URI.test(prefix)) {
-      throwError(state, "ill-formed tag prefix (second argument) of the TAG directive");
-    }
-    try {
-      prefix = decodeURIComponent(prefix);
-    } catch (err) {
-      throwError(state, "tag prefix is malformed: " + prefix);
-    }
-    state.tagMap[handle] = prefix;
-  },
-};
-function captureSegment(state, start, end, checkJson) {
-  var _position, _length, _character, _result;
-  if (start < end) {
-    _result = state.input.slice(start, end);
-    if (checkJson) {
-      for (_position = 0, _length = _result.length; _position < _length; _position += 1) {
-        _character = _result.charCodeAt(_position);
-        if (!(_character === 9 || (32 <= _character && _character <= 1114111))) {
-          throwError(state, "expected valid JSON character");
+var omap;
+var hasRequiredOmap;
+function requireOmap() {
+  if (hasRequiredOmap) return omap;
+  hasRequiredOmap = 1;
+  const Type2 = requireType();
+  const _hasOwnProperty = Object.prototype.hasOwnProperty;
+  const _toString = Object.prototype.toString;
+  function resolveYamlOmap(data) {
+    if (data === null) return true;
+    const objectKeys = {};
+    const object = data;
+    for (let index = 0, length = object.length; index < length; index += 1) {
+      const pair = object[index];
+      let pairHasKey = false;
+      if (_toString.call(pair) !== "[object Object]") return false;
+      let pairKey;
+      for (pairKey in pair) {
+        if (_hasOwnProperty.call(pair, pairKey)) {
+          if (!pairHasKey) pairHasKey = true;
+          else return false;
         }
       }
-    } else if (PATTERN_NON_PRINTABLE.test(_result)) {
-      throwError(state, "the stream contains non-printable characters");
+      if (!pairHasKey) return false;
+      if (_hasOwnProperty.call(objectKeys, pairKey)) return false;
+      Object.defineProperty(objectKeys, pairKey, { value: true });
     }
-    state.result += _result;
-  }
-}
-function mergeMappings(state, destination, source, overridableKeys) {
-  var sourceKeys, key, index, quantity;
-  if (!common.isObject(source)) {
-    throwError(state, "cannot merge mappings; the provided source object is unacceptable");
-  }
-  sourceKeys = Object.keys(source);
-  for (index = 0, quantity = sourceKeys.length; index < quantity; index += 1) {
-    key = sourceKeys[index];
-    if (!_hasOwnProperty$1.call(destination, key)) {
-      setProperty(destination, key, source[key]);
-      overridableKeys[key] = true;
-    }
-  }
-}
-function storeMappingPair(
-  state,
-  _result,
-  overridableKeys,
-  keyTag,
-  keyNode,
-  valueNode,
-  startLine,
-  startLineStart,
-  startPos,
-) {
-  var index, quantity;
-  if (Array.isArray(keyNode)) {
-    keyNode = Array.prototype.slice.call(keyNode);
-    for (index = 0, quantity = keyNode.length; index < quantity; index += 1) {
-      if (Array.isArray(keyNode[index])) {
-        throwError(state, "nested arrays are not supported inside keys");
-      }
-      if (typeof keyNode === "object" && _class(keyNode[index]) === "[object Object]") {
-        keyNode[index] = "[object Object]";
-      }
-    }
-  }
-  if (typeof keyNode === "object" && _class(keyNode) === "[object Object]") {
-    keyNode = "[object Object]";
-  }
-  keyNode = String(keyNode);
-  if (_result === null) {
-    _result = {};
-  }
-  if (keyTag === "tag:yaml.org,2002:merge") {
-    if (Array.isArray(valueNode)) {
-      for (index = 0, quantity = valueNode.length; index < quantity; index += 1) {
-        mergeMappings(state, _result, valueNode[index], overridableKeys);
-      }
-    } else {
-      mergeMappings(state, _result, valueNode, overridableKeys);
-    }
-  } else {
-    if (
-      !state.json &&
-      !_hasOwnProperty$1.call(overridableKeys, keyNode) &&
-      _hasOwnProperty$1.call(_result, keyNode)
-    ) {
-      state.line = startLine || state.line;
-      state.lineStart = startLineStart || state.lineStart;
-      state.position = startPos || state.position;
-      throwError(state, "duplicated mapping key");
-    }
-    setProperty(_result, keyNode, valueNode);
-    delete overridableKeys[keyNode];
-  }
-  return _result;
-}
-function readLineBreak(state) {
-  var ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch === 10) {
-    state.position++;
-  } else if (ch === 13) {
-    state.position++;
-    if (state.input.charCodeAt(state.position) === 10) {
-      state.position++;
-    }
-  } else {
-    throwError(state, "a line break is expected");
-  }
-  state.line += 1;
-  state.lineStart = state.position;
-  state.firstTabInLine = -1;
-}
-function skipSeparationSpace(state, allowComments, checkIndent) {
-  var lineBreaks = 0,
-    ch = state.input.charCodeAt(state.position);
-  while (ch !== 0) {
-    while (is_WHITE_SPACE(ch)) {
-      if (ch === 9 && state.firstTabInLine === -1) {
-        state.firstTabInLine = state.position;
-      }
-      ch = state.input.charCodeAt(++state.position);
-    }
-    if (allowComments && ch === 35) {
-      do {
-        ch = state.input.charCodeAt(++state.position);
-      } while (ch !== 10 && ch !== 13 && ch !== 0);
-    }
-    if (is_EOL(ch)) {
-      readLineBreak(state);
-      ch = state.input.charCodeAt(state.position);
-      lineBreaks++;
-      state.lineIndent = 0;
-      while (ch === 32) {
-        state.lineIndent++;
-        ch = state.input.charCodeAt(++state.position);
-      }
-    } else {
-      break;
-    }
-  }
-  if (checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent) {
-    throwWarning(state, "deficient indentation");
-  }
-  return lineBreaks;
-}
-function testDocumentSeparator(state) {
-  var _position = state.position,
-    ch;
-  ch = state.input.charCodeAt(_position);
-  if (
-    (ch === 45 || ch === 46) &&
-    ch === state.input.charCodeAt(_position + 1) &&
-    ch === state.input.charCodeAt(_position + 2)
-  ) {
-    _position += 3;
-    ch = state.input.charCodeAt(_position);
-    if (ch === 0 || is_WS_OR_EOL(ch)) {
-      return true;
-    }
-  }
-  return false;
-}
-function writeFoldedLines(state, count) {
-  if (count === 1) {
-    state.result += " ";
-  } else if (count > 1) {
-    state.result += common.repeat("\n", count - 1);
-  }
-}
-function readPlainScalar(state, nodeIndent, withinFlowCollection) {
-  var preceding,
-    following,
-    captureStart,
-    captureEnd,
-    hasPendingContent,
-    _line,
-    _lineStart,
-    _lineIndent,
-    _kind = state.kind,
-    _result = state.result,
-    ch;
-  ch = state.input.charCodeAt(state.position);
-  if (
-    is_WS_OR_EOL(ch) ||
-    is_FLOW_INDICATOR(ch) ||
-    ch === 35 ||
-    ch === 38 ||
-    ch === 42 ||
-    ch === 33 ||
-    ch === 124 ||
-    ch === 62 ||
-    ch === 39 ||
-    ch === 34 ||
-    ch === 37 ||
-    ch === 64 ||
-    ch === 96
-  ) {
-    return false;
-  }
-  if (ch === 63 || ch === 45) {
-    following = state.input.charCodeAt(state.position + 1);
-    if (is_WS_OR_EOL(following) || (withinFlowCollection && is_FLOW_INDICATOR(following))) {
-      return false;
-    }
-  }
-  state.kind = "scalar";
-  state.result = "";
-  captureStart = captureEnd = state.position;
-  hasPendingContent = false;
-  while (ch !== 0) {
-    if (ch === 58) {
-      following = state.input.charCodeAt(state.position + 1);
-      if (is_WS_OR_EOL(following) || (withinFlowCollection && is_FLOW_INDICATOR(following))) {
-        break;
-      }
-    } else if (ch === 35) {
-      preceding = state.input.charCodeAt(state.position - 1);
-      if (is_WS_OR_EOL(preceding)) {
-        break;
-      }
-    } else if (
-      (state.position === state.lineStart && testDocumentSeparator(state)) ||
-      (withinFlowCollection && is_FLOW_INDICATOR(ch))
-    ) {
-      break;
-    } else if (is_EOL(ch)) {
-      _line = state.line;
-      _lineStart = state.lineStart;
-      _lineIndent = state.lineIndent;
-      skipSeparationSpace(state, false, -1);
-      if (state.lineIndent >= nodeIndent) {
-        hasPendingContent = true;
-        ch = state.input.charCodeAt(state.position);
-        continue;
-      } else {
-        state.position = captureEnd;
-        state.line = _line;
-        state.lineStart = _lineStart;
-        state.lineIndent = _lineIndent;
-        break;
-      }
-    }
-    if (hasPendingContent) {
-      captureSegment(state, captureStart, captureEnd, false);
-      writeFoldedLines(state, state.line - _line);
-      captureStart = captureEnd = state.position;
-      hasPendingContent = false;
-    }
-    if (!is_WHITE_SPACE(ch)) {
-      captureEnd = state.position + 1;
-    }
-    ch = state.input.charCodeAt(++state.position);
-  }
-  captureSegment(state, captureStart, captureEnd, false);
-  if (state.result) {
     return true;
   }
-  state.kind = _kind;
-  state.result = _result;
-  return false;
-}
-function readSingleQuotedScalar(state, nodeIndent) {
-  var ch, captureStart, captureEnd;
-  ch = state.input.charCodeAt(state.position);
-  if (ch !== 39) {
-    return false;
+  function constructYamlOmap(data) {
+    return data !== null ? data : [];
   }
-  state.kind = "scalar";
-  state.result = "";
-  state.position++;
-  captureStart = captureEnd = state.position;
-  while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-    if (ch === 39) {
-      captureSegment(state, captureStart, state.position, true);
-      ch = state.input.charCodeAt(++state.position);
-      if (ch === 39) {
-        captureStart = state.position;
-        state.position++;
-        captureEnd = state.position;
-      } else {
-        return true;
+  omap = new Type2("tag:yaml.org,2002:omap", {
+    kind: "sequence",
+    resolve: resolveYamlOmap,
+    construct: constructYamlOmap,
+  });
+  return omap;
+}
+var pairs;
+var hasRequiredPairs;
+function requirePairs() {
+  if (hasRequiredPairs) return pairs;
+  hasRequiredPairs = 1;
+  const Type2 = requireType();
+  const _toString = Object.prototype.toString;
+  function resolveYamlPairs(data) {
+    if (data === null) return true;
+    const object = data;
+    const result = new Array(object.length);
+    for (let index = 0, length = object.length; index < length; index += 1) {
+      const pair = object[index];
+      if (_toString.call(pair) !== "[object Object]") return false;
+      const keys = Object.keys(pair);
+      if (keys.length !== 1) return false;
+      result[index] = [keys[0], pair[keys[0]]];
+    }
+    return true;
+  }
+  function constructYamlPairs(data) {
+    if (data === null) return [];
+    const object = data;
+    const result = new Array(object.length);
+    for (let index = 0, length = object.length; index < length; index += 1) {
+      const pair = object[index];
+      const keys = Object.keys(pair);
+      result[index] = [keys[0], pair[keys[0]]];
+    }
+    return result;
+  }
+  pairs = new Type2("tag:yaml.org,2002:pairs", {
+    kind: "sequence",
+    resolve: resolveYamlPairs,
+    construct: constructYamlPairs,
+  });
+  return pairs;
+}
+var set;
+var hasRequiredSet;
+function requireSet() {
+  if (hasRequiredSet) return set;
+  hasRequiredSet = 1;
+  const Type2 = requireType();
+  const _hasOwnProperty = Object.prototype.hasOwnProperty;
+  function resolveYamlSet(data) {
+    if (data === null) return true;
+    const object = data;
+    for (const key in object) {
+      if (_hasOwnProperty.call(object, key)) {
+        if (object[key] !== null) return false;
       }
-    } else if (is_EOL(ch)) {
-      captureSegment(state, captureStart, captureEnd, true);
-      writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
-      captureStart = captureEnd = state.position;
-    } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
-      throwError(state, "unexpected end of the document within a single quoted scalar");
-    } else {
-      state.position++;
-      captureEnd = state.position;
+    }
+    return true;
+  }
+  function constructYamlSet(data) {
+    return data !== null ? data : {};
+  }
+  set = new Type2("tag:yaml.org,2002:set", {
+    kind: "mapping",
+    resolve: resolveYamlSet,
+    construct: constructYamlSet,
+  });
+  return set;
+}
+var _default;
+var hasRequired_default;
+function require_default() {
+  if (hasRequired_default) return _default;
+  hasRequired_default = 1;
+  _default = requireCore().extend({
+    implicit: [requireTimestamp(), requireMerge()],
+    explicit: [requireBinary(), requireOmap(), requirePairs(), requireSet()],
+  });
+  return _default;
+}
+var hasRequiredLoader;
+function requireLoader() {
+  if (hasRequiredLoader) return loader;
+  hasRequiredLoader = 1;
+  const common2 = requireCommon();
+  const YAMLException2 = requireException();
+  const makeSnippet = requireSnippet();
+  const DEFAULT_SCHEMA2 = require_default();
+  const _hasOwnProperty = Object.prototype.hasOwnProperty;
+  const CONTEXT_FLOW_IN = 1;
+  const CONTEXT_FLOW_OUT = 2;
+  const CONTEXT_BLOCK_IN = 3;
+  const CONTEXT_BLOCK_OUT = 4;
+  const CHOMPING_CLIP = 1;
+  const CHOMPING_STRIP = 2;
+  const CHOMPING_KEEP = 3;
+  const PATTERN_NON_PRINTABLE =
+    /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+  const PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
+  const PATTERN_FLOW_INDICATORS = /[,\[\]{}]/;
+  const PATTERN_TAG_HANDLE = /^(?:!|!!|![0-9A-Za-z-]+!)$/;
+  const PATTERN_TAG_URI = /^(?:!|[^,\[\]{}])(?:%[0-9a-f]{2}|[0-9a-z\-#;/?:@&=+$,_.!~*'()\[\]])*$/i;
+  function _class(obj) {
+    return Object.prototype.toString.call(obj);
+  }
+  function isEol(c2) {
+    return c2 === 10 || c2 === 13;
+  }
+  function isWhiteSpace(c2) {
+    return c2 === 9 || c2 === 32;
+  }
+  function isWsOrEol(c2) {
+    return c2 === 9 || c2 === 32 || c2 === 10 || c2 === 13;
+  }
+  function isFlowIndicator(c2) {
+    return c2 === 44 || c2 === 91 || c2 === 93 || c2 === 123 || c2 === 125;
+  }
+  function fromHexCode(c2) {
+    if (c2 >= 48 && c2 <= 57) {
+      return c2 - 48;
+    }
+    const lc = c2 | 32;
+    if (lc >= 97 && lc <= 102) {
+      return lc - 97 + 10;
+    }
+    return -1;
+  }
+  function escapedHexLen(c2) {
+    if (c2 === 120) {
+      return 2;
+    }
+    if (c2 === 117) {
+      return 4;
+    }
+    if (c2 === 85) {
+      return 8;
+    }
+    return 0;
+  }
+  function fromDecimalCode(c2) {
+    if (c2 >= 48 && c2 <= 57) {
+      return c2 - 48;
+    }
+    return -1;
+  }
+  function simpleEscapeSequence(c2) {
+    switch (c2) {
+      case 48:
+        return "\0";
+      case 97:
+        return "\x07";
+      case 98:
+        return "\b";
+      case 116:
+        return "	";
+      case 9:
+        return "	";
+      case 110:
+        return "\n";
+      case 118:
+        return "\v";
+      case 102:
+        return "\f";
+      case 114:
+        return "\r";
+      case 101:
+        return "\x1B";
+      case 32:
+        return " ";
+      case 34:
+        return '"';
+      case 47:
+        return "/";
+      case 92:
+        return "\\";
+      case 78:
+        return "\x85";
+      case 95:
+        return "\xA0";
+      case 76:
+        return "\u2028";
+      case 80:
+        return "\u2029";
+      default:
+        return "";
     }
   }
-  throwError(state, "unexpected end of the stream within a single quoted scalar");
-}
-function readDoubleQuotedScalar(state, nodeIndent) {
-  var captureStart, captureEnd, hexLength, hexResult, tmp, ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch !== 34) {
-    return false;
+  function charFromCodepoint(c2) {
+    if (c2 <= 65535) {
+      return String.fromCharCode(c2);
+    }
+    return String.fromCharCode(((c2 - 65536) >> 10) + 55296, ((c2 - 65536) & 1023) + 56320);
   }
-  state.kind = "scalar";
-  state.result = "";
-  state.position++;
-  captureStart = captureEnd = state.position;
-  while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-    if (ch === 34) {
-      captureSegment(state, captureStart, state.position, true);
-      state.position++;
-      return true;
-    } else if (ch === 92) {
-      captureSegment(state, captureStart, state.position, true);
-      ch = state.input.charCodeAt(++state.position);
-      if (is_EOL(ch)) {
-        skipSeparationSpace(state, false, nodeIndent);
-      } else if (ch < 256 && simpleEscapeCheck[ch]) {
-        state.result += simpleEscapeMap[ch];
-        state.position++;
-      } else if ((tmp = escapedHexLen(ch)) > 0) {
-        hexLength = tmp;
-        hexResult = 0;
-        for (; hexLength > 0; hexLength--) {
-          ch = state.input.charCodeAt(++state.position);
-          if ((tmp = fromHexCode(ch)) >= 0) {
-            hexResult = (hexResult << 4) + tmp;
-          } else {
-            throwError(state, "expected hexadecimal character");
+  function setProperty(object, key, value2) {
+    if (key === "__proto__") {
+      Object.defineProperty(object, key, {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        value: value2,
+      });
+    } else {
+      object[key] = value2;
+    }
+  }
+  const simpleEscapeCheck = new Array(256);
+  const simpleEscapeMap = new Array(256);
+  for (let i2 = 0; i2 < 256; i2++) {
+    simpleEscapeCheck[i2] = simpleEscapeSequence(i2) ? 1 : 0;
+    simpleEscapeMap[i2] = simpleEscapeSequence(i2);
+  }
+  function State(input, options2) {
+    this.input = input;
+    this.filename = options2["filename"] || null;
+    this.schema = options2["schema"] || DEFAULT_SCHEMA2;
+    this.onWarning = options2["onWarning"] || null;
+    this.legacy = options2["legacy"] || false;
+    this.json = options2["json"] || false;
+    this.listener = options2["listener"] || null;
+    this.maxDepth = typeof options2["maxDepth"] === "number" ? options2["maxDepth"] : 100;
+    this.maxTotalMergeKeys =
+      typeof options2["maxTotalMergeKeys"] === "number" ? options2["maxTotalMergeKeys"] : 1e4;
+    this.implicitTypes = this.schema.compiledImplicit;
+    this.typeMap = this.schema.compiledTypeMap;
+    this.length = input.length;
+    this.position = 0;
+    this.line = 0;
+    this.lineStart = 0;
+    this.lineIndent = 0;
+    this.depth = 0;
+    this.totalMergeKeys = 0;
+    this.firstTabInLine = -1;
+    this.documents = [];
+    this.anchorMapTransactions = [];
+  }
+  function generateError(state, message) {
+    const mark = {
+      name: state.filename,
+      buffer: state.input.slice(0, -1),
+      // omit trailing \0
+      position: state.position,
+      line: state.line,
+      column: state.position - state.lineStart,
+    };
+    mark.snippet = makeSnippet(mark);
+    return new YAMLException2(message, mark);
+  }
+  function throwError(state, message) {
+    throw generateError(state, message);
+  }
+  function throwWarning(state, message) {
+    if (state.onWarning) {
+      state.onWarning.call(null, generateError(state, message));
+    }
+  }
+  function storeAnchor(state, name, value2) {
+    const transactions = state.anchorMapTransactions;
+    if (transactions.length !== 0) {
+      const transaction = transactions[transactions.length - 1];
+      if (!_hasOwnProperty.call(transaction, name)) {
+        transaction[name] = {
+          existed: _hasOwnProperty.call(state.anchorMap, name),
+          value: state.anchorMap[name],
+        };
+      }
+    }
+    state.anchorMap[name] = value2;
+  }
+  function beginAnchorTransaction(state) {
+    state.anchorMapTransactions.push(/* @__PURE__ */ Object.create(null));
+  }
+  function commitAnchorTransaction(state) {
+    const transaction = state.anchorMapTransactions.pop();
+    const transactions = state.anchorMapTransactions;
+    if (transactions.length === 0) return;
+    const parent = transactions[transactions.length - 1];
+    const names = Object.keys(transaction);
+    for (let index = 0, length = names.length; index < length; index += 1) {
+      const name = names[index];
+      if (!_hasOwnProperty.call(parent, name)) {
+        parent[name] = transaction[name];
+      }
+    }
+  }
+  function rollbackAnchorTransaction(state) {
+    const transaction = state.anchorMapTransactions.pop();
+    const names = Object.keys(transaction);
+    for (let index = names.length - 1; index >= 0; index -= 1) {
+      const entry = transaction[names[index]];
+      if (entry.existed) {
+        state.anchorMap[names[index]] = entry.value;
+      } else {
+        delete state.anchorMap[names[index]];
+      }
+    }
+  }
+  function snapshotState(state) {
+    return {
+      position: state.position,
+      line: state.line,
+      lineStart: state.lineStart,
+      lineIndent: state.lineIndent,
+      firstTabInLine: state.firstTabInLine,
+      tag: state.tag,
+      anchor: state.anchor,
+      kind: state.kind,
+      result: state.result,
+    };
+  }
+  function restoreState(state, snapshot) {
+    state.position = snapshot.position;
+    state.line = snapshot.line;
+    state.lineStart = snapshot.lineStart;
+    state.lineIndent = snapshot.lineIndent;
+    state.firstTabInLine = snapshot.firstTabInLine;
+    state.tag = snapshot.tag;
+    state.anchor = snapshot.anchor;
+    state.kind = snapshot.kind;
+    state.result = snapshot.result;
+  }
+  const directiveHandlers = {
+    YAML: function handleYamlDirective(state, name, args) {
+      if (state.version !== null) {
+        throwError(state, "duplication of %YAML directive");
+      }
+      if (args.length !== 1) {
+        throwError(state, "YAML directive accepts exactly one argument");
+      }
+      const match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
+      if (match === null) {
+        throwError(state, "ill-formed argument of the YAML directive");
+      }
+      const major = parseInt(match[1], 10);
+      const minor = parseInt(match[2], 10);
+      if (major !== 1) {
+        throwError(state, "unacceptable YAML version of the document");
+      }
+      state.version = args[0];
+      state.checkLineBreaks = minor < 2;
+      if (minor !== 1 && minor !== 2) {
+        throwWarning(state, "unsupported YAML version of the document");
+      }
+    },
+    TAG: function handleTagDirective(state, name, args) {
+      let prefix;
+      if (args.length !== 2) {
+        throwError(state, "TAG directive accepts exactly two arguments");
+      }
+      const handle = args[0];
+      prefix = args[1];
+      if (!PATTERN_TAG_HANDLE.test(handle)) {
+        throwError(state, "ill-formed tag handle (first argument) of the TAG directive");
+      }
+      if (_hasOwnProperty.call(state.tagMap, handle)) {
+        throwError(state, 'there is a previously declared suffix for "' + handle + '" tag handle');
+      }
+      if (!PATTERN_TAG_URI.test(prefix)) {
+        throwError(state, "ill-formed tag prefix (second argument) of the TAG directive");
+      }
+      try {
+        prefix = decodeURIComponent(prefix);
+      } catch (err) {
+        throwError(state, "tag prefix is malformed: " + prefix);
+      }
+      state.tagMap[handle] = prefix;
+    },
+  };
+  function captureSegment(state, start, end, checkJson) {
+    if (start < end) {
+      const _result = state.input.slice(start, end);
+      if (checkJson) {
+        for (let _position = 0, _length = _result.length; _position < _length; _position += 1) {
+          const _character = _result.charCodeAt(_position);
+          if (!(_character === 9 || (_character >= 32 && _character <= 1114111))) {
+            throwError(state, "expected valid JSON character");
           }
         }
-        state.result += charFromCodepoint(hexResult);
-        state.position++;
-      } else {
-        throwError(state, "unknown escape sequence");
+      } else if (PATTERN_NON_PRINTABLE.test(_result)) {
+        throwError(state, "the stream contains non-printable characters");
       }
-      captureStart = captureEnd = state.position;
-    } else if (is_EOL(ch)) {
-      captureSegment(state, captureStart, captureEnd, true);
-      writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
-      captureStart = captureEnd = state.position;
-    } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
-      throwError(state, "unexpected end of the document within a double quoted scalar");
-    } else {
-      state.position++;
-      captureEnd = state.position;
+      state.result += _result;
     }
   }
-  throwError(state, "unexpected end of the stream within a double quoted scalar");
-}
-function readFlowCollection(state, nodeIndent) {
-  var readNext = true,
-    _line,
-    _lineStart,
-    _pos,
-    _tag = state.tag,
+  function chargeMergeWork(state) {
+    state.totalMergeKeys++;
+    if (state.maxTotalMergeKeys !== -1 && state.totalMergeKeys > state.maxTotalMergeKeys) {
+      throwError(state, "merge keys exceeded maxTotalMergeKeys (" + state.maxTotalMergeKeys + ")");
+    }
+  }
+  function mergeMappings(state, destination, source, overridableKeys) {
+    if (!common2.isObject(source)) {
+      throwError(state, "cannot merge mappings; the provided source object is unacceptable");
+    }
+    chargeMergeWork(state);
+    const sourceKeys = Object.keys(source);
+    for (let index = 0, quantity = sourceKeys.length; index < quantity; index += 1) {
+      const key = sourceKeys[index];
+      chargeMergeWork(state);
+      if (!_hasOwnProperty.call(destination, key)) {
+        setProperty(destination, key, source[key]);
+        overridableKeys[key] = true;
+      }
+    }
+  }
+  function storeMappingPair(
+    state,
     _result,
-    _anchor = state.anchor,
-    following,
-    terminator,
-    isPair,
-    isExplicitPair,
-    isMapping,
-    overridableKeys = /* @__PURE__ */ Object.create(null),
-    keyNode,
+    overridableKeys,
     keyTag,
+    keyNode,
     valueNode,
-    ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch === 91) {
-    terminator = 93;
-    isMapping = false;
-    _result = [];
-  } else if (ch === 123) {
-    terminator = 125;
-    isMapping = true;
-    _result = {};
-  } else {
+    startLine,
+    startLineStart,
+    startPos,
+  ) {
+    if (Array.isArray(keyNode)) {
+      keyNode = Array.prototype.slice.call(keyNode);
+      for (let index = 0, quantity = keyNode.length; index < quantity; index += 1) {
+        if (Array.isArray(keyNode[index])) {
+          throwError(state, "nested arrays are not supported inside keys");
+        }
+        if (typeof keyNode === "object" && _class(keyNode[index]) === "[object Object]") {
+          keyNode[index] = "[object Object]";
+        }
+      }
+    }
+    if (typeof keyNode === "object" && _class(keyNode) === "[object Object]") {
+      keyNode = "[object Object]";
+    }
+    keyNode = String(keyNode);
+    if (_result === null) {
+      _result = {};
+    }
+    if (keyTag === "tag:yaml.org,2002:merge") {
+      if (Array.isArray(valueNode)) {
+        if (valueNode.length > 100) {
+          throwError(state, "abnormal merge sequence size");
+        }
+        for (let index = 0, quantity = valueNode.length; index < quantity; index += 1) {
+          mergeMappings(state, _result, valueNode[index], overridableKeys);
+        }
+      } else {
+        mergeMappings(state, _result, valueNode, overridableKeys);
+      }
+    } else {
+      if (
+        !state.json &&
+        !_hasOwnProperty.call(overridableKeys, keyNode) &&
+        _hasOwnProperty.call(_result, keyNode)
+      ) {
+        state.line = startLine || state.line;
+        state.lineStart = startLineStart || state.lineStart;
+        state.position = startPos || state.position;
+        throwError(state, "duplicated mapping key");
+      }
+      setProperty(_result, keyNode, valueNode);
+      delete overridableKeys[keyNode];
+    }
+    return _result;
+  }
+  function readLineBreak(state) {
+    const ch = state.input.charCodeAt(state.position);
+    if (ch === 10) {
+      state.position++;
+    } else if (ch === 13) {
+      state.position++;
+      if (state.input.charCodeAt(state.position) === 10) {
+        state.position++;
+      }
+    } else {
+      throwError(state, "a line break is expected");
+    }
+    state.line += 1;
+    state.lineStart = state.position;
+    state.firstTabInLine = -1;
+  }
+  function skipSeparationSpace(state, allowComments, checkIndent) {
+    let lineBreaks = 0;
+    let ch = state.input.charCodeAt(state.position);
+    while (ch !== 0) {
+      while (isWhiteSpace(ch)) {
+        if (ch === 9 && state.firstTabInLine === -1) {
+          state.firstTabInLine = state.position;
+        }
+        ch = state.input.charCodeAt(++state.position);
+      }
+      if (allowComments && ch === 35) {
+        do {
+          ch = state.input.charCodeAt(++state.position);
+        } while (ch !== 10 && ch !== 13 && ch !== 0);
+      }
+      if (isEol(ch)) {
+        readLineBreak(state);
+        ch = state.input.charCodeAt(state.position);
+        lineBreaks++;
+        state.lineIndent = 0;
+        while (ch === 32) {
+          state.lineIndent++;
+          ch = state.input.charCodeAt(++state.position);
+        }
+      } else {
+        break;
+      }
+    }
+    if (checkIndent !== -1 && lineBreaks !== 0 && state.lineIndent < checkIndent) {
+      throwWarning(state, "deficient indentation");
+    }
+    return lineBreaks;
+  }
+  function testDocumentSeparator(state) {
+    let _position = state.position;
+    let ch = state.input.charCodeAt(_position);
+    if (
+      (ch === 45 || ch === 46) &&
+      ch === state.input.charCodeAt(_position + 1) &&
+      ch === state.input.charCodeAt(_position + 2)
+    ) {
+      _position += 3;
+      ch = state.input.charCodeAt(_position);
+      if (ch === 0 || isWsOrEol(ch)) {
+        return true;
+      }
+    }
     return false;
   }
-  if (state.anchor !== null) {
-    state.anchorMap[state.anchor] = _result;
-  }
-  ch = state.input.charCodeAt(++state.position);
-  while (ch !== 0) {
-    skipSeparationSpace(state, true, nodeIndent);
-    ch = state.input.charCodeAt(state.position);
-    if (ch === terminator) {
-      state.position++;
-      state.tag = _tag;
-      state.anchor = _anchor;
-      state.kind = isMapping ? "mapping" : "sequence";
-      state.result = _result;
-      return true;
-    } else if (!readNext) {
-      throwError(state, "missed comma between flow collection entries");
-    } else if (ch === 44) {
-      throwError(state, "expected the node content, but found ','");
+  function writeFoldedLines(state, count) {
+    if (count === 1) {
+      state.result += " ";
+    } else if (count > 1) {
+      state.result += common2.repeat("\n", count - 1);
     }
-    keyTag = keyNode = valueNode = null;
-    isPair = isExplicitPair = false;
-    if (ch === 63) {
-      following = state.input.charCodeAt(state.position + 1);
-      if (is_WS_OR_EOL(following)) {
-        isPair = isExplicitPair = true;
-        state.position++;
-        skipSeparationSpace(state, true, nodeIndent);
+  }
+  function readPlainScalar(state, nodeIndent, withinFlowCollection) {
+    let captureStart;
+    let captureEnd;
+    let hasPendingContent;
+    let _line;
+    let _lineStart;
+    let _lineIndent;
+    const _kind = state.kind;
+    const _result = state.result;
+    let ch = state.input.charCodeAt(state.position);
+    if (
+      isWsOrEol(ch) ||
+      isFlowIndicator(ch) ||
+      ch === 35 ||
+      ch === 38 ||
+      ch === 42 ||
+      ch === 33 ||
+      ch === 124 ||
+      ch === 62 ||
+      ch === 39 ||
+      ch === 34 ||
+      ch === 37 ||
+      ch === 64 ||
+      ch === 96
+    ) {
+      return false;
+    }
+    if (ch === 63 || ch === 45) {
+      const following = state.input.charCodeAt(state.position + 1);
+      if (isWsOrEol(following) || (withinFlowCollection && isFlowIndicator(following))) {
+        return false;
       }
     }
-    _line = state.line;
-    _lineStart = state.lineStart;
-    _pos = state.position;
-    composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
-    keyTag = state.tag;
-    keyNode = state.result;
-    skipSeparationSpace(state, true, nodeIndent);
-    ch = state.input.charCodeAt(state.position);
-    if ((isExplicitPair || state.line === _line) && ch === 58) {
-      isPair = true;
+    state.kind = "scalar";
+    state.result = "";
+    captureStart = captureEnd = state.position;
+    hasPendingContent = false;
+    while (ch !== 0) {
+      if (ch === 58) {
+        const following = state.input.charCodeAt(state.position + 1);
+        if (isWsOrEol(following) || (withinFlowCollection && isFlowIndicator(following))) {
+          break;
+        }
+      } else if (ch === 35) {
+        const preceding = state.input.charCodeAt(state.position - 1);
+        if (isWsOrEol(preceding)) {
+          break;
+        }
+      } else if (
+        (state.position === state.lineStart && testDocumentSeparator(state)) ||
+        (withinFlowCollection && isFlowIndicator(ch))
+      ) {
+        break;
+      } else if (isEol(ch)) {
+        _line = state.line;
+        _lineStart = state.lineStart;
+        _lineIndent = state.lineIndent;
+        skipSeparationSpace(state, false, -1);
+        if (state.lineIndent >= nodeIndent) {
+          hasPendingContent = true;
+          ch = state.input.charCodeAt(state.position);
+          continue;
+        } else {
+          state.position = captureEnd;
+          state.line = _line;
+          state.lineStart = _lineStart;
+          state.lineIndent = _lineIndent;
+          break;
+        }
+      }
+      if (hasPendingContent) {
+        captureSegment(state, captureStart, captureEnd, false);
+        writeFoldedLines(state, state.line - _line);
+        captureStart = captureEnd = state.position;
+        hasPendingContent = false;
+      }
+      if (!isWhiteSpace(ch)) {
+        captureEnd = state.position + 1;
+      }
       ch = state.input.charCodeAt(++state.position);
-      skipSeparationSpace(state, true, nodeIndent);
-      composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
-      valueNode = state.result;
     }
-    if (isMapping) {
-      storeMappingPair(
-        state,
-        _result,
-        overridableKeys,
-        keyTag,
-        keyNode,
-        valueNode,
-        _line,
-        _lineStart,
-        _pos,
-      );
-    } else if (isPair) {
-      _result.push(
+    captureSegment(state, captureStart, captureEnd, false);
+    if (state.result) {
+      return true;
+    }
+    state.kind = _kind;
+    state.result = _result;
+    return false;
+  }
+  function readSingleQuotedScalar(state, nodeIndent) {
+    let captureStart;
+    let captureEnd;
+    let ch = state.input.charCodeAt(state.position);
+    if (ch !== 39) {
+      return false;
+    }
+    state.kind = "scalar";
+    state.result = "";
+    state.position++;
+    captureStart = captureEnd = state.position;
+    while ((ch = state.input.charCodeAt(state.position)) !== 0) {
+      if (ch === 39) {
+        captureSegment(state, captureStart, state.position, true);
+        ch = state.input.charCodeAt(++state.position);
+        if (ch === 39) {
+          captureStart = state.position;
+          state.position++;
+          captureEnd = state.position;
+        } else {
+          return true;
+        }
+      } else if (isEol(ch)) {
+        captureSegment(state, captureStart, captureEnd, true);
+        writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
+        captureStart = captureEnd = state.position;
+      } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
+        throwError(state, "unexpected end of the document within a single quoted scalar");
+      } else {
+        state.position++;
+        if (!isWhiteSpace(ch)) {
+          captureEnd = state.position;
+        }
+      }
+    }
+    throwError(state, "unexpected end of the stream within a single quoted scalar");
+  }
+  function readDoubleQuotedScalar(state, nodeIndent) {
+    let captureStart;
+    let captureEnd;
+    let tmp;
+    let ch = state.input.charCodeAt(state.position);
+    if (ch !== 34) {
+      return false;
+    }
+    state.kind = "scalar";
+    state.result = "";
+    state.position++;
+    captureStart = captureEnd = state.position;
+    while ((ch = state.input.charCodeAt(state.position)) !== 0) {
+      if (ch === 34) {
+        captureSegment(state, captureStart, state.position, true);
+        state.position++;
+        return true;
+      } else if (ch === 92) {
+        captureSegment(state, captureStart, state.position, true);
+        ch = state.input.charCodeAt(++state.position);
+        if (isEol(ch)) {
+          skipSeparationSpace(state, false, nodeIndent);
+        } else if (ch < 256 && simpleEscapeCheck[ch]) {
+          state.result += simpleEscapeMap[ch];
+          state.position++;
+        } else if ((tmp = escapedHexLen(ch)) > 0) {
+          let hexLength = tmp;
+          let hexResult = 0;
+          for (; hexLength > 0; hexLength--) {
+            ch = state.input.charCodeAt(++state.position);
+            if ((tmp = fromHexCode(ch)) >= 0) {
+              hexResult = (hexResult << 4) + tmp;
+            } else {
+              throwError(state, "expected hexadecimal character");
+            }
+          }
+          state.result += charFromCodepoint(hexResult);
+          state.position++;
+        } else {
+          throwError(state, "unknown escape sequence");
+        }
+        captureStart = captureEnd = state.position;
+      } else if (isEol(ch)) {
+        captureSegment(state, captureStart, captureEnd, true);
+        writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
+        captureStart = captureEnd = state.position;
+      } else if (state.position === state.lineStart && testDocumentSeparator(state)) {
+        throwError(state, "unexpected end of the document within a double quoted scalar");
+      } else {
+        state.position++;
+        if (!isWhiteSpace(ch)) {
+          captureEnd = state.position;
+        }
+      }
+    }
+    throwError(state, "unexpected end of the stream within a double quoted scalar");
+  }
+  function readFlowCollection(state, nodeIndent) {
+    let readNext = true;
+    let _line;
+    let _lineStart;
+    let _pos;
+    const _tag = state.tag;
+    let _result;
+    const _anchor = state.anchor;
+    let terminator;
+    let isPair;
+    let isExplicitPair;
+    let isMapping;
+    const overridableKeys = /* @__PURE__ */ Object.create(null);
+    let keyNode;
+    let keyTag;
+    let valueNode;
+    let ch = state.input.charCodeAt(state.position);
+    if (ch === 91) {
+      terminator = 93;
+      isMapping = false;
+      _result = [];
+    } else if (ch === 123) {
+      terminator = 125;
+      isMapping = true;
+      _result = {};
+    } else {
+      return false;
+    }
+    if (state.anchor !== null) {
+      storeAnchor(state, state.anchor, _result);
+    }
+    ch = state.input.charCodeAt(++state.position);
+    while (ch !== 0) {
+      skipSeparationSpace(state, true, nodeIndent);
+      ch = state.input.charCodeAt(state.position);
+      if (ch === terminator) {
+        state.position++;
+        state.tag = _tag;
+        state.anchor = _anchor;
+        state.kind = isMapping ? "mapping" : "sequence";
+        state.result = _result;
+        return true;
+      } else if (!readNext) {
+        throwError(state, "missed comma between flow collection entries");
+      } else if (ch === 44) {
+        throwError(state, "expected the node content, but found ','");
+      }
+      keyTag = keyNode = valueNode = null;
+      isPair = isExplicitPair = false;
+      if (ch === 63) {
+        const following = state.input.charCodeAt(state.position + 1);
+        if (isWsOrEol(following)) {
+          isPair = isExplicitPair = true;
+          state.position++;
+          skipSeparationSpace(state, true, nodeIndent);
+        }
+      }
+      _line = state.line;
+      _lineStart = state.lineStart;
+      _pos = state.position;
+      composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
+      keyTag = state.tag;
+      keyNode = state.result;
+      skipSeparationSpace(state, true, nodeIndent);
+      ch = state.input.charCodeAt(state.position);
+      if ((isExplicitPair || state.line === _line) && ch === 58) {
+        isPair = true;
+        ch = state.input.charCodeAt(++state.position);
+        skipSeparationSpace(state, true, nodeIndent);
+        composeNode(state, nodeIndent, CONTEXT_FLOW_IN, false, true);
+        valueNode = state.result;
+      }
+      if (isMapping) {
         storeMappingPair(
           state,
-          null,
+          _result,
           overridableKeys,
           keyTag,
           keyNode,
@@ -9881,263 +11088,223 @@ function readFlowCollection(state, nodeIndent) {
           _line,
           _lineStart,
           _pos,
-        ),
-      );
-    } else {
-      _result.push(keyNode);
-    }
-    skipSeparationSpace(state, true, nodeIndent);
-    ch = state.input.charCodeAt(state.position);
-    if (ch === 44) {
-      readNext = true;
-      ch = state.input.charCodeAt(++state.position);
-    } else {
-      readNext = false;
-    }
-  }
-  throwError(state, "unexpected end of the stream within a flow collection");
-}
-function readBlockScalar(state, nodeIndent) {
-  var captureStart,
-    folding,
-    chomping = CHOMPING_CLIP,
-    didReadContent = false,
-    detectedIndent = false,
-    textIndent = nodeIndent,
-    emptyLines = 0,
-    atMoreIndented = false,
-    tmp,
-    ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch === 124) {
-    folding = false;
-  } else if (ch === 62) {
-    folding = true;
-  } else {
-    return false;
-  }
-  state.kind = "scalar";
-  state.result = "";
-  while (ch !== 0) {
-    ch = state.input.charCodeAt(++state.position);
-    if (ch === 43 || ch === 45) {
-      if (CHOMPING_CLIP === chomping) {
-        chomping = ch === 43 ? CHOMPING_KEEP : CHOMPING_STRIP;
-      } else {
-        throwError(state, "repeat of a chomping mode identifier");
-      }
-    } else if ((tmp = fromDecimalCode(ch)) >= 0) {
-      if (tmp === 0) {
-        throwError(
-          state,
-          "bad explicit indentation width of a block scalar; it cannot be less than one",
         );
-      } else if (!detectedIndent) {
-        textIndent = nodeIndent + tmp - 1;
-        detectedIndent = true;
-      } else {
-        throwError(state, "repeat of an indentation width identifier");
-      }
-    } else {
-      break;
-    }
-  }
-  if (is_WHITE_SPACE(ch)) {
-    do {
-      ch = state.input.charCodeAt(++state.position);
-    } while (is_WHITE_SPACE(ch));
-    if (ch === 35) {
-      do {
-        ch = state.input.charCodeAt(++state.position);
-      } while (!is_EOL(ch) && ch !== 0);
-    }
-  }
-  while (ch !== 0) {
-    readLineBreak(state);
-    state.lineIndent = 0;
-    ch = state.input.charCodeAt(state.position);
-    while ((!detectedIndent || state.lineIndent < textIndent) && ch === 32) {
-      state.lineIndent++;
-      ch = state.input.charCodeAt(++state.position);
-    }
-    if (!detectedIndent && state.lineIndent > textIndent) {
-      textIndent = state.lineIndent;
-    }
-    if (is_EOL(ch)) {
-      emptyLines++;
-      continue;
-    }
-    if (state.lineIndent < textIndent) {
-      if (chomping === CHOMPING_KEEP) {
-        state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-      } else if (chomping === CHOMPING_CLIP) {
-        if (didReadContent) {
-          state.result += "\n";
-        }
-      }
-      break;
-    }
-    if (folding) {
-      if (is_WHITE_SPACE(ch)) {
-        atMoreIndented = true;
-        state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-      } else if (atMoreIndented) {
-        atMoreIndented = false;
-        state.result += common.repeat("\n", emptyLines + 1);
-      } else if (emptyLines === 0) {
-        if (didReadContent) {
-          state.result += " ";
-        }
-      } else {
-        state.result += common.repeat("\n", emptyLines);
-      }
-    } else {
-      state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
-    }
-    didReadContent = true;
-    detectedIndent = true;
-    emptyLines = 0;
-    captureStart = state.position;
-    while (!is_EOL(ch) && ch !== 0) {
-      ch = state.input.charCodeAt(++state.position);
-    }
-    captureSegment(state, captureStart, state.position, false);
-  }
-  return true;
-}
-function readBlockSequence(state, nodeIndent) {
-  var _line,
-    _tag = state.tag,
-    _anchor = state.anchor,
-    _result = [],
-    following,
-    detected = false,
-    ch;
-  if (state.firstTabInLine !== -1) return false;
-  if (state.anchor !== null) {
-    state.anchorMap[state.anchor] = _result;
-  }
-  ch = state.input.charCodeAt(state.position);
-  while (ch !== 0) {
-    if (state.firstTabInLine !== -1) {
-      state.position = state.firstTabInLine;
-      throwError(state, "tab characters must not be used in indentation");
-    }
-    if (ch !== 45) {
-      break;
-    }
-    following = state.input.charCodeAt(state.position + 1);
-    if (!is_WS_OR_EOL(following)) {
-      break;
-    }
-    detected = true;
-    state.position++;
-    if (skipSeparationSpace(state, true, -1)) {
-      if (state.lineIndent <= nodeIndent) {
-        _result.push(null);
-        ch = state.input.charCodeAt(state.position);
-        continue;
-      }
-    }
-    _line = state.line;
-    composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
-    _result.push(state.result);
-    skipSeparationSpace(state, true, -1);
-    ch = state.input.charCodeAt(state.position);
-    if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
-      throwError(state, "bad indentation of a sequence entry");
-    } else if (state.lineIndent < nodeIndent) {
-      break;
-    }
-  }
-  if (detected) {
-    state.tag = _tag;
-    state.anchor = _anchor;
-    state.kind = "sequence";
-    state.result = _result;
-    return true;
-  }
-  return false;
-}
-function readBlockMapping(state, nodeIndent, flowIndent) {
-  var following,
-    allowCompact,
-    _line,
-    _keyLine,
-    _keyLineStart,
-    _keyPos,
-    _tag = state.tag,
-    _anchor = state.anchor,
-    _result = {},
-    overridableKeys = /* @__PURE__ */ Object.create(null),
-    keyTag = null,
-    keyNode = null,
-    valueNode = null,
-    atExplicitKey = false,
-    detected = false,
-    ch;
-  if (state.firstTabInLine !== -1) return false;
-  if (state.anchor !== null) {
-    state.anchorMap[state.anchor] = _result;
-  }
-  ch = state.input.charCodeAt(state.position);
-  while (ch !== 0) {
-    if (!atExplicitKey && state.firstTabInLine !== -1) {
-      state.position = state.firstTabInLine;
-      throwError(state, "tab characters must not be used in indentation");
-    }
-    following = state.input.charCodeAt(state.position + 1);
-    _line = state.line;
-    if ((ch === 63 || ch === 58) && is_WS_OR_EOL(following)) {
-      if (ch === 63) {
-        if (atExplicitKey) {
+      } else if (isPair) {
+        _result.push(
           storeMappingPair(
             state,
-            _result,
+            null,
             overridableKeys,
             keyTag,
             keyNode,
-            null,
-            _keyLine,
-            _keyLineStart,
-            _keyPos,
-          );
-          keyTag = keyNode = valueNode = null;
-        }
-        detected = true;
-        atExplicitKey = true;
-        allowCompact = true;
-      } else if (atExplicitKey) {
-        atExplicitKey = false;
-        allowCompact = true;
-      } else {
-        throwError(
-          state,
-          "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line",
+            valueNode,
+            _line,
+            _lineStart,
+            _pos,
+          ),
         );
+      } else {
+        _result.push(keyNode);
       }
-      state.position += 1;
-      ch = following;
+      skipSeparationSpace(state, true, nodeIndent);
+      ch = state.input.charCodeAt(state.position);
+      if (ch === 44) {
+        readNext = true;
+        ch = state.input.charCodeAt(++state.position);
+      } else {
+        readNext = false;
+      }
+    }
+    throwError(state, "unexpected end of the stream within a flow collection");
+  }
+  function readBlockScalar(state, nodeIndent) {
+    let folding;
+    let chomping = CHOMPING_CLIP;
+    let didReadContent = false;
+    let detectedIndent = false;
+    let textIndent = nodeIndent;
+    let emptyLines = 0;
+    let atMoreIndented = false;
+    let tmp;
+    let ch = state.input.charCodeAt(state.position);
+    if (ch === 124) {
+      folding = false;
+    } else if (ch === 62) {
+      folding = true;
     } else {
-      _keyLine = state.line;
-      _keyLineStart = state.lineStart;
-      _keyPos = state.position;
-      if (!composeNode(state, flowIndent, CONTEXT_FLOW_OUT, false, true)) {
+      return false;
+    }
+    state.kind = "scalar";
+    state.result = "";
+    while (ch !== 0) {
+      ch = state.input.charCodeAt(++state.position);
+      if (ch === 43 || ch === 45) {
+        if (CHOMPING_CLIP === chomping) {
+          chomping = ch === 43 ? CHOMPING_KEEP : CHOMPING_STRIP;
+        } else {
+          throwError(state, "repeat of a chomping mode identifier");
+        }
+      } else if ((tmp = fromDecimalCode(ch)) >= 0) {
+        if (tmp === 0) {
+          throwError(
+            state,
+            "bad explicit indentation width of a block scalar; it cannot be less than one",
+          );
+        } else if (!detectedIndent) {
+          textIndent = nodeIndent + tmp - 1;
+          detectedIndent = true;
+        } else {
+          throwError(state, "repeat of an indentation width identifier");
+        }
+      } else {
         break;
       }
-      if (state.line === _line) {
-        ch = state.input.charCodeAt(state.position);
-        while (is_WHITE_SPACE(ch)) {
+    }
+    if (isWhiteSpace(ch)) {
+      do {
+        ch = state.input.charCodeAt(++state.position);
+      } while (isWhiteSpace(ch));
+      if (ch === 35) {
+        do {
           ch = state.input.charCodeAt(++state.position);
-        }
-        if (ch === 58) {
-          ch = state.input.charCodeAt(++state.position);
-          if (!is_WS_OR_EOL(ch)) {
-            throwError(
-              state,
-              "a whitespace character is expected after the key-value separator within a block mapping",
-            );
+        } while (!isEol(ch) && ch !== 0);
+      }
+    }
+    while (ch !== 0) {
+      readLineBreak(state);
+      state.lineIndent = 0;
+      ch = state.input.charCodeAt(state.position);
+      while ((!detectedIndent || state.lineIndent < textIndent) && ch === 32) {
+        state.lineIndent++;
+        ch = state.input.charCodeAt(++state.position);
+      }
+      if (!detectedIndent && state.lineIndent > textIndent) {
+        textIndent = state.lineIndent;
+      }
+      if (isEol(ch)) {
+        emptyLines++;
+        continue;
+      }
+      if (!detectedIndent && textIndent === 0) {
+        throwError(state, "missing indentation for block scalar");
+      }
+      if (state.lineIndent < textIndent) {
+        if (chomping === CHOMPING_KEEP) {
+          state.result += common2.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+        } else if (chomping === CHOMPING_CLIP) {
+          if (didReadContent) {
+            state.result += "\n";
           }
+        }
+        break;
+      }
+      if (folding) {
+        if (isWhiteSpace(ch)) {
+          atMoreIndented = true;
+          state.result += common2.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+        } else if (atMoreIndented) {
+          atMoreIndented = false;
+          state.result += common2.repeat("\n", emptyLines + 1);
+        } else if (emptyLines === 0) {
+          if (didReadContent) {
+            state.result += " ";
+          }
+        } else {
+          state.result += common2.repeat("\n", emptyLines);
+        }
+      } else {
+        state.result += common2.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
+      }
+      didReadContent = true;
+      detectedIndent = true;
+      emptyLines = 0;
+      const captureStart = state.position;
+      while (!isEol(ch) && ch !== 0) {
+        ch = state.input.charCodeAt(++state.position);
+      }
+      captureSegment(state, captureStart, state.position, false);
+    }
+    return true;
+  }
+  function readBlockSequence(state, nodeIndent) {
+    const _tag = state.tag;
+    const _anchor = state.anchor;
+    const _result = [];
+    let detected = false;
+    if (state.firstTabInLine !== -1) return false;
+    if (state.anchor !== null) {
+      storeAnchor(state, state.anchor, _result);
+    }
+    let ch = state.input.charCodeAt(state.position);
+    while (ch !== 0) {
+      if (state.firstTabInLine !== -1) {
+        state.position = state.firstTabInLine;
+        throwError(state, "tab characters must not be used in indentation");
+      }
+      if (ch !== 45) {
+        break;
+      }
+      const following = state.input.charCodeAt(state.position + 1);
+      if (!isWsOrEol(following)) {
+        break;
+      }
+      detected = true;
+      state.position++;
+      if (skipSeparationSpace(state, true, -1)) {
+        if (state.lineIndent <= nodeIndent) {
+          _result.push(null);
+          ch = state.input.charCodeAt(state.position);
+          continue;
+        }
+      }
+      const _line = state.line;
+      composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
+      _result.push(state.result);
+      skipSeparationSpace(state, true, -1);
+      ch = state.input.charCodeAt(state.position);
+      if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
+        throwError(state, "bad indentation of a sequence entry");
+      } else if (state.lineIndent < nodeIndent) {
+        break;
+      }
+    }
+    if (detected) {
+      state.tag = _tag;
+      state.anchor = _anchor;
+      state.kind = "sequence";
+      state.result = _result;
+      return true;
+    }
+    return false;
+  }
+  function readBlockMapping(state, nodeIndent, flowIndent) {
+    let allowCompact;
+    let _keyLine;
+    let _keyLineStart;
+    let _keyPos;
+    const _tag = state.tag;
+    const _anchor = state.anchor;
+    const _result = {};
+    const overridableKeys = /* @__PURE__ */ Object.create(null);
+    let keyTag = null;
+    let keyNode = null;
+    let valueNode = null;
+    let atExplicitKey = false;
+    let detected = false;
+    if (state.firstTabInLine !== -1) return false;
+    if (state.anchor !== null) {
+      storeAnchor(state, state.anchor, _result);
+    }
+    let ch = state.input.charCodeAt(state.position);
+    while (ch !== 0) {
+      if (!atExplicitKey && state.firstTabInLine !== -1) {
+        state.position = state.firstTabInLine;
+        throwError(state, "tab characters must not be used in indentation");
+      }
+      const following = state.input.charCodeAt(state.position + 1);
+      const _line = state.line;
+      if ((ch === 63 || ch === 58) && isWsOrEol(following)) {
+        if (ch === 63) {
           if (atExplicitKey) {
             storeMappingPair(
               state,
@@ -10153,240 +11320,287 @@ function readBlockMapping(state, nodeIndent, flowIndent) {
             keyTag = keyNode = valueNode = null;
           }
           detected = true;
+          atExplicitKey = true;
+          allowCompact = true;
+        } else if (atExplicitKey) {
           atExplicitKey = false;
-          allowCompact = false;
-          keyTag = state.tag;
-          keyNode = state.result;
+          allowCompact = true;
+        } else {
+          throwError(
+            state,
+            "incomplete explicit mapping pair; a key node is missed; or followed by a non-tabulated empty line",
+          );
+        }
+        state.position += 1;
+        ch = following;
+      } else {
+        _keyLine = state.line;
+        _keyLineStart = state.lineStart;
+        _keyPos = state.position;
+        if (!composeNode(state, flowIndent, CONTEXT_FLOW_OUT, false, true)) {
+          break;
+        }
+        if (state.line === _line) {
+          ch = state.input.charCodeAt(state.position);
+          while (isWhiteSpace(ch)) {
+            ch = state.input.charCodeAt(++state.position);
+          }
+          if (ch === 58) {
+            ch = state.input.charCodeAt(++state.position);
+            if (!isWsOrEol(ch)) {
+              throwError(
+                state,
+                "a whitespace character is expected after the key-value separator within a block mapping",
+              );
+            }
+            if (atExplicitKey) {
+              storeMappingPair(
+                state,
+                _result,
+                overridableKeys,
+                keyTag,
+                keyNode,
+                null,
+                _keyLine,
+                _keyLineStart,
+                _keyPos,
+              );
+              keyTag = keyNode = valueNode = null;
+            }
+            detected = true;
+            atExplicitKey = false;
+            allowCompact = false;
+            keyTag = state.tag;
+            keyNode = state.result;
+          } else if (detected) {
+            throwError(state, "can not read an implicit mapping pair; a colon is missed");
+          } else {
+            state.tag = _tag;
+            state.anchor = _anchor;
+            return true;
+          }
         } else if (detected) {
-          throwError(state, "can not read an implicit mapping pair; a colon is missed");
+          throwError(
+            state,
+            "can not read a block mapping entry; a multiline key may not be an implicit key",
+          );
         } else {
           state.tag = _tag;
           state.anchor = _anchor;
           return true;
         }
-      } else if (detected) {
-        throwError(
-          state,
-          "can not read a block mapping entry; a multiline key may not be an implicit key",
-        );
-      } else {
-        state.tag = _tag;
-        state.anchor = _anchor;
-        return true;
       }
-    }
-    if (state.line === _line || state.lineIndent > nodeIndent) {
-      if (atExplicitKey) {
-        _keyLine = state.line;
-        _keyLineStart = state.lineStart;
-        _keyPos = state.position;
-      }
-      if (composeNode(state, nodeIndent, CONTEXT_BLOCK_OUT, true, allowCompact)) {
+      if (state.line === _line || state.lineIndent > nodeIndent) {
         if (atExplicitKey) {
-          keyNode = state.result;
-        } else {
-          valueNode = state.result;
+          _keyLine = state.line;
+          _keyLineStart = state.lineStart;
+          _keyPos = state.position;
         }
+        if (composeNode(state, nodeIndent, CONTEXT_BLOCK_OUT, true, allowCompact)) {
+          if (atExplicitKey) {
+            keyNode = state.result;
+          } else {
+            valueNode = state.result;
+          }
+        }
+        if (!atExplicitKey) {
+          storeMappingPair(
+            state,
+            _result,
+            overridableKeys,
+            keyTag,
+            keyNode,
+            valueNode,
+            _keyLine,
+            _keyLineStart,
+            _keyPos,
+          );
+          keyTag = keyNode = valueNode = null;
+        }
+        skipSeparationSpace(state, true, -1);
+        ch = state.input.charCodeAt(state.position);
       }
-      if (!atExplicitKey) {
-        storeMappingPair(
-          state,
-          _result,
-          overridableKeys,
-          keyTag,
-          keyNode,
-          valueNode,
-          _keyLine,
-          _keyLineStart,
-          _keyPos,
-        );
-        keyTag = keyNode = valueNode = null;
+      if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
+        throwError(state, "bad indentation of a mapping entry");
+      } else if (state.lineIndent < nodeIndent) {
+        break;
       }
-      skipSeparationSpace(state, true, -1);
-      ch = state.input.charCodeAt(state.position);
     }
-    if ((state.line === _line || state.lineIndent > nodeIndent) && ch !== 0) {
-      throwError(state, "bad indentation of a mapping entry");
-    } else if (state.lineIndent < nodeIndent) {
-      break;
+    if (atExplicitKey) {
+      storeMappingPair(
+        state,
+        _result,
+        overridableKeys,
+        keyTag,
+        keyNode,
+        null,
+        _keyLine,
+        _keyLineStart,
+        _keyPos,
+      );
     }
+    if (detected) {
+      state.tag = _tag;
+      state.anchor = _anchor;
+      state.kind = "mapping";
+      state.result = _result;
+    }
+    return detected;
   }
-  if (atExplicitKey) {
-    storeMappingPair(
-      state,
-      _result,
-      overridableKeys,
-      keyTag,
-      keyNode,
-      null,
-      _keyLine,
-      _keyLineStart,
-      _keyPos,
-    );
-  }
-  if (detected) {
-    state.tag = _tag;
-    state.anchor = _anchor;
-    state.kind = "mapping";
-    state.result = _result;
-  }
-  return detected;
-}
-function readTagProperty(state) {
-  var _position,
-    isVerbatim = false,
-    isNamed = false,
-    tagHandle,
-    tagName,
-    ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch !== 33) return false;
-  if (state.tag !== null) {
-    throwError(state, "duplication of a tag property");
-  }
-  ch = state.input.charCodeAt(++state.position);
-  if (ch === 60) {
-    isVerbatim = true;
+  function readTagProperty(state) {
+    let isVerbatim = false;
+    let isNamed = false;
+    let tagHandle;
+    let tagName;
+    let ch = state.input.charCodeAt(state.position);
+    if (ch !== 33) return false;
+    if (state.tag !== null) {
+      throwError(state, "duplication of a tag property");
+    }
     ch = state.input.charCodeAt(++state.position);
-  } else if (ch === 33) {
-    isNamed = true;
-    tagHandle = "!!";
-    ch = state.input.charCodeAt(++state.position);
-  } else {
-    tagHandle = "!";
-  }
-  _position = state.position;
-  if (isVerbatim) {
-    do {
+    if (ch === 60) {
+      isVerbatim = true;
       ch = state.input.charCodeAt(++state.position);
-    } while (ch !== 0 && ch !== 62);
-    if (state.position < state.length) {
-      tagName = state.input.slice(_position, state.position);
+    } else if (ch === 33) {
+      isNamed = true;
+      tagHandle = "!!";
       ch = state.input.charCodeAt(++state.position);
     } else {
-      throwError(state, "unexpected end of the stream within a verbatim tag");
+      tagHandle = "!";
     }
-  } else {
-    while (ch !== 0 && !is_WS_OR_EOL(ch)) {
-      if (ch === 33) {
-        if (!isNamed) {
-          tagHandle = state.input.slice(_position - 1, state.position + 1);
-          if (!PATTERN_TAG_HANDLE.test(tagHandle)) {
-            throwError(state, "named tag handle cannot contain such characters");
-          }
-          isNamed = true;
-          _position = state.position + 1;
-        } else {
-          throwError(state, "tag suffix cannot contain exclamation marks");
-        }
+    let _position = state.position;
+    if (isVerbatim) {
+      do {
+        ch = state.input.charCodeAt(++state.position);
+      } while (ch !== 0 && ch !== 62);
+      if (state.position < state.length) {
+        tagName = state.input.slice(_position, state.position);
+        ch = state.input.charCodeAt(++state.position);
+      } else {
+        throwError(state, "unexpected end of the stream within a verbatim tag");
       }
+    } else {
+      while (ch !== 0 && !isWsOrEol(ch)) {
+        if (ch === 33) {
+          if (!isNamed) {
+            tagHandle = state.input.slice(_position - 1, state.position + 1);
+            if (!PATTERN_TAG_HANDLE.test(tagHandle)) {
+              throwError(state, "named tag handle cannot contain such characters");
+            }
+            isNamed = true;
+            _position = state.position + 1;
+          } else {
+            throwError(state, "tag suffix cannot contain exclamation marks");
+          }
+        }
+        ch = state.input.charCodeAt(++state.position);
+      }
+      tagName = state.input.slice(_position, state.position);
+      if (PATTERN_FLOW_INDICATORS.test(tagName)) {
+        throwError(state, "tag suffix cannot contain flow indicator characters");
+      }
+    }
+    if (tagName && !PATTERN_TAG_URI.test(tagName)) {
+      throwError(state, "tag name cannot contain such characters: " + tagName);
+    }
+    try {
+      tagName = decodeURIComponent(tagName);
+    } catch (err) {
+      throwError(state, "tag name is malformed: " + tagName);
+    }
+    if (isVerbatim) {
+      state.tag = tagName;
+    } else if (_hasOwnProperty.call(state.tagMap, tagHandle)) {
+      state.tag = state.tagMap[tagHandle] + tagName;
+    } else if (tagHandle === "!") {
+      state.tag = "!" + tagName;
+    } else if (tagHandle === "!!") {
+      state.tag = "tag:yaml.org,2002:" + tagName;
+    } else {
+      throwError(state, 'undeclared tag handle "' + tagHandle + '"');
+    }
+    return true;
+  }
+  function readAnchorProperty(state) {
+    let ch = state.input.charCodeAt(state.position);
+    if (ch !== 38) return false;
+    if (state.anchor !== null) {
+      throwError(state, "duplication of an anchor property");
+    }
+    ch = state.input.charCodeAt(++state.position);
+    const _position = state.position;
+    while (ch !== 0 && !isWsOrEol(ch) && !isFlowIndicator(ch)) {
       ch = state.input.charCodeAt(++state.position);
     }
-    tagName = state.input.slice(_position, state.position);
-    if (PATTERN_FLOW_INDICATORS.test(tagName)) {
-      throwError(state, "tag suffix cannot contain flow indicator characters");
+    if (state.position === _position) {
+      throwError(state, "name of an anchor node must contain at least one character");
     }
+    state.anchor = state.input.slice(_position, state.position);
+    return true;
   }
-  if (tagName && !PATTERN_TAG_URI.test(tagName)) {
-    throwError(state, "tag name cannot contain such characters: " + tagName);
-  }
-  try {
-    tagName = decodeURIComponent(tagName);
-  } catch (err) {
-    throwError(state, "tag name is malformed: " + tagName);
-  }
-  if (isVerbatim) {
-    state.tag = tagName;
-  } else if (_hasOwnProperty$1.call(state.tagMap, tagHandle)) {
-    state.tag = state.tagMap[tagHandle] + tagName;
-  } else if (tagHandle === "!") {
-    state.tag = "!" + tagName;
-  } else if (tagHandle === "!!") {
-    state.tag = "tag:yaml.org,2002:" + tagName;
-  } else {
-    throwError(state, 'undeclared tag handle "' + tagHandle + '"');
-  }
-  return true;
-}
-function readAnchorProperty(state) {
-  var _position, ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch !== 38) return false;
-  if (state.anchor !== null) {
-    throwError(state, "duplication of an anchor property");
-  }
-  ch = state.input.charCodeAt(++state.position);
-  _position = state.position;
-  while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
+  function readAlias(state) {
+    let ch = state.input.charCodeAt(state.position);
+    if (ch !== 42) return false;
     ch = state.input.charCodeAt(++state.position);
-  }
-  if (state.position === _position) {
-    throwError(state, "name of an anchor node must contain at least one character");
-  }
-  state.anchor = state.input.slice(_position, state.position);
-  return true;
-}
-function readAlias(state) {
-  var _position, alias, ch;
-  ch = state.input.charCodeAt(state.position);
-  if (ch !== 42) return false;
-  ch = state.input.charCodeAt(++state.position);
-  _position = state.position;
-  while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
-    ch = state.input.charCodeAt(++state.position);
-  }
-  if (state.position === _position) {
-    throwError(state, "name of an alias node must contain at least one character");
-  }
-  alias = state.input.slice(_position, state.position);
-  if (!_hasOwnProperty$1.call(state.anchorMap, alias)) {
-    throwError(state, 'unidentified alias "' + alias + '"');
-  }
-  state.result = state.anchorMap[alias];
-  skipSeparationSpace(state, true, -1);
-  return true;
-}
-function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
-  var allowBlockStyles,
-    allowBlockScalars,
-    allowBlockCollections,
-    indentStatus = 1,
-    atNewLine = false,
-    hasContent = false,
-    typeIndex,
-    typeQuantity,
-    typeList,
-    type2,
-    flowIndent,
-    blockIndent;
-  if (state.listener !== null) {
-    state.listener("open", state);
-  }
-  state.tag = null;
-  state.anchor = null;
-  state.kind = null;
-  state.result = null;
-  allowBlockStyles =
-    allowBlockScalars =
-    allowBlockCollections =
-      CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
-  if (allowToSeek) {
-    if (skipSeparationSpace(state, true, -1)) {
-      atNewLine = true;
-      if (state.lineIndent > parentIndent) {
-        indentStatus = 1;
-      } else if (state.lineIndent === parentIndent) {
-        indentStatus = 0;
-      } else if (state.lineIndent < parentIndent) {
-        indentStatus = -1;
-      }
+    const _position = state.position;
+    while (ch !== 0 && !isWsOrEol(ch) && !isFlowIndicator(ch)) {
+      ch = state.input.charCodeAt(++state.position);
     }
+    if (state.position === _position) {
+      throwError(state, "name of an alias node must contain at least one character");
+    }
+    const alias = state.input.slice(_position, state.position);
+    if (!_hasOwnProperty.call(state.anchorMap, alias)) {
+      throwError(state, 'unidentified alias "' + alias + '"');
+    }
+    state.result = state.anchorMap[alias];
+    skipSeparationSpace(state, true, -1);
+    return true;
   }
-  if (indentStatus === 1) {
-    while (readTagProperty(state) || readAnchorProperty(state)) {
+  function tryReadBlockMappingFromProperty(state, propertyStart, nodeIndent, flowIndent) {
+    const fallbackState = snapshotState(state);
+    beginAnchorTransaction(state);
+    restoreState(state, propertyStart);
+    state.tag = null;
+    state.anchor = null;
+    state.kind = null;
+    state.result = null;
+    if (readBlockMapping(state, nodeIndent, flowIndent) && state.kind === "mapping") {
+      commitAnchorTransaction(state);
+      return true;
+    }
+    rollbackAnchorTransaction(state);
+    restoreState(state, fallbackState);
+    return false;
+  }
+  function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
+    let allowBlockScalars;
+    let allowBlockCollections;
+    let indentStatus = 1;
+    let atNewLine = false;
+    let hasContent = false;
+    let propertyStart = null;
+    let type2;
+    let flowIndent;
+    let blockIndent;
+    if (state.depth >= state.maxDepth) {
+      throwError(state, "nesting exceeded maxDepth (" + state.maxDepth + ")");
+    }
+    state.depth += 1;
+    if (state.listener !== null) {
+      state.listener("open", state);
+    }
+    state.tag = null;
+    state.anchor = null;
+    state.kind = null;
+    state.result = null;
+    const allowBlockStyles =
+      (allowBlockScalars =
+      allowBlockCollections =
+        CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext);
+    if (allowToSeek) {
       if (skipSeparationSpace(state, true, -1)) {
         atNewLine = true;
-        allowBlockCollections = allowBlockStyles;
         if (state.lineIndent > parentIndent) {
           indentStatus = 1;
         } else if (state.lineIndent === parentIndent) {
@@ -10394,1054 +11608,1102 @@ function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact
         } else if (state.lineIndent < parentIndent) {
           indentStatus = -1;
         }
-      } else {
-        allowBlockCollections = false;
       }
     }
-  }
-  if (allowBlockCollections) {
-    allowBlockCollections = atNewLine || allowCompact;
-  }
-  if (indentStatus === 1 || CONTEXT_BLOCK_OUT === nodeContext) {
-    if (CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext) {
-      flowIndent = parentIndent;
-    } else {
-      flowIndent = parentIndent + 1;
-    }
-    blockIndent = state.position - state.lineStart;
     if (indentStatus === 1) {
-      if (
-        (allowBlockCollections &&
-          (readBlockSequence(state, blockIndent) ||
-            readBlockMapping(state, blockIndent, flowIndent))) ||
-        readFlowCollection(state, flowIndent)
-      ) {
-        hasContent = true;
-      } else {
+      while (true) {
+        const ch = state.input.charCodeAt(state.position);
+        const propertyState = snapshotState(state);
         if (
-          (allowBlockScalars && readBlockScalar(state, flowIndent)) ||
-          readSingleQuotedScalar(state, flowIndent) ||
-          readDoubleQuotedScalar(state, flowIndent)
+          atNewLine &&
+          ((ch === 33 && state.tag !== null) || (ch === 38 && state.anchor !== null))
+        ) {
+          break;
+        }
+        if (!readTagProperty(state) && !readAnchorProperty(state)) {
+          break;
+        }
+        if (propertyStart === null) {
+          propertyStart = propertyState;
+        }
+        if (skipSeparationSpace(state, true, -1)) {
+          atNewLine = true;
+          allowBlockCollections = allowBlockStyles;
+          if (state.lineIndent > parentIndent) {
+            indentStatus = 1;
+          } else if (state.lineIndent === parentIndent) {
+            indentStatus = 0;
+          } else if (state.lineIndent < parentIndent) {
+            indentStatus = -1;
+          }
+        } else {
+          allowBlockCollections = false;
+        }
+      }
+    }
+    if (allowBlockCollections) {
+      allowBlockCollections = atNewLine || allowCompact;
+    }
+    if (indentStatus === 1 || CONTEXT_BLOCK_OUT === nodeContext) {
+      if (CONTEXT_FLOW_IN === nodeContext || CONTEXT_FLOW_OUT === nodeContext) {
+        flowIndent = parentIndent;
+      } else {
+        flowIndent = parentIndent + 1;
+      }
+      blockIndent = state.position - state.lineStart;
+      if (indentStatus === 1) {
+        if (
+          (allowBlockCollections &&
+            (readBlockSequence(state, blockIndent) ||
+              readBlockMapping(state, blockIndent, flowIndent))) ||
+          readFlowCollection(state, flowIndent)
         ) {
           hasContent = true;
-        } else if (readAlias(state)) {
-          hasContent = true;
-          if (state.tag !== null || state.anchor !== null) {
-            throwError(state, "alias node should not have any properties");
+        } else {
+          const ch = state.input.charCodeAt(state.position);
+          if (
+            propertyStart !== null &&
+            allowBlockStyles &&
+            !allowBlockCollections &&
+            ch !== 124 &&
+            ch !== 62 &&
+            tryReadBlockMappingFromProperty(
+              state,
+              propertyStart,
+              propertyStart.position - propertyStart.lineStart,
+              flowIndent,
+            )
+          ) {
+            hasContent = true;
+          } else if (
+            (allowBlockScalars && readBlockScalar(state, flowIndent)) ||
+            readSingleQuotedScalar(state, flowIndent) ||
+            readDoubleQuotedScalar(state, flowIndent)
+          ) {
+            hasContent = true;
+          } else if (readAlias(state)) {
+            hasContent = true;
+            if (state.tag !== null || state.anchor !== null) {
+              throwError(state, "alias node should not have any properties");
+            }
+          } else if (readPlainScalar(state, flowIndent, CONTEXT_FLOW_IN === nodeContext)) {
+            hasContent = true;
+            if (state.tag === null) {
+              state.tag = "?";
+            }
           }
-        } else if (readPlainScalar(state, flowIndent, CONTEXT_FLOW_IN === nodeContext)) {
-          hasContent = true;
-          if (state.tag === null) {
-            state.tag = "?";
+          if (state.anchor !== null) {
+            storeAnchor(state, state.anchor, state.result);
           }
         }
-        if (state.anchor !== null) {
-          state.anchorMap[state.anchor] = state.result;
-        }
-      }
-    } else if (indentStatus === 0) {
-      hasContent = allowBlockCollections && readBlockSequence(state, blockIndent);
-    }
-  }
-  if (state.tag === null) {
-    if (state.anchor !== null) {
-      state.anchorMap[state.anchor] = state.result;
-    }
-  } else if (state.tag === "?") {
-    if (state.result !== null && state.kind !== "scalar") {
-      throwError(
-        state,
-        'unacceptable node kind for !<?> tag; it should be "scalar", not "' + state.kind + '"',
-      );
-    }
-    for (
-      typeIndex = 0, typeQuantity = state.implicitTypes.length;
-      typeIndex < typeQuantity;
-      typeIndex += 1
-    ) {
-      type2 = state.implicitTypes[typeIndex];
-      if (type2.resolve(state.result)) {
-        state.result = type2.construct(state.result);
-        state.tag = type2.tag;
-        if (state.anchor !== null) {
-          state.anchorMap[state.anchor] = state.result;
-        }
-        break;
+      } else if (indentStatus === 0) {
+        hasContent = allowBlockCollections && readBlockSequence(state, blockIndent);
       }
     }
-  } else if (state.tag !== "!") {
-    if (_hasOwnProperty$1.call(state.typeMap[state.kind || "fallback"], state.tag)) {
-      type2 = state.typeMap[state.kind || "fallback"][state.tag];
-    } else {
-      type2 = null;
-      typeList = state.typeMap.multi[state.kind || "fallback"];
+    if (state.tag === null) {
+      if (state.anchor !== null) {
+        storeAnchor(state, state.anchor, state.result);
+      }
+    } else if (state.tag === "?") {
+      if (state.result !== null && state.kind !== "scalar") {
+        throwError(
+          state,
+          'unacceptable node kind for !<?> tag; it should be "scalar", not "' + state.kind + '"',
+        );
+      }
       for (
-        typeIndex = 0, typeQuantity = typeList.length;
+        let typeIndex = 0, typeQuantity = state.implicitTypes.length;
         typeIndex < typeQuantity;
         typeIndex += 1
       ) {
-        if (state.tag.slice(0, typeList[typeIndex].tag.length) === typeList[typeIndex].tag) {
-          type2 = typeList[typeIndex];
+        type2 = state.implicitTypes[typeIndex];
+        if (type2.resolve(state.result)) {
+          state.result = type2.construct(state.result);
+          state.tag = type2.tag;
+          if (state.anchor !== null) {
+            storeAnchor(state, state.anchor, state.result);
+          }
           break;
         }
       }
-    }
-    if (!type2) {
-      throwError(state, "unknown tag !<" + state.tag + ">");
-    }
-    if (state.result !== null && type2.kind !== state.kind) {
-      throwError(
-        state,
-        "unacceptable node kind for !<" +
-          state.tag +
-          '> tag; it should be "' +
-          type2.kind +
-          '", not "' +
-          state.kind +
-          '"',
-      );
-    }
-    if (!type2.resolve(state.result, state.tag)) {
-      throwError(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
-    } else {
-      state.result = type2.construct(state.result, state.tag);
-      if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = state.result;
+    } else if (state.tag !== "!") {
+      if (_hasOwnProperty.call(state.typeMap[state.kind || "fallback"], state.tag)) {
+        type2 = state.typeMap[state.kind || "fallback"][state.tag];
+      } else {
+        type2 = null;
+        const typeList = state.typeMap.multi[state.kind || "fallback"];
+        for (
+          let typeIndex = 0, typeQuantity = typeList.length;
+          typeIndex < typeQuantity;
+          typeIndex += 1
+        ) {
+          if (state.tag.slice(0, typeList[typeIndex].tag.length) === typeList[typeIndex].tag) {
+            type2 = typeList[typeIndex];
+            break;
+          }
+        }
+      }
+      if (!type2) {
+        throwError(state, "unknown tag !<" + state.tag + ">");
+      }
+      if (state.result !== null && type2.kind !== state.kind) {
+        throwError(
+          state,
+          "unacceptable node kind for !<" +
+            state.tag +
+            '> tag; it should be "' +
+            type2.kind +
+            '", not "' +
+            state.kind +
+            '"',
+        );
+      }
+      if (!type2.resolve(state.result, state.tag)) {
+        throwError(state, "cannot resolve a node with !<" + state.tag + "> explicit tag");
+      } else {
+        state.result = type2.construct(state.result, state.tag);
+        if (state.anchor !== null) {
+          storeAnchor(state, state.anchor, state.result);
+        }
       }
     }
+    if (state.listener !== null) {
+      state.listener("close", state);
+    }
+    state.depth -= 1;
+    return state.tag !== null || state.anchor !== null || hasContent;
   }
-  if (state.listener !== null) {
-    state.listener("close", state);
-  }
-  return state.tag !== null || state.anchor !== null || hasContent;
-}
-function readDocument(state) {
-  var documentStart = state.position,
-    _position,
-    directiveName,
-    directiveArgs,
-    hasDirectives = false,
-    ch;
-  state.version = null;
-  state.checkLineBreaks = state.legacy;
-  state.tagMap = /* @__PURE__ */ Object.create(null);
-  state.anchorMap = /* @__PURE__ */ Object.create(null);
-  while ((ch = state.input.charCodeAt(state.position)) !== 0) {
-    skipSeparationSpace(state, true, -1);
-    ch = state.input.charCodeAt(state.position);
-    if (state.lineIndent > 0 || ch !== 37) {
-      break;
-    }
-    hasDirectives = true;
-    ch = state.input.charCodeAt(++state.position);
-    _position = state.position;
-    while (ch !== 0 && !is_WS_OR_EOL(ch)) {
-      ch = state.input.charCodeAt(++state.position);
-    }
-    directiveName = state.input.slice(_position, state.position);
-    directiveArgs = [];
-    if (directiveName.length < 1) {
-      throwError(state, "directive name must not be less than one character in length");
-    }
-    while (ch !== 0) {
-      while (is_WHITE_SPACE(ch)) {
-        ch = state.input.charCodeAt(++state.position);
-      }
-      if (ch === 35) {
-        do {
-          ch = state.input.charCodeAt(++state.position);
-        } while (ch !== 0 && !is_EOL(ch));
+  function readDocument(state) {
+    const documentStart = state.position;
+    let hasDirectives = false;
+    let ch;
+    state.version = null;
+    state.checkLineBreaks = state.legacy;
+    state.tagMap = /* @__PURE__ */ Object.create(null);
+    state.anchorMap = /* @__PURE__ */ Object.create(null);
+    while ((ch = state.input.charCodeAt(state.position)) !== 0) {
+      skipSeparationSpace(state, true, -1);
+      ch = state.input.charCodeAt(state.position);
+      if (state.lineIndent > 0 || ch !== 37) {
         break;
       }
-      if (is_EOL(ch)) break;
-      _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+      hasDirectives = true;
+      ch = state.input.charCodeAt(++state.position);
+      let _position = state.position;
+      while (ch !== 0 && !isWsOrEol(ch)) {
         ch = state.input.charCodeAt(++state.position);
       }
-      directiveArgs.push(state.input.slice(_position, state.position));
+      const directiveName = state.input.slice(_position, state.position);
+      const directiveArgs = [];
+      if (directiveName.length < 1) {
+        throwError(state, "directive name must not be less than one character in length");
+      }
+      while (ch !== 0) {
+        while (isWhiteSpace(ch)) {
+          ch = state.input.charCodeAt(++state.position);
+        }
+        if (ch === 35) {
+          do {
+            ch = state.input.charCodeAt(++state.position);
+          } while (ch !== 0 && !isEol(ch));
+          break;
+        }
+        if (isEol(ch)) break;
+        _position = state.position;
+        while (ch !== 0 && !isWsOrEol(ch)) {
+          ch = state.input.charCodeAt(++state.position);
+        }
+        directiveArgs.push(state.input.slice(_position, state.position));
+      }
+      if (ch !== 0) readLineBreak(state);
+      if (_hasOwnProperty.call(directiveHandlers, directiveName)) {
+        directiveHandlers[directiveName](state, directiveName, directiveArgs);
+      } else {
+        throwWarning(state, 'unknown document directive "' + directiveName + '"');
+      }
     }
-    if (ch !== 0) readLineBreak(state);
-    if (_hasOwnProperty$1.call(directiveHandlers, directiveName)) {
-      directiveHandlers[directiveName](state, directiveName, directiveArgs);
-    } else {
-      throwWarning(state, 'unknown document directive "' + directiveName + '"');
-    }
-  }
-  skipSeparationSpace(state, true, -1);
-  if (
-    state.lineIndent === 0 &&
-    state.input.charCodeAt(state.position) === 45 &&
-    state.input.charCodeAt(state.position + 1) === 45 &&
-    state.input.charCodeAt(state.position + 2) === 45
-  ) {
-    state.position += 3;
     skipSeparationSpace(state, true, -1);
-  } else if (hasDirectives) {
-    throwError(state, "directives end mark is expected");
-  }
-  composeNode(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT, false, true);
-  skipSeparationSpace(state, true, -1);
-  if (
-    state.checkLineBreaks &&
-    PATTERN_NON_ASCII_LINE_BREAKS.test(state.input.slice(documentStart, state.position))
-  ) {
-    throwWarning(state, "non-ASCII line breaks are interpreted as content");
-  }
-  state.documents.push(state.result);
-  if (state.position === state.lineStart && testDocumentSeparator(state)) {
-    if (state.input.charCodeAt(state.position) === 46) {
+    if (
+      state.lineIndent === 0 &&
+      state.input.charCodeAt(state.position) === 45 &&
+      state.input.charCodeAt(state.position + 1) === 45 &&
+      state.input.charCodeAt(state.position + 2) === 45
+    ) {
       state.position += 3;
       skipSeparationSpace(state, true, -1);
+    } else if (hasDirectives) {
+      throwError(state, "directives end mark is expected");
     }
-    return;
-  }
-  if (state.position < state.length - 1) {
-    throwError(state, "end of the stream or a document separator is expected");
-  } else {
-    return;
-  }
-}
-function loadDocuments(input, options2) {
-  input = String(input);
-  options2 = options2 || {};
-  if (input.length !== 0) {
-    if (input.charCodeAt(input.length - 1) !== 10 && input.charCodeAt(input.length - 1) !== 13) {
-      input += "\n";
+    composeNode(state, state.lineIndent - 1, CONTEXT_BLOCK_OUT, false, true);
+    skipSeparationSpace(state, true, -1);
+    if (
+      state.checkLineBreaks &&
+      PATTERN_NON_ASCII_LINE_BREAKS.test(state.input.slice(documentStart, state.position))
+    ) {
+      throwWarning(state, "non-ASCII line breaks are interpreted as content");
     }
-    if (input.charCodeAt(0) === 65279) {
-      input = input.slice(1);
+    state.documents.push(state.result);
+    if (state.position === state.lineStart && testDocumentSeparator(state)) {
+      if (state.input.charCodeAt(state.position) === 46) {
+        state.position += 3;
+        skipSeparationSpace(state, true, -1);
+      }
+      return;
+    }
+    if (state.position < state.length - 1) {
+      throwError(state, "end of the stream or a document separator is expected");
     }
   }
-  var state = new State$1(input, options2);
-  var nullpos = input.indexOf("\0");
-  if (nullpos !== -1) {
-    state.position = nullpos;
-    throwError(state, "null byte is not allowed in input");
-  }
-  state.input += "\0";
-  while (state.input.charCodeAt(state.position) === 32) {
-    state.lineIndent += 1;
-    state.position += 1;
-  }
-  while (state.position < state.length - 1) {
-    readDocument(state);
-  }
-  return state.documents;
-}
-function loadAll$1(input, iterator, options2) {
-  if (iterator !== null && typeof iterator === "object" && typeof options2 === "undefined") {
-    options2 = iterator;
-    iterator = null;
-  }
-  var documents = loadDocuments(input, options2);
-  if (typeof iterator !== "function") {
-    return documents;
-  }
-  for (var index = 0, length = documents.length; index < length; index += 1) {
-    iterator(documents[index]);
-  }
-}
-function load$1(input, options2) {
-  var documents = loadDocuments(input, options2);
-  if (documents.length === 0) {
-    return void 0;
-  } else if (documents.length === 1) {
-    return documents[0];
-  }
-  throw new exception("expected a single document in the stream, but found more");
-}
-var loadAll_1 = loadAll$1;
-var load_1 = load$1;
-var loader = {
-  loadAll: loadAll_1,
-  load: load_1,
-};
-var _toString = Object.prototype.toString;
-var _hasOwnProperty = Object.prototype.hasOwnProperty;
-var CHAR_BOM = 65279;
-var CHAR_TAB = 9;
-var CHAR_LINE_FEED = 10;
-var CHAR_CARRIAGE_RETURN = 13;
-var CHAR_SPACE = 32;
-var CHAR_EXCLAMATION = 33;
-var CHAR_DOUBLE_QUOTE = 34;
-var CHAR_SHARP = 35;
-var CHAR_PERCENT = 37;
-var CHAR_AMPERSAND = 38;
-var CHAR_SINGLE_QUOTE = 39;
-var CHAR_ASTERISK = 42;
-var CHAR_COMMA = 44;
-var CHAR_MINUS = 45;
-var CHAR_COLON = 58;
-var CHAR_EQUALS = 61;
-var CHAR_GREATER_THAN = 62;
-var CHAR_QUESTION = 63;
-var CHAR_COMMERCIAL_AT = 64;
-var CHAR_LEFT_SQUARE_BRACKET = 91;
-var CHAR_RIGHT_SQUARE_BRACKET = 93;
-var CHAR_GRAVE_ACCENT = 96;
-var CHAR_LEFT_CURLY_BRACKET = 123;
-var CHAR_VERTICAL_LINE = 124;
-var CHAR_RIGHT_CURLY_BRACKET = 125;
-var ESCAPE_SEQUENCES = {};
-ESCAPE_SEQUENCES[0] = "\\0";
-ESCAPE_SEQUENCES[7] = "\\a";
-ESCAPE_SEQUENCES[8] = "\\b";
-ESCAPE_SEQUENCES[9] = "\\t";
-ESCAPE_SEQUENCES[10] = "\\n";
-ESCAPE_SEQUENCES[11] = "\\v";
-ESCAPE_SEQUENCES[12] = "\\f";
-ESCAPE_SEQUENCES[13] = "\\r";
-ESCAPE_SEQUENCES[27] = "\\e";
-ESCAPE_SEQUENCES[34] = '\\"';
-ESCAPE_SEQUENCES[92] = "\\\\";
-ESCAPE_SEQUENCES[133] = "\\N";
-ESCAPE_SEQUENCES[160] = "\\_";
-ESCAPE_SEQUENCES[8232] = "\\L";
-ESCAPE_SEQUENCES[8233] = "\\P";
-var DEPRECATED_BOOLEANS_SYNTAX = [
-  "y",
-  "Y",
-  "yes",
-  "Yes",
-  "YES",
-  "on",
-  "On",
-  "ON",
-  "n",
-  "N",
-  "no",
-  "No",
-  "NO",
-  "off",
-  "Off",
-  "OFF",
-];
-var DEPRECATED_BASE60_SYNTAX = /^[-+]?[0-9_]+(?::[0-9_]+)+(?:\.[0-9_]*)?$/;
-function compileStyleMap(schema2, map2) {
-  var result, keys, index, length, tag, style, type2;
-  if (map2 === null) return {};
-  result = {};
-  keys = Object.keys(map2);
-  for (index = 0, length = keys.length; index < length; index += 1) {
-    tag = keys[index];
-    style = String(map2[tag]);
-    if (tag.slice(0, 2) === "!!") {
-      tag = "tag:yaml.org,2002:" + tag.slice(2);
+  function loadDocuments(input, options2) {
+    input = String(input);
+    options2 = options2 || {};
+    if (input.length !== 0) {
+      if (input.charCodeAt(input.length - 1) !== 10 && input.charCodeAt(input.length - 1) !== 13) {
+        input += "\n";
+      }
+      if (input.charCodeAt(0) === 65279) {
+        input = input.slice(1);
+      }
     }
-    type2 = schema2.compiledTypeMap["fallback"][tag];
-    if (type2 && _hasOwnProperty.call(type2.styleAliases, style)) {
-      style = type2.styleAliases[style];
+    const state = new State(input, options2);
+    const nullpos = input.indexOf("\0");
+    if (nullpos !== -1) {
+      state.position = nullpos;
+      throwError(state, "null byte is not allowed in input");
     }
-    result[tag] = style;
+    state.input += "\0";
+    while (state.input.charCodeAt(state.position) === 32) {
+      state.lineIndent += 1;
+      state.position += 1;
+    }
+    while (state.position < state.length - 1) {
+      readDocument(state);
+    }
+    return state.documents;
   }
-  return result;
-}
-function encodeHex(character) {
-  var string, handle, length;
-  string = character.toString(16).toUpperCase();
-  if (character <= 255) {
-    handle = "x";
-    length = 2;
-  } else if (character <= 65535) {
-    handle = "u";
-    length = 4;
-  } else if (character <= 4294967295) {
-    handle = "U";
-    length = 8;
-  } else {
-    throw new exception("code point within a string may not be greater than 0xFFFFFFFF");
+  function loadAll2(input, iterator, options2) {
+    if (iterator !== null && typeof iterator === "object" && typeof options2 === "undefined") {
+      options2 = iterator;
+      iterator = null;
+    }
+    const documents = loadDocuments(input, options2);
+    if (typeof iterator !== "function") {
+      return documents;
+    }
+    for (let index = 0, length = documents.length; index < length; index += 1) {
+      iterator(documents[index]);
+    }
   }
-  return "\\" + handle + common.repeat("0", length - string.length) + string;
+  function load2(input, options2) {
+    const documents = loadDocuments(input, options2);
+    if (documents.length === 0) {
+      return void 0;
+    } else if (documents.length === 1) {
+      return documents[0];
+    }
+    throw new YAMLException2("expected a single document in the stream, but found more");
+  }
+  loader.loadAll = loadAll2;
+  loader.load = load2;
+  return loader;
 }
-var QUOTING_TYPE_SINGLE = 1;
-var QUOTING_TYPE_DOUBLE = 2;
-function State(options2) {
-  this.schema = options2["schema"] || _default;
-  this.indent = Math.max(1, options2["indent"] || 2);
-  this.noArrayIndent = options2["noArrayIndent"] || false;
-  this.skipInvalid = options2["skipInvalid"] || false;
-  this.flowLevel = common.isNothing(options2["flowLevel"]) ? -1 : options2["flowLevel"];
-  this.styleMap = compileStyleMap(this.schema, options2["styles"] || null);
-  this.sortKeys = options2["sortKeys"] || false;
-  this.lineWidth = options2["lineWidth"] || 80;
-  this.noRefs = options2["noRefs"] || false;
-  this.noCompatMode = options2["noCompatMode"] || false;
-  this.condenseFlow = options2["condenseFlow"] || false;
-  this.quotingType = options2["quotingType"] === '"' ? QUOTING_TYPE_DOUBLE : QUOTING_TYPE_SINGLE;
-  this.forceQuotes = options2["forceQuotes"] || false;
-  this.replacer = typeof options2["replacer"] === "function" ? options2["replacer"] : null;
-  this.implicitTypes = this.schema.compiledImplicit;
-  this.explicitTypes = this.schema.compiledExplicit;
-  this.tag = null;
-  this.result = "";
-  this.duplicates = [];
-  this.usedDuplicates = null;
-}
-function indentString(string, spaces) {
-  var ind = common.repeat(" ", spaces),
-    position = 0,
-    next = -1,
-    result = "",
-    line,
-    length = string.length;
-  while (position < length) {
-    next = string.indexOf("\n", position);
-    if (next === -1) {
-      line = string.slice(position);
-      position = length;
+var dumper = {};
+var hasRequiredDumper;
+function requireDumper() {
+  if (hasRequiredDumper) return dumper;
+  hasRequiredDumper = 1;
+  const common2 = requireCommon();
+  const YAMLException2 = requireException();
+  const DEFAULT_SCHEMA2 = require_default();
+  const _toString = Object.prototype.toString;
+  const _hasOwnProperty = Object.prototype.hasOwnProperty;
+  const CHAR_BOM = 65279;
+  const CHAR_TAB = 9;
+  const CHAR_LINE_FEED = 10;
+  const CHAR_CARRIAGE_RETURN = 13;
+  const CHAR_SPACE = 32;
+  const CHAR_EXCLAMATION = 33;
+  const CHAR_DOUBLE_QUOTE = 34;
+  const CHAR_SHARP = 35;
+  const CHAR_PERCENT = 37;
+  const CHAR_AMPERSAND = 38;
+  const CHAR_SINGLE_QUOTE = 39;
+  const CHAR_ASTERISK = 42;
+  const CHAR_COMMA = 44;
+  const CHAR_MINUS = 45;
+  const CHAR_COLON = 58;
+  const CHAR_EQUALS = 61;
+  const CHAR_GREATER_THAN = 62;
+  const CHAR_QUESTION = 63;
+  const CHAR_COMMERCIAL_AT = 64;
+  const CHAR_LEFT_SQUARE_BRACKET = 91;
+  const CHAR_RIGHT_SQUARE_BRACKET = 93;
+  const CHAR_GRAVE_ACCENT = 96;
+  const CHAR_LEFT_CURLY_BRACKET = 123;
+  const CHAR_VERTICAL_LINE = 124;
+  const CHAR_RIGHT_CURLY_BRACKET = 125;
+  const ESCAPE_SEQUENCES = {};
+  ESCAPE_SEQUENCES[0] = "\\0";
+  ESCAPE_SEQUENCES[7] = "\\a";
+  ESCAPE_SEQUENCES[8] = "\\b";
+  ESCAPE_SEQUENCES[9] = "\\t";
+  ESCAPE_SEQUENCES[10] = "\\n";
+  ESCAPE_SEQUENCES[11] = "\\v";
+  ESCAPE_SEQUENCES[12] = "\\f";
+  ESCAPE_SEQUENCES[13] = "\\r";
+  ESCAPE_SEQUENCES[27] = "\\e";
+  ESCAPE_SEQUENCES[34] = '\\"';
+  ESCAPE_SEQUENCES[92] = "\\\\";
+  ESCAPE_SEQUENCES[133] = "\\N";
+  ESCAPE_SEQUENCES[160] = "\\_";
+  ESCAPE_SEQUENCES[8232] = "\\L";
+  ESCAPE_SEQUENCES[8233] = "\\P";
+  const DEPRECATED_BOOLEANS_SYNTAX = [
+    "y",
+    "Y",
+    "yes",
+    "Yes",
+    "YES",
+    "on",
+    "On",
+    "ON",
+    "n",
+    "N",
+    "no",
+    "No",
+    "NO",
+    "off",
+    "Off",
+    "OFF",
+  ];
+  const DEPRECATED_BASE60_SYNTAX = /^[-+]?[0-9_]+(?::[0-9_]+)+(?:\.[0-9_]*)?$/;
+  function compileStyleMap(schema2, map2) {
+    if (map2 === null) return {};
+    const result = {};
+    const keys = Object.keys(map2);
+    for (let index = 0, length = keys.length; index < length; index += 1) {
+      let tag = keys[index];
+      let style = String(map2[tag]);
+      if (tag.slice(0, 2) === "!!") {
+        tag = "tag:yaml.org,2002:" + tag.slice(2);
+      }
+      const type2 = schema2.compiledTypeMap["fallback"][tag];
+      if (type2 && _hasOwnProperty.call(type2.styleAliases, style)) {
+        style = type2.styleAliases[style];
+      }
+      result[tag] = style;
+    }
+    return result;
+  }
+  function encodeHex(character) {
+    let handle;
+    let length;
+    const string = character.toString(16).toUpperCase();
+    if (character <= 255) {
+      handle = "x";
+      length = 2;
+    } else if (character <= 65535) {
+      handle = "u";
+      length = 4;
+    } else if (character <= 4294967295) {
+      handle = "U";
+      length = 8;
     } else {
-      line = string.slice(position, next + 1);
-      position = next + 1;
+      throw new YAMLException2("code point within a string may not be greater than 0xFFFFFFFF");
     }
-    if (line.length && line !== "\n") result += ind;
-    result += line;
+    return "\\" + handle + common2.repeat("0", length - string.length) + string;
   }
-  return result;
-}
-function generateNextLine(state, level) {
-  return "\n" + common.repeat(" ", state.indent * level);
-}
-function testImplicitResolving(state, str3) {
-  var index, length, type2;
-  for (index = 0, length = state.implicitTypes.length; index < length; index += 1) {
-    type2 = state.implicitTypes[index];
-    if (type2.resolve(str3)) {
-      return true;
+  const QUOTING_TYPE_SINGLE = 1;
+  const QUOTING_TYPE_DOUBLE = 2;
+  function State(options2) {
+    this.schema = options2["schema"] || DEFAULT_SCHEMA2;
+    this.indent = Math.max(1, options2["indent"] || 2);
+    this.noArrayIndent = options2["noArrayIndent"] || false;
+    this.skipInvalid = options2["skipInvalid"] || false;
+    this.flowLevel = common2.isNothing(options2["flowLevel"]) ? -1 : options2["flowLevel"];
+    this.styleMap = compileStyleMap(this.schema, options2["styles"] || null);
+    this.sortKeys = options2["sortKeys"] || false;
+    this.lineWidth = options2["lineWidth"] || 80;
+    this.noRefs = options2["noRefs"] || false;
+    this.noCompatMode = options2["noCompatMode"] || false;
+    this.condenseFlow = options2["condenseFlow"] || false;
+    this.quotingType = options2["quotingType"] === '"' ? QUOTING_TYPE_DOUBLE : QUOTING_TYPE_SINGLE;
+    this.forceQuotes = options2["forceQuotes"] || false;
+    this.replacer = typeof options2["replacer"] === "function" ? options2["replacer"] : null;
+    this.implicitTypes = this.schema.compiledImplicit;
+    this.explicitTypes = this.schema.compiledExplicit;
+    this.tag = null;
+    this.result = "";
+    this.duplicates = [];
+    this.usedDuplicates = null;
+  }
+  function indentString(string, spaces) {
+    const ind = common2.repeat(" ", spaces);
+    let position = 0;
+    let result = "";
+    const length = string.length;
+    while (position < length) {
+      let line;
+      const next = string.indexOf("\n", position);
+      if (next === -1) {
+        line = string.slice(position);
+        position = length;
+      } else {
+        line = string.slice(position, next + 1);
+        position = next + 1;
+      }
+      if (line.length && line !== "\n") result += ind;
+      result += line;
     }
+    return result;
   }
-  return false;
-}
-function isWhitespace(c2) {
-  return c2 === CHAR_SPACE || c2 === CHAR_TAB;
-}
-function isPrintable(c2) {
-  return (
-    (32 <= c2 && c2 <= 126) ||
-    (161 <= c2 && c2 <= 55295 && c2 !== 8232 && c2 !== 8233) ||
-    (57344 <= c2 && c2 <= 65533 && c2 !== CHAR_BOM) ||
-    (65536 <= c2 && c2 <= 1114111)
-  );
-}
-function isNsCharOrWhitespace(c2) {
-  return isPrintable(c2) && c2 !== CHAR_BOM && c2 !== CHAR_CARRIAGE_RETURN && c2 !== CHAR_LINE_FEED;
-}
-function isPlainSafe(c2, prev, inblock) {
-  var cIsNsCharOrWhitespace = isNsCharOrWhitespace(c2);
-  var cIsNsChar = cIsNsCharOrWhitespace && !isWhitespace(c2);
-  return (
-    // ns-plain-safe
-    ((inblock
-      ? // c = flow-in
-        cIsNsCharOrWhitespace
-      : cIsNsCharOrWhitespace &&
-        c2 !== CHAR_COMMA &&
-        c2 !== CHAR_LEFT_SQUARE_BRACKET &&
-        c2 !== CHAR_RIGHT_SQUARE_BRACKET &&
-        c2 !== CHAR_LEFT_CURLY_BRACKET &&
-        c2 !== CHAR_RIGHT_CURLY_BRACKET) &&
+  function generateNextLine(state, level) {
+    return "\n" + common2.repeat(" ", state.indent * level);
+  }
+  function testImplicitResolving(state, str22) {
+    for (let index = 0, length = state.implicitTypes.length; index < length; index += 1) {
+      const type2 = state.implicitTypes[index];
+      if (type2.resolve(str22)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  function isWhitespace(c2) {
+    return c2 === CHAR_SPACE || c2 === CHAR_TAB;
+  }
+  function isPrintable(c2) {
+    return (
+      (c2 >= 32 && c2 <= 126) ||
+      (c2 >= 161 && c2 <= 55295 && c2 !== 8232 && c2 !== 8233) ||
+      (c2 >= 57344 && c2 <= 65533 && c2 !== CHAR_BOM) ||
+      (c2 >= 65536 && c2 <= 1114111)
+    );
+  }
+  function isNsCharOrWhitespace(c2) {
+    return (
+      isPrintable(c2) &&
+      c2 !== CHAR_BOM && // - b-char
+      c2 !== CHAR_CARRIAGE_RETURN &&
+      c2 !== CHAR_LINE_FEED
+    );
+  }
+  function isPlainSafe(c2, prev, inblock) {
+    const cIsNsCharOrWhitespace = isNsCharOrWhitespace(c2);
+    const cIsNsChar = cIsNsCharOrWhitespace && !isWhitespace(c2);
+    return (
+      // ns-plain-safe
+      ((inblock
+        ? cIsNsCharOrWhitespace
+        : cIsNsCharOrWhitespace && // - c-flow-indicator
+          c2 !== CHAR_COMMA &&
+          c2 !== CHAR_LEFT_SQUARE_BRACKET &&
+          c2 !== CHAR_RIGHT_SQUARE_BRACKET &&
+          c2 !== CHAR_LEFT_CURLY_BRACKET &&
+          c2 !== CHAR_RIGHT_CURLY_BRACKET) && // ns-plain-char
+        c2 !== CHAR_SHARP && // false on '#'
+        !(prev === CHAR_COLON && !cIsNsChar)) || // false on ': '
+      (isNsCharOrWhitespace(prev) && !isWhitespace(prev) && c2 === CHAR_SHARP) || // change to true on '[^ ]#'
+      (prev === CHAR_COLON && cIsNsChar)
+    );
+  }
+  function isPlainSafeFirst(c2) {
+    return (
+      isPrintable(c2) &&
+      c2 !== CHAR_BOM &&
+      !isWhitespace(c2) && // - s-white
+      // - (c-indicator ::=
+      // “-” | “?” | “:” | “,” | “[” | “]” | “{” | “}”
+      c2 !== CHAR_MINUS &&
+      c2 !== CHAR_QUESTION &&
+      c2 !== CHAR_COLON &&
+      c2 !== CHAR_COMMA &&
+      c2 !== CHAR_LEFT_SQUARE_BRACKET &&
+      c2 !== CHAR_RIGHT_SQUARE_BRACKET &&
+      c2 !== CHAR_LEFT_CURLY_BRACKET &&
+      c2 !== CHAR_RIGHT_CURLY_BRACKET && // | “#” | “&” | “*” | “!” | “|” | “=” | “>” | “'” | “"”
       c2 !== CHAR_SHARP &&
-      !(prev === CHAR_COLON && !cIsNsChar)) ||
-    (isNsCharOrWhitespace(prev) && !isWhitespace(prev) && c2 === CHAR_SHARP) ||
-    (prev === CHAR_COLON && cIsNsChar)
-  );
-}
-function isPlainSafeFirst(c2) {
-  return (
-    isPrintable(c2) &&
-    c2 !== CHAR_BOM &&
-    !isWhitespace(c2) &&
-    c2 !== CHAR_MINUS &&
-    c2 !== CHAR_QUESTION &&
-    c2 !== CHAR_COLON &&
-    c2 !== CHAR_COMMA &&
-    c2 !== CHAR_LEFT_SQUARE_BRACKET &&
-    c2 !== CHAR_RIGHT_SQUARE_BRACKET &&
-    c2 !== CHAR_LEFT_CURLY_BRACKET &&
-    c2 !== CHAR_RIGHT_CURLY_BRACKET &&
-    c2 !== CHAR_SHARP &&
-    c2 !== CHAR_AMPERSAND &&
-    c2 !== CHAR_ASTERISK &&
-    c2 !== CHAR_EXCLAMATION &&
-    c2 !== CHAR_VERTICAL_LINE &&
-    c2 !== CHAR_EQUALS &&
-    c2 !== CHAR_GREATER_THAN &&
-    c2 !== CHAR_SINGLE_QUOTE &&
-    c2 !== CHAR_DOUBLE_QUOTE &&
-    c2 !== CHAR_PERCENT &&
-    c2 !== CHAR_COMMERCIAL_AT &&
-    c2 !== CHAR_GRAVE_ACCENT
-  );
-}
-function isPlainSafeLast(c2) {
-  return !isWhitespace(c2) && c2 !== CHAR_COLON;
-}
-function codePointAt(string, pos) {
-  var first = string.charCodeAt(pos),
-    second;
-  if (first >= 55296 && first <= 56319 && pos + 1 < string.length) {
-    second = string.charCodeAt(pos + 1);
-    if (second >= 56320 && second <= 57343) {
-      return (first - 55296) * 1024 + second - 56320 + 65536;
-    }
+      c2 !== CHAR_AMPERSAND &&
+      c2 !== CHAR_ASTERISK &&
+      c2 !== CHAR_EXCLAMATION &&
+      c2 !== CHAR_VERTICAL_LINE &&
+      c2 !== CHAR_EQUALS &&
+      c2 !== CHAR_GREATER_THAN &&
+      c2 !== CHAR_SINGLE_QUOTE &&
+      c2 !== CHAR_DOUBLE_QUOTE && // | “%” | “@” | “`”)
+      c2 !== CHAR_PERCENT &&
+      c2 !== CHAR_COMMERCIAL_AT &&
+      c2 !== CHAR_GRAVE_ACCENT
+    );
   }
-  return first;
-}
-function needIndentIndicator(string) {
-  var leadingSpaceRe = /^\n* /;
-  return leadingSpaceRe.test(string);
-}
-var STYLE_PLAIN = 1;
-var STYLE_SINGLE = 2;
-var STYLE_LITERAL = 3;
-var STYLE_FOLDED = 4;
-var STYLE_DOUBLE = 5;
-function chooseScalarStyle(
-  string,
-  singleLineOnly,
-  indentPerLevel,
-  lineWidth,
-  testAmbiguousType,
-  quotingType,
-  forceQuotes,
-  inblock,
-) {
-  var i2;
-  var char = 0;
-  var prevChar = null;
-  var hasLineBreak = false;
-  var hasFoldableLine = false;
-  var shouldTrackWidth = lineWidth !== -1;
-  var previousLineBreak = -1;
-  var plain =
-    isPlainSafeFirst(codePointAt(string, 0)) &&
-    isPlainSafeLast(codePointAt(string, string.length - 1));
-  if (singleLineOnly || forceQuotes) {
-    for (i2 = 0; i2 < string.length; char >= 65536 ? (i2 += 2) : i2++) {
-      char = codePointAt(string, i2);
-      if (!isPrintable(char)) {
-        return STYLE_DOUBLE;
+  function isPlainSafeLast(c2) {
+    return !isWhitespace(c2) && c2 !== CHAR_COLON;
+  }
+  function codePointAt(string, pos) {
+    const first = string.charCodeAt(pos);
+    let second;
+    if (first >= 55296 && first <= 56319 && pos + 1 < string.length) {
+      second = string.charCodeAt(pos + 1);
+      if (second >= 56320 && second <= 57343) {
+        return (first - 55296) * 1024 + second - 56320 + 65536;
       }
-      plain = plain && isPlainSafe(char, prevChar, inblock);
-      prevChar = char;
     }
-  } else {
-    for (i2 = 0; i2 < string.length; char >= 65536 ? (i2 += 2) : i2++) {
-      char = codePointAt(string, i2);
-      if (char === CHAR_LINE_FEED) {
-        hasLineBreak = true;
-        if (shouldTrackWidth) {
-          hasFoldableLine =
-            hasFoldableLine || // Foldable line = too long, and not more-indented.
-            (i2 - previousLineBreak - 1 > lineWidth && string[previousLineBreak + 1] !== " ");
-          previousLineBreak = i2;
+    return first;
+  }
+  function needIndentIndicator(string) {
+    const leadingSpaceRe = /^\n* /;
+    return leadingSpaceRe.test(string);
+  }
+  const STYLE_PLAIN = 1;
+  const STYLE_SINGLE = 2;
+  const STYLE_LITERAL = 3;
+  const STYLE_FOLDED = 4;
+  const STYLE_DOUBLE = 5;
+  function chooseScalarStyle(
+    string,
+    singleLineOnly,
+    indentPerLevel,
+    lineWidth,
+    testAmbiguousType,
+    quotingType,
+    forceQuotes,
+    inblock,
+  ) {
+    let i2;
+    let char = 0;
+    let prevChar = null;
+    let hasLineBreak = false;
+    let hasFoldableLine = false;
+    const shouldTrackWidth = lineWidth !== -1;
+    let previousLineBreak = -1;
+    let plain =
+      isPlainSafeFirst(codePointAt(string, 0)) &&
+      isPlainSafeLast(codePointAt(string, string.length - 1));
+    if (singleLineOnly || forceQuotes) {
+      for (i2 = 0; i2 < string.length; char >= 65536 ? (i2 += 2) : i2++) {
+        char = codePointAt(string, i2);
+        if (!isPrintable(char)) {
+          return STYLE_DOUBLE;
         }
-      } else if (!isPrintable(char)) {
-        return STYLE_DOUBLE;
+        plain = plain && isPlainSafe(char, prevChar, inblock);
+        prevChar = char;
       }
-      plain = plain && isPlainSafe(char, prevChar, inblock);
-      prevChar = char;
+    } else {
+      for (i2 = 0; i2 < string.length; char >= 65536 ? (i2 += 2) : i2++) {
+        char = codePointAt(string, i2);
+        if (char === CHAR_LINE_FEED) {
+          hasLineBreak = true;
+          if (shouldTrackWidth) {
+            hasFoldableLine =
+              hasFoldableLine || // Foldable line = too long, and not more-indented.
+              (i2 - previousLineBreak - 1 > lineWidth && string[previousLineBreak + 1] !== " ");
+            previousLineBreak = i2;
+          }
+        } else if (!isPrintable(char)) {
+          return STYLE_DOUBLE;
+        }
+        plain = plain && isPlainSafe(char, prevChar, inblock);
+        prevChar = char;
+      }
+      hasFoldableLine =
+        hasFoldableLine ||
+        (shouldTrackWidth &&
+          i2 - previousLineBreak - 1 > lineWidth &&
+          string[previousLineBreak + 1] !== " ");
     }
-    hasFoldableLine =
-      hasFoldableLine ||
-      (shouldTrackWidth &&
-        i2 - previousLineBreak - 1 > lineWidth &&
-        string[previousLineBreak + 1] !== " ");
-  }
-  if (!hasLineBreak && !hasFoldableLine) {
-    if (plain && !forceQuotes && !testAmbiguousType(string)) {
-      return STYLE_PLAIN;
+    if (!hasLineBreak && !hasFoldableLine) {
+      if (plain && !forceQuotes && !testAmbiguousType(string)) {
+        return STYLE_PLAIN;
+      }
+      return quotingType === QUOTING_TYPE_DOUBLE ? STYLE_DOUBLE : STYLE_SINGLE;
+    }
+    if (indentPerLevel > 9 && needIndentIndicator(string)) {
+      return STYLE_DOUBLE;
+    }
+    if (!forceQuotes) {
+      return hasFoldableLine ? STYLE_FOLDED : STYLE_LITERAL;
     }
     return quotingType === QUOTING_TYPE_DOUBLE ? STYLE_DOUBLE : STYLE_SINGLE;
   }
-  if (indentPerLevel > 9 && needIndentIndicator(string)) {
-    return STYLE_DOUBLE;
-  }
-  if (!forceQuotes) {
-    return hasFoldableLine ? STYLE_FOLDED : STYLE_LITERAL;
-  }
-  return quotingType === QUOTING_TYPE_DOUBLE ? STYLE_DOUBLE : STYLE_SINGLE;
-}
-function writeScalar(state, string, level, iskey, inblock) {
-  state.dump = (function () {
-    if (string.length === 0) {
-      return state.quotingType === QUOTING_TYPE_DOUBLE ? '""' : "''";
-    }
-    if (!state.noCompatMode) {
-      if (
-        DEPRECATED_BOOLEANS_SYNTAX.indexOf(string) !== -1 ||
-        DEPRECATED_BASE60_SYNTAX.test(string)
+  function writeScalar(state, string, level, iskey, inblock) {
+    state.dump = (function () {
+      if (string.length === 0) {
+        return state.quotingType === QUOTING_TYPE_DOUBLE ? '""' : "''";
+      }
+      if (!state.noCompatMode) {
+        if (
+          DEPRECATED_BOOLEANS_SYNTAX.indexOf(string) !== -1 ||
+          DEPRECATED_BASE60_SYNTAX.test(string)
+        ) {
+          return state.quotingType === QUOTING_TYPE_DOUBLE
+            ? '"' + string + '"'
+            : "'" + string + "'";
+        }
+      }
+      const indent = state.indent * Math.max(1, level);
+      const lineWidth =
+        state.lineWidth === -1
+          ? -1
+          : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
+      const singleLineOnly =
+        iskey || // No block styles in flow mode.
+        (state.flowLevel > -1 && level >= state.flowLevel);
+      function testAmbiguity(string2) {
+        return testImplicitResolving(state, string2);
+      }
+      switch (
+        chooseScalarStyle(
+          string,
+          singleLineOnly,
+          state.indent,
+          lineWidth,
+          testAmbiguity,
+          state.quotingType,
+          state.forceQuotes && !iskey,
+          inblock,
+        )
       ) {
-        return state.quotingType === QUOTING_TYPE_DOUBLE ? '"' + string + '"' : "'" + string + "'";
-      }
-    }
-    var indent = state.indent * Math.max(1, level);
-    var lineWidth =
-      state.lineWidth === -1
-        ? -1
-        : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
-    var singleLineOnly = iskey || (state.flowLevel > -1 && level >= state.flowLevel);
-    function testAmbiguity(string2) {
-      return testImplicitResolving(state, string2);
-    }
-    switch (
-      chooseScalarStyle(
-        string,
-        singleLineOnly,
-        state.indent,
-        lineWidth,
-        testAmbiguity,
-        state.quotingType,
-        state.forceQuotes && !iskey,
-        inblock,
-      )
-    ) {
-      case STYLE_PLAIN:
-        return string;
-      case STYLE_SINGLE:
-        return "'" + string.replace(/'/g, "''") + "'";
-      case STYLE_LITERAL:
-        return (
-          "|" + blockHeader(string, state.indent) + dropEndingNewline(indentString(string, indent))
-        );
-      case STYLE_FOLDED:
-        return (
-          ">" +
-          blockHeader(string, state.indent) +
-          dropEndingNewline(indentString(foldString(string, lineWidth), indent))
-        );
-      case STYLE_DOUBLE:
-        return '"' + escapeString(string) + '"';
-      default:
-        throw new exception("impossible error: invalid scalar style");
-    }
-  })();
-}
-function blockHeader(string, indentPerLevel) {
-  var indentIndicator = needIndentIndicator(string) ? String(indentPerLevel) : "";
-  var clip = string[string.length - 1] === "\n";
-  var keep = clip && (string[string.length - 2] === "\n" || string === "\n");
-  var chomp = keep ? "+" : clip ? "" : "-";
-  return indentIndicator + chomp + "\n";
-}
-function dropEndingNewline(string) {
-  return string[string.length - 1] === "\n" ? string.slice(0, -1) : string;
-}
-function foldString(string, width) {
-  var lineRe = /(\n+)([^\n]*)/g;
-  var result = (function () {
-    var nextLF = string.indexOf("\n");
-    nextLF = nextLF !== -1 ? nextLF : string.length;
-    lineRe.lastIndex = nextLF;
-    return foldLine(string.slice(0, nextLF), width);
-  })();
-  var prevMoreIndented = string[0] === "\n" || string[0] === " ";
-  var moreIndented;
-  var match;
-  while ((match = lineRe.exec(string))) {
-    var prefix = match[1],
-      line = match[2];
-    moreIndented = line[0] === " ";
-    result +=
-      prefix +
-      (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") +
-      foldLine(line, width);
-    prevMoreIndented = moreIndented;
-  }
-  return result;
-}
-function foldLine(line, width) {
-  if (line === "" || line[0] === " ") return line;
-  var breakRe = / [^ ]/g;
-  var match;
-  var start = 0,
-    end,
-    curr = 0,
-    next = 0;
-  var result = "";
-  while ((match = breakRe.exec(line))) {
-    next = match.index;
-    if (next - start > width) {
-      end = curr > start ? curr : next;
-      result += "\n" + line.slice(start, end);
-      start = end + 1;
-    }
-    curr = next;
-  }
-  result += "\n";
-  if (line.length - start > width && curr > start) {
-    result += line.slice(start, curr) + "\n" + line.slice(curr + 1);
-  } else {
-    result += line.slice(start);
-  }
-  return result.slice(1);
-}
-function escapeString(string) {
-  var result = "";
-  var char = 0;
-  var escapeSeq;
-  for (var i2 = 0; i2 < string.length; char >= 65536 ? (i2 += 2) : i2++) {
-    char = codePointAt(string, i2);
-    escapeSeq = ESCAPE_SEQUENCES[char];
-    if (!escapeSeq && isPrintable(char)) {
-      result += string[i2];
-      if (char >= 65536) result += string[i2 + 1];
-    } else {
-      result += escapeSeq || encodeHex(char);
-    }
-  }
-  return result;
-}
-function writeFlowSequence(state, level, object) {
-  var _result = "",
-    _tag = state.tag,
-    index,
-    length,
-    value2;
-  for (index = 0, length = object.length; index < length; index += 1) {
-    value2 = object[index];
-    if (state.replacer) {
-      value2 = state.replacer.call(object, String(index), value2);
-    }
-    if (
-      writeNode(state, level, value2, false, false) ||
-      (typeof value2 === "undefined" && writeNode(state, level, null, false, false))
-    ) {
-      if (_result !== "") _result += "," + (!state.condenseFlow ? " " : "");
-      _result += state.dump;
-    }
-  }
-  state.tag = _tag;
-  state.dump = "[" + _result + "]";
-}
-function writeBlockSequence(state, level, object, compact) {
-  var _result = "",
-    _tag = state.tag,
-    index,
-    length,
-    value2;
-  for (index = 0, length = object.length; index < length; index += 1) {
-    value2 = object[index];
-    if (state.replacer) {
-      value2 = state.replacer.call(object, String(index), value2);
-    }
-    if (
-      writeNode(state, level + 1, value2, true, true, false, true) ||
-      (typeof value2 === "undefined" && writeNode(state, level + 1, null, true, true, false, true))
-    ) {
-      if (!compact || _result !== "") {
-        _result += generateNextLine(state, level);
-      }
-      if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
-        _result += "-";
-      } else {
-        _result += "- ";
-      }
-      _result += state.dump;
-    }
-  }
-  state.tag = _tag;
-  state.dump = _result || "[]";
-}
-function writeFlowMapping(state, level, object) {
-  var _result = "",
-    _tag = state.tag,
-    objectKeyList = Object.keys(object),
-    index,
-    length,
-    objectKey,
-    objectValue,
-    pairBuffer;
-  for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-    pairBuffer = "";
-    if (_result !== "") pairBuffer += ", ";
-    if (state.condenseFlow) pairBuffer += '"';
-    objectKey = objectKeyList[index];
-    objectValue = object[objectKey];
-    if (state.replacer) {
-      objectValue = state.replacer.call(object, objectKey, objectValue);
-    }
-    if (!writeNode(state, level, objectKey, false, false)) {
-      continue;
-    }
-    if (state.dump.length > 1024) pairBuffer += "? ";
-    pairBuffer +=
-      state.dump + (state.condenseFlow ? '"' : "") + ":" + (state.condenseFlow ? "" : " ");
-    if (!writeNode(state, level, objectValue, false, false)) {
-      continue;
-    }
-    pairBuffer += state.dump;
-    _result += pairBuffer;
-  }
-  state.tag = _tag;
-  state.dump = "{" + _result + "}";
-}
-function writeBlockMapping(state, level, object, compact) {
-  var _result = "",
-    _tag = state.tag,
-    objectKeyList = Object.keys(object),
-    index,
-    length,
-    objectKey,
-    objectValue,
-    explicitPair,
-    pairBuffer;
-  if (state.sortKeys === true) {
-    objectKeyList.sort();
-  } else if (typeof state.sortKeys === "function") {
-    objectKeyList.sort(state.sortKeys);
-  } else if (state.sortKeys) {
-    throw new exception("sortKeys must be a boolean or a function");
-  }
-  for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-    pairBuffer = "";
-    if (!compact || _result !== "") {
-      pairBuffer += generateNextLine(state, level);
-    }
-    objectKey = objectKeyList[index];
-    objectValue = object[objectKey];
-    if (state.replacer) {
-      objectValue = state.replacer.call(object, objectKey, objectValue);
-    }
-    if (!writeNode(state, level + 1, objectKey, true, true, true)) {
-      continue;
-    }
-    explicitPair =
-      (state.tag !== null && state.tag !== "?") || (state.dump && state.dump.length > 1024);
-    if (explicitPair) {
-      if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
-        pairBuffer += "?";
-      } else {
-        pairBuffer += "? ";
-      }
-    }
-    pairBuffer += state.dump;
-    if (explicitPair) {
-      pairBuffer += generateNextLine(state, level);
-    }
-    if (!writeNode(state, level + 1, objectValue, true, explicitPair)) {
-      continue;
-    }
-    if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
-      pairBuffer += ":";
-    } else {
-      pairBuffer += ": ";
-    }
-    pairBuffer += state.dump;
-    _result += pairBuffer;
-  }
-  state.tag = _tag;
-  state.dump = _result || "{}";
-}
-function detectType(state, object, explicit) {
-  var _result, typeList, index, length, type2, style;
-  typeList = explicit ? state.explicitTypes : state.implicitTypes;
-  for (index = 0, length = typeList.length; index < length; index += 1) {
-    type2 = typeList[index];
-    if (
-      (type2.instanceOf || type2.predicate) &&
-      (!type2.instanceOf || (typeof object === "object" && object instanceof type2.instanceOf)) &&
-      (!type2.predicate || type2.predicate(object))
-    ) {
-      if (explicit) {
-        if (type2.multi && type2.representName) {
-          state.tag = type2.representName(object);
-        } else {
-          state.tag = type2.tag;
-        }
-      } else {
-        state.tag = "?";
-      }
-      if (type2.represent) {
-        style = state.styleMap[type2.tag] || type2.defaultStyle;
-        if (_toString.call(type2.represent) === "[object Function]") {
-          _result = type2.represent(object, style);
-        } else if (_hasOwnProperty.call(type2.represent, style)) {
-          _result = type2.represent[style](object, style);
-        } else {
-          throw new exception(
-            "!<" + type2.tag + '> tag resolver accepts not "' + style + '" style',
+        case STYLE_PLAIN:
+          return string;
+        case STYLE_SINGLE:
+          return "'" + string.replace(/'/g, "''") + "'";
+        case STYLE_LITERAL:
+          return (
+            "|" +
+            blockHeader(string, state.indent) +
+            dropEndingNewline(indentString(string, indent))
           );
-        }
-        state.dump = _result;
+        case STYLE_FOLDED:
+          return (
+            ">" +
+            blockHeader(string, state.indent) +
+            dropEndingNewline(indentString(foldString(string, lineWidth), indent))
+          );
+        case STYLE_DOUBLE:
+          return '"' + escapeString(string) + '"';
+        default:
+          throw new YAMLException2("impossible error: invalid scalar style");
       }
-      return true;
+    })();
+  }
+  function blockHeader(string, indentPerLevel) {
+    const indentIndicator = needIndentIndicator(string) ? String(indentPerLevel) : "";
+    const clip = string[string.length - 1] === "\n";
+    const keep = clip && (string[string.length - 2] === "\n" || string === "\n");
+    const chomp = keep ? "+" : clip ? "" : "-";
+    return indentIndicator + chomp + "\n";
+  }
+  function dropEndingNewline(string) {
+    return string[string.length - 1] === "\n" ? string.slice(0, -1) : string;
+  }
+  function foldString(string, width) {
+    const lineRe = /(\n+)([^\n]*)/g;
+    let result = (function () {
+      let nextLF = string.indexOf("\n");
+      nextLF = nextLF !== -1 ? nextLF : string.length;
+      lineRe.lastIndex = nextLF;
+      return foldLine(string.slice(0, nextLF), width);
+    })();
+    let prevMoreIndented = string[0] === "\n" || string[0] === " ";
+    let moreIndented;
+    let match;
+    while ((match = lineRe.exec(string))) {
+      const prefix = match[1];
+      const line = match[2];
+      moreIndented = line[0] === " ";
+      result +=
+        prefix +
+        (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") +
+        foldLine(line, width);
+      prevMoreIndented = moreIndented;
     }
+    return result;
   }
-  return false;
-}
-function writeNode(state, level, object, block, compact, iskey, isblockseq) {
-  state.tag = null;
-  state.dump = object;
-  if (!detectType(state, object, false)) {
-    detectType(state, object, true);
-  }
-  var type2 = _toString.call(state.dump);
-  var inblock = block;
-  var tagStr;
-  if (block) {
-    block = state.flowLevel < 0 || state.flowLevel > level;
-  }
-  var objectOrArray = type2 === "[object Object]" || type2 === "[object Array]",
-    duplicateIndex,
-    duplicate;
-  if (objectOrArray) {
-    duplicateIndex = state.duplicates.indexOf(object);
-    duplicate = duplicateIndex !== -1;
-  }
-  if ((state.tag !== null && state.tag !== "?") || duplicate || (state.indent !== 2 && level > 0)) {
-    compact = false;
-  }
-  if (duplicate && state.usedDuplicates[duplicateIndex]) {
-    state.dump = "*ref_" + duplicateIndex;
-  } else {
-    if (objectOrArray && duplicate && !state.usedDuplicates[duplicateIndex]) {
-      state.usedDuplicates[duplicateIndex] = true;
+  function foldLine(line, width) {
+    if (line === "" || line[0] === " ") return line;
+    const breakRe = / [^ ]/g;
+    let match;
+    let start = 0;
+    let end;
+    let curr = 0;
+    let next = 0;
+    let result = "";
+    while ((match = breakRe.exec(line))) {
+      next = match.index;
+      if (next - start > width) {
+        end = curr > start ? curr : next;
+        result += "\n" + line.slice(start, end);
+        start = end + 1;
+      }
+      curr = next;
     }
-    if (type2 === "[object Object]") {
-      if (block && Object.keys(state.dump).length !== 0) {
-        writeBlockMapping(state, level, state.dump, compact);
-        if (duplicate) {
-          state.dump = "&ref_" + duplicateIndex + state.dump;
-        }
+    result += "\n";
+    if (line.length - start > width && curr > start) {
+      result += line.slice(start, curr) + "\n" + line.slice(curr + 1);
+    } else {
+      result += line.slice(start);
+    }
+    return result.slice(1);
+  }
+  function escapeString(string) {
+    let result = "";
+    let char = 0;
+    for (let i2 = 0; i2 < string.length; char >= 65536 ? (i2 += 2) : i2++) {
+      char = codePointAt(string, i2);
+      const escapeSeq = ESCAPE_SEQUENCES[char];
+      if (!escapeSeq && isPrintable(char)) {
+        result += string[i2];
+        if (char >= 65536) result += string[i2 + 1];
       } else {
-        writeFlowMapping(state, level, state.dump);
-        if (duplicate) {
-          state.dump = "&ref_" + duplicateIndex + " " + state.dump;
-        }
+        result += escapeSeq || encodeHex(char);
       }
-    } else if (type2 === "[object Array]") {
-      if (block && state.dump.length !== 0) {
-        if (state.noArrayIndent && !isblockseq && level > 0) {
-          writeBlockSequence(state, level - 1, state.dump, compact);
+    }
+    return result;
+  }
+  function writeFlowSequence(state, level, object) {
+    let _result = "";
+    const _tag = state.tag;
+    for (let index = 0, length = object.length; index < length; index += 1) {
+      let value2 = object[index];
+      if (state.replacer) {
+        value2 = state.replacer.call(object, String(index), value2);
+      }
+      if (
+        writeNode(state, level, value2, false, false) ||
+        (typeof value2 === "undefined" && writeNode(state, level, null, false, false))
+      ) {
+        if (_result !== "") _result += "," + (!state.condenseFlow ? " " : "");
+        _result += state.dump;
+      }
+    }
+    state.tag = _tag;
+    state.dump = "[" + _result + "]";
+  }
+  function writeBlockSequence(state, level, object, compact) {
+    let _result = "";
+    const _tag = state.tag;
+    for (let index = 0, length = object.length; index < length; index += 1) {
+      let value2 = object[index];
+      if (state.replacer) {
+        value2 = state.replacer.call(object, String(index), value2);
+      }
+      if (
+        writeNode(state, level + 1, value2, true, true, false, true) ||
+        (typeof value2 === "undefined" &&
+          writeNode(state, level + 1, null, true, true, false, true))
+      ) {
+        if (!compact || _result !== "") {
+          _result += generateNextLine(state, level);
+        }
+        if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
+          _result += "-";
         } else {
-          writeBlockSequence(state, level, state.dump, compact);
+          _result += "- ";
         }
-        if (duplicate) {
-          state.dump = "&ref_" + duplicateIndex + state.dump;
+        _result += state.dump;
+      }
+    }
+    state.tag = _tag;
+    state.dump = _result || "[]";
+  }
+  function writeFlowMapping(state, level, object) {
+    let _result = "";
+    const _tag = state.tag;
+    const objectKeyList = Object.keys(object);
+    for (let index = 0, length = objectKeyList.length; index < length; index += 1) {
+      let pairBuffer = "";
+      if (_result !== "") pairBuffer += ", ";
+      if (state.condenseFlow) pairBuffer += '"';
+      const objectKey = objectKeyList[index];
+      let objectValue = object[objectKey];
+      if (state.replacer) {
+        objectValue = state.replacer.call(object, objectKey, objectValue);
+      }
+      if (!writeNode(state, level, objectKey, false, false)) {
+        continue;
+      }
+      if (state.dump.length > 1024) pairBuffer += "? ";
+      pairBuffer +=
+        state.dump + (state.condenseFlow ? '"' : "") + ":" + (state.condenseFlow ? "" : " ");
+      if (!writeNode(state, level, objectValue, false, false)) {
+        continue;
+      }
+      pairBuffer += state.dump;
+      _result += pairBuffer;
+    }
+    state.tag = _tag;
+    state.dump = "{" + _result + "}";
+  }
+  function writeBlockMapping(state, level, object, compact) {
+    let _result = "";
+    const _tag = state.tag;
+    const objectKeyList = Object.keys(object);
+    if (state.sortKeys === true) {
+      objectKeyList.sort();
+    } else if (typeof state.sortKeys === "function") {
+      objectKeyList.sort(state.sortKeys);
+    } else if (state.sortKeys) {
+      throw new YAMLException2("sortKeys must be a boolean or a function");
+    }
+    for (let index = 0, length = objectKeyList.length; index < length; index += 1) {
+      let pairBuffer = "";
+      if (!compact || _result !== "") {
+        pairBuffer += generateNextLine(state, level);
+      }
+      const objectKey = objectKeyList[index];
+      let objectValue = object[objectKey];
+      if (state.replacer) {
+        objectValue = state.replacer.call(object, objectKey, objectValue);
+      }
+      if (!writeNode(state, level + 1, objectKey, true, true, true)) {
+        continue;
+      }
+      const explicitPair =
+        (state.tag !== null && state.tag !== "?") || (state.dump && state.dump.length > 1024);
+      if (explicitPair) {
+        if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
+          pairBuffer += "?";
+        } else {
+          pairBuffer += "? ";
+        }
+      }
+      pairBuffer += state.dump;
+      if (explicitPair) {
+        pairBuffer += generateNextLine(state, level);
+      }
+      if (!writeNode(state, level + 1, objectValue, true, explicitPair)) {
+        continue;
+      }
+      if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
+        pairBuffer += ":";
+      } else {
+        pairBuffer += ": ";
+      }
+      pairBuffer += state.dump;
+      _result += pairBuffer;
+    }
+    state.tag = _tag;
+    state.dump = _result || "{}";
+  }
+  function detectType(state, object, explicit) {
+    const typeList = explicit ? state.explicitTypes : state.implicitTypes;
+    for (let index = 0, length = typeList.length; index < length; index += 1) {
+      const type2 = typeList[index];
+      if (
+        (type2.instanceOf || type2.predicate) &&
+        (!type2.instanceOf || (typeof object === "object" && object instanceof type2.instanceOf)) &&
+        (!type2.predicate || type2.predicate(object))
+      ) {
+        if (explicit) {
+          if (type2.multi && type2.representName) {
+            state.tag = type2.representName(object);
+          } else {
+            state.tag = type2.tag;
+          }
+        } else {
+          state.tag = "?";
+        }
+        if (type2.represent) {
+          const style = state.styleMap[type2.tag] || type2.defaultStyle;
+          let _result;
+          if (_toString.call(type2.represent) === "[object Function]") {
+            _result = type2.represent(object, style);
+          } else if (_hasOwnProperty.call(type2.represent, style)) {
+            _result = type2.represent[style](object, style);
+          } else {
+            throw new YAMLException2(
+              "!<" + type2.tag + '> tag resolver accepts not "' + style + '" style',
+            );
+          }
+          state.dump = _result;
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+  function writeNode(state, level, object, block, compact, iskey, isblockseq) {
+    state.tag = null;
+    state.dump = object;
+    if (!detectType(state, object, false)) {
+      detectType(state, object, true);
+    }
+    const type2 = _toString.call(state.dump);
+    const inblock = block;
+    if (block) {
+      block = state.flowLevel < 0 || state.flowLevel > level;
+    }
+    const objectOrArray = type2 === "[object Object]" || type2 === "[object Array]";
+    let duplicateIndex;
+    let duplicate;
+    if (objectOrArray) {
+      duplicateIndex = state.duplicates.indexOf(object);
+      duplicate = duplicateIndex !== -1;
+    }
+    if (
+      (state.tag !== null && state.tag !== "?") ||
+      duplicate ||
+      (state.indent !== 2 && level > 0)
+    ) {
+      compact = false;
+    }
+    if (duplicate && state.usedDuplicates[duplicateIndex]) {
+      state.dump = "*ref_" + duplicateIndex;
+    } else {
+      if (objectOrArray && duplicate && !state.usedDuplicates[duplicateIndex]) {
+        state.usedDuplicates[duplicateIndex] = true;
+      }
+      if (type2 === "[object Object]") {
+        if (block && Object.keys(state.dump).length !== 0) {
+          writeBlockMapping(state, level, state.dump, compact);
+          if (duplicate) {
+            state.dump = "&ref_" + duplicateIndex + state.dump;
+          }
+        } else {
+          writeFlowMapping(state, level, state.dump);
+          if (duplicate) {
+            state.dump = "&ref_" + duplicateIndex + " " + state.dump;
+          }
+        }
+      } else if (type2 === "[object Array]") {
+        if (block && state.dump.length !== 0) {
+          if (state.noArrayIndent && !isblockseq && level > 0) {
+            writeBlockSequence(state, level - 1, state.dump, compact);
+          } else {
+            writeBlockSequence(state, level, state.dump, compact);
+          }
+          if (duplicate) {
+            state.dump = "&ref_" + duplicateIndex + state.dump;
+          }
+        } else {
+          writeFlowSequence(state, level, state.dump);
+          if (duplicate) {
+            state.dump = "&ref_" + duplicateIndex + " " + state.dump;
+          }
+        }
+      } else if (type2 === "[object String]") {
+        if (state.tag !== "?") {
+          writeScalar(state, state.dump, level, iskey, inblock);
+        }
+      } else if (type2 === "[object Undefined]") {
+        return false;
+      } else {
+        if (state.skipInvalid) return false;
+        throw new YAMLException2("unacceptable kind of an object to dump " + type2);
+      }
+      if (state.tag !== null && state.tag !== "?") {
+        let tagStr = encodeURI(state.tag[0] === "!" ? state.tag.slice(1) : state.tag).replace(
+          /!/g,
+          "%21",
+        );
+        if (state.tag[0] === "!") {
+          tagStr = "!" + tagStr;
+        } else if (tagStr.slice(0, 18) === "tag:yaml.org,2002:") {
+          tagStr = "!!" + tagStr.slice(18);
+        } else {
+          tagStr = "!<" + tagStr + ">";
+        }
+        state.dump = tagStr + " " + state.dump;
+      }
+    }
+    return true;
+  }
+  function getDuplicateReferences(object, state) {
+    const objects = [];
+    const duplicatesIndexes = [];
+    inspectNode(object, objects, duplicatesIndexes);
+    const length = duplicatesIndexes.length;
+    for (let index = 0; index < length; index += 1) {
+      state.duplicates.push(objects[duplicatesIndexes[index]]);
+    }
+    state.usedDuplicates = new Array(length);
+  }
+  function inspectNode(object, objects, duplicatesIndexes) {
+    if (object !== null && typeof object === "object") {
+      const index = objects.indexOf(object);
+      if (index !== -1) {
+        if (duplicatesIndexes.indexOf(index) === -1) {
+          duplicatesIndexes.push(index);
         }
       } else {
-        writeFlowSequence(state, level, state.dump);
-        if (duplicate) {
-          state.dump = "&ref_" + duplicateIndex + " " + state.dump;
+        objects.push(object);
+        if (Array.isArray(object)) {
+          for (let i2 = 0, length = object.length; i2 < length; i2 += 1) {
+            inspectNode(object[i2], objects, duplicatesIndexes);
+          }
+        } else {
+          const objectKeyList = Object.keys(object);
+          for (let i2 = 0, length = objectKeyList.length; i2 < length; i2 += 1) {
+            inspectNode(object[objectKeyList[i2]], objects, duplicatesIndexes);
+          }
         }
       }
-    } else if (type2 === "[object String]") {
-      if (state.tag !== "?") {
-        writeScalar(state, state.dump, level, iskey, inblock);
-      }
-    } else if (type2 === "[object Undefined]") {
-      return false;
-    } else {
-      if (state.skipInvalid) return false;
-      throw new exception("unacceptable kind of an object to dump " + type2);
     }
-    if (state.tag !== null && state.tag !== "?") {
-      tagStr = encodeURI(state.tag[0] === "!" ? state.tag.slice(1) : state.tag).replace(
-        /!/g,
-        "%21",
+  }
+  function dump2(input, options2) {
+    options2 = options2 || {};
+    const state = new State(options2);
+    if (!state.noRefs) getDuplicateReferences(input, state);
+    let value2 = input;
+    if (state.replacer) {
+      value2 = state.replacer.call({ "": value2 }, "", value2);
+    }
+    if (writeNode(state, 0, value2, true, true)) return state.dump + "\n";
+    return "";
+  }
+  dumper.dump = dump2;
+  return dumper;
+}
+var hasRequiredJsYaml;
+function requireJsYaml() {
+  if (hasRequiredJsYaml) return jsYaml;
+  hasRequiredJsYaml = 1;
+  const loader2 = requireLoader();
+  const dumper2 = requireDumper();
+  function renamed(from, to) {
+    return function () {
+      throw new Error(
+        "Function yaml." +
+          from +
+          " is removed in js-yaml 4. Use yaml." +
+          to +
+          " instead, which is now safe by default.",
       );
-      if (state.tag[0] === "!") {
-        tagStr = "!" + tagStr;
-      } else if (tagStr.slice(0, 18) === "tag:yaml.org,2002:") {
-        tagStr = "!!" + tagStr.slice(18);
-      } else {
-        tagStr = "!<" + tagStr + ">";
-      }
-      state.dump = tagStr + " " + state.dump;
-    }
+    };
   }
-  return true;
-}
-function getDuplicateReferences(object, state) {
-  var objects = [],
-    duplicatesIndexes = [],
-    index,
-    length;
-  inspectNode(object, objects, duplicatesIndexes);
-  for (index = 0, length = duplicatesIndexes.length; index < length; index += 1) {
-    state.duplicates.push(objects[duplicatesIndexes[index]]);
-  }
-  state.usedDuplicates = new Array(length);
-}
-function inspectNode(object, objects, duplicatesIndexes) {
-  var objectKeyList, index, length;
-  if (object !== null && typeof object === "object") {
-    index = objects.indexOf(object);
-    if (index !== -1) {
-      if (duplicatesIndexes.indexOf(index) === -1) {
-        duplicatesIndexes.push(index);
-      }
-    } else {
-      objects.push(object);
-      if (Array.isArray(object)) {
-        for (index = 0, length = object.length; index < length; index += 1) {
-          inspectNode(object[index], objects, duplicatesIndexes);
-        }
-      } else {
-        objectKeyList = Object.keys(object);
-        for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-          inspectNode(object[objectKeyList[index]], objects, duplicatesIndexes);
-        }
-      }
-    }
-  }
-}
-function dump$1(input, options2) {
-  options2 = options2 || {};
-  var state = new State(options2);
-  if (!state.noRefs) getDuplicateReferences(input, state);
-  var value2 = input;
-  if (state.replacer) {
-    value2 = state.replacer.call({ "": value2 }, "", value2);
-  }
-  if (writeNode(state, 0, value2, true, true)) return state.dump + "\n";
-  return "";
-}
-var dump_1 = dump$1;
-var dumper = {
-  dump: dump_1,
-};
-function renamed(from, to) {
-  return function () {
-    throw new Error(
-      "Function yaml." +
-        from +
-        " is removed in js-yaml 4. Use yaml." +
-        to +
-        " instead, which is now safe by default.",
-    );
+  jsYaml.Type = requireType();
+  jsYaml.Schema = requireSchema();
+  jsYaml.FAILSAFE_SCHEMA = requireFailsafe();
+  jsYaml.JSON_SCHEMA = requireJson();
+  jsYaml.CORE_SCHEMA = requireCore();
+  jsYaml.DEFAULT_SCHEMA = require_default();
+  jsYaml.load = loader2.load;
+  jsYaml.loadAll = loader2.loadAll;
+  jsYaml.dump = dumper2.dump;
+  jsYaml.YAMLException = requireException();
+  jsYaml.types = {
+    binary: requireBinary(),
+    float: requireFloat(),
+    map: requireMap(),
+    null: require_null2(),
+    pairs: requirePairs(),
+    set: requireSet(),
+    timestamp: requireTimestamp(),
+    bool: requireBool(),
+    int: requireInt(),
+    merge: requireMerge(),
+    omap: requireOmap(),
+    seq: requireSeq(),
+    str: requireStr(),
   };
+  jsYaml.safeLoad = renamed("safeLoad", "load");
+  jsYaml.safeLoadAll = renamed("safeLoadAll", "loadAll");
+  jsYaml.safeDump = renamed("safeDump", "dump");
+  return jsYaml;
 }
-var Type = type;
-var Schema = schema;
-var FAILSAFE_SCHEMA = failsafe;
-var JSON_SCHEMA = json;
-var CORE_SCHEMA = core;
-var DEFAULT_SCHEMA = _default;
-var load = loader.load;
-var loadAll = loader.loadAll;
-var dump = dumper.dump;
-var YAMLException = exception;
-var types = {
-  binary,
-  float,
-  map,
-  null: _null,
-  pairs,
-  set,
-  timestamp,
-  bool,
-  int,
-  merge,
-  omap,
-  seq,
-  str: str2,
-};
-var safeLoad = renamed("safeLoad", "load");
-var safeLoadAll = renamed("safeLoadAll", "loadAll");
-var safeDump = renamed("safeDump", "dump");
-var jsYaml = {
+var jsYamlExports = requireJsYaml();
+var yaml2 = /* @__PURE__ */ getDefaultExportFromCjs(jsYamlExports);
+var {
   Type,
   Schema,
   FAILSAFE_SCHEMA,
@@ -11456,7 +12718,7 @@ var jsYaml = {
   safeLoad,
   safeLoadAll,
   safeDump,
-};
+} = yaml2;
 
 // src/transformer.ts
 var import_toml = __toESM(require_toml());
@@ -11475,7 +12737,7 @@ function S(n2) {
 }
 ((l = {
   __e: function (n2, l2, u3, t2) {
-    for (var i2, r2, o2; (l2 = l2.__); )
+    for (var i2, r2, o2; (l2 = l2.__);)
       if ((i2 = l2.__c) && !i2.__)
         try {
           if (
@@ -11866,7 +13128,7 @@ var NoteProperties = (userOpts) => {
               delimiters: opts.delimiters,
               language: opts.language,
               engines: {
-                yaml: (s2) => jsYaml.load(s2, { schema: jsYaml.JSON_SCHEMA }),
+                yaml: (s2) => yaml2.load(s2, { schema: yaml2.JSON_SCHEMA }),
                 toml: (s2) => import_toml.default.parse(s2),
               },
             });
@@ -12202,9 +13464,6 @@ strip-bom-string/index.js:
    * Copyright (c) 2015, 2017, Jon Schlinkert.
    * Released under the MIT License.
    *)
-
-js-yaml/dist/js-yaml.mjs:
-  (*! js-yaml 4.1.1 https://github.com/nodeca/js-yaml @license MIT *)
 */
 
 export { NoteProperties, NoteProperties_default as NotePropertiesComponent };
