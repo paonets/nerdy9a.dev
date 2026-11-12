@@ -1,68 +1,66 @@
 ---
 title: "Technopolitics: Mapping SEA's Stand in the US-China AI Race"
 created: 2026-08-28 14:26
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, geopolitics, thailand, conference, techsauce-global-summit-2026]
 publish: true
 ---
 
-**Speaker:** Dr. Arm Tungnirun, Director, China Studies Center, Institute of Asian Studies, Chulalongkorn University  
-**Event:** [[Learning/Events/Conferences/Techsauce Global Summit 2026/index|Techsauce Global Summit 2026]] · 28 Aug 2026
+**ผู้บรรยาย:** ดร.อาร์ม ตั้งนิรันดร (Dr. Arm Tungnirun) ผู้อำนวยการศูนย์จีนศึกษา สถาบันเอเชียศึกษา จุฬาลงกรณ์มหาวิทยาลัย  
+**งาน:** [[Learning/Events/Conferences/Techsauce Global Summit 2026/index|Techsauce Global Summit 2026]] · 28 ส.ค. 2026
 
 ![image](attachments/technopolitics_sea_in_the_us_china_ai_race_sketchnote.webp)
 
 ---
 
-## Summary
+## กลยุทธ์ AI สำหรับเอเชียตะวันออกเฉียงใต้
 
-The US and China are running two different AI races: the US goes **"All in AI"**, China puts **"AI in all"**. Southeast Asia can't avoid choosing between their stacks, but the real question isn't _when_ to adopt AI. It's **who owns the IP, who builds the companies, and how much of the value stays in our economy**. For Thailand: lead with its competitive advantages and use AI as the multiplier.
+### ภาพรวม
 
----
+- การบรรยายเกี่ยวกับบทบาทของ AI และกลยุทธ์ที่เหมาะสมสำหรับประเทศไทยและเอเชียตะวันออกเฉียงใต้ในยุค AI
 
-## Details
+### วิวัฒนาการของ AI
 
-### Three phases of AI
-
-| Phase             | Timing  | What it is                                                           |
-| :---------------- | :------ | :------------------------------------------------------------------- |
-| **Generative AI** | ~2023 → | Tools and platforms; document creation, translation, cognitive tasks |
-| **Software AGI**  | ~2030 → | Human-level performance across a wide range of cognitive tasks       |
-| **Physical AGI**  | ~2035 → | Autonomous systems and embodied AI working in the physical world     |
+- ระยะที่ 1: AI สร้างเครื่องมือและแพลตฟอร์มต่างๆ (ตั้งแต่ปี 2023)
+- ระยะที่ 2: Software AGI (Artificial General Intelligence) ที่สามารถทำงานได้ครอบคลุมหลายด้าน
+- ระยะที่ 3: Autonomous Systems และ Embodied AI ที่ฝังตัวอยู่ในโลกกายภาพ
 
 ![image](attachments/Techsauce-Global-Summit-Technopolitics-1.webp)
 
 ![image](attachments/Techsauce-Global-Summit-Technopolitics-2.webp)
 
-### Two approaches to the race
+### การแข่งขันด้าน AI ระหว่างสหรัฐฯ และจีน
 
-- **"All in AI" (United States):** pour massive resources into the smartest, most powerful frontier models.
-- **"AI in all" (China):** embed AI into every product, system and place.
+- วิทยากรสรุปความแตกต่างด้วยสองวลี
+  - **"All in AI"** (แนวทางอเมริกา): ลงทุนทรัพยากรมหาศาลเพื่อสร้าง Frontier Model ที่ฉลาดและทรงพลังที่สุด
+  - **"AI in all"** (แนวทางจีน): นำ AI ไปฝังในทุกสิ่ง ทุกผลิตภัณฑ์ ทุกระบบ ทุกพื้นที่
 
-### The choices every country has to make
+### ทางเลือกเชิงกลยุทธ์ที่ประเทศต้องตัดสินใจ
 
-- Cloud provider
-- Semiconductor suppliers
-- AI models
-- Cybersecurity stack
+- ประเทศในเอเชียตะวันออกเฉียงใต้จำเป็นต้องเลือก
+  - Cloud Provider
+  - Semiconductor Suppliers
+  - AI Models
+  - Cybersecurity System
+- คำถามสำคัญไม่ใช่ "เมื่อไหร่จะนำ AI มาใช้" แต่คือ **ใครเป็นเจ้าของ IP, ใครสร้างบริษัทรอบๆ เทคโนโลยี และผลผลิตที่ได้จะอยู่ในเศรษฐกิจของเราแค่ไหน**
 
-The key question isn't when to bring in AI. It's **who owns the IP, who builds companies around the technology, and how much of the output stays in our economy**.
+### กลยุทธ์ที่แนะนำสำหรับประเทศไทย
 
-### Recommended strategy for Thailand
+- ไม่ควรใช้แนวทาง "AI First" แต่ควรเป็น **"Thailand's Competitive Advantages First, AI as the Multiplier"**
+- จุดแข็งของไทยที่ควรใช้ AI ขยายผล
+  - ระบบสาธารณสุขและภาคการแพทย์ที่เข้มแข็ง
+  - อุตสาหกรรมท่องเที่ยวที่เป็นหนึ่งในอันดับโลก (AI ช่วยด้าน Personalization, Productivity, Service Quality)
 
-Not "AI first", but **"Thailand's competitive advantages first, AI as the multiplier"**:
+### วิสัยทัศน์สำหรับเอเชียตะวันออกเฉียงใต้
 
-- A strong **public-health and medical sector**.
-- A world-class **tourism industry**, where AI can boost personalisation, productivity and service quality.
-
-### A vision for Southeast Asia
-
-- Attract technology from around the world.
-- Blend global technology with local capability.
-- Turn **adoption into value creation**.
-- Move from **dependence on technology to leverage through technology**.
+- เป้าหมายควรคือการ
+  - ดึงดูดเทคโนโลยีจากทั่วโลก
+  - ผสมผสานเทคโนโลยีระดับโลกกับความสามารถในท้องถิ่น
+  - เปลี่ยน "การนำมาใช้" (Adoption) ให้กลายเป็น "การสร้างคุณค่า" (Value Creation)
+  - เปลี่ยนจาก "การพึ่งพาเทคโนโลยี" ไปสู่ "การใช้เทคโนโลยีเป็นเลเวอเรจ"
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
 - [[Thailand Today - Building a Runway Towards the Future]]

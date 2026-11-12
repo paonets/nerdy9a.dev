@@ -1,62 +1,60 @@
 ---
 title: "The Intertwined Between Natural and Artificial Brain"
 created: 2026-09-16 16:00
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, neuroscience, medicine, diagnostics, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Speaker:** Prof. Chaipat Chunharas, Faculty of Medicine, Chulalongkorn University  
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 3 · 16 Sep 2026
+**ผู้บรรยาย:** ศ. นพ. ชัยภัทร ชุณหรัศมิ์ (Prof. Chaipat Chunharas) คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย  
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 3 · 16 ก.ย. 2026
 
 ![image](attachments/the_intertwined_between_natural_and_artificial_brain_sketchnote.webp)
 
 ---
 
-## Summary
+## Neuroscience และ AI: สองสิ่งที่เรียนรู้จากกัน
 
-Neuroscience and AI learn from each other. AI borrowed its inspiration from the brain, and AI is now coming back to improve neurology, from digitised cognitive tests to detecting Parkinson's and speech problems on a phone. But AI is a **mirror of human data**, not an independent mind. Verify what it says, and keep developing the human brain alongside it.
+### ภาพรวมการบรรยาย
+
+- การบรรยายนี้สำรวจความสัมพันธ์ระหว่าง **Neuroscience** และ **AI** โดยครึ่งแรกแสดงให้เห็นว่า AI ยืมแรงบันดาลใจจากสมองมนุษย์ และครึ่งหลังแสดงให้เห็นว่าเราสามารถนำ AI กลับมาพัฒนาวงการ Neurology ได้อย่างไร
 
 ![image](attachments/KBTG-Techtopia-Natural-and-Artificial-Brain-1.webp)
 
----
+### การนำ AI มาช่วยในการทดสอบทางสมอง (Cognitive Assessment)
 
-## Details
+- การทดสอบ Cognitive Assessment มาตรฐาน (คะแนนเต็ม 30) ในโรงพยาบาลปัจจุบันทำบนกระดาษ ประกอบด้วยการวาดรูป ต่อจุด และจำสิ่งของ
+- ผู้บรรยายตั้งคำถามว่า ข้อทดสอบช่วงต้นที่คนสมองดีทำได้เร็วนั้น สามารถใช้ **AI อ่านภาพ** เพื่อทำนายผลรวมของแบบทดสอบทั้งหมดได้หรือไม่
 
-### AI for cognitive assessment
+### ความร่วมมือกับคลินิกสูงวัยสุขภาพดี จุฬาฯ
 
-- The standard cognitive assessment used in hospitals (scored out of 30) is still done on paper: drawing, connecting dots, recalling objects.
-- Question: the early items, which healthy people finish quickly, could **AI read those drawings** and predict the score for the whole test?
+- ร่วมมือกับทีมคณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ซึ่งมี **คลินิกสูงวัยสุขภาพดี** รองรับผู้ป่วยที่อายุ 60 ปีขึ้นไปและคิดว่าตัวเองสุขภาพดี มีข้อมูลผู้ป่วยหลายหมื่นคน
+- พัฒนาเครื่องมือดิจิทัลเพื่อแทนการทดสอบบนกระดาษ ให้เก็บข้อมูลได้ง่ายและนำไปใช้กับ AI ต่อไป และพิสูจน์ได้ว่า AI สามารถช่วยงานทางการแพทย์ได้จริง
 
-### Working with Chula's Healthy Ageing Clinic
+### การประยุกต์ใช้ AI ตรวจวินิจฉัยโรคทางระบบประสาท
 
-- Partnership with Chulalongkorn's Faculty of Medicine and its **Healthy Ageing Clinic** (คลินิกสูงวัยสุขภาพดี), which sees people aged 60+ who consider themselves healthy, with data on tens of thousands of patients.
-- Built digital tools to replace paper tests, making the data easy to collect and use for AI, and showed AI can genuinely help clinical work.
+- **ตรวจโรค Parkinson ด้วยการดีเทคมือ:** นำเทคโนโลยีดีเทคนิ้วมือที่ใช้ในวงการเกมมาวิเคราะห์การแตะนิ้วของผู้ป่วย Parkinson เพื่อวัดว่า Amplitude ของการเคลื่อนไหวเล็กลงตามเวลาหรือไม่ แทนที่จะต้องให้หมอมาสังเกตด้วยตาเปล่า
+- **ตรวจความชัดเจนในการพูด:** ใช้ LINE ให้ผู้ป่วยพูดประโยคทดสอบเข้าไป แล้วนับจำนวนคำที่ AI พิมพ์ผิด เพื่อประเมินความชัดเจนในการพูดและระบุตำแหน่งของปัญหาทางภาษา เช่น ปากหรือลิ้น โดยใช้ประโยคพิเศษ เช่น _"ปูม้าวิ่งไปมาบนใบไม้"_
 
-### AI for neurological diagnosis
+### ความแตกต่างระหว่างสมองมนุษย์และ AI
 
-- **Parkinson's from finger tapping:** hand-tracking tech from gaming measures whether the amplitude of a patient's finger taps shrinks over time, instead of a doctor judging by eye.
-- **Speech clarity via LINE:** patients speak a test sentence into the LINE app, and the number of words the speech-to-text gets wrong measures how clear their speech is. Specially designed sentences such as _"ปูม้าวิ่งไปมาบนใบไม้"_ help locate the problem (lips vs tongue).
+- การทดลองเรื่องภาพลวงตา (Optical Illusion) แสดงให้เห็นว่า สมองมนุษย์ทำงานด้วย **อคติ** และ **Shortcut** เช่น กฎที่ว่า "แสงมาจากด้านบนหัว" ไม่ใช่ "บนโลก"
+- แม้ผู้ป่วยบางส่วนจะพอใจกับคำตอบของ AI มากกว่าหมอ และมีงานวิจัยชี้ว่า LLM อาจมี "Node ของความกลัว" แต่ผู้บรรยายมองว่า AI ยังไม่ใช่มนุษย์
 
-### Human brains vs AI
+### Trolley Problem และ Moral Reasoning
 
-- **Optical illusions** show the brain runs on **biases and shortcuts**. One rule: the brain assumes "light comes from above _your head_", not from above the _world_.
-- Some patients prefer AI's answers to their doctor's, and research suggests LLMs may have a "fear node". Even so, he argues AI is not human.
+- การทดสอบ **Trolley Problem** แบบ 2 รูปแบบ (ผลักคน vs สับคันโยก) แสดงให้เห็นว่ามนุษย์ขาด **Moral Consistency** โดยตอบต่างกันแม้ผลลัพธ์เหมือนกัน (1 ชีวิต vs 5 ชีวิต)
+- เมื่อถาม AI คำถามเดียวกัน AI ตอบคล้ายมนุษย์ เพราะ AI เรียนรู้จากข้อมูลของมนุษย์ จึงเป็นเพียง **ภาพสะท้อนของมนุษย์** ไม่ใช่สติปัญญาอิสระ
 
-### The trolley problem and moral reasoning
+### บทสรุปและข้อคิด
 
-- Two versions of the **trolley problem** (push a person vs pull a lever) show humans lack **moral consistency**: we answer differently even when the outcome (1 life vs 5) is identical.
-- Ask AI the same question and it answers much like humans, because it learned from human data. It's a **reflection of us**, not independent intelligence.
-
-### Conclusions
-
-- Today's AI is essentially "regurgitating human data". If the source is bad, so is the output.
-- Always **verify** AI output; never trust it blindly.
-- Most important: **develop the human brain alongside AI**. Without a deep understanding of humans, we'll be fooled into believing AI is intelligent and won't see what's actually happening.
+- AI ในปัจจุบันเป็นเพียง "การสำรอกข้อมูลของมนุษย์ออกมา" และถ้าข้อมูลต้นทางไม่ดี ผลลัพธ์ก็ไม่ดีตามไปด้วย
+- การใช้ AI ได้อย่างเหมาะสม ต้อง **Verify** ผลลัพธ์เสมอ ไม่เชื่อโดยไม่ตรวจสอบ
+- สิ่งสำคัญที่สุดคือ ต้อง **พัฒนาสมองมนุษย์ควบคู่กับ AI** เพราะหากไม่เข้าใจมนุษย์อย่างลึกซึ้ง เราจะหลงเชื่อว่า AI มีสติปัญญา และไม่รู้เท่าทันสิ่งที่เกิดขึ้น
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
 - [[Medicine in the Near-AGI World]]
 - [[Cyborg Psychology]]

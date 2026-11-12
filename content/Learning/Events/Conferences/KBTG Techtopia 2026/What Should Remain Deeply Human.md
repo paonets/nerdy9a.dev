@@ -1,62 +1,62 @@
 ---
 title: "What Should Remain Deeply Human?"
 created: 2026-09-16 17:39
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, humanity, mental-health, storytelling, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Speaker:** Roundfinger (นิ้วกลม), writer  
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 Sep 2026
+**ผู้บรรยาย:** นิ้วกลม (Roundfinger) นักเขียน  
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 ก.ย. 2026
 
 ![image](attachments/what_should_remain_deeply_human_sketchnote.webp)
 
 ---
 
-## Summary
+## มนุษย์ เรื่องเล่า และการใช้ AI เพื่อเชื่อมโยง
 
-A reflective talk asking how we can use AI to **re-connect** with our humanity instead of drifting further from it. Drawing on cave paintings, storytelling, sociology and psychiatry, Roundfinger argues that people need _roots_ (relationships, community, shared stories and values) and that some places can only be reached by being human.
+### ภาพรวม
+
+- วิทยากรกำลังจะออกหนังสือเล่มใหม่ในช่วงเดือนตุลาคม
+- แกนหลักของการบรรยายคือคำถามว่า **เราจะใช้ AI เพื่อ Re-Connect กลับสู่ความเป็นมนุษย์** ได้อย่างไร แทนที่จะใช้มันสร้างความ Disconnect
+
+### มนุษย์กับธรรมชาติและท้องฟ้า
+
+- มนุษย์ตั้งแต่โบราณอธิบายปรากฏการณ์ธรรมชาติ เช่น ฟ้าผ่า ด้วยตำนานและเรื่องเล่า (เช่น เมขลา, เทพเจ้าสแกนดิเนเวีย)
+- ภาพวาดในถ้ำ Lascaux ฝรั่งเศส มีรูปแบบ 6 จุดที่สัมพันธ์กับ **ดาวลูกไก่ (Pleiades)** และฤดูผสมพันธุ์ของสัตว์ต่างๆ แสดงให้เห็นว่าบรรพบุรุษมนุษย์เชื่อมโยงชีวิตกับท้องฟ้าอย่างลึกซึ้ง
+- ทุกวันนี้มนุษย์ตัดขาดจากธรรมชาติ ดวงดาว และแม้แต่คนรอบข้าง เพราะจ้องหน้าจอโทรศัพท์แทน
+
+### เรื่องเล่าและการอ่าน
+
+- มนุษย์ขับเคลื่อนอารยธรรมด้วย **เรื่องเล่า** ทั้งการนั่งรวมกันรอบกองไฟ และการถ่ายทอดประสบการณ์ข้ามชีวิต
+- วิธีการอ่านของผู้คนเปลี่ยนไปมาก จากหนังสือสู่โซเชียลมีเดียที่ถูก **Algorithm** กำหนด ทำให้เราเห็นแต่เรื่องเดิมๆ และมองไม่เห็นความหลากหลายของชีวิต
+- ตั้งคำถามว่า เราจะสำรวจเรื่องเล่าอื่นๆ นอกจากที่ Algorithm จัดมาให้ได้อย่างไร
+
+### AI กับความสุขและประสิทธิภาพ
+
+- วิทยากรอ้างถึงนักรีวิวกล้องท่านหนึ่งที่บอกว่า **"ไม่ได้ใช้ AI เพื่อ Productivity สูงสุด แต่ใช้ AI เพื่อให้มีเวลาเหลือ"** และชี้ว่านี่คือ Keyword สำคัญของการใช้ AI อย่างมีความหมาย
+- เตือนเรื่อง **Hedonic Treadmill** มนุษย์ไม่เคยพึงพอใจกับสิ่งที่ได้มาได้นาน และ AI ยิ่งทำให้รู้สึกว่า "ทำได้อีก ได้อีก" จนกลายเป็นความว่างเปล่า
+
+### สุขภาพจิตและการโดดเดี่ยว
+
+- จิตแพทย์และแพทย์ที่ดูแลเด็กและวัยรุ่นยืนยันตรงกันว่า **จำนวนผู้ป่วยสุขภาพจิตเพิ่มขึ้นต่อเนื่อง** ในขณะที่เทคโนโลยีก็พัฒนาเร็วขึ้น สองสิ่งนี้ดูเหมือนสวนทางกัน
+- อ้างอิงนักสังคมวิทยา **Émile Durkheim** เรื่องอัตราการฆ่าตัวตายในสังคมที่ต่างกัน
+- คนที่ไม่สามารถ "นิยามตัวเอง" ได้กับยุคสมัย ครอบครัว ศาสนา หรือชุมชน จะรู้สึกว่างเปล่าและโหยหาความหมาย
+
+### รากและความสัมพันธ์
+
+- เปรียบมนุษย์เหมือน **ต้นไม้ที่ต้องการราก** รากจะงอกได้ต้องใช้เวลา ต้องผูกพันกับอะไรบางอย่างนานพอ
+- สังคมที่ไม่มีความทรงจำร่วม ความเชื่อร่วม ก็เหมือนต้นไม้ที่ไม่มีแหล่งอาหาร พร้อมหลุดลอยตลอดเวลา
+- **ความสัมพันธ์ ชุมชน เรื่องเล่า และคุณค่า** คือสิ่งที่ทำให้ชีวิตมีความต่อเนื่อง
+
+### คำถามปิดท้าย
+
+- เทคโนโลยีสามารถพาเราไปได้ไกลเท่าที่ต้องการ แต่ **"บางสถานที่ไปได้ด้วยความเป็นมนุษย์เท่านั้น"**
+- คำถามสำคัญที่ทิ้งไว้ให้ผู้ฟัง: เราจะใช้เทคโนโลยีเพื่อ **เชื่อมโยง** (Connect) ไม่ใช่ตัดขาด (Disconnect) จากมนุษย์และโลกรอบข้างได้อย่างไร
 
 ---
 
-## Details
-
-### Humans, nature and the sky
-
-- Ancient people explained natural phenomena like lightning through myths, such as the Thai legend of Mekhala or the Norse gods.
-- The **Lascaux cave paintings** in France contain a six-dot pattern linked to the **Pleiades** star cluster and to animal breeding seasons. Our ancestors tied their lives closely to the sky.
-- Today we are cut off from nature, the stars and even the people beside us, because we're staring at our phones.
-
-### Stories and reading
-
-- Civilisation has been carried by **stories**: sitting around a fire, passing experience from one life to the next.
-- Reading has shifted from books to **algorithm-curated** social feeds, which keep showing us more of the same and hide the diversity of human lives.
-- The question: how do we look for stories beyond what the algorithm serves us?
-
-### AI, happiness and productivity
-
-- He quoted a camera reviewer: _"I don't use AI for maximum productivity. I use it so I have time left over."_ That, he says, is the key to using AI meaningfully.
-- Beware the **hedonic treadmill**. We never stay satisfied, and AI amplifies the feeling of "I can do more, and more" until it turns into emptiness.
-
-### Mental health and isolation
-
-- Psychiatrists and paediatricians agree that **mental-health cases keep rising** even as technology accelerates, two trends that seem to run in opposite directions.
-- Citing **Émile Durkheim**'s work on suicide rates across societies: people who can't define themselves through their era, family, religion or community feel empty and hungry for meaning.
-
-### Roots and relationships
-
-- Humans are like **trees that need roots**, and roots take time. You have to stay attached to something long enough.
-- A society without shared memory or shared beliefs is like a tree with no source of nourishment, always ready to be swept away.
-- **Relationships, community, stories and values** are what give life continuity.
-
-### Closing question
-
-- Technology can take us as far as we want, but _"some places can only be reached through our humanity."_
-- How can we use technology to **connect** with people and the world around us, rather than disconnect from them?
-
----
-
-## Related
+## ที่เกี่ยวข้อง
 
 - [[Mental Healthspan]]
-- [[Cyborg Psychology]]: the MIT Media Lab talk on AI that makes people _more_ human
+- [[Cyborg Psychology]]

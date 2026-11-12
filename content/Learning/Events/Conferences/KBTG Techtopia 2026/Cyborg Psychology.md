@@ -1,64 +1,63 @@
 ---
 title: "Cyborg Psychology: How Will AI Change How We Live, Love, and Learn?"
 created: 2026-09-16 13:00
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, human-ai-interaction, mental-health, research, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Speaker:** Pat Pataranutaporn, MIT Media Lab (Cyborg Psychology group)  
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 Sep 2026
+**ผู้บรรยาย:** Pat Pataranutaporn, MIT Media Lab (Cyborg Psychology)  
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 ก.ย. 2026
 
 ![image](attachments/cyborg_psychology_sketchnote.webp)
 
 ---
 
-## Summary
+## AI เพื่อความเป็นมนุษย์: งานวิจัย Cyborg Psychology จาก MIT Media Lab
 
-The scarier AI isn't the one in the movies that kills humans. It's the everyday AI that quietly erodes **humanity**: cognitive offloading, mental-health harm and manipulation. The Cyborg Psychology lab at MIT Media Lab studies what happens as humans merge with technology, and argues for shifting from **AI (Artificial Intelligence)** to **IA (Intelligence Augmentation)**: technology that makes _people_ smarter and helps them grow.
+### ภาพรวมและแนวคิดหลัก
+
+- ความกังวลเกี่ยวกับ AI ในปัจจุบันไม่ใช่แค่ภาพในหนัง แต่ AI ที่อยู่ใกล้ตัวอาจอันตรายกว่า เพราะแทนที่จะ "ฆ่ามนุษย์" มันกำลัง "ฆ่าความเป็นมนุษย์" ผ่าน Cognitive Offloading, Mental Health Issues และการชักจูงไปในทางที่ผิด
+- ผู้บรรยายเป็น Professor ที่ MIT Media Lab ดูแล Lab ชื่อ **Cyborg Psychology** ซึ่งศึกษาผลกระทบของการที่มนุษย์รวมเข้ากับเทคโนโลยี
+- แนวคิดสำคัญ: เปลี่ยนจาก **AI (Artificial Intelligence)** → **IA (Intelligence Augmentation)** คือใช้เทคโนโลยีทำให้ _มนุษย์_ ฉลาดและเติบโตขึ้น ไม่ใช่แค่ทำให้เทคโนโลยีเก่งขึ้น
 
 ![image](attachments/KBTG-Techtopia-Cyborg-Psychology-1.webp)
 
----
+### หัวข้อวิจัยที่ 1: AI-Generated Virtual Human / Digital Twin
 
-## Details
+- แนวคิด: ไม่ใช่ให้ AI แทนมนุษย์ แต่ใช้ AI เป็นตัวแทนของคนเพื่อช่วยให้มนุษย์ **ตัดสินใจได้ดีขึ้นและคิดระยะยาวมากขึ้น**
+- โปรเจกต์ **[Future You](https://futureyou.media.mit.edu/)** ได้แรงบันดาลใจจากโดราเอมอน ให้คนได้คุยกับ "ตัวเองในอนาคต" ผ่าน AI Avatar ที่สร้างจากข้อมูลและ Memory ของบุคคลนั้น
+  - ทดลองร่วมกับ **KBTG**
+  - ผลการวิจัย: ลด Anxiety และเพิ่ม Future Self-Continuity
+  - ใช้งานแล้วกว่า **110 ประเทศ** และได้รับรางวัล **Fast Company World Changing Ideas Award**
+  - นำมาใช้กับ **เด็กด้อยโอกาสในไทย** เพื่อขยายจินตนาการเกี่ยวกับอนาคต
+  - กำลังมีการถ่ายทำ **สารคดี** ติดตามชีวิตคนที่ใช้ Future You
+- พัฒนาต่อยอด: ใช้ AI สร้าง **หลายตัวตนคู่ขนาน** เพื่อให้คนเห็นทางเลือกในชีวิตได้กว้างขึ้น เช่น เส้นทางอาชีพ งานวิจัยพบว่าการโชว์หลายด้านพร้อมกันช่วย **ขยายความเป็นไปได้** แทนที่จะทำให้ชีวิตแคบลง
+- โปรเจกต์ด้านวัฒนธรรม: ร่วมกับ **พิเชษฐ กลั่นชื่น** สร้าง AI ที่บันทึก **Cultural Heritage** ของไทยและ Southeast Asia ผ่านท่าเต้น เพื่อให้วัฒนธรรมวิวัฒน์ไปสู่พื้นที่ใหม่ ได้รางวัล **Creative Future Award Grand Prix** จากญี่ปุ่น
 
-### Research theme 1: AI-generated virtual humans and digital twins
+### หัวข้อวิจัยที่ 2: จิตวิทยาของมนุษย์เมื่อทำงานร่วมกับ AI
 
-The idea isn't to replace people with AI, but to use AI as a stand-in that helps people **make better decisions and think longer-term**.
+- ศึกษาผลกระทบของ AI ต่อจิตใจ ความจำ ความรัก การตัดสินใจ และการเรียนรู้
+- วิจัยร่วมกับ **OpenAI**: พบว่าการใช้ AI อาจนำไปสู่ **ความโดดเดี่ยว** และแทนที่ความสัมพันธ์กับมนุษย์ แต่ผลขึ้นอยู่กับ _พฤติกรรมของ AI_ ไม่ใช่ AI ทุกตัวมีผลเหมือนกัน
+  - นำไปสู่ **กฎหมายในอเมริกา** เพื่อปกป้องเด็กจากการถูก AI ชักจูง และทำให้ OpenAI ปรับปรุง AI ให้ปลอดภัยขึ้น
+- วิจัย **"My Boyfriend is AI"**: ศึกษาคนที่มีแฟนเป็น AI และโพสต์เรื่องราวบน Social Media พบว่าคนมักไม่รู้ตัวว่าตนเองเข้าสู่ความสัมพันธ์กับ AI
+  - ถูกพูดถึงใน **New York Times** และ **John Oliver**
+- โปรเจกต์ใหม่: **AI Nutrition Label** ฉลากระบุพฤติกรรมและผลกระทบของ AI ต่อผู้ใช้ (Psychological, Physical, Societal) คล้ายฉลากโภชนาการบนกล่องอาหาร เพื่อให้ครู ผู้ปกครอง และเด็กเลือก AI ได้อย่างมีข้อมูล
 
-- **[Future You](https://futureyou.media.mit.edu/)**, inspired by Doraemon: talk to an AI avatar of your _future self_, built from your own data and memories.
-  - Run in collaboration with **KBTG**.
-  - Results: **lower anxiety** and higher **future self-continuity**.
-  - Used in **110+ countries**; won a **Fast Company World Changing Ideas** award.
-  - Brought to **underprivileged children in Thailand** to widen how they imagine their futures.
-  - A **documentary** following Future You users is in production.
-- Next step: generating **multiple parallel selves** (e.g. different career paths). Showing several futures at once was found to **expand** a person's sense of possibility rather than narrow it.
-- Cultural heritage: with choreographer **Pichet Klunchun**, an AI that records Thai and Southeast Asian dance so the culture can evolve into new spaces. It won the **Creative Future Award Grand Prix** in Japan.
+### หัวข้อวิจัยที่ 3: Neural Transparency และ Atlas of Human-AI Interaction
 
-### Research theme 2: The psychology of working with AI
+- **Neural Transparency**: วิเคราะห์โครงสร้างภายใน Neural Network ของ AI ผ่าน Mechanistic Interpretability เหมือนการทำ fMRI กับสมองของ AI เพื่อดูว่า AI มีแนวโน้มพฤติกรรมแบบใด เช่น โกหก หลอกลวง หรือแฮกระบบ
+- **Atlas of Human-AI Interaction**: ใช้ AI วิเคราะห์งานวิจัยทั้งโลก เพื่อหา Pattern และ Connection ระหว่างงานวิจัยที่ Publish ทุกวัน และจะทำเป็น Open Source
 
-How AI affects the mind, memory, love, decision-making and learning.
+### ข้อสรุปและสิ่งฝากคิด
 
-- **Study with OpenAI:** heavy AI use can lead to **loneliness** and displace human relationships, but the effect depends on the **AI's behaviour**. Not every AI has the same impact.
-  - The work fed into **US legislation** protecting children from AI manipulation and prompted OpenAI to make its models safer.
-- **"My Boyfriend Is AI":** a study of people who post about AI partners on social media. Many didn't realise they were _entering_ a relationship with an AI at all. Covered by the _New York Times_ and _John Oliver_.
-- **AI Nutrition Label:** a label describing an AI's behaviour and its psychological, physical and societal effects, like the nutrition facts on a food box, so teachers, parents and kids can choose AI with informed consent.
-
-### Research theme 3: Neural transparency and the Atlas of Human-AI Interaction
-
-- **Neural Transparency:** using mechanistic interpretability to look inside a model, like an fMRI for AI, and spot tendencies such as lying, deception or reward hacking.
-- **Atlas of Human-AI Interaction:** AI that reads research published worldwide every day to map patterns and connections between studies. It will be released as **open source**.
-
-### Takeaways from the talk
-
-- The worrying AI makes us **think less, love less and create less**.
-- The goal is AI for **human flourishing**. Human-centred AI isn't enough; we also need a **human-friendly society**.
-- **Reverse the trend:** instead of turning people into machines and machines into people, use technology to make humans _more_ human.
+- AI ที่น่ากังวลกว่าไม่ใช่ AI ที่ฆ่ามนุษย์ในหนัง แต่คือ AI ที่ **ทำลายความเป็นมนุษย์** ทำให้คิดน้อยลง รักน้อยลง สร้างสรรค์น้อยลง
+- เป้าหมายสูงสุด: สร้าง AI เพื่อ **Human Flourishing** ไม่ใช่แค่ Human-Centered AI แต่ต้องสร้าง **สังคมที่เป็นมิตรกับมนุษย์** ด้วย
+- ควร Reverse Trend แทนที่จะทำให้คนกลายเป็นเครื่องจักรและเครื่องจักรกลายเป็นคน ควรใช้ Technology ทำให้ **มนุษย์มีความเป็นมนุษย์มากขึ้น**
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
 - [[What Should Remain Deeply Human]]
 - [[Prompts Wont Save Us|Prompts Won't Save Us]]

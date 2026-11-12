@@ -1,71 +1,67 @@
 ---
 title: "The Modern Wellness Crisis: How to Be Kinder to Yourself"
 created: 2026-09-16 15:30
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [health, wellness, wearables, mental-health, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 2 · 16 Sep 2026
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 2 · 16 ก.ย. 2026
 
 ![image](attachments/the_modern_wellness_crisis_sketchnote.webp)
 
 ---
 
-## Summary
+## Modern Wellness Crisis: การใช้ข้อมูล Wearable อย่างถูกต้อง
 
-We have more data about our own bodies than ever (sleep score, HRV, resting heart rate, stress score) but no framework for reading it. Instead of using the numbers to plan, we use them to **judge ourselves**. The fix: watch trends, compare only with yourself, act on just two red flags, and **listen to your body before the device**.
+### ภาพรวม
 
----
+- เป็นการบรรยายเกี่ยวกับปัญหาที่เกิดขึ้นจากการมีข้อมูลสุขภาพจาก Wearable Devices มากเกินไป แต่ขาดกรอบในการตีความ
+- ประเด็นหลัก: ปัจจุบันเรามีข้อมูลตัวเองมากที่สุดในประวัติศาสตร์ (Sleep Score, HRV, Resting Heart Rate, Stress Score ฯลฯ) แต่กลับนำข้อมูลเหล่านั้นมาตัดสินคุณค่าของตัวเองแทนที่จะใช้วางแผนดูแลสุขภาพ
 
-## Details
+### ปัญหา Modern Wellness Crisis
 
-### The modern wellness crisis
+- คนส่วนใหญ่เปลี่ยนจากการ "ตรวจสอบร่างกาย" เป็น "จับผิดร่างกาย" เมื่อเห็นค่าที่ไม่ดี
+- ข้อมูลสุขภาพกลายเป็นเครื่องมือ "อวดสถานะ" บนโซเชียลมีเดีย เช่นเดียวกับ KPI ในองค์กร ส่งผลให้เกิดความเครียดสะสม
+- บางคนถึงขั้นเชื่อว่าค่าการนอนไม่ดี = เป็นคนไม่มีวินัย หรือออกกำลังกายไม่ถึง 30 นาที = จัดการตัวเองไม่ได้
 
-- We've gone from _checking_ our bodies to _finding fault_ with them every time a number looks bad.
-- Health data has become a **status symbol** on social media, like KPIs at work, and the pressure builds up.
-- Some people go as far as believing a bad sleep score means they lack discipline, or that missing 30 minutes of exercise means they can't manage themselves.
+### ข้อมูลที่ต้องไปหาแพทย์ทันที (2 กรณีเท่านั้น)
 
-### Only two readings mean "see a doctor now"
+- **Atrial Fibrillation (AF)**: เครื่องตรวจพบความผิดปกติของการเต้นของหัวใจ ซึ่งไม่ได้เกิดตลอดเวลา Wearable Device ช่วยจับสัญญาณได้แม่นยำกว่าการไปตรวจเพียงครั้งเดียว
+- **ค่าออกซิเจนในเลือด (SpO2) ต่ำกว่า 95%**: ปกติควรอยู่ที่ 97–99% หากเครื่องเตือนว่าอยู่ที่ 90–91% ควรไปพบแพทย์ทันที
+- สำหรับค่าอื่นๆ นอกเหนือจากสองกรณีนี้ ไม่ควรตีความจากจุดข้อมูลเดียว แต่ให้ดูแนวโน้ม
 
-| Signal                       | Why it matters                                                                                            |
-| :--------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| **Atrial fibrillation (AF)** | Irregular heart rhythm comes and goes, so a wearable catches it more reliably than a single clinic visit. |
-| **SpO2 below 95%**           | Normal is 97–99%. If the device warns you're at 90–91%, see a doctor immediately.                         |
+### วิธีตีความข้อมูลอย่างถูกต้อง
 
-Everything else: don't read anything into a single data point. Look at the trend.
+- **ดูแนวโน้ม ไม่ใช่จุดเดียว**: ค่าแย่ครั้งเดียวไม่ได้บ่งบอกว่าสุขภาพแย่ตลอดไป ให้ดูภาพรวมระยะยาว
+- **เทียบกับตัวเองเท่านั้น**: ห้ามเทียบข้ามยี่ห้อ หรือเทียบกับคนอื่น เพราะข้อมูลใช้เปรียบเทียบข้ามกันไม่ได้
+- **หาเหตุผลของค่าที่ผิดปกติ**: เช่น Heart Rate สูงหลังแข่งกีฬา = ร่างกายกำลังซ่อมแซมกล้ามเนื้อ ไม่ใช่สัญญาณอันตราย
+- **จัดลำดับความสำคัญ**: ไม่สามารถแก้ทุกค่าพร้อมกันได้ เลือกพฤติกรรมที่ต้องปรับทีละ 1–3 อย่าง
+- **เปรียบเหมือน Macroeconomics vs Microeconomics**: อย่ามัวแต่ปรับทีละค่าเล็กๆ (Micro) จนลืมมองภาพรวมของแนวโน้มสุขภาพ (Macro)
 
-### How to read your data properly
+### การใจดีกับตัวเอง (Be Kinder to Yourself)
 
-- **Trends, not points.** One bad reading doesn't mean your health is bad.
-- **Compare only with yourself.** Never across brands or against other people; the numbers aren't comparable.
-- **Look for the reason.** A high heart rate after a match means your body is repairing muscle, not that something is wrong.
-- **Prioritise.** You can't fix every metric at once. Pick 1–3 behaviours to change.
-- **Macro vs micro.** Don't get lost tweaking individual numbers (micro) and lose sight of the overall health trend (macro).
+- ร่างกายที่มีค่าผิดปกติไม่ได้หมายความว่า "กำลังแย่" แต่อาจหมายความว่า "กำลังดูแลตัวเองอยู่"
+- ใจดีกับตัวเองไม่ใช่หยุดพัฒนาตัวเอง แต่คือการฟังเสียงร่างกาย ไม่ใช่แค่ดูตัวเลข
+- การเข้มงวดกับตัวเองมากเกินไปทำให้หมดแรงและไม่ยั่งยืน เป้าหมายคือปรับพฤติกรรมระยะยาว ไม่ใช่แก้ตัวเลขระยะสั้น
 
-### Be kinder to yourself
+### Future Wellness Crisis
 
-- Abnormal numbers don't necessarily mean you're "doing badly"; they may mean your body is _taking care of itself_.
-- Being kind to yourself isn't giving up on improvement. It's listening to your body, not just the numbers.
-- Being too strict burns you out and isn't sustainable. The goal is long-term behaviour change, not short-term number fixing.
+- วิกฤตในอนาคต: เราจะเริ่มเชื่อทุกอย่างที่เครื่องบอก จนลืมฟังเสียงตัวเอง เช่น เครื่องบอกว่าหิว ก็หิวตาม ทั้งที่จริงๆ ไม่หิว
+- เครื่องมือไม่มีทางรู้ทุกอย่างที่ร่างกายเรารู้ ไม่รู้ปัญหาชีวิต ความเครียด ฯลฯ ซึ่งทั้งหมดมีผลต่อค่าข้อมูล
 
-### The future wellness crisis
+### สรุปและการบ้าน
 
-- We may start believing everything the device says and stop listening to ourselves: the watch says you're hungry, so you feel hungry.
-- Devices can't know everything your body knows, like your life problems or stress, all of which affect the data.
-
-### Rules and homework
-
-- **Data is for planning, not for judging yourself.**
-- **Pick one wearable brand and stick with it.** Switching brands breaks comparability.
-- **If your doctor disagrees with the device, trust the doctor.** Medical equipment is more accurate.
-- **Listen to your body first**, then the device.
-- **Homework:** tomorrow morning, _don't check your data first_. Ask yourself how you feel (rested? hungry?), then see whether the data matches.
+- **ข้อมูลมีไว้ใช้วางแผน ไม่ใช่ตัดสินตัวเอง**
+- **เลือกยี่ห้อ Wearable เดียวแล้วใช้ยี่ห้อนั้นสม่ำเสมอ** อย่าสลับยี่ห้อ เพราะข้อมูลเทียบกันไม่ได้
+- **ถ้าหมอบอกผลไม่ตรงกับเครื่อง ให้เชื่อหมอ** เพราะเครื่องมือทางการแพทย์มีความแม่นยำสูงกว่า
+- **ฟังเสียงร่างกายตัวเอง** ก่อนจะฟังเสียงเครื่อง
+- **การบ้าน:** พรุ่งนี้ตื่นมา **อย่าเพิ่งดูข้อมูลในเครื่อง** ถามตัวเองก่อนว่ารู้สึกอย่างไร สบายดีไหม หิวไหม แล้วค่อยไปดูว่าข้อมูลตรงกับความรู้สึกหรือเปล่า
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
-- [[Sleep and Longevity]]: what the sleep metrics actually mean
+- [[Sleep and Longevity]]
 - [[Measuring Healthspan]]
 - [[Mental Healthspan]]

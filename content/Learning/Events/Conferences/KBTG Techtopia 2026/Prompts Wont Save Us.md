@@ -1,69 +1,69 @@
 ---
 title: "Prompts Won't Save Us: Imagining Human-AI Experiences Beyond Chatboxes"
 created: 2026-09-16 14:00
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, ux-design, human-ai-interaction, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Speakers:** Mai, Toei and Paruth, the design team behind Mello, MAKE by KBank and K PLUS  
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 3 · 16 Sep 2026
+**ผู้บรรยาย:** Mai, เต้ย และปารุธ ทีม Designer ผู้อยู่เบื้องหลังแอป Mello, MAKE by KBank และ K PLUS  
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 3 · 16 ก.ย. 2026
 
 ![image](attachments/prompts_wont_save_us_sketchnote.webp)
 
 ---
 
-## Summary
+## "Prompts Won't Save Us": Human-AI Experience Beyond Chat Boxes
 
-Typing into a chat box may not be the best way to work with AI. Three designers each took one angle: prompting is harder than it looks, AI should make us _better_ rather than just faster, and AI should amplify our own taste instead of making everything look the same. Their shared ask to designers: build human-AI experiences that go **beyond the chatbox**.
+### ภาพรวม Session
 
----
+- การบรรยายโดยทีม Designer ผู้อยู่เบื้องหลังแอป Mello, MAKE by KBank และ K PLUS
+- แบ่งออกเป็น 3 ช่วงหลัก โดย Mai, เต้ย และปารุธ เป็นผู้บรรยาย
+- โจทย์กลางของ Session: การพิมพ์ในกล่อง Chat Box อาจไม่ใช่วิธีที่ดีที่สุดในการ Interact กับ AI และเราในฐานะ Designer ควรออกแบบ Human-AI Experience ให้ดีกว่านี้
 
-## Details
+### Session 1: Prompting Is Not Always Easy
 
-### Part 1: Prompting is not always easy
-
-- Simple asks are easy to prompt. Complex ones, like generating an image or describing a haircut, need lots of detail and effort.
-- **The barber who just gets you:** a good barber picks up your hair condition, face shape and style without being told. A chat box can't do that.
-- Today's fixes (prompt templates, prompt enhancers, prompt generators) all push the burden onto the _human_ to speak the AI's language, instead of making the AI work to understand the human.
-- Better directions:
-  - Let AI **accumulate context** over a conversation instead of demanding a perfect prompt up front.
-  - Use **everyday objects as sensors** (a comb, a mirror) to capture what we can't put into words.
-  - Let AI **start the conversation**.
-  - **Point or sketch** instead of typing, and see results in real time.
-  - Have AI **teach us the domain vocabulary** so we can ask more precisely.
-- **The Human Card:** a card that represents you. Swipe it, and the AI knows your tastes, working style and food allergies, with no retyping.
-- Trade-offs: if your identity lives in the cloud, who maintains it? Who controls it? And do we lose our own ability to communicate?
+- การ Prompt AI สำหรับงานง่าย เช่น ถามข้อมูลทั่วไป ทำได้ไม่ยาก แต่งานที่ซับซ้อน เช่น Generate รูป หรือสั่งตัด-จัดผม ต้องการรายละเอียดมาก และใช้ Effort สูงมาก
+- ยกตัวอย่าง **ช่างตัดผมที่รู้ใจ** vs. AI: ช่างเก็บข้อมูลโดยที่เราไม่ต้องบอก เช่น สภาพผม รูปหน้า สไตล์การแต่งตัว แต่กล่อง Chat Box ไม่มีความสามารถนี้
+- Solutions ปัจจุบัน (Prompt Template, Prompt Enhancer, Prompt Generator) ล้วนผลักภาระให้มนุษย์สื่อสารกับ AI แทนที่จะให้ AI พยายามเข้าใจมนุษย์
+- แนวคิดที่น่าสนใจในการแก้ปัญหา:
+  - ให้ AI เก็บ Context จากการสนทนาไปเรื่อยๆ แทนการเขียน Prompt สมบูรณ์ตั้งแต่แรก
+  - ใช้ Everyday Objects (เช่น หวี, กระจก) เป็น Sensor เก็บข้อมูลที่เราไม่สามารถสื่อสารได้
+  - ให้ AI เป็นฝ่าย Initiate การสนทนาก่อน
+  - ใช้การชี้/วาดแทนการพิมพ์ เพื่อให้เห็นผลลัพธ์แบบ Real-time
+  - ให้ AI ช่วยสอนคำศัพท์เฉพาะทาง เพื่อให้เราสื่อสารได้แม่นยำขึ้น
+- แนวคิด **Human Card**: บัตรที่แทนตัวตนของเรา เพียง Swipe ก็บอก AI ได้ว่าเราชอบอะไร ทำงานสไตล์ไหน แพ้อาหารอะไร โดยไม่ต้องพิมพ์ซ้ำทุกครั้ง
+- ตั้งคำถาม Trade-off: ถ้าข้อมูลตัวตนอยู่บน Cloud เราต้อง Maintain มันไหม? ใครมี Control ข้อมูล? และเราจะสูญเสีย Skill การสื่อสารของตัวเองไหม?
 
 ![image](attachments/KBTG-Techtopia-Prompts-Wont-Save-Us-2.webp)
 
-### Part 2: AI that makes us better
+### Session 2: AI ที่ทำให้เราเก่งขึ้น
 
-- AI is like **Lego**. Lego isn't clever on its own; the skill is in the person building with it.
-- Whether AI output is good or bad depends on the user's expertise, not the AI.
-- AI should do more than answer. Like an expert, it should **reframe the problem** and help us find the real one.
-  - Example: asked about a usability problem, instead of "check your onboarding", it could lead you from usability → usefulness → awareness → product adoption → marketing.
-- More ideas:
-  - AI handles the **logistics of learning** (recommending courses, sequencing material) so we can focus on actually learning.
-  - Instead of answering everything, AI **connects you to the in-house expert**.
-- Their challenge: **don't let AI remove the friction of learning**. Knowledge is what lets us build things bigger than ourselves.
+- เปรียบ AI กับ **Lego**: Lego ไม่ได้เก่งด้วยตัวเอง ความเก่งอยู่ที่คนหยิบไปใช้ เช่นเดียวกับ AI
+- งาน AI ที่ดีหรือไม่ดี ต่างกันที่ความเชี่ยวชาญของผู้ใช้ ไม่ใช่ตัว AI เอง
+- แนวคิดหลัก: นอกจากตอบตรงๆ แล้ว AI ควร **Reframe ปัญหา** และช่วยพาเราค้นหาปัญหาที่แท้จริง เหมือน Expert คนหนึ่ง
+- ตัวอย่างเคส Usability: แทนที่ AI จะตอบว่า "ดู Onboarding สิ" อาจช่วยพาเราจากคำว่า Usability → Usefulness → Awareness → Product Adoption → Marketing
+- ไอเดียเพิ่มเติม:
+  - AI ช่วยจัดการ Logistics การเรียนรู้ (แนะนำ Course, เรียงเนื้อหา) เพื่อให้เราโฟกัสที่การเรียนจริงๆ
+  - แทนที่ AI ตอบทุกอย่าง อาจ Connect เรากับ Expert ในเรื่องนั้นๆ ในองค์กรแทน
+- ฝากโจทย์: อย่าให้ AI ลด Friction ในการ **เรียนรู้** เพราะความรู้คือสิ่งที่ทำให้เราสร้างของที่ยิ่งใหญ่กว่าตัวเองได้
 
-### Part 3: Putting ourselves into AI
+### Session 3: ใส่ตัวตนของเราลงใน AI
 
-- **"It's so AI":** when everyone uses AI, the output starts to look the same, and "it's so AI" stops being a compliment.
-- **The conductor:** different conductors lead the same 30-person choir through the same song and get a different sound. The difference is the person in charge, not the instrument.
-- Distinctive work comes from what's unique to each of us: knowledge, understanding, **taste**, habits, style.
-- Tool ideas that help express identity:
-  - Work on a **canvas or board** instead of a chat box.
-  - **Sliders** (e.g. Friendly ↔ Retro) to fine-tune output toward _you_.
-  - AI that asks **"Which do you prefer, and why?"** to help you see what you actually want.
-  - AI with different personalities: one gives direct advice, one challenges you, one pushes you to think sideways.
-- The future: from the craftsman era → the client-and-vendor era → the **auteur** era, directing AI with a clear vision the way Nolan or Wes Anderson direct films.
-- Closing: AI should **enrich difference**, not flatten it, and a small chat box may not be enough room to put ourselves into the work.
+- ปรากฏการณ์ **"It's so AI"**: เมื่อทุกคนใช้ AI ผลงานที่ออกมาเริ่มหน้าตาเหมือนกัน คำว่า "It's so AI" กลายเป็นคำที่ไม่ได้ชมเสมอไป
+- เปรียบ **Conductor** กับ AI: Conductor คนละคนนำวงนักร้อง 30 คนชุดเดิม ด้วยเพลงเดียวกัน แต่เสียงออกมาต่างกัน ความแตกต่างอยู่ที่ผู้ควบคุม ไม่ใช่เครื่องมือ
+- การสร้างงานที่แตกต่างต้องการ: ความรู้เฉพาะตัว, ความเข้าใจ, Taste, Habit, สไตล์ ซึ่งเป็นสิ่งที่แต่ละคนมีแตกต่างกัน
+- ไอเดียเครื่องมือ AI ที่ช่วยแสดงตัวตน:
+  - ทำงานบน Canvas/กระดาน แทนกล่อง Chat
+  - ปรับ Slider เช่น Friendly ↔ Retro เพื่อ Fine-tune งานให้เป็นตัวเราขึ้น
+  - AI ถามว่า "ชอบแบบไหน? ทำไม?" เพื่อช่วยให้เราเห็นชัดว่าตัวเองต้องการอะไร
+  - AI หลายสไตล์: แบบให้คำแนะนำตรงๆ, แบบท้าทาย, แบบชวนคิดนอกกรอบ
+- วิสัยทัศน์อนาคต: จากยุคช่างฝีมือ → ยุคลูกค้าสั่ง Vendor → สู่ยุค **Auteur** ที่กำกับ AI เหมือนผู้กำกับภาพยนตร์ที่มี Vision ชัดเจน เช่น Nolan หรือ Wes Anderson
+- ทิ้งท้าย: AI ควร Enrich ความแตกต่าง ไม่ใช่ทำให้ทุกอย่างเหมือนกัน และกล่อง Chat เล็กๆ อาจยังไม่พอสำหรับการใส่ตัวตนเราลงไปในงาน
 
 ---
 
-## Gallery
+## ภาพจากงาน
 
 ![image](attachments/KBTG-Techtopia-Prompts-Wont-Save-Us-1.webp)
 ![image](attachments/KBTG-Techtopia-Prompts-Wont-Save-Us-3.webp)
@@ -75,7 +75,7 @@ Typing into a chat box may not be the best way to work with AI. Three designers 
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
 - [[Cyborg Psychology]]
 - [[Learning/Tech/Tomo - Talk to Your Obsidian|Tomo - Talk to Your Obsidian]]

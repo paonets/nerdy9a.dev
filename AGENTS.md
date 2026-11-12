@@ -75,7 +75,7 @@ To pull updates from your Obsidian vault and sync them to this Quartz repo:
    ```bash
    python3 Scripts/publish.py
    ```
-   **Single language only:** Publish each note in its **original language** (the language it was written in). Do NOT add `translate:` frontmatter or generate translated sibling pages for new notes; the translation workflow is too much hassle to maintain. Existing notes that already have translations stay as they are. Only translate if the user explicitly asks; the steps are under "Publish Workflow" in the vault's `AGENTS.md`.
+   **Single language only:** Publish each note in its **original language** (the language it was written in; for content migrated from Notion, Apple Notes, etc., the source's language). Do NOT add `translate:` frontmatter or generate translated sibling pages for new notes; the translation workflow is too much hassle to maintain. Existing notes that already have translations stay as they are. Only translate if the user explicitly asks; the steps are under "Publish Workflow" in the vault's `AGENTS.md`.
 3. Run the development server in this repository to preview changes.
 4. Stage, commit, and push your changes to GitHub to trigger the Cloudflare Pages deploy runner.
 

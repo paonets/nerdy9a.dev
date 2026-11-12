@@ -1,79 +1,70 @@
 ---
 title: "Algebra of Luck: Surviving as a Human in the AI Era"
 created: 2026-09-16 15:00
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, career, self-improvement, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Speaker:** K. Thana (ธนา), Chairman of the Board, Bluebik  
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 Sep 2026
+**ผู้บรรยาย:** คุณธนา (K. Thana) ประธานกรรมการ Bluebik  
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 ก.ย. 2026
 
 ![image](attachments/algebra_of_luck_sketchnote.webp)
 
 ---
 
-## Summary
+## การอยู่รอดของมนุษย์ในยุค AI
 
-Most of us can't out-compete AI, or out-work someone like Krating who lives and breathes technology from morning to night. The alternative path: **collect enough "dots"** (skills, experiences and people) and connect seemingly unrelated ones in ways AI can't. Wake up each day with **curiosity, discipline and empathy**, and aim to be someone else's good luck.
+### ภาพรวม
 
----
+- การบรรยายในหัวข้อ "Algebra of Luck" ในฐานะ Chairman of the Board of Directors
+- ผู้พูดตั้งต้นจากความกังวลว่ามนุษย์ทั่วไปไม่สามารถสู้กับ AI หรือคนอย่าง "กระทิง" (ผู้ที่ทำงานเทคโนโลยีตั้งแต่เช้าจนดึก) ได้
+- ยกตัวอย่างการที่ทั้งตัวเองและลูกสาวใช้ AI ตอบการบ้านแทนกัน สะท้อนถึงความเสื่อมถอยของ Critical Thinking และ First Principle
 
-## Details
+### แนวคิด Good Day / Bad Day
 
-### The worry
+- ผู้พูดได้รับแรงบันดาลใจจากเพื่อนร่วมงานที่ตั้งคำถามว่า "Good Day ของคุณคืออะไร? Bad Day ของคุณคืออะไร?"
+- วันที่ดีไม่ใช่วันที่ง่ายและไม่มีความท้าทาย แต่คือวันที่ได้เผชิญปัญหา ได้คิด และได้กลับมาพร้อมพลังงานใหม่
 
-- Ordinary people can't compete with AI, or with people who go all-in on technology.
-- He admitted that he and his daughter both use AI to answer homework questions, a sign that **critical thinking and first-principles reasoning** are eroding.
+### การอยู่รอดด้วย "Connecting the Dots"
 
-### Good day, bad day
+- มนุษย์ที่จะอยู่รอดในยุค AI ต้องสะสม "จุด" ให้มากพอ แล้วเชื่อมโยงสิ่งที่ดูไม่เกี่ยวข้องกันในแบบที่ AI ทำไม่ได้
+- จุดแบ่งเป็น 3 กลุ่ม:
+  - **ทักษะ (Skills):** สกิลที่รู้ดีกว่าคนอื่นในระดับหนึ่ง เช่น Finance, AI, Storytelling
+  - **ประสบการณ์:** ยิ่งเจ็บปวดหรือท้าทายมาก ยิ่งเป็นจุดใหญ่ขึ้น
+  - **ผู้คน:** คนที่รู้จักและรู้สึกดีต่อกันจะเป็นจุดใหญ่ในชีวิต
 
-- A colleague once asked him: _"What's a good day for you? What's a bad day?"_
-- A good day isn't an easy day with no challenges. It's a day you faced a problem, had to think, and came back with new energy.
+### Skill Stacking
 
-### Survive by connecting the dots
+- ยกตัวอย่าง Steve Jobs ที่เรียน Calligraphy แล้วนำมาผสมกับคอมพิวเตอร์จนสร้าง Apple ขึ้นมาได้
+- ยกตัวอย่างคนที่ขายอาวุธสงครามได้โดยใช้วิชาดูดวงสร้างความสัมพันธ์กับผู้มีอำนาจใน UAE
+- สกิล 3 ประเภทที่ควรสะสม:
+  - **Needed Skills:** Finance, Engineering, Coding, AI
+  - **Wanted Skills:** สิ่งที่ชอบทำ แม้ยังไม่รู้จะใช้ทำอะไร
+  - **Meta Skills:** Storytelling, Motivation, Negotiation ทักษะที่ใช้ศิลปะในการสื่อสาร
 
-People who thrive in the AI era gather enough **dots** and connect unrelated ones in ways AI cannot. Dots come in three kinds:
+### ประสบการณ์และผู้คน
 
-| Dot             | What it means                                                           |
-| :-------------- | :---------------------------------------------------------------------- |
-| **Skills**      | Things you know better than most, e.g. finance, AI, storytelling        |
-| **Experiences** | The more painful or challenging, the bigger the dot                     |
-| **People**      | Those you know and who feel good about you become big dots in your life |
+- ประสบการณ์ 10 ปีในงานเดิมอาจไม่ได้มีคุณค่ามากกว่าประสบการณ์ 10 ครั้งจากสถานการณ์ที่หลากหลาย
+- ต้องกล้าออกไปในพื้นที่ที่คนอาชีพเดียวกันไม่ไป เพื่อสร้างจุดและประสบการณ์ใหม่
+- การเป็น "ตัวเอก" คือการเป็นคนที่ดึงดูดผู้คนเข้ามา ให้และรับประโยชน์ร่วมกัน
 
-### Skill stacking
+### บทเรียนจากแพทย์ดูแลผู้ป่วยระยะสุดท้าย
 
-- **Steve Jobs** studied calligraphy, then combined it with computers to shape Apple.
-- A man who sold military equipment by using **astrology** to build relationships with powerful figures in the UAE.
-- Three kinds of skills to collect:
-  - **Needed skills:** finance, engineering, coding, AI.
-  - **Wanted skills:** things you love doing, even if you don't yet know what they're for.
-  - **Meta skills:** storytelling, motivation, negotiation, the art of communication.
+- สิ่งที่ผู้ป่วยใกล้ตายเสียใจมากที่สุดคือทำงานหนักเกินไปจนไม่มีเวลาให้คนที่รัก
+- คนที่ "ตายดี" คือคนที่ตอนมีชีวิตอยู่ได้เป็น "โชคดีของผู้อื่น"
 
-### Experiences and people
+### สรุปแนวทางการดำเนินชีวิตประจำวัน
 
-- Ten years in the same job may be worth less than ten varied experiences.
-- Go to places people in your profession don't go, to collect new dots.
-- Be the **protagonist**: someone who draws people in, gives value and receives it.
-
-### Lessons from a palliative-care doctor
-
-- The biggest regret of the dying: working so hard there was no time left for the people they loved.
-- People who "die well" are those who, while alive, were **someone else's good luck**.
-
-### Daily practice
-
-Wake up with three things:
-
-- **Curiosity:** wanting to learn new things for yourself, not just following trends.
-- **Discipline:** exercise every day; practise repetition and consistency.
-- **Empathy:** understand the people around you: family, friends, colleagues.
-
-Two paths forward: Krating's path (go extremely deep in technology), or the **many-dots** path, connecting them into ideas and a sense of self that AI can't replace.
+- ตื่นเช้ามาต้องมี 3 สิ่ง:
+  - **Curiosity:** อยากรู้สิ่งใหม่ด้วยตัวเอง ไม่ใช่แค่ตามกระแส
+  - **Discipline:** ออกกำลังกายทุกวัน ฝึกการทำซ้ำและมีวินัย
+  - **Empathy:** เข้าใจคนรอบข้าง ครอบครัว เพื่อนร่วมงาน
+- ผู้พูดเสนอ 2 เส้นทาง: เส้นทางแบบกระทิง (เชี่ยวชาญเทคโนโลยีลึกมาก) กับเส้นทางสร้างจุดหลายจุดเชื่อมโยงกัน เพื่อสร้างไอเดียและความเข้าใจตัวตนที่ AI ไม่สามารถทำแทนได้
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
 - [[ROI or RIP - Beyond the Pilot Phase]]
 - [[What Should Remain Deeply Human]]

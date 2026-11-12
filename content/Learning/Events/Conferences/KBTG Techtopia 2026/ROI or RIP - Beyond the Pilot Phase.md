@@ -1,101 +1,107 @@
 ---
 title: "ROI or RIP: Beyond the Pilot Phase"
 created: 2026-09-16 10:00
-updated: 2026-11-12 19:50
+updated: 2026-11-12 21:30
 tags: [ai, ai-transformation, leadership, conference, kbtg-techtopia-2026]
 publish: true
 ---
 
-**Speaker:** Krating Poonpol (กระทิง พูนผล), Chairman, KBTG  
-**Event:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 Sep 2026
+**ผู้บรรยาย:** กระทิง พูนผล (Krating Poonpol) ประธาน KBTG  
+**งาน:** [[Learning/Events/Conferences/KBTG Techtopia 2026/index|KBTG Techtopia 2026]] · Stage 1 · 16 ก.ย. 2026
 
 ![image](attachments/roi_or_rip_beyond_the_pilot_phase_sketchnote.webp)
 
 ---
 
-## Summary
+## การบรรยาย AI Transformation สำหรับผู้นำองค์กร
 
-A talk aimed at CEOs and C-level executives on why most enterprise AI efforts stall at the pilot stage. Krating's core message: don't "build for the past" or automate old processes. Pick a few domains, go deep, and reinvent the business into an **AI-native company**. The hard part isn't the model; it's people, culture and judgement.
+### ภาพรวมการบรรยาย
 
----
+- เป็นการบรรยายสำหรับผู้บริหารระดับ CEO และ C-Level เกี่ยวกับการ Transform องค์กรด้วย AI
+- วิทยากรเตือนว่าอย่า "Build for the Past" ขณะที่โลกกำลังเปลี่ยนทั้ง Cost of Intelligence, Industry, Business Model และพฤติกรรมลูกค้า
+- Gartner คาดการณ์ว่าปี 2030 จะเป็นยุค Autonomous Enterprise
 
-## Details
+### วิวัฒนาการของ AI ใน E-Commerce
 
-### The world is shifting under us
+- AI เริ่มจากช่วย Discovery → Checkout → รับมอบหมายงาน (Delegate) → Automation
+- ลูกค้าเริ่มใช้ AI Agent ในการ Search และ Shop เปลี่ยนพฤติกรรมผู้บริโภคอย่างมหาศาล
 
-- The cost of intelligence, industry structures, business models and customer behaviour are all changing at once.
-- Gartner projects **2030 as the era of the Autonomous Enterprise**.
-- In e-commerce, AI has moved from helping with _discovery_ → _checkout_ → _doing the work_ → full _automation_. Customers increasingly search and shop through their own AI agents.
+### 4 Pillars ของ AI Transformation
 
-### Four pillars of AI transformation
-
-**Seed** (strategies for scale) · **Reinvent** · **Unleash** · **Judge**
-
-- Transformation must start with top management. The leader is the "brand ambassador" of the AI transformation.
-- Leaders need **vision, courage and judgement**. _"Good judgement will become scalable"_, and so will bad judgement.
+- **Seed**: Strategies for scale
+- **Reinvent**
+- **Unleash**
+- **Judge**
+- ต้องเริ่มจาก Top Management เพราะ Leader คือ "Brand Ambassador" ของ AI Transformation
+- ผู้นำต้องมี Vision, Courage และ Judgement ที่ดี เพราะ "Good Judgement Will Become Scalable"
 
 ![image](attachments/KBTG-Techtopia-ROI-or-RIP-1.webp)
-_"The Soul of Judgement": traits of leaders. Taste (Coco Chanel), Foresight (Steve Jobs), Conviction (Jeff Bezos), Courage (Elon Musk), spanning the present (what is good) and the future (what will be)._
+_The Soul of Judgement: คุณลักษณะของผู้นำ ได้แก่ Taste (Coco Chanel), Foresight (Steve Jobs), Conviction (Jeff Bezos) และ Courage (Elon Musk)_
 
-### The 10 / 20 / 70 formula
+### สูตรความสำเร็จของ AI Transformation
 
-| Share   | What it is                                                             |
-| :------ | :--------------------------------------------------------------------- |
-| **10%** | The AI model itself                                                    |
-| **20%** | Technology and IT                                                      |
-| **70%** | People: change management, ways of working, culture, talent and skills |
+| สัดส่วน | องค์ประกอบ                                                       |
+| :------ | :--------------------------------------------------------------- |
+| **10%** | ตัว AI Model เอง                                                 |
+| **20%** | Technology และ IT                                                |
+| **70%** | People, Change Management, Way of Work, Culture, Talent & Skills |
 
-### Why AI fails inside organisations
+- AI Off-the-shelf จะไม่สำเร็จหากไม่มีการ Onboard AI ให้เข้าใจบริบทองค์กร
 
-- AI is never **onboarded** to the company's context the way a new hire would be.
-- It doesn't understand internal language and jargon, or the context behind decisions.
-- Roughly **80% of organisational knowledge is tacit**, living in employees' heads. It has to be pulled out into a **company ontology** and institutional knowledge base before off-the-shelf AI becomes useful.
+### สิ่งที่ทำให้ AI ล้มเหลวในองค์กร
 
-### Strategy: reinvent, don't automate
+- ไม่มีการ Onboard AI ให้เข้าใจบริบทการทำงาน
+- AI ไม่เข้าใจ Internal Language หรือ Jargon เฉพาะองค์กร
+- ไม่เข้าใจ Context และการเปลี่ยนแปลงที่เกิดขึ้น
+- _ประมาณ 80% ของ Knowledge ในองค์กรเป็น Passive Knowledge ฝังอยู่กับพนักงาน ต้องดึงออกมาสร้างเป็น Company Ontology และ Institutional Knowledge_
 
-- _Don't automate the past. Reinvent the future._
-- Three modes: **Deploy** (efficiency gains) → **Reshape** (redesign a whole domain) → **Invent** (new business models and products).
-- Choose **1–3 domains** and go all the way, rather than spawning dozens of use cases that never finish.
-- AI vision must flow from business vision and industry trends, not the other way round.
+### กลยุทธ์การ Transform องค์กร
 
-### Organisation design of the future
+- อย่า Automate the Past แต่จง **Re-invent the Future**
+- มี 3 กระบวนการ: **Deploy** (เพิ่ม Efficiency), **Reshape** (เปลี่ยน Domain ทั้งหมด), **Invent** (New Business Model และ Product)
+- เลือก **1–3 Domain** แล้วลงลึก อย่าปั๊ม Use Case เยอะแล้วไม่เสร็จสักอัน
+- AI Vision ต้องมาจาก Business Vision และ Industry Trends
 
-- **DRI (Directly Responsible Individual)** model: each person owns an outcome end to end, orchestrates AI agents, and acts like a micro-CEO.
-- Org charts flatten to **three layers**: Top → Middle → DRI.
-- The future employee is a **builder, entrepreneur and DRI**, not an "employee" in the traditional sense.
-- Talent shape shifts from a **pyramid** to a **diamond**.
+### การออกแบบองค์กรในอนาคต
 
-### Classifying work
+- โมเดล **DRI (Directly Responsible Individual)** แต่ละคน Responsible End-to-End, Orchestrate AI Agents และทำหน้าที่เหมือน Micro-CEO
+- โครงสร้างองค์กรจะเหลือเพียง **3 Layer**: Top → Middle → DRI
+- ลักษณะพนักงานในอนาคต: **Builder, Entrepreneur, DRI** แทนที่จะเป็น Employee แบบเดิม
 
-- **Human frontier:** strategy, psychotherapy, master teaching.
-- **Machine work:** well-defined tasks such as basic coding.
-- **Human–machine collaboration:** e.g. a furniture advisor.
-- HR's new job: _"Put the right AI in the right job with the right tokenomics."_
+### การจัดประเภทงาน (Job Classification)
 
-### Five questions leaders should ask every Monday morning
+- **Human Frontier**: งานที่ต้องใช้มนุษย์ เช่น Strategy, Psychotherapy, Master Teacher
+- **Machine Work**: งานที่มี Definition ชัดเจน เช่น Basic Coding
+- **Human-Machine Collaboration**: เช่น Furniture Advisor
+- HR ต้องทำ "Put the right AI in the right job and the right tokenomics"
+- Talent Skill Shape กำลังเปลี่ยนจาก **Pyramid** เป็น **Diamond Shape**
+
+### 5 คำถามที่ผู้นำต้องถามทุกเช้าวันจันทร์
 
 1. What future are you looking for?
-2. Are we transforming the business, or automating the past?
-3. Are we doing a few things all the way, so they actually move the bottom line?
-4. How do we turn ten thousand employees into a thousand entrepreneurs?
-5. Are we merely adopting AI, or building an **AI-native company**?
+2. Are we transforming the business or automating the past?
+3. ลงมือทำแค่ไม่กี่อันแต่ลงจนสุด เพื่อเปลี่ยน Bottom Line จริงๆ
+4. จะเปลี่ยนพนักงานหมื่นคนให้เป็น Entrepreneur พันคนได้อย่างไร?
+5. อย่าแค่ Adopt AI แต่จง **Build AI-Native Company**
 
-### 2026–2050: two futures
+### ภาพอนาคต 2026–2050
 
-- What leaders do in the next five years will shape the next thirty.
-- **Scenario 1, abundance:** AI creates plenty; people work four-day weeks.
-- **Scenario 2, digital dystopia:** extreme inequality.
+- การกระทำของผู้นำใน 5 ปีข้างหน้าจะกำหนดโลกอีก 30 ปี
+- Scenario 1: AI สร้างความอุดมสมบูรณ์ คนทำงาน 4 วัน
+- Scenario 2: Digital Dystopia เกิดความเหลื่อมล้ำมหาศาล
+- ผู้นำในห้องนี้คือผู้กำหนดเส้นทางว่าโลกจะไปทิศทางใด
 
-### Closing message
+### ข้อฝากสำคัญจากวิทยากร
 
-- AI can make you smarter and still make you the worst leader if your judgement is poor.
-- Don't forget the human functions: **compassion, meaning, character, love, courage**.
-- AI transformation must be done **by humans, for humans**. The real legacy isn't cutting headcount; it's a better future for humanity.
+- AI อาจทำให้คุณ Smart ขึ้น แต่ก็อาจทำให้คุณเป็น Worst Leader ได้ หาก Judgement ไม่ดี
+- อย่าลืม Human Functions: Compassion, Meaning, Character, Love, Courage
+- AI Transformation ต้องทำ **โดยมนุษย์ และเพื่อมนุษย์**
+- Legacy ที่แท้จริงไม่ใช่การลดคน แต่คือการสร้างอนาคตที่ดีให้ Humanity
 
 ---
 
-## Related
+## ที่เกี่ยวข้อง
 
 - [[Learning/Tech/How to Build an AI-Native Services Company|How to Build an AI-Native Services Company]]
 - The Founder's Playbook for AI-Native Startups
-- [[AI-powered Healthspan]]: Krating's earlier talk at Techsauce Healthspan Festival 2026
+- [[AI-powered Healthspan]]: ทอล์กของคุณกระทิงที่ Techsauce Healthspan Festival 2026
