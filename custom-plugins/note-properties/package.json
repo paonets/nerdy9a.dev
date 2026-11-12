@@ -85,7 +85,7 @@
     "remark-frontmatter": "^5.0.0",
     "sass": "^1.97.3",
     "toml": "^5.0.1",
-    "tsup": "^8.5.0",
+    "tsup": "^9.0.0",
     "typescript": "^5.9.3",
     "unified": "^11.0.5",
     "vitest": "^4.1.0"
