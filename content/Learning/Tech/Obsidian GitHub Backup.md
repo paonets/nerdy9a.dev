@@ -6,7 +6,7 @@ tags:
   - obsidian
   - git
 created: 2026-06-21 06:50
-updated: 2026-06-21 07:08
+updated: 2026-10-24 06:47
 source: "WisdomWell Original"
 ---
 
@@ -53,12 +53,12 @@ AI coding assistants (like Antigravity or Claude) follow mandates configured in 
 
 ## 🤖 AI Agent Auto-Backup Decisions
 
-Unlike human-triggered edits where auto-backup on change is disabled (to avoid commit bloat), AI coding agents are instructed to commit and push immediately after their runs.
+Unlike human-triggered edits where auto-backup on change is disabled (to avoid commit bloat), AI coding agents are instructed to commit changes locally immediately after their runs. Pushing to remote is left to Obsidian Git plugin's background periodic push (or manual push) to prevent turn latency.
 
 This behavior is configured in the vault root's AGENTS.md mandates:
 
-1. **Auto-Commit Agent Edits:** The agent commits its changes with a specific descriptive message detailing the task performed, keeping history clean and attribution clear.
-2. **Auto-Push Agent Edits:** The agent runs `git push` automatically without prompting you, keeping remote backups current without causing push approval fatigue.
+1. **Local Commit After Edit:** The agent stages and commits changes locally with a specific descriptive message detailing the task performed, keeping history clean and rollback-safe.
+2. **Push Delegation:** Agents do not run `git push`; remote sync is deferred to the Obsidian Git plugin or manual user action.
 
 > [!NOTE]
 > **Design Decision: instructions (`AGENTS.md`) vs. Native hooks (`hooks.json`)**

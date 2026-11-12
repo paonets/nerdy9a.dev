@@ -60,7 +60,7 @@ Expressing the impossibility or completion of emotional expressions:
 
 - **[[Learning/Japanese/Songs/Itsumo Nando Demo\|いつも何度でも]]:**
   > かなしみは <ruby>数<rt>かぞ</rt></ruby>え**きれない**けれど (_Sorrows are countless / cannot be fully counted_)  
-  > かなしみの<ruby>数<rt>かず</rt></ruby>を <ruby>言<rt>い</rt></ruby>い\**尽<rt>つ</rt></ruby>くすより (*Rather than exhausting words listing all sorrows\*)
+  > かなしみの<ruby>数<rt>かず</rt></ruby>を <ruby>言<rt>い</rt></ruby>い**尽<rt>つ</rt></ruby>くすより (_Rather than exhausting words listing all sorrows_)
 
 ### 4. Continuity & Journey Markers: `〜てゆく` / `〜ていく`
 
