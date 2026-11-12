@@ -12,6 +12,7 @@ const EXTERNALS = [
   "vfile/*",
   "unified",
   "sharp",
+  "satori",
 ];
 
 export default defineConfig({
@@ -25,7 +26,7 @@ export default defineConfig({
   treeshake: true,
   target: "es2022",
   splitting: false,
-  noExternal: [/^(?!sharp)/],
+  noExternal: [/^(?!sharp|satori)/],
   external: EXTERNALS,
   outDir: "dist",
   platform: "node",

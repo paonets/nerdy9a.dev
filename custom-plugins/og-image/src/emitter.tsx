@@ -257,6 +257,8 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
         flexDirection: "column",
         height: "100%",
         width: "100%",
+        // satori 0.63+ lays out content-box like browsers; keep the padding inside the card
+        boxSizing: "border-box",
         backgroundColor: theme.colors[colorScheme].light,
         padding: "2.5rem",
         fontFamily: bodyFont,
@@ -323,6 +325,9 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
         style={{
           display: "flex",
           flex: 1,
+          // let the description shrink so the footer stays on the card (satori 0.63+)
+          minHeight: 0,
+          overflow: "hidden",
           fontSize: 36,
           color: theme.colors[colorScheme].darkgray,
           lineHeight: 1.4,

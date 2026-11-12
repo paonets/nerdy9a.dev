@@ -36,6 +36,8 @@ Generates social media link previews using `satori` and `sharp` during deploymen
 - **Local Build Speed-up (Bypass):** Disabled for all local builds to reduce rebuild times from ~11 seconds to under 1 second.
   - **Mechanics:** In `quartz.ts`, we check `process.env.CF_PAGES === "1" || process.env.CI === "true" || process.env.CI === "1"`. If false, we dynamically filter out the `CustomOgImages` emitter.
   - **Testing locally:** Test image generation locally by running: `CF_PAGES=1 npx quartz build`.
+- **satori 0.63 (not bundled):** `satori` is external in `tsup.config.ts` and installed as a root dependency, like `sharp`. Bundling 0.63 fails (fflate and the banner both declare `createRequire`), and its harfbuzz/layout `.wasm` files must sit beside satori's own `dist/`. The root and the plugin override satori's pinned `fflate` 0.7.3 to 0.7.5 (ZIP64 advisory).
+  - **Layout fixes for 0.63's layout engine:** the card root sets `boxSizing: "border-box"` (0.63 treats `width/height: 100%` as content-box, so the padding pushed text off the right edge and the footer off the bottom), and the description wrapper sets `minHeight: 0` + `overflow: "hidden"` so long descriptions shrink instead of pushing the footer down. Output matches 0.12 apart from minor line-wrap differences.
 
 ### 5. Translation Callout Stripping (`custom-plugins/description`)
 
@@ -124,5 +126,5 @@ Merged upstream `jackyzha0/quartz` v5 (5.1.0) into our fork. What changed on our
 - **Markdown order:** GitHubFlavoredMarkdown runs before ObsidianFlavoredMarkdown (orders 30 and 40), as 5.1 requires.
 - **Forked plugins:** All forks still declare `quartzVersion: ">=5.0.0"`, which 5.1 accepts (CI builds fail on incompatible or broken plugins). They are based on the 0.1.0 community plugins; the upstream 1.x releases mostly add capability manifests, shared Preact and utils 1.1.
 - **Core merge conflicts:** `componentResources.ts` keeps our monolithic CSS bundle, empty-prescript skip and 4KB inline threshold, plus upstream's plugin static assets (`emitStaticAssets`). `handlers.js` keeps our watcher ignores and upstream's config-file watching. `install-plugins.ts` takes upstream's version.
-- **Plugin dependency bumps:** note-properties bundles `toml` 5 (security fix). og-image stays on `satori` 0.12: 0.33.5 bundles harfbuzzjs, which needs `__dirname` and a `.wasm` file beside the bundle, and 0.63 stops wrapping Thai titles and drops the card footer. The open satori advisory (SVG escaping, moderate) only affects rendering our own titles.
+- **Plugin dependency bumps:** note-properties bundles `toml` 5 (security fix). og-image was later moved to `satori` 0.63 (see section 4).
 - **`npm test`:** the forked plugins' vitest suites under `custom-plugins/*/test` are picked up by the root `tsx --test` run and fail without vitest installed; core tests pass.
