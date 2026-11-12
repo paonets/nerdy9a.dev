@@ -19,7 +19,7 @@ updated: 2026-09-14 08:43
 - **Music:** 坂田晃一 (Koichi Sakata)
 - **Arrangement:** 武部聡志 (Satoshi Takebe)
 - **Theme Song:** Studio Ghibli's _From Up on Poppy Hill_ (コクリコ坂から, 2011, dir. Goro Miyazaki)
-- **Hub:** [[Learning/Japanese/Songs/Japanese Songs|Japanese Songs Hub]]
+- **Hub:** [[Learning/Japanese/Songs/index|Japanese Songs Hub]]
 - **Related Studies:** [[Learning/Japanese/Songs/Itsumo Nando Demo|Itsumo Nando Demo]] | [[Learning/Japanese/Songs/Kimi wo Nosete|Kimi wo Nosete]] | [[Learning/Japanese/Songs/Meguru Kisetsu|Meguru Kisetsu]]
 
 ---

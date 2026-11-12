@@ -18,7 +18,7 @@ updated: 2026-09-14 08:43
 - **Lyrics:** 吉元由美 (Yumi Yoshimoto)
 - **Music & Arrangement:** 久石譲 (Joe Hisaishi) — Vocal arrangement of the iconic theme _A Town with an Ocean View_ (<ruby>海<rt>うみ</rt></ruby>の<ruby>見<rt>み</rt></ruby>える<ruby>街<rt>まち</rt></ruby>)
 - **Film:** Studio Ghibli's _Kiki's Delivery Service_ (魔女の宅急便 — _Majo no Takkyuubin_, 1989, dir. Hayao Miyazaki)
-- **Hub:** [[Learning/Japanese/Songs/Japanese Songs|Japanese Songs Hub]]
+- **Hub:** [[Learning/Japanese/Songs/index|Japanese Songs Hub]]
 - **Related Studies:** [[Learning/Japanese/Songs/Itsumo Nando Demo|Itsumo Nando Demo]] | [[Learning/Japanese/Songs/Kimi wo Nosete|Kimi wo Nosete]] | [[Learning/Japanese/Songs/Sayonara no Natsu|Sayonara no Natsu]]
 
 ---

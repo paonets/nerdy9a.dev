@@ -8,7 +8,7 @@ tags:
   - hub
 publish: true
 created: 2026-09-14 08:00
-updated: 2026-09-14 08:43
+updated: 2026-11-12 22:00
 ---
 
 # 🎵 Japanese Song Study Hub
@@ -114,10 +114,16 @@ When adding new song studies to this collection:
 
 ---
 
-## 🔗 Related Vault Hubs
+## 🔗 Related
+
+- [[Categories/Japanese|Japanese Language]]: all published Japanese study notes
+
+%%
+Vault-only (unpublished):
 
 - Japanese Learning & Anki Playbook
 - Japanese Vocabulary Master List
 - IRODORI A1 Curriculum
 - IRODORI A2-1 Curriculum
 - IRODORI A2-2 Curriculum
+  %%

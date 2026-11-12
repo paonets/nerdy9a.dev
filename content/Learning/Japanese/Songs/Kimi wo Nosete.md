@@ -18,7 +18,7 @@ updated: 2026-09-14 08:43
 - **Lyrics:** 宮崎駿 (Hayao Miyazaki)
 - **Music & Arrangement:** 久石譲 (Joe Hisaishi)
 - **Theme Song:** Studio Ghibli's _Castle in the Sky_ (天空の城ラピュタ — _Tenkuu no Shiro Laputa_, 1986)
-- **Hub:** [[Learning/Japanese/Songs/Japanese Songs|Japanese Songs Hub]]
+- **Hub:** [[Learning/Japanese/Songs/index|Japanese Songs Hub]]
 - **Related Studies:** [[Learning/Japanese/Songs/Itsumo Nando Demo|Itsumo Nando Demo]] | [[Learning/Japanese/Songs/Sayonara no Natsu|Sayonara no Natsu]] | [[Learning/Japanese/Songs/Meguru Kisetsu|Meguru Kisetsu]]
 
 ---

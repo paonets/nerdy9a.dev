@@ -17,7 +17,7 @@ updated: 2026-09-14 08:44
 - **Vocal & Lyre:** 木村弓 (Youmi Kimura)
 - **Lyrics:** 覚和歌子 (Wakako Kaku)
 - **Theme Song:** Studio Ghibli's _Spirited Away_ (千と千尋の神隠し)
-- **Hub:** [[Learning/Japanese/Songs/Japanese Songs|Japanese Songs Hub]]
+- **Hub:** [[Learning/Japanese/Songs/index|Japanese Songs Hub]]
 - **Related Studies:** [[Learning/Japanese/Songs/Kimi wo Nosete|Kimi wo Nosete]] | [[Learning/Japanese/Songs/Sayonara no Natsu|Sayonara no Natsu]] | [[Learning/Japanese/Songs/Meguru Kisetsu|Meguru Kisetsu]]
 
 ---
