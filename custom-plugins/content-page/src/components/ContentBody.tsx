@@ -97,8 +97,7 @@ export default (() => {
       const defaultDateType =
         (page.defaultDateType as "created" | "modified" | "published" | undefined) ?? "modified";
       return (page.dates?.[defaultDateType] ?? page.dates?.modified ?? page.dates?.created) as
-        | Date
-        | undefined;
+        Date | undefined;
     };
 
     const sortPages = (pages: PageEntry[]) => {

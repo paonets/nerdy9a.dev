@@ -67,7 +67,7 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<CreatedModifie
   userOpts,
 ) => {
   const opts = { ...defaultOptions, ...userOpts };
-  return {
+  const instance: ReturnType<QuartzTransformerPlugin<Partial<CreatedModifiedDateOptions>>> = {
     name: "CreatedModifiedDate",
     markdownPlugins(ctx) {
       return [
@@ -131,4 +131,16 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<CreatedModifie
       ];
     },
   };
+  // Quartz 5.1's built-in content index drops `date` from contentIndex.json (it keeps it for
+  // RSS/sitemap only) and can't be overridden by extensions. The homepage's "Recently Updated"
+  // list sorts by it client-side, so expose the note's own date as `pageDate`. Virtual pages
+  // (folder and tag listings) have no `dates`, so they get no `pageDate` and stay off that list.
+  return Object.assign(instance, {
+    extendContentIndex({ fileData }: { fileData: Record<string, unknown> }) {
+      const dates = fileData.dates as Record<string, Date | undefined> | undefined;
+      const type = fileData.defaultDateType as string | undefined;
+      const date = type ? dates?.[type] : undefined;
+      return { pageDate: date?.toISOString() };
+    },
+  });
 };

@@ -143,17 +143,19 @@ function processIndexData(data) {
       
       // Exclude logic
       if (slug === 'index') continue;
-      if (item.isVirtual) continue;
       if (slug.startsWith('tags/')) continue;
       if (slug.startsWith('categories/')) continue;
       if (slug.startsWith('travel-journal/places/')) continue;
       if (slug.startsWith('Travel-Journal/Places/')) continue;
-      if (!item.date) continue; // Must have date to sort
+      // pageDate is added by custom-plugins/created-modified-date (5.1's index omits date);
+      // virtual pages (folder/tag listings) have none.
+      const date = item.pageDate || item.date;
+      if (!date) continue; // Must have date to sort
 
       items.push({
         slug: slug,
         title: item.title,
-        date: item.date,
+        date: date,
         tags: item.tags
       });
     }
@@ -206,7 +208,7 @@ function switchLang(lang) {
     <p>Software engineering, distributed systems, AWS, AI tools, and lessons from building Hato Hub.</p>
     <a class="card-link" href="./categories/tech" data-no-popover="true">Explore Tech & Startup →</a>
   </div>
-  
+
   <div class="content-card">
     <h3><a href="./categories/self-improvement" data-no-popover="true">📈 Self-Improvement & PKM</a></h3>
     <p>Personal knowledge management, productivity workflows, book summaries, and Toastmasters guides.</p>

@@ -163,8 +163,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     let allPagesInFolder: PageEntry[];
 
     const folderFrontmatter = fileData?.frontmatter as
-      | { filter_tags?: string[]; exclude_tags?: string[] }
-      | undefined;
+      { filter_tags?: string[]; exclude_tags?: string[] } | undefined;
     const filterTags = folderFrontmatter?.filter_tags;
     const excludeTags = folderFrontmatter?.exclude_tags ?? [];
 
@@ -213,8 +212,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       const defaultDateType =
         (page.defaultDateType as "created" | "modified" | "published" | undefined) ?? "modified";
       return (page.dates?.[defaultDateType] ?? page.dates?.modified ?? page.dates?.created) as
-        | Date
-        | undefined;
+        Date | undefined;
     };
 
     const sortPages = (pages: PageEntry[]) => {

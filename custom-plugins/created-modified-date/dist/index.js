@@ -28,7 +28,7 @@ Warning: found invalid date "${d}" in \`${fp}\`. Supported formats: https://deve
 }
 var CreatedModifiedDate = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts };
-  return {
+  const instance = {
     name: "CreatedModifiedDate",
     markdownPlugins(ctx) {
       return [
@@ -91,6 +91,14 @@ Warning: ${data.filePath} isn't yet tracked by git, dates will be inaccurate`
       ];
     }
   };
+  return Object.assign(instance, {
+    extendContentIndex({ fileData }) {
+      const dates = fileData.dates;
+      const type = fileData.defaultDateType;
+      const date = type ? dates?.[type] : void 0;
+      return { pageDate: date?.toISOString() };
+    }
+  });
 };
 
 export { CreatedModifiedDate };

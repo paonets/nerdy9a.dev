@@ -18,3 +18,5 @@ quartz/cli/tui/dist/
 .env*
 !.env.example
 .antigravitycli/
+.turbo/
+quartz.lock.json
