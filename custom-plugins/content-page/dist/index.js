@@ -2230,13 +2230,44 @@ var ContentBody_default = (() => {
     const classString = ["popover-hint", ...classes, ...hasCover ? ["has-cover"] : []].join(" ");
     const filterTags = frontmatter?.filter_tags;
     const excludeTags = frontmatter?.exclude_tags ?? [];
-    const matchingPages = filterTags && Array.isArray(filterTags) && filterTags.length > 0 ? (allFiles ?? []).filter((file) => {
+    const taggedPages = filterTags && Array.isArray(filterTags) && filterTags.length > 0 ? (allFiles ?? []).filter((file) => {
       if (file.unlisted === true) return false;
       if (file.slug === "index") return false;
       const fileTags = (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
       if (excludeTags.some((t2) => fileTags.includes(t2))) return false;
       return filterTags.some((t2) => fileTags.includes(t2));
     }) : [];
+    const fileBySlug = /* @__PURE__ */ new Map();
+    for (const file of allFiles ?? []) {
+      if (file.slug) fileBySlug.set(file.slug, file);
+    }
+    const hubSlugOf = (slug2) => {
+      if (!slug2 || slug2.endsWith("/index") || !slug2.includes("/")) return void 0;
+      const hubSlug = `${slug2.slice(0, slug2.lastIndexOf("/"))}/index`;
+      const hub = fileBySlug.get(hubSlug);
+      const isRealHub = typeof hub?.filePath === "string" && /(^|\/)index\.md$/i.test(hub.filePath);
+      return hub && isRealHub && hub.unlisted !== true ? hubSlug : void 0;
+    };
+    const hubChildren = /* @__PURE__ */ new Map();
+    const matchingPages = [];
+    const listedSlugs = /* @__PURE__ */ new Set();
+    const addEntry = (page) => {
+      if (page.slug && listedSlugs.has(page.slug)) return;
+      if (page.slug) listedSlugs.add(page.slug);
+      matchingPages.push(page);
+    };
+    for (const page of taggedPages) {
+      const hubSlug = hubSlugOf(page.slug);
+      if (!hubSlug) {
+        addEntry(page);
+        continue;
+      }
+      hubChildren.set(hubSlug, [...hubChildren.get(hubSlug) ?? [], page]);
+      addEntry(fileBySlug.get(hubSlug));
+    }
+    const tagsOf = (page) => [page, ...hubChildren.get(page.slug ?? "") ?? []].flatMap(
+      (p2) => (p2.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes)
+    );
     const getPageDate = (page) => {
       const defaultDateType = page.defaultDateType ?? "modified";
       return page.dates?.[defaultDateType] ?? page.dates?.modified ?? page.dates?.created;
@@ -2265,7 +2296,7 @@ var ContentBody_default = (() => {
       const topicTags = topic.tags ?? [];
       const topicPages = matchingPages.filter((page) => {
         if (page.slug && assignedSlugs.has(page.slug)) return false;
-        const fileTags = (page.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+        const fileTags = tagsOf(page);
         return topicTags.some((t2) => fileTags.includes(t2));
       });
       topicPages.forEach((page) => page.slug && assignedSlugs.add(page.slug));
@@ -2285,6 +2316,33 @@ var ContentBody_default = (() => {
       }
     }
     const otherPages = hasTopics ? matchingPages.filter((page) => !page.slug || !categorizedPageSlugs.has(page.slug)) : [];
+    const renderHubChildren = (page) => {
+      const children = hubChildren.get(page.slug ?? "");
+      if (!children || children.length === 0) return null;
+      const ordered = [...children].sort((a2, b2) => {
+        const da = a2.dates?.created?.getTime() ?? 0;
+        const db = b2.dates?.created?.getTime() ?? 0;
+        if (da !== db) return da - db;
+        const ta = String(a2.frontmatter?.title ?? a2.slug ?? "");
+        const tb = String(b2.frontmatter?.title ?? b2.slug ?? "");
+        return ta.localeCompare(tb);
+      });
+      return /* @__PURE__ */ u2("details", { class: "hub-children", open: true, children: [
+        /* @__PURE__ */ u2("summary", { children: [
+          ordered.length,
+          " ",
+          ordered.length === 1 ? "note" : "notes"
+        ] }),
+        /* @__PURE__ */ u2("ul", { children: ordered.map((child) => /* @__PURE__ */ u2("li", { children: /* @__PURE__ */ u2(
+          "a",
+          {
+            href: resolveRelative(fileData.slug, child.slug),
+            class: "internal internal-link",
+            children: child.frontmatter?.title ?? child.slug
+          }
+        ) })) })
+      ] });
+    };
     const renderPageList = (pages) => {
       const sorted = sortPages(pages);
       const hasAnyCover = sorted.some((page) => page.frontmatter?.cover);
@@ -2323,6 +2381,10 @@ var ContentBody_default = (() => {
                   /* @__PURE__ */ u2("p", { class: "meta", children: displayDate && /* @__PURE__ */ u2("time", { dateTime: displayDate.toISOString(), children: displayDateStr }) }),
                   /* @__PURE__ */ u2("h3", { children: title }),
                   description && /* @__PURE__ */ u2("p", { class: "desc", children: description }),
+                  hubChildren.has(page.slug ?? "") && /* @__PURE__ */ u2("p", { class: "hub-count", children: [
+                    hubChildren.get(page.slug ?? "").length,
+                    " notes"
+                  ] }),
                   /* @__PURE__ */ u2("ul", { class: "tags", children: pageTags.slice(0, 3).map((tag) => /* @__PURE__ */ u2("li", { children: /* @__PURE__ */ u2("span", { class: "tag-badge", children: [
                     "#",
                     tag
@@ -2356,14 +2418,17 @@ var ContentBody_default = (() => {
         const displayDateStr = showModified && modifiedStr ? modifiedStr : createdStr;
         return /* @__PURE__ */ u2("li", { class: "section-li", children: /* @__PURE__ */ u2("div", { class: "section", children: [
           /* @__PURE__ */ u2("p", { class: "meta", children: displayDate && /* @__PURE__ */ u2("time", { dateTime: displayDate.toISOString(), children: displayDateStr }) }),
-          /* @__PURE__ */ u2("div", { class: "desc", children: /* @__PURE__ */ u2("h3", { children: /* @__PURE__ */ u2(
-            "a",
-            {
-              href: resolveRelative(fileData.slug, page.slug),
-              class: "internal internal-link",
-              children: title
-            }
-          ) }) }),
+          /* @__PURE__ */ u2("div", { class: "desc", children: [
+            /* @__PURE__ */ u2("h3", { children: /* @__PURE__ */ u2(
+              "a",
+              {
+                href: resolveRelative(fileData.slug, page.slug),
+                class: "internal internal-link",
+                children: title
+              }
+            ) }),
+            renderHubChildren(page)
+          ] }),
           /* @__PURE__ */ u2("ul", { class: "tags", children: pageTags.map((tag) => /* @__PURE__ */ u2("li", { children: /* @__PURE__ */ u2(
             "a",
             {

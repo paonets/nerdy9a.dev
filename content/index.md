@@ -214,13 +214,25 @@ function switchLang(lang) {
   </div>
 
   <div class="content-card">
-    <h3><a href="./categories/health" data-no-popover="true">🧘‍♂️ Health & Mindfulness</a></h3>
-    <p>Notes and logs on physical health, wellness, and mindfulness.</p>
-    <a class="card-link" href="./categories/health" data-no-popover="true">Explore Wellness →</a>
+    <h3><a href="./categories/health" data-no-popover="true">🧬 Health & Longevity</a></h3>
+    <p>Sleep, longevity, bio-tracking, and notes from health festivals on living well for longer.</p>
+    <a class="card-link" href="./categories/health" data-no-popover="true">Explore Health →</a>
   </div>
 
   <div class="content-card">
-    <h3><a href="./categories/travel" data-no-popover="true">✈️ Travel & Japan</a></h3>
+    <h3><a href="./categories/buddhism--and--mindfulness" data-no-popover="true">🪷 Buddhism & Mindfulness</a></h3>
+    <p>Dharma talks, meditation retreats, and courses on facing death and living with meaning.</p>
+    <a class="card-link" href="./categories/buddhism--and--mindfulness" data-no-popover="true">Explore Dharma →</a>
+  </div>
+
+  <div class="content-card">
+    <h3><a href="./categories/japanese" data-no-popover="true">🇯🇵 Japanese Language</a></h3>
+    <p>Learning Japanese through songs, with lyrics, vocabulary, and grammar broken down line by line.</p>
+    <a class="card-link" href="./categories/japanese" data-no-popover="true">Explore Japanese →</a>
+  </div>
+
+  <div class="content-card">
+    <h3><a href="./categories/travel" data-no-popover="true">✈️ Travel</a></h3>
     <p>Trip planning, preferences, and itineraries, with a special focus on traveling in Japan.</p>
     <a class="card-link" href="./categories/travel" data-no-popover="true">Explore Travel →</a>
   </div>

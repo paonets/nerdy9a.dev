@@ -45,7 +45,7 @@ export default (() => {
 
     const filterTags = frontmatter?.filter_tags;
     const excludeTags = frontmatter?.exclude_tags ?? [];
-    const matchingPages =
+    const taggedPages =
       filterTags && Array.isArray(filterTags) && filterTags.length > 0
         ? ((allFiles as PageEntry[]) ?? []).filter((file) => {
             if (file.unlisted === true) return false;
@@ -55,6 +55,43 @@ export default (() => {
             return filterTags.some((t) => fileTags.includes(t));
           })
         : [];
+
+    // Hub grouping: a note whose folder has its own index.md (an event, course or
+    // trip hub) is folded into that hub, so the category lists one entry per hub.
+    const fileBySlug = new Map<string, PageEntry>();
+    for (const file of (allFiles as PageEntry[]) ?? []) {
+      if (file.slug) fileBySlug.set(file.slug, file);
+    }
+    const hubSlugOf = (slug?: string): string | undefined => {
+      if (!slug || slug.endsWith("/index") || !slug.includes("/")) return undefined;
+      const hubSlug = `${slug.slice(0, slug.lastIndexOf("/"))}/index`;
+      const hub = fileBySlug.get(hubSlug);
+      // Only real index.md hubs count; generated folder pages have no filePath.
+      const isRealHub =
+        typeof hub?.filePath === "string" && /(^|\/)index\.md$/i.test(hub.filePath as string);
+      return hub && isRealHub && hub.unlisted !== true ? hubSlug : undefined;
+    };
+    const hubChildren = new Map<string, PageEntry[]>();
+    const matchingPages: PageEntry[] = [];
+    const listedSlugs = new Set<string>();
+    const addEntry = (page: PageEntry) => {
+      if (page.slug && listedSlugs.has(page.slug)) return;
+      if (page.slug) listedSlugs.add(page.slug);
+      matchingPages.push(page);
+    };
+    for (const page of taggedPages) {
+      const hubSlug = hubSlugOf(page.slug);
+      if (!hubSlug) {
+        addEntry(page);
+        continue;
+      }
+      hubChildren.set(hubSlug, [...(hubChildren.get(hubSlug) ?? []), page]);
+      addEntry(fileBySlug.get(hubSlug)!);
+    }
+    const tagsOf = (page: PageEntry): string[] =>
+      [page, ...(hubChildren.get(page.slug ?? "") ?? [])].flatMap((p) =>
+        (p.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
+      );
 
     const getPageDate = (page: PageEntry): Date | undefined => {
       const defaultDateType =
@@ -92,7 +129,7 @@ export default (() => {
           const topicTags = topic.tags ?? [];
           const topicPages = matchingPages.filter((page) => {
             if (page.slug && assignedSlugs.has(page.slug)) return false;
-            const fileTags = (page.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes);
+            const fileTags = tagsOf(page);
             return topicTags.some((t) => fileTags.includes(t));
           });
           topicPages.forEach((page) => page.slug && assignedSlugs.add(page.slug));
@@ -117,6 +154,38 @@ export default (() => {
     const otherPages = hasTopics
       ? matchingPages.filter((page) => !page.slug || !categorizedPageSlugs.has(page.slug))
       : [];
+
+    const renderHubChildren = (page: PageEntry) => {
+      const children = hubChildren.get(page.slug ?? "");
+      if (!children || children.length === 0) return null;
+      const ordered = [...children].sort((a, b) => {
+        const da = (a.dates?.created as Date | undefined)?.getTime() ?? 0;
+        const db = (b.dates?.created as Date | undefined)?.getTime() ?? 0;
+        if (da !== db) return da - db;
+        const ta = String(a.frontmatter?.title ?? a.slug ?? "");
+        const tb = String(b.frontmatter?.title ?? b.slug ?? "");
+        return ta.localeCompare(tb);
+      });
+      return (
+        <details class="hub-children" open>
+          <summary>
+            {ordered.length} {ordered.length === 1 ? "note" : "notes"}
+          </summary>
+          <ul>
+            {ordered.map((child) => (
+              <li>
+                <a
+                  href={resolveRelative(fileData.slug!, child.slug!)}
+                  class="internal internal-link"
+                >
+                  {child.frontmatter?.title ?? child.slug}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      );
+    };
 
     const renderPageList = (pages: PageEntry[]) => {
       const sorted = sortPages(pages);
@@ -175,6 +244,9 @@ export default (() => {
                       </p>
                       <h3>{title}</h3>
                       {description && <p class="desc">{description}</p>}
+                      {hubChildren.has(page.slug ?? "") && (
+                        <p class="hub-count">{hubChildren.get(page.slug ?? "")!.length} notes</p>
+                      )}
                       <ul class="tags">
                         {pageTags.slice(0, 3).map((tag) => (
                           <li>
@@ -239,6 +311,7 @@ export default (() => {
                         {title}
                       </a>
                     </h3>
+                    {renderHubChildren(page)}
                   </div>
                   <ul class="tags">
                     {pageTags.map((tag) => (

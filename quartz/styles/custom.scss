@@ -579,6 +579,43 @@ body[data-slug="index"] {
 
 // Custom page-listing styles for Category dynamic tag-filtering
 .page-listing {
+  // Hub grouping: notes folded under their event/course hub (content-page plugin)
+  details.hub-children {
+    margin-top: 0.35rem;
+    font-size: 0.9em;
+
+    & > summary {
+      cursor: pointer;
+      width: fit-content;
+      color: var(--secondary);
+      font-weight: 600;
+      list-style-position: inside;
+    }
+
+    & > ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--lightgray);
+
+      & > li {
+        margin: 0.2rem 0;
+        padding-left: 0.5rem;
+        list-style: none;
+
+        &::before {
+          content: none !important;
+        }
+      }
+    }
+  }
+
+  .hub-count {
+    margin: 0.25rem 0 0;
+    font-size: 0.85em;
+    color: var(--secondary);
+    font-weight: 600;
+  }
+
   ul.section-ul {
     list-style: none;
     margin-top: 2em;
