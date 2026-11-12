@@ -71,15 +71,11 @@ To pull updates from your Obsidian vault and sync them to this Quartz repo:
 
 1. Open a terminal inside the master Obsidian vault directory:
    `/Users/pongsakorn/Library/Mobile Documents/iCloud~md~obsidian/Documents/WisdomWell`
-2. Run the sanitization & translation publisher script:
+2. Run the sanitization publisher script:
    ```bash
    python3 Scripts/publish.py
    ```
-   **Note on Translation Workflow:** When asked to translate/publish notes, use the internal LLM translation workflow to avoid interactive CLI deadlocks:
-   - Run `python3 Scripts/pre_translate.py` to identify missing translations.
-   - Translate the items inside `Scripts/.missing_translations.json` and write a JSON dict mapping `{ "key": "translated_text" }` to `Scripts/.translated_import.json` (ensuring both titles and body text are translated cleanly into the target language without adding suffixes like `(ภาษาไทย)`).
-   - Run `python3 Scripts/pre_translate.py --import-file Scripts/.translated_import.json` to merge into the cache.
-   - Run `python3 Scripts/publish.py` to compile and publish to the garden.
+   **Single language only:** Publish each note in its **original language** (the language it was written in). Do NOT add `translate:` frontmatter or generate translated sibling pages for new notes; the translation workflow is too much hassle to maintain. Existing notes that already have translations stay as they are. Only translate if the user explicitly asks; the steps are under "Publish Workflow" in the vault's `AGENTS.md`.
 3. Run the development server in this repository to preview changes.
 4. Stage, commit, and push your changes to GitHub to trigger the Cloudflare Pages deploy runner.
 
