@@ -76,9 +76,9 @@
     "preact": "^10.28.2",
     "prettier": "^3.6.2",
     "reading-time": "^1.5.0",
-    "satori": "^0.12.0",
+    "satori": "^0.33.5",
     "sharp": "^0.35.5",
-    "tsup": "^8.5.0",
+    "tsup": "^9.0.0",
     "typescript": "^5.9.3",
     "vfile": "^6.0.3",
     "vitest": "^4.1.0"
