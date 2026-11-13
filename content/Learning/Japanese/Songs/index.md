@@ -5,10 +5,11 @@ tags:
   - song-study
   - music
   - ghibli
+  - doraemon
   - hub
 publish: true
 created: 2026-09-14 08:00
-updated: 2026-11-12 22:00
+updated: 2026-11-13 07:07
 ---
 
 # 🎵 Japanese Song Study Hub
@@ -21,12 +22,13 @@ Songs provide an authentic bridge between textbook grammar (such as the IRODORI 
 
 ## 🎼 Repertoire Overview
 
-| Title                                                                                | Film / Origin                                     | Vocalist                 | Lyricist / Composer     | Key Grammar & Themes                                                                             |
-| :----------------------------------------------------------------------------------- | :------------------------------------------------ | :----------------------- | :---------------------- | :----------------------------------------------------------------------------------------------- |
-| [[Learning/Japanese/Songs/Itsumo Nando Demo\|いつも何度でも]]<br>_(Always With Me)_  | 千と千尋の神隠し<br>_(Spirited Away, 2001)_       | 木村弓 (Youmi Kimura)    | 覚和歌子 / 木村弓       | `〜きれない`, `〜尽くす`, `そのたび`<br>• Impermanence, returning to zero, inner light           |
-| [[Learning/Japanese/Songs/Kimi wo Nosete\|君をのせて]]<br>_(Carrying You)_           | 天空の城ラピュタ<br>_(Castle in the Sky, 1986)_   | 井上あずみ (Azumi Inoue) | 宮崎駿 / 久石譲         | `〜のは〜から`, `乗せる`, `〜込む`<br>• Heritage, departure, cosmic connection                   |
-| [[Learning/Japanese/Songs/Sayonara no Natsu\|さよならの夏]]<br>_(Summer of Goodbye)_ | コクリコ坂から<br>_(From Up on Poppy Hill, 2011)_ | 手嶌葵 (Aoi Teshima)     | 万里村ゆき子 / 坂田晃一 | `〜かしら`, `〜ば` vs `〜たら`, `〜交う`<br>• Showa nostalgia, maritime imagery, eternal refrain |
-| [[Learning/Japanese/Songs/Meguru Kisetsu\|めぐる季節]]<br>_(Changing Seasons)_       | 魔女の宅急便<br>_(Kiki's Delivery Service, 1989)_ | 井上あずみ (Azumi Inoue) | 吉元由美 / 久石譲       | `〜すぎる`, `〜だって`, `〜だす`, `〜ゆく`<br>• Four seasons of adolescence, finding purpose     |
+| Title                                                                                                                  | Film / Origin                                                | Vocalist                 | Lyricist / Composer     | Key Grammar & Themes                                                                                            |
+| :--------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------- | :----------------------- | :---------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| [[Learning/Japanese/Songs/Itsumo Nando Demo\|いつも何度でも]]<br>_(Always With Me)_                                    | 千と千尋の神隠し<br>_(Spirited Away, 2001)_                  | 木村弓 (Youmi Kimura)    | 覚和歌子 / 木村弓       | `〜きれない`, `〜尽くす`, `そのたび`<br>• Impermanence, returning to zero, inner light                          |
+| [[Learning/Japanese/Songs/Kimi wo Nosete\|君をのせて]]<br>_(Carrying You)_                                             | 天空の城ラピュタ<br>_(Castle in the Sky, 1986)_              | 井上あずみ (Azumi Inoue) | 宮崎駿 / 久石譲         | `〜のは〜から`, `乗せる`, `〜込む`<br>• Heritage, departure, cosmic connection                                  |
+| [[Learning/Japanese/Songs/Sayonara no Natsu\|さよならの夏]]<br>_(Summer of Goodbye)_                                   | コクリコ坂から<br>_(From Up on Poppy Hill, 2011)_            | 手嶌葵 (Aoi Teshima)     | 万里村ゆき子 / 坂田晃一 | `〜かしら`, `〜ば` vs `〜たら`, `〜交う`<br>• Showa nostalgia, maritime imagery, eternal refrain                |
+| [[Learning/Japanese/Songs/Meguru Kisetsu\|めぐる季節]]<br>_(Changing Seasons)_                                         | 魔女の宅急便<br>_(Kiki's Delivery Service, 1989)_            | 井上あずみ (Azumi Inoue) | 吉元由美 / 久石譲       | `〜すぎる`, `〜だって`, `〜だす`, `〜ゆく`<br>• Four seasons of adolescence, finding purpose                    |
+| [[Learning/Japanese/Songs/Yume wo Kanaete Doraemon\|夢をかなえてドラえもん]]<br>_(Make My Dreams Come True, Doraemon)_ | ドラえもん (TV anime)<br>_(Opening theme, 2007–2019, 2024–)_ | mao                      | 黒須克彦 / 黒須克彦     | `〜たら` vs `〜ても`, `〜させて`, `〜ちゃう`, `〜てあげる`<br>• Childhood dreams, not forgetting as you grow up |
 
 ---
 
