@@ -1,5 +1,5 @@
 ---
-title: "Sapiens: A Brief History of Humankind"
+title: "📚 Sapiens: A Brief History of Humankind"
 author: Yuval Noah Harari
 genre: History, Anthropology
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # Sapiens: A Brief History of Humankind
+
+> [!info] Book summary · by Yuval Noah Harari · read Feb 2020
 
 ![image](attachments/sapiens_sketchnote.webp)
 

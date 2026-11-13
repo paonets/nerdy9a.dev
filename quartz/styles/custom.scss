@@ -8,6 +8,11 @@
   margin: 2rem 0;
 }
 
+// an odd card count leaves the last card alone on its row; let it span the row
+.content-grid > .content-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .content-card {
   border: 1px solid var(--lightgray);
   border-radius: 14px;

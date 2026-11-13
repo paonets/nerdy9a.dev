@@ -1,5 +1,5 @@
 ---
-title: "The Power of Habit: Why We Do What We Do in Life and Business"
+title: "📚 The Power of Habit: Why We Do What We Do in Life and Business"
 author: Charles Duhigg
 genre: Psychology, Self-Help
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # The Power of Habit: Why We Do What We Do in Life and Business
+
+> [!info] Book summary · by Charles Duhigg · read Dec 2017
 
 ![image](attachments/the_power_of_habit_sketchnote.webp)
 

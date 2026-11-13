@@ -1,5 +1,5 @@
 ---
-title: "The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns"
+title: "📚 The Little Book of Common Sense Investing: The Only Way to Guarantee Your Fair Share of Stock Market Returns"
 author: John C. Bogle
 genre: Finance, Investing
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # The Little Book of Common Sense Investing
+
+> [!info] Book summary · by John C. Bogle · read Dec 2023
 
 ![image](attachments/the_little_book_of_common_sense_investing_sketchnote.webp)
 

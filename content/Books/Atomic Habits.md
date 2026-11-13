@@ -1,5 +1,5 @@
 ---
-title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones"
+title: "📚 Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones"
 author: James Clear
 genre: Psychology, Self-Help, Personal Development
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones
+
+> [!info] Book summary · by James Clear · read Jul 2023
 
 ![image](attachments/atomic_habits_sketchnote.webp)
 

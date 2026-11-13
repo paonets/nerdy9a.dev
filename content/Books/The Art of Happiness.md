@@ -1,5 +1,5 @@
 ---
-title: "The Art of Happiness, 10th Anniversary Edition: A Handbook for Living"
+title: "📚 The Art of Happiness, 10th Anniversary Edition: A Handbook for Living"
 author: Dalai Lama
 genre: Spirituality, Philosophy, Psychology
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # The Art of Happiness, 10th Anniversary Edition: A Handbook for Living
+
+> [!info] Book summary · by Dalai Lama · read Jun 2017
 
 ![image](attachments/the_art_of_happiness_sketchnote.webp)
 

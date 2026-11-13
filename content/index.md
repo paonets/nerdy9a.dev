@@ -211,8 +211,14 @@ function switchLang(lang) {
 
   <div class="content-card">
     <h3><a href="./categories/self-improvement" data-no-popover="true">📈 Self-Improvement & PKM</a></h3>
-    <p>Personal knowledge management, productivity workflows, book summaries, and Toastmasters guides.</p>
+    <p>Personal knowledge management, productivity workflows, and Toastmasters guides.</p>
     <a class="card-link" href="./categories/self-improvement" data-no-popover="true">Explore Self-Improvement →</a>
+  </div>
+
+  <div class="content-card">
+    <h3><a href="./categories/books" data-no-popover="true">📚 Book Summaries</a></h3>
+    <p>Sketchnotes and key themes from books on money, habits, mindfulness, and history.</p>
+    <a class="card-link" href="./categories/books" data-no-popover="true">Explore Books →</a>
   </div>
 
   <div class="content-card">

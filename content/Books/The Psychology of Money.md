@@ -1,5 +1,5 @@
 ---
-title: "The Psychology of Money: Timeless lessons on wealth, greed, and happiness"
+title: "📚 The Psychology of Money: Timeless lessons on wealth, greed, and happiness"
 author: Morgan Housel
 genre: Finance, Psychology, Philosophy
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # The Psychology of Money: Timeless lessons on wealth, greed, and happiness
+
+> [!info] Book summary · by Morgan Housel · read Dec 2023
 
 ![image](attachments/the_psychology_of_money_sketchnote.webp)
 

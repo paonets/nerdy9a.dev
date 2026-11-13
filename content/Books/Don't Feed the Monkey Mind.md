@@ -1,5 +1,5 @@
 ---
-title: "Don't Feed the Monkey Mind: How to Stop the Cycle of Anxiety, Fear, and Worry"
+title: "📚 Don't Feed the Monkey Mind: How to Stop the Cycle of Anxiety, Fear, and Worry"
 author: Jennifer Shannon LMFT, Doug Shannon, Michael A. Tompkins PhD ABPP
 genre: Psychology, Self-Help, CBT
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # Don't Feed the Monkey Mind: How to Stop the Cycle of Anxiety, Fear, and Worry
+
+> [!info] Book summary · by Jennifer Shannon LMFT, Doug Shannon, Michael A. Tompkins PhD ABPP · read Jul 2023
 
 ![image](attachments/dont_feed_the_monkey_mind_sketchnote.webp)
 

@@ -1,5 +1,5 @@
 ---
-title: "The Art of Spending Money: Simple Choices for a Richer Life"
+title: "📚 The Art of Spending Money: Simple Choices for a Richer Life"
 author: Morgan Housel
 genre: Finance
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # The Art of Spending Money: Simple Choices for a Richer Life
+
+> [!info] Book summary · by Morgan Housel · read Nov 2025
 
 ![image](attachments/the_art_of_spending_money_sketchnote.webp)
 

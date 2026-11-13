@@ -114,6 +114,11 @@ Generates social media link previews using `satori` and `sharp` during deploymen
   2. Overrides the custom property definitions for `--bodyFont`, `--headerFont`, `--titleFont`, and `--codeFont` in the `:root` section of `custom.scss` to append `"Sarabun"` (for body text and code fallbacks) and `"Bai Jamjuree"` (for headings and titles fallbacks) after the default English fonts.
 - **Why it was done:** The default English fonts (`Inter`, `Plus Jakarta Sans`, and `JetBrains Mono`) do not include Thai glyphs, causing browsers to fall back to generic system Thai fonts (which vary heavily and look inconsistent across Mac, Windows, iOS, and Android). Adding this paired looped font fallback ensures beautiful, highly readable Thai typography (stylish slab-serif `Bai Jamjuree` for headers, clean standard `Sarabun` for long body text), while keeping all font assets fully self-hosted for maximum loading speeds and privacy.
 
+### 8. Full-Width Last Homepage Card (`quartz/styles/custom.scss`)
+
+- **How it works:** `.content-grid > .content-card:last-child:nth-child(odd)` spans the whole grid row.
+- **Why it was done:** The homepage grid shows two cards per row. Adding the 📚 Book Summaries card made the count odd (7), which left the last card (Travel) alone at half width.
+
 ---
 
 ## Quartz 5.1 Upgrade Notes (Nov 2026)

@@ -1,5 +1,5 @@
 ---
-title: "Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life"
+title: "📚 Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life"
 author: Morgan Housel
 genre: Finance, Psychology, Philosophy
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # Same as Ever: Timeless Lessons on Risk, Opportunity and Living a Good Life
+
+> [!info] Book summary · by Morgan Housel · read Dec 2023
 
 ![image](attachments/same_as_ever_sketchnote.webp)
 

@@ -1,5 +1,5 @@
 ---
-title: "Practicing the Power of Now"
+title: "📚 Practicing the Power of Now"
 author: Eckhart Tolle
 genre: Spirituality, Mindfulness
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # Practicing the Power of Now
+
+> [!info] Book summary · by Eckhart Tolle · read Jul 2023
 
 ![image](attachments/practicing_the_power_of_now_sketchnote.webp)
 

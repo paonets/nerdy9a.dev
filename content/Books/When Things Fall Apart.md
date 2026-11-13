@@ -1,5 +1,5 @@
 ---
-title: "When Things Fall Apart: Heart Advice for Difficult Times (Shambhala Classics)"
+title: "📚 When Things Fall Apart: Heart Advice for Difficult Times (Shambhala Classics)"
 author: Pema Chodron
 genre: Spirituality, Buddhism
 status: read
@@ -11,6 +11,8 @@ publish: true
 ---
 
 # When Things Fall Apart: Heart Advice for Difficult Times (Shambhala Classics)
+
+> [!info] Book summary · by Pema Chodron · read Feb 2024
 
 ![image](attachments/when_things_fall_apart_sketchnote.webp)
 
