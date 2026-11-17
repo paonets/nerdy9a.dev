@@ -9,7 +9,7 @@ tags:
 publish: true
 source: https://doraemon.fandom.com/wiki/Yume_Wo_Kanaete_Doraemon
 created: 2026-11-13 07:07
-updated: 2026-11-13 07:07
+updated: 2026-11-13 07:40
 ---
 
 # 夢をかなえてドラえもん (Make My Dreams Come True, Doraemon) — Song Study & Grammar Breakdown

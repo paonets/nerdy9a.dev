@@ -3,7 +3,7 @@ tags:
   - travel
   - ideas
 created: 2026-05-27 18:59
-updated: 2026-09-07 08:43
+updated: 2026-11-17 12:00
 publish: true
 ---
 
@@ -52,3 +52,8 @@ A running list of destinations, travel hubs, and spots I want to visit.
 ## 🇻🇳 Vietnam
 
 - **Ha Noi** — Old Quarter, Hoa Lo Prison, museums, and local food.
+
+## 🏛️ Touring Exhibitions to Watch
+
+- **Pharaoh: King of Egypt (British Museum)** — about 280 objects. Skipped the Chimei Museum, Tainan run (Jan 29, 2026 – Jan 10, 2027). Past stops: 10 CaixaForum cities in Spain (2018–2023, about 3–5 months each) and NGV Melbourne (Jun–Oct 2024). No next venue announced yet; likely late 2027 or 2028. Watch the [British Museum tour page](https://www.britishmuseum.org/our-work/international/international-touring-exhibitions/pharaoh-king-egypt).
+- **Sacred Caves: Dunhuang, Buddhism, and the Silk Road** — life-size Mogao Cave replicas with the Dunhuang Academy, at the Asian Civilisations Museum, Singapore, until Mar 7, 2027. No later venue announced yet. Watch the [ACM exhibition page](https://www.acm.nhb.gov.sg/whats-on/exhibitions/sacred-caves-dunhuang-buddhism-and-the-silk-road).
