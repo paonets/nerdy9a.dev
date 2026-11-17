@@ -10,6 +10,8 @@ updated: 2026-11-17 21:07
 
 # Lights, Leaves & Wizards: Tokyo Winter 2026 (The Plan)
 
+![image](attachments/tokyo_winter_sketchnote.webp)
+
 > [!note] Pre-trip plan
 > This is my plan before the trip. I'll turn it into a trip log with photos once I'm back.
 
