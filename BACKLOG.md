@@ -11,12 +11,13 @@ Ideas and pending work for the garden. Move an item to CUSTOMIZATIONS.md once it
 - [ ] **Quotable note structure (vault)** — summary up top, question-style headings, facts in tables.
 - [ ] **Correct `lang` per note** — Thai vs English tagging.
 - [ ] **Richer place hubs** — intro + trip links; decide whether to make them listed.
-- [ ] **`/about` page + `Person` schema** — handle and topics only, no personal contact.
+- [ ] **`/about` page + `Person` schema** — name, topics, `sameAs` LinkedIn + YouTube (helps AI search tie the garden to a real author). No private contact.
 - [ ] **Full-content RSS**.
 
 ## Engagement
 
 - [ ] **Anonymous ❤️ kudos button** — Cloudflare Pages Function + KV, as a custom plugin. Only if feedback is missed after removing giscus.
+- [ ] **"Say hi on LinkedIn" line at the end of notes** — low-key replacement for comments using the public profile.
 - [ ] **Remove giscus GitHub side** (optional) — turn off Discussions on `paonets/nerdy9a.dev`, uninstall the giscus app. Left on deliberately for now.
 
 ## Maintenance
