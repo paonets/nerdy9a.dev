@@ -21,6 +21,7 @@ This repository (`nerdy9a.dev`) is the codebase for the **Nerdy9a Garden** digit
 - `quartz/` — Core Quartz framework code, components, layout engine, and styling.
 - `quartz/styles/custom.scss` — Custom styles (e.g. homepage card grid configurations).
 - `quartz.config.yaml` — Global site configurations (title, colors, analytics, plugins).
+- `BACKLOG.md` — Ideas and pending work. Check it before proposing new features, add new ideas there, tick items off when done, and move shipped items into `CUSTOMIZATIONS.md`.
 
 ---
 
@@ -92,6 +93,8 @@ All customized plugins are located in the `custom-plugins/` directory and refere
 - **Translation Callout Stripping (`custom-plugins/description`):** Deep-clones the HAST tree and strips blockquotes/callouts before extracting page descriptions, preventing banners from leaking into search engine previews and OG images.
 
 For detailed implementation details, file structures, and build configurations of these plugins, please refer to the master customizations index: **[CUSTOMIZATIONS.md](file:///Users/pongsakorn/Projects/nerdy9a.dev/CUSTOMIZATIONS.md)**.
+
+**Comments are off:** giscus (`@quartz-community/comments`) is disabled because no one used it. Don't re-enable it or add a comment system without asking. Never add personal contact details (email, LINE, socials) to the site. See "Disabled Features" in `CUSTOMIZATIONS.md`.
 
 ---
 
