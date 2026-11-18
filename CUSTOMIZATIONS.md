@@ -133,3 +133,9 @@ Merged upstream `jackyzha0/quartz` v5 (5.1.0) into our fork. What changed on our
 - **Core merge conflicts:** `componentResources.ts` keeps our monolithic CSS bundle, empty-prescript skip and 4KB inline threshold, plus upstream's plugin static assets (`emitStaticAssets`). `handlers.js` keeps our watcher ignores and upstream's config-file watching. `install-plugins.ts` takes upstream's version.
 - **Plugin dependency bumps:** note-properties bundles `toml` 5 (security fix). og-image was later moved to `satori` 0.63 (see section 4).
 - **`npm test`:** the forked plugins' vitest suites under `custom-plugins/*/test` are picked up by the root `tsx --test` run and fail without vitest installed; core tests pass.
+
+## Disabled Features
+
+### Giscus Comments (`quartz.config.yaml`, disabled Nov 2026)
+
+`@quartz-community/comments` is set to `enabled: false`; the repo had zero giscus discussions, so no one used it. The GitHub side is intentionally left in place so it can be re-enabled by flipping the flag: Discussions is still on for `paonets/nerdy9a.dev` and the giscus GitHub App is still installed. To remove fully, turn off Discussions in repo settings and uninstall the giscus app. A no-login "❤️" kudos button (Cloudflare Pages Function + KV) was considered as a possible replacement.
